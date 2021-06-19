@@ -2,6 +2,7 @@
 using DBL.Models;
 using DBL.UOW;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace DBL
@@ -71,6 +72,13 @@ namespace DBL
         //        return Resp;
         //    });
         //}
+        #endregion
+
+        #region GetMenus
+        public Task<IEnumerable<Vw_menus>> getMenus(int profilecode)
+        {
+            return Task.Run(() => db.SecurityRepository.MenusGetByProfile(profilecode));
+        }
         #endregion
     }
 }

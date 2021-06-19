@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DBL;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Sleeqcarhire.Models;
 using System;
@@ -9,13 +10,13 @@ using System.Threading.Tasks;
 
 namespace Sleeqcarhire.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly BL bl;
+        string encusercode = "";
+        public HomeController()
         {
-            _logger = logger;
+            bl = new BL(Util.GetDbConnString());
         }
 
         public IActionResult Dashboard()

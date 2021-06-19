@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using DBL.Entities;
+using DBL.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -30,7 +31,16 @@ namespace DBL.Repositories
             }
         }
         #endregion
-
+        #region Get Menus
+        public IEnumerable<Vw_menus> MenusGetByProfile(int profilecode)
+        {
+            using (IDbConnection Connection = new SqlConnection(_connString))
+            {
+                var d = Connection.Query<Vw_menus>(FindStatement(Vw_menus.TableName, "ProfileCode"), param: new { Id = profilecode }).ToList();
+                return d;
+            }
+        }
+        #endregion
 
     }
 }

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<DBL.Models.Vw_menus>
+@{
+    ViewData["Title"] = "Welcome to Bloghubpost";
+}
+
+<aside class="main-sidebar sidebar-light-white elevation-0">
+    <a href="@Url.Action("Dashboard","Home")" class="brand-link">
+        @*<img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">*@
+        <span class="brand-text font-weight-light">SLEEQ</span>
+    </a>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <li class="nav-item">
+                    <a href="@Url.Action("Dashboard","Home")" class="nav-link">
+                        <i class="nav-icon fa fa-tachometer"></i>
+                        <p>
+                            Dashboard
+                        </p>
+                    </a>
+                </li>
+                @foreach (var menu in Model.Where(x => x.MenuLevel == 0).OrderBy(x => x.OrderBy))
+                {
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon @menu.IconName"></i><p>@menu.MenuName<i class="fa fa-angle-left right"></i></p>
+                        </a>
+                        @foreach (var menu_child in Model.Where(x => x.ParentId == menu.MenuCode).OrderBy(x => x.OrderBy))
+                        {
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a asp-action="@menu_child.ActionName" asp-controller="@menu_child.Controller" class="nav-link">
+                                        <i class="nav-icon @menu_child.IconName"></i>
+                                        <p>@menu_child.MenuName</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        }
+                    </li>
+                }
+            </ul>
+        </nav>
+    </div>
+</aside>

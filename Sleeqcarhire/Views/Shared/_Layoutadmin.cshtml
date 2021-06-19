@@ -1,5 +1,5 @@
 ﻿@using System.Security.Claims
-@*@using DBL.Helpers*@
+@using DBL.Helpers
 @{
     bool authenticated = false;
     string userId = "";
@@ -17,7 +17,7 @@
         userId = User.Identities.First(u => u.IsAuthenticated && u.HasClaim(c => c.Type == ClaimTypes.NameIdentifier))
             .FindFirst(ClaimTypes.NameIdentifier).Value;
     }
-    //EncryptDecrypt sec = new EncryptDecrypt();
+    EncryptDecrypt sec = new EncryptDecrypt();
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -55,12 +55,10 @@
                 </li>
             </ul>
         </nav>
-        @*@if (authenticated && currentUserData != null)
+        @if (authenticated && currentUserData != null)
         {
             @await Component.InvokeAsync("Menu", currentUserData.ProfileCode)
-        }*@
-
-
+        }
         <div class="content-wrapper bg-white" style="margin-top:70px">
             <section class="content">
                 <div class="container-fluid">
@@ -74,7 +72,7 @@
             </section>
         </div>
         <footer class="main-footer text-center">
-            &copy; @DateTime.Now.AddYears(-1).Year - @DateTime.Now.Year - Bloghubafricah
+            &copy; @DateTime.Now.AddYears(-1).Year - @DateTime.Now.Year - Sleeqcarinternational
         </footer>
     </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
