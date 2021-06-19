@@ -19,6 +19,11 @@ namespace Sleeqcarhire.Controllers
             bl = new BL(Util.GetDbConnString());
         }
         [HttpGet]
+        public IActionResult Companyvehicles()
+        {
+            return View();
+        }
+        [HttpGet]
         public IActionResult Addsleeqcar()
         {
             return View();

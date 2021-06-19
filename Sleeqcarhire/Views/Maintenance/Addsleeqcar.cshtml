@@ -1,8 +1,72 @@
-﻿
+﻿@model DBL.Entities.Sleeqcars
 @{
     ViewData["Title"] = "Addsleeqcar";
     Layout = "~/Views/Shared/_Layoutadmin.cshtml";
 }
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                <h6>Company Vehicle Details</h6>
+            </div>
+            <form asp-action="Addsleeqcar" asp-controller="Maintenance" method="post" enctype="multipart/form-data">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label asp-for="Vehiclemodel"></label>
+                                <input asp-for="Vehiclemodel" class="form-control" />
+                                <span asp-validation-for="Vehiclemodel" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label asp-for="Vehiclecapacity"></label>
+                                <input asp-for="Vehiclecapacity" class="form-control" />
+                                <span asp-validation-for="Vehiclecapacity" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label asp-for="Vehicleimage"></label>
+                                <input asp-for="Vehicleimage" type="file" />
+                                <span asp-validation-for="Vehicleimage" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label asp-for="Fromday"></label>
+                                <input asp-for="Fromday" class="form-control" />
+                                <span asp-validation-for="Fromday" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label asp-for="Today"></label>
+                                <input asp-for="Today" class="form-control" />
+                                <span asp-validation-for="Today" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label asp-for="Hireprice"></label>
+                                <input asp-for="Hireprice" class="form-control" />
+                                <span asp-validation-for="Hireprice" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
 
-<h1>Addsleeqcar</h1>
+                    <div class="row">
+                        <div class="col-sm-4 offset-sm-4">
+                            <input type="submit" value="Submit" class="btn btn-info btn-block text-white" />
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 

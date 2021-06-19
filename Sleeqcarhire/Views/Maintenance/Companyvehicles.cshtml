@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewData["Title"] = "Companyvehicles";
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="row float-right text-end">
+                    <a href="@Url.Action("Addsleeqcar","Maintenance")" class="btn btn-sm btn-info text-white fw-bold text-end">Add Company Vehicles</a>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-striped table-sm text-nowrap" id="Sleeqvehiclesdatatable">
+                    <thead>
+                        <tr>
+                            <th>Vehicle name</th>
+                            <th>Vehicle name</th>
+                            <th>Vehicle name</th>
+                            <th>Vehicle name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="~/Datatable/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/Datatable/datatables/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function () {
+            $('#Sleeqvehiclesdatatable').DataTable();
+        });
+    </script>
+}
