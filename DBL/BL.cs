@@ -85,6 +85,17 @@ namespace DBL
         }
         #endregion
 
+        #region Get Vehicles Details
+        public Task<Sleeqcars> GetCompanyvehiclesbycode(long Sleeqcarcode)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.MaintenanceRepository.GetCompanyvehiclesbycode(Sleeqcarcode);
+                return Resp;
+            });
+        }
+        #endregion
+
         #region GetMenus
         public Task<IEnumerable<Vw_menus>> getMenus(int profilecode)
         {

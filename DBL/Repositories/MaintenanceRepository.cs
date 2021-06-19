@@ -45,5 +45,16 @@ namespace DBL.Repositories
             }
         }
         #endregion
+
+        #region Get Vehicles Details
+        public Sleeqcars GetCompanyvehiclesbycode(long Sleeqcarcode)
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                return connection.Query<Sleeqcars>(FindStatement(Sleeqcars.TableName, "Sleeqcarcode"),new { Id= Sleeqcarcode}).FirstOrDefault();
+            }
+        }
+        #endregion
     }
 }

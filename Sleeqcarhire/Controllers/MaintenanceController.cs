@@ -80,8 +80,10 @@ namespace Sleeqcarhire.Controllers
             }
             return View();
         }
-        public IActionResult CompanyvehicleDetails(long Vehiclecode)
+        [HttpGet]
+        public async Task<IActionResult> CompanyvehicleDetails(long Vehiclecode)
         {
+            
             return View();
         }
     }

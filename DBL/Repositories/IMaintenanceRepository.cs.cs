@@ -15,5 +15,9 @@ namespace DBL.Repositories
         #region  Get All Company vehicles
         IEnumerable<Sleeqcars> GetCompanyvehicles();
         #endregion
+
+        #region Get Company Vehicle Details
+        Sleeqcars GetCompanyvehiclesbycode(long Sleeqcarcode);
+        #endregion
     }
 }
