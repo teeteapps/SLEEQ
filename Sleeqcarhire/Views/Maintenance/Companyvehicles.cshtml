@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<DBL.Entities.Sleeqcars>
 @{
     ViewData["Title"] = "Companyvehicles";
     Layout = "~/Views/Shared/_Layoutadmin.cshtml";
@@ -23,12 +23,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td><img src="@Url.Content(item.Sleeqcarimage)" height="60" width="60" /></td>
+                                <td>@item.Sleeqcar</td>
+                                <td></td>
+                                <td><a href="@Url.Action("CompanyvehicleDetails","Maintenance",new {Vehiclecode=item.Sleeqcarcode })" class="btn btn-info">Details</a></td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
             </div>

@@ -1,4 +1,5 @@
-﻿using DBL.Helpers;
+﻿using DBL.Entities;
+using DBL.Helpers;
 using DBL.Models;
 using DBL.UOW;
 using System;
@@ -63,15 +64,25 @@ namespace DBL
         }
         #endregion
 
-        #region Sleeq Cars Data
-        //public Task<GenericModel> Poststorydata(Bloghubposts obj)
-        //{
-        //    return Task.Run(() =>
-        //    {
-        //        var Resp = db.MaintenanceRepository.Poststorydata(obj);
-        //        return Resp;
-        //    });
-        //}
+        #region Add Sleeq Cars Data
+        public Task<GenericModel> Addsleeqcar(Sleeqcars obj)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.MaintenanceRepository.Addsleeqcar(obj);
+                return Resp;
+            });
+        }
+        #endregion
+        #region Get Vehicles List
+        public Task<IEnumerable<Sleeqcars>> GetCompanyvehicles()
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.MaintenanceRepository.GetCompanyvehicles();
+                return Resp;
+            });
+        }
         #endregion
 
         #region GetMenus
