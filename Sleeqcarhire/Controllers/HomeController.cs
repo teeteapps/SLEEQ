@@ -1,4 +1,7 @@
 ﻿using DBL;
+using DBL.Entities;
+using DBL.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Sleeqcarhire.Models;
@@ -10,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace Sleeqcarhire.Controllers
 {
+    [Authorize]
     public class HomeController : BaseController
     {
         private readonly BL bl;
@@ -23,10 +27,18 @@ namespace Sleeqcarhire.Controllers
         {
             return View();
         }
-
-        public IActionResult Index()
+        [AllowAnonymous]
+        public async Task<IActionResult> Index()
         {
-            return View();
+            Companyvehicledetails data = new Companyvehicledetails();
+            data.sleeq = new Sleeqcars();
+            data.hiredays = new List<Vehiclehiredays>();
+            data.sleeqcars = await bl.GetCompanyvehicles();
+            foreach (var item in data.sleeqcars)
+            {
+                data.hiredays = await bl.GetVehiclehiredaysbycode(item.Sleeqcarcode);
+            }
+            return View(data);
         }
 
         public IActionResult Privacy()

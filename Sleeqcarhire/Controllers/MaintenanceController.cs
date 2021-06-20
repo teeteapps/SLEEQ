@@ -94,7 +94,6 @@ namespace Sleeqcarhire.Controllers
         [HttpGet]
         public IActionResult Addvehiclehiredays(long Sleeqcarcode)
         {
-
             Vehiclehiredays model = new Vehiclehiredays();
             model.Sleeqcarcode = Sleeqcarcode;
             return PartialView("_Addvehiclehiredays", model);

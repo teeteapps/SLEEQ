@@ -1,4 +1,5 @@
-﻿@{
+﻿@model DBL.Models.Companyvehicledetails
+@{
     ViewData["Title"] = "Home Page";
     Layout = null;
 }
@@ -35,66 +36,37 @@
     </header>
     <div class="container">
         <div class="row">
-            <div class="col-sm-3">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="card">
-                            <img src="~/Images/images (1).jpg" class="card-img-top" />
-                            <div class="card-body" style="background-color:#ffd800">
-                                <h5>Hire Day</h5>
-                                <h6>Toyota Wish 7 seaters</h6>
-                                <p>Monday - Thursday  2500</p>
-                                <p>Friday - Sunday  3000</p>
+            @foreach (var item in Model.sleeqcars)
+            {
+                <div class="col-sm-3">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card">
+                                <img src="@Url.Content(item.Sleeqcarimage)" class="card-img-top" />
+                                <div class="card-body" style="background-color:#ffd800">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <h5 class="fw-bolder">@item.Sleeqcar @item.Seaters</h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <h6 class="text-center fw-bold">Hiring Days and Prices</h6>
+                                        </div>
+                                    </div>
+                                    @foreach (var data in Model.hiredays)
+                                    {<div class="row">
+                                            <div class="col-sm-12">
+                                                <p class="text-capitalize">@data.Hirefrom   -   @data.Hireto   <b>Ksh. @data.Hireprice</b> </p>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="card">
-                            <img src="~/Images/maxresdefault-5-1024x576.jpg" class="card-img-top" />
-                            <div class="card-body" style="background-color:#ffd800">
-                                <h5>Hire Day</h5>
-                                <h6>Toyota Wish 7 seaters</h6>
-                                <p>Monday - Thursday  2500</p>
-                                <p>Friday - Sunday  3000</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="card">
-                            <img src="~/Images/ractis-1024x570.jpg" class="card-img-top" />
-                            <div class="card-body" style="background-color:#ffd800">
-                                <h5>Hire Day</h5>
-                                <h6>Toyota Wish 7 seaters</h6>
-                                <p>Monday - Thursday  2500</p>
-                                <p>Friday - Sunday  3000</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="card">
-                            <img src="~/Images/download.jpg" class="card-img-top" />
-                            <div class="card-body" style="background-color:#ffd800">
-                                <h5>Hire Day</h5>
-                                <h6>Toyota Wish 7 seaters</h6>
-                                <p>Monday - Thursday  2500</p>
-                                <p>Friday - Sunday  3000</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            }
         </div>
     </div>
 
