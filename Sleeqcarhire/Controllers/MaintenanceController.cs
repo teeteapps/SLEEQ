@@ -1,5 +1,6 @@
 ﻿using DBL;
 using DBL.Entities;
+using DBL.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.FileProviders;
@@ -83,7 +84,21 @@ namespace Sleeqcarhire.Controllers
         [HttpGet]
         public async Task<IActionResult> CompanyvehicleDetails(long Vehiclecode)
         {
-            
+            Companyvehicledetails data = new Companyvehicledetails();
+            data.sleeq = new Sleeqcars();
+            data.sleeq = await bl.GetCompanyvehiclesbycode(Vehiclecode);
+            return View(data);
+        }
+        [HttpGet]
+        public IActionResult Addvehiclehiredays(long Sleeqcarcode)
+        {
+            Vehiclehiredays model = new Vehiclehiredays();
+            model.Sleeqcarcode = Sleeqcarcode;
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult Addvehiclehiredays(Vehiclehiredays model)
+        {
             return View();
         }
     }

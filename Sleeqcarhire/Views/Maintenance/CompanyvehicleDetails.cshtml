@@ -1,5 +1,53 @@
-﻿
+﻿@model DBL.Models.Companyvehicledetails
 @{
     ViewData["Title"] = "CompanyvehicleDetails";
     Layout = "~/Views/Shared/_Layoutadmin.cshtml";
 }
+<div class="row">
+    <div class="col-sm-4">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Vehicle Details</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <p>@Model.sleeq.Sleeqcar</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-sm-8 float-left">
+                                <h5>Vehicle Hire Prices</h5>
+                            </div>
+                            <div class="col-sm-4 float-right">
+                                <a href="@Url.Action("Addvehiclehiredays","Maintenance",new {Sleeqcarcode=Model.sleeq.Sleeqcarcode })" class="btn btn-info">Add Hire Days</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table>
+                                    <thead></thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
