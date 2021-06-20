@@ -94,10 +94,12 @@ namespace Sleeqcarhire.Controllers
         [HttpGet]
         public IActionResult Addvehiclehiredays(long Sleeqcarcode)
         {
+
             Vehiclehiredays model = new Vehiclehiredays();
             model.Sleeqcarcode = Sleeqcarcode;
-            return View(model);
+            return PartialView("_Addvehiclehiredays", model);
         }
+
         [HttpPost]
         public async Task<IActionResult> Addvehiclehiredays(Vehiclehiredays model)
         {

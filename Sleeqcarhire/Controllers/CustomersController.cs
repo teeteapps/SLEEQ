@@ -21,6 +21,11 @@ namespace Sleeqcarhire.Controllers
         public IActionResult Vehicleownerslist()
         {
             return View();
+        } 
+        [HttpGet]
+        public IActionResult Addvehicleowner()
+        {
+            return View();
         }
     }
 }
