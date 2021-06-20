@@ -19,5 +19,10 @@ namespace DBL.Repositories
         #region Get Company Vehicle Details
         Sleeqcars GetCompanyvehiclesbycode(long Sleeqcarcode);
         #endregion
+        #region Vehicle Hire Days
+        GenericModel Addvehiclehiredays(Vehiclehiredays entity);
+        IEnumerable<Vehiclehiredays> GetVehiclehiredaysbycode(long Sleeqcarcode);
+        #endregion
+
     }
 }

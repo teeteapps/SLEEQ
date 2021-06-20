@@ -39,9 +39,22 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-12">
-                                <table>
-                                    <thead></thead>
-                                    <tbody></tbody>
+                                <table class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Hire Days</th>
+                                            <th>Hire Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.hiredays)
+                                        {
+                                            <tr>
+                                                <td>@item.Hirefrom   -  @item.Hireto</td>
+                                                <td>@item.Hireprice</td>
+                                            </tr>
+                                        }
+                                    </tbody>
                                 </table>
                             </div>
                         </div>

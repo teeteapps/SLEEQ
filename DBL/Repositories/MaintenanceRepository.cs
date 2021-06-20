@@ -56,5 +56,32 @@ namespace DBL.Repositories
             }
         }
         #endregion
+
+        #region Add Vehicle Hire Days
+        public GenericModel Addvehiclehiredays(Vehiclehiredays entity)
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@Sleeqcarcode", entity.Sleeqcarcode);
+                parameters.Add("@Hirefrom", entity.Hirefrom);
+                parameters.Add("@Hireto", entity.Hireto);
+                parameters.Add("@Hireprice", entity.Hireprice);
+                return connection.Query<GenericModel>("Usp_Addvehiclehiredays", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            }
+        }
+        #endregion
+
+        #region Get Vehicles Hire Days
+        public IEnumerable<Vehiclehiredays> GetVehiclehiredaysbycode(long Sleeqcarcode)
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                return connection.Query<Vehiclehiredays>(FindStatement(Vehiclehiredays.TableName, "Sleeqcarcode"), new { Id = Sleeqcarcode }).ToList();
+            }
+        }
+        #endregion
     }
 }

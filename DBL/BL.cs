@@ -96,6 +96,28 @@ namespace DBL
         }
         #endregion
 
+        #region add Vehicle Hire Days
+        public Task<GenericModel> Addvehiclehiredays(Vehiclehiredays obj)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.MaintenanceRepository.Addvehiclehiredays(obj);
+                return Resp;
+            });
+        }
+        #endregion
+
+        #region Get Vehicles Hire Days
+        public Task<IEnumerable<Vehiclehiredays>> GetVehiclehiredaysbycode(long Sleeqcarcode)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.MaintenanceRepository.GetVehiclehiredaysbycode(Sleeqcarcode);
+                return Resp;
+            });
+        }
+        #endregion
+
         #region GetMenus
         public Task<IEnumerable<Vw_menus>> getMenus(int profilecode)
         {

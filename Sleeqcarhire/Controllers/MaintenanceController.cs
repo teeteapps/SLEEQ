@@ -86,7 +86,9 @@ namespace Sleeqcarhire.Controllers
         {
             Companyvehicledetails data = new Companyvehicledetails();
             data.sleeq = new Sleeqcars();
+            data.hiredays = new List<Vehiclehiredays>();
             data.sleeq = await bl.GetCompanyvehiclesbycode(Vehiclecode);
+            data.hiredays = await bl.GetVehiclehiredaysbycode(Vehiclecode);
             return View(data);
         }
         [HttpGet]
@@ -97,8 +99,22 @@ namespace Sleeqcarhire.Controllers
             return View(model);
         }
         [HttpPost]
-        public IActionResult Addvehiclehiredays(Vehiclehiredays model)
+        public async Task<IActionResult> Addvehiclehiredays(Vehiclehiredays model)
         {
+            var resp = await bl.Addvehiclehiredays(model);
+            if (resp.RespStatus==0)
+            {
+                Success(resp.RespMessage, true);
+                return RedirectToAction("CompanyvehicleDetails", new { Vehiclecode = Convert.ToInt64(model.Sleeqcarcode) });
+            }
+            else if (resp.RespStatus == 1)
+            {
+                Danger(resp.RespMessage, true);
+            }
+            else
+            {
+                Danger("Database Error Occured. Kindly Contact Admin", true);
+            }
             return View();
         }
     }
