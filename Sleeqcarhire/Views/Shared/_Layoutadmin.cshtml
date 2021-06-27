@@ -24,11 +24,10 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Bloghubafricah</title>
+    <title>@ViewData["Title"] - Sleeqcarhire</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link href="~/lib/bootstrap/dist/css/adminlte.min.css" rel="stylesheet" />
-    <link href="~/Datatable/datatables-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
     <link href="~/lib/datatables/css/jquery.dataTables.min.css" rel="stylesheet" />
 </head>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -78,10 +77,8 @@
     </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
-    @await RenderSectionAsync("Scripts", required: false)
-
     <script src="~/lib/jquery/dist/adminlte.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

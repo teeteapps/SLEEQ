@@ -92,10 +92,10 @@ namespace Sleeqcarhire.Controllers
             return View(data);
         }
         [HttpGet]
-        public IActionResult Addvehiclehiredays(long Sleeqcarcode)
+        public IActionResult Addvehiclehiredays(string Sleeqcarcode)
         {
             Vehiclehiredays model = new Vehiclehiredays();
-            model.Sleeqcarcode = Sleeqcarcode;
+            model.Sleeqcarcode = Convert.ToInt64(Sleeqcarcode);
             return PartialView("_Addvehiclehiredays", model);
         }
 
