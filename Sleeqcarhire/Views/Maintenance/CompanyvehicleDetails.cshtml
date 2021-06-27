@@ -32,7 +32,7 @@
                                 <h5>Vehicle Hire Prices</h5>
                             </div>
                             <div class="col-sm-4 float-right">
-                                <a href="@Url.Action("Addvehiclehiredays","Maintenance",new {Sleeqcarcode=Model.sleeq.Sleeqcarcode })" class="btn btn-info" data-target="#AddvehiclehiredaysModal" data-toggle="modal">Add Hire Days</a>
+                                <a href="@Url.Action("Addvehiclehiredays","Maintenance",new {Sleeqcarcode=Model.sleeq.Sleeqcarcode })" class="btn btn-info" data-bs-target="#AddvehiclehiredaysModal" data-bs-toggle="modal">Add Hire Days</a>
                             </div>
                         </div>
                     </div>
@@ -65,7 +65,7 @@
     </div>
 </div>
 
-<div class="modal fade mt-5" id="AddvehiclehiredaysModal" tabindex="-1" role="dialog" aria-labelledby="AddvehiclehiredaysModalLabel" aria-hidden="true">
+<div class="modal mt-5" id="AddvehiclehiredaysModal" tabindex="-1">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
 
@@ -73,11 +73,11 @@
     </div>
 </div>
 
+
 @section Scripts{
     <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript">
         $('#AddvehiclehiredaysModal').on('show.bs.modal', function (event) {
-            alert('we are here');
             var button = $(event.relatedTarget);
             var url = button.attr("href");
             var modal = $(this);
