@@ -25,7 +25,7 @@ namespace Sleeqcarhire.Controllers
         [HttpGet]
         public IActionResult Addvehicleowner()
         {
-            return View();
+            return PartialView("_Addvehicleowner");
         }
     }
 }

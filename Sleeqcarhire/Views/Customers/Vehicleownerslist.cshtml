@@ -7,30 +7,57 @@
     <div class="col-sm-12">
         <div class="card">
             <div class="card-header">
-                <a href="@Url.Action("Addvehicleowner","Customers")" class="btn btn-info btn-sm float-right">Add Vehicle Owner</a>
+                <a href="@Url.Action("Addvehicleowner","Customers")" class="btn btn-info btn-sm float-right" data-bs-target="#AddvehicleownerModal" data-bs-toggle="modal">Add Vehicle Owner</a>
             </div>
             <div class="card-body">
-            <table>
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
+                <table class="table table-bordered table-striped" id="vehicleownersdata">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
 </div>
+
+<div class="modal fade mt-5" id="AddvehicleownerModal" tabindex="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript">
+        $('#AddvehicleownerModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            var url = button.attr("href");
+            var modal = $(this);
+            modal.find('.modal-content').load(url);
+        });
+        $('#AddvehicleownerModal').on('hidden.bs.modal', function () {
+            $(this).removeData('bs.modal');
+            $('#AddvehicleownerModal .modal-content').empty();
+        });
+        $(document).ready(function () {
+            $('#vehicleownersdata').DataTable();
+        });
+    </script>
+}
