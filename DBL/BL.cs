@@ -74,6 +74,7 @@ namespace DBL
             });
         }
         #endregion
+
         #region Get Vehicles List
         public Task<IEnumerable<Sleeqcars>> GetCompanyvehicles()
         {
@@ -113,6 +114,17 @@ namespace DBL
             return Task.Run(() =>
             {
                 var Resp = db.MaintenanceRepository.GetVehiclehiredaysbycode(Sleeqcarcode);
+                return Resp;
+            });
+        }
+        #endregion
+
+        #region Add Vehicle Owners
+        public Task<GenericModel> Addvehicleowner(Vehicleowners obj)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.MaintenanceRepository.Addvehicleowner(obj);
                 return Resp;
             });
         }

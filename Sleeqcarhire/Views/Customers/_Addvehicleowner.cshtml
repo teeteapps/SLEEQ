@@ -1,12 +1,52 @@
-﻿<div class="modal-header">
+﻿@model DBL.Entities.Vehicleowners
+<div class="modal-header">
     <h5 class="text-sm modal-title" id="allpoliciesModalLabel">Add Customer Owner</h5>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
-<form asp-action="Addvehiclehiredays" asp-controller="Maintenance" method="post">
+<form asp-action="Addvehicleowner" asp-controller="Customers" method="post">
     <div class="modal-body">
-       
+        <div class="row m-2">
+            <div class="col-sm-6">
+                <label asp-for="Ownerfirstname"></label>
+                <input asp-for="Ownerfirstname" class="form-control" />
+                <span asp-validation-for="Ownerfirstname" class="text-danger"></span>
+            </div>
+            <div class="col-sm-6">
+                <label asp-for="Ownerlastname"></label>
+                <input asp-for="Ownerlastname" class="form-control" />
+                <span asp-validation-for="Ownerlastname" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row m-2">
+            <div class="col-sm-6">
+                <label asp-for="Owneremail"></label>
+                <input asp-for="Owneremail" class="form-control" />
+                <span asp-validation-for="Owneremail" class="text-danger"></span>
+            </div>
+            <div class="col-sm-6">
+                <label asp-for="Ownerphone"></label>
+                <input asp-for="Ownerphone" class="form-control" />
+                <span asp-validation-for="Ownerphone" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row m-2">
+            <div class="col-sm-6">
+                <label asp-for="Owneridno"></label>
+                <input asp-for="Owneridno" class="form-control" />
+                <span asp-validation-for="Owneridno" class="text-danger"></span>
+            </div>
+            <div class="col-sm-6">
+                <label asp-for="Ownertype"></label>
+                <select asp-for="Ownertype" class="form-control">
+                    <option value="0">---Select Owner Type---</option>
+                    <option value="100">Corporate</option>
+                    <option value="200">Individual</option>
+                </select>
+                <span asp-validation-for="Ownertype" class="text-danger"></span>
+            </div>
+        </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal">Close</button>

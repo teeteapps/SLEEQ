@@ -12,6 +12,7 @@ namespace DBL.Repositories
         #region Add Company Vehicles
          GenericModel Addsleeqcar(Sleeqcars entity);
         #endregion
+
         #region  Get All Company vehicles
         IEnumerable<Sleeqcars> GetCompanyvehicles();
         #endregion
@@ -19,9 +20,14 @@ namespace DBL.Repositories
         #region Get Company Vehicle Details
         Sleeqcars GetCompanyvehiclesbycode(long Sleeqcarcode);
         #endregion
+
         #region Vehicle Hire Days
         GenericModel Addvehiclehiredays(Vehiclehiredays entity);
         IEnumerable<Vehiclehiredays> GetVehiclehiredaysbycode(long Sleeqcarcode);
+        #endregion
+
+        #region Add Vehicle Owners
+        GenericModel Addvehicleowner(Vehicleowners entity);
         #endregion
 
     }

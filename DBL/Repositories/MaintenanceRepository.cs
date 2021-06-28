@@ -83,5 +83,24 @@ namespace DBL.Repositories
             }
         }
         #endregion
+
+        #region Add Vehicle Owner
+        public GenericModel Addvehicleowner(Vehicleowners entity)
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@Ownerfirstname", entity.Ownerfirstname);
+                parameters.Add("@Ownerlastname", entity.Ownerlastname);
+                parameters.Add("@Owneremail", entity.Owneremail);
+                parameters.Add("@Ownerphone", entity.Ownerphone);
+                parameters.Add("@Ownertype", entity.Ownertype);
+                parameters.Add("@Owneridno", entity.Owneridno);
+                parameters.Add("@Createdby", entity.Createdby);
+                return connection.Query<GenericModel>("Usp_Addvehicleowner", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            }
+        }
+        #endregion
     }
 }
