@@ -30,7 +30,7 @@
     <link href="~/lib/bootstrap/dist/css/adminlte.min.css" rel="stylesheet" />
     <link href="~/lib/datatables/css/jquery.dataTables.min.css" rel="stylesheet" />
 </head>
-<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed bg-light">
     <!-- Site wrapper -->
     <div class="wrapper">
         <!-- Navbar -->
@@ -59,7 +59,7 @@
         {
             @await Component.InvokeAsync("Menu", currentUserData.ProfileCode)
         }
-        <div class="content-wrapper bg-white" style="margin-top:70px">
+        <div class="content-wrapper" style="margin-top:70px">
             <section class="content">
                 <div class="container-fluid">
                     <div class="row mt-1">

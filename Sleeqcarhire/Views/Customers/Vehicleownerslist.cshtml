@@ -9,8 +9,8 @@
             <div class="card-header">
                 <a href="@Url.Action("Addvehicleowner","Customers")" class="btn btn-info btn-sm float-right" data-bs-target="#AddvehicleownerModal" data-bs-toggle="modal">Add Vehicle Owner</a>
             </div>
-            <div class="card-body">
-                <table class="table table-bordered table-striped" id="vehicleownersdata">
+            <div class="card-body table-responsive-sm">
+                <table class="dataTable table table-bordered table-striped table-sm" id="vehicleownersdata">
                     <thead>
                         <tr>
                             <th>Fullname</th>
@@ -28,7 +28,7 @@
                                 <td>@item.Owneremail</td>
                                 <td>@item.Ownerphone</td>
                                 <td>@if (item.Ownertype == 100) {<p>Corporate</p>} else { <p>Individual</p>}</td>
-                                <td><a class="btn btn-info btn-sm" href="@Url.Action("Vehicleownerdetails","Customers",new{ownercode=item.Vehicleownercode})">Details</a></td>
+                                <td><a class="btn btn-info btn-sm ml-1" href="@Url.Action("Vehicleownerdetails","Customers",new{ownercode=item.Vehicleownercode})">Details</a><a class="btn btn-info btn-sm ml-1" href="@Url.Action("Vehicleownerdetails","Customers",new{ownercode=item.Vehicleownercode})">Edit</a><a class="btn btn-danger btn-sm ml-1" href="@Url.Action("Vehicleownerdetails","Customers",new{ownercode=item.Vehicleownercode})">Delete</a><a class="btn btn-info btn-sm ml-1" href="@Url.Action("Vehicleownerdetails","Customers",new{ownercode=item.Vehicleownercode})">Assign Car</a></td>
                             </tr>
                         }
 
