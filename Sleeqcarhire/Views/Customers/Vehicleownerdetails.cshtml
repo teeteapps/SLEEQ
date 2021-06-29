@@ -1,0 +1,104 @@
+﻿@model DBL.Models.Vehicleownerdetails
+@{
+    ViewData["Title"] = "Vehicleownerdetails";
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+}
+<div class="row">
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p><span class="fw-bold font-weight-bold text-dark">Fullname:</span> @(Model.owner.Ownerfirstname+' '+Model.owner.Ownerlastname)</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p><span class="fw-bold font-weight-bold text-dark">Email:</span> @Model.owner.Owneremail</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p><span class="fw-bold font-weight-bold text-dark">Phone:</span> @Model.owner.Ownerphone</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p><span class="fw-bold font-weight-bold text-dark">ID Number:</span> @Model.owner.Owneridno</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        @if (Model.owner.Ownertype == 100)
+                        {
+                            <p><span class="fw-bold font-weight-boldtext-dark">Owner Type:</span> Corporate</p>
+                        }
+                        else
+                        {
+                            <p><span class="fw-bold font-weight-bold text-dark">Owner Type:</span> Individual </p>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <h5>Vehicles List</h5>
+                            </div>
+                            <div class="col-sm-4">
+                                <a>Add Vehicle</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <h5>Kins List</h5>
+                            </div>
+                            <div class="col-sm-4">
+                                <a>Add Next of Kin</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <h5>Other Owners</h5>
+                            </div>
+                            <div class="col-sm-4">
+                                <a>Add Other Owner</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

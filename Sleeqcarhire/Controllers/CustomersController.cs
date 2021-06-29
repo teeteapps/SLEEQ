@@ -1,5 +1,6 @@
 ﻿using DBL;
 using DBL.Entities;
+using DBL.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -20,9 +21,10 @@ namespace Sleeqcarhire.Controllers
             bl = new BL(Util.GetDbConnString());
         }
         [HttpGet]
-        public IActionResult Vehicleownerslist()
+        public async Task<IActionResult> Vehicleownerslist()
         {
-            return View();
+            var data = await bl.GetVehicleownerslist();
+            return View(data);
         } 
         [HttpGet]
         public IActionResult Addvehicleowner()
@@ -60,9 +62,12 @@ namespace Sleeqcarhire.Controllers
             return PartialView("_Addvehicleowner");
         }
         [HttpGet]
-        public IActionResult Vehicleownerdetails(long ownercode)
+        public async Task<IActionResult> Vehicleownerdetails(long ownercode)
         {
-            return View();
+            Vehicleownerdetails model = new Vehicleownerdetails();
+            model.owner = new Viewvehicleowners();
+            model.owner = await bl.GetVehicleownerdetailbycode(ownercode);
+            return View(model);
         }
     }
 }

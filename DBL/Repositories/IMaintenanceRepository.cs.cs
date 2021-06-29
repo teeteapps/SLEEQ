@@ -1,4 +1,5 @@
 ﻿using DBL.Entities;
+using DBL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,11 @@ namespace DBL.Repositories
         #region Vehicle Hire Days
         GenericModel Addvehiclehiredays(Vehiclehiredays entity);
         IEnumerable<Vehiclehiredays> GetVehiclehiredaysbycode(long Sleeqcarcode);
+        #endregion
+
+        #region Vehicle Owner list
+        IEnumerable<Viewvehicleowners> GetVehicleownerslist();
+        Viewvehicleowners GetVehicleownerdetailbycode(long ownercode);
         #endregion
 
         #region Add Vehicle Owners

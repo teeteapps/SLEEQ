@@ -119,6 +119,25 @@ namespace DBL
         }
         #endregion
 
+        #region Vehicle Owners Lists
+        public Task<IEnumerable<Viewvehicleowners>> GetVehicleownerslist()
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.MaintenanceRepository.GetVehicleownerslist();
+                return Resp;
+            });
+        }
+        public Task<Viewvehicleowners> GetVehicleownerdetailbycode(long ownercode)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.MaintenanceRepository.GetVehicleownerdetailbycode(ownercode);
+                return Resp;
+            });
+        }
+        #endregion
+
         #region Add Vehicle Owners
         public Task<GenericModel> Addvehicleowner(Vehicleowners obj)
         {

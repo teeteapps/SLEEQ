@@ -5,19 +5,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DBL.Entities
+namespace DBL.Models
 {
-    
-    public class Vehicleowners
+    [Table("Viewvehicleowners")]
+    public class Viewvehicleowners
     {
-        
-        public long Ownercode { get; set; }
+        [NotMapped]
+        public static string TableName { get { return "Viewvehicleowners"; } }
+        public long Vehicleownercode { get; set; }
         public string Ownerfirstname { get; set; }
         public string Ownerlastname { get; set; }
         public string Owneremail { get; set; }
         public string Ownerphone { get; set; }
         public string Owneridno { get; set; }
-        public int Ownertype { get; set;}
-        public long Createdby { get; set;}
+        public long Ownertype { get; set; }
+        public bool Isactive { get; set; }
+        public DateTime Datecreated { get; set; }
     }
 }

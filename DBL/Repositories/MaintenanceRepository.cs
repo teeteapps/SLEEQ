@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using DBL.Entities;
+using DBL.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -80,6 +81,25 @@ namespace DBL.Repositories
             {
                 connection.Open();
                 return connection.Query<Vehiclehiredays>(FindStatement(Vehiclehiredays.TableName, "Sleeqcarcode"), new { Id = Sleeqcarcode }).ToList();
+            }
+        }
+        #endregion
+
+        #region Get Vehicles Owner lists
+        public IEnumerable<Viewvehicleowners> GetVehicleownerslist()
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                return connection.Query<Viewvehicleowners>(GetAllStatement(Viewvehicleowners.TableName)).ToList();
+            }
+        }
+        public Viewvehicleowners GetVehicleownerdetailbycode(long ownercode)
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                return connection.Query<Viewvehicleowners>(FindStatement(Viewvehicleowners.TableName, "Vehicleownercode"), new { Id = ownercode }).FirstOrDefault();
             }
         }
         #endregion

@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<DBL.Models.Viewvehicleowners>
 @{
     ViewData["Title"] = "Vehicleownerslist";
     Layout = "~/Views/Shared/_Layoutadmin.cshtml";
@@ -13,21 +13,25 @@
                 <table class="table table-bordered table-striped" id="vehicleownersdata">
                     <thead>
                         <tr>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
+                            <th>Fullname</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Owner Type</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@(item.Ownerfirstname+' '+item.Ownerlastname)</td>
+                                <td>@item.Owneremail</td>
+                                <td>@item.Ownerphone</td>
+                                <td>@if (item.Ownertype == 100) {<p>Corporate</p>} else { <p>Individual</p>}</td>
+                                <td><a class="btn btn-info btn-sm" href="@Url.Action("Vehicleownerdetails","Customers",new{ownercode=item.Vehicleownercode})">Details</a></td>
+                            </tr>
+                        }
+
                     </tbody>
                 </table>
             </div>
