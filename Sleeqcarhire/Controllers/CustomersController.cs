@@ -71,14 +71,18 @@ namespace Sleeqcarhire.Controllers
         }
 
         [HttpGet]
-        public IActionResult Addvehicle()
+        public IActionResult Addvehicle(long Customercode)
         {
-            return PartialView("_Addcompvehicle");
+            Companyvehicles model = new Companyvehicles();
+            model.Custcode = Customercode;
+            return PartialView("_Addcompvehicle",model);
         }
         [HttpGet]
-        public IActionResult Addnextofkin()
+        public IActionResult Addnextofkin(long Customercode)
         {
-            return PartialView("_Addnextofkin");
+            Supportcustomers model = new Supportcustomers();
+            model.Custcode = Customercode;
+            return PartialView("_Addnextofkin",model);
         }
     }
 }
