@@ -69,5 +69,16 @@ namespace Sleeqcarhire.Controllers
             model.Customer = await bl.GetVehicleownerdetailbycode(Custcode);
             return View(model);
         }
+
+        [HttpGet]
+        public IActionResult Addvehicle()
+        {
+            return PartialView("_Addcompvehicle");
+        }
+        [HttpGet]
+        public IActionResult Addnextofkin()
+        {
+            return PartialView("_Addnextofkin");
+        }
     }
 }

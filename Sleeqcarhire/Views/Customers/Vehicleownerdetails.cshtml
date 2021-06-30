@@ -41,11 +41,11 @@
                 <div class="card table-responsive-sm">
                     <div class="card-header">
                         <div class="row">
-                            <div class="col-sm-4">
+                            <div class="col-sm-8">
                                 <h5>Vehicles List</h5>
                             </div>
                             <div class="col-sm-4">
-                                <a href="@Url.Action("Addvehicle","Customers",new { Custcode=Model.Customer.Custcode})" class="btn btn-sm btn-info float-end">Add Vehicle</a>
+                                <a href="@Url.Action("Addvehicle","Customers",new { Custcode=Model.Customer.Custcode})" class="btn btn-sm btn-info float-right" data-bs-target="#AddcustomedataModal" data-bs-toggle="modal">Add Vehicle</a>
                             </div>
                         </div>
                     </div>
@@ -54,17 +54,17 @@
                     </div>
                 </div>
             </div>
-        </div>        
+        </div>
         <div class="row">
             <div class="col-sm-12">
                 <div class="card table-responsive-sm">
                     <div class="card-header">
                         <div class="row">
-                            <div class="col-sm-4">
+                            <div class="col-sm-8">
                                 <h5>Kins List</h5>
                             </div>
                             <div class="col-sm-4">
-                                <a href="@Url.Action("Addnextofkin","Customers",new { Custcode=Model.Customer.Custcode})" class="btn btn-sm btn-info float-end">Add Next of Kin</a>
+                                <a href="@Url.Action("Addnextofkin","Customers",new { Custcode=Model.Customer.Custcode})" class="btn btn-sm btn-info float-right" data-bs-target="#AddcustomedataModal" data-bs-toggle="modal">Add Next of Kin</a>
                             </div>
                         </div>
                     </div>
@@ -76,3 +76,30 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade mt-5" id="AddcustomedataModal" tabindex="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript">
+        $('#AddcustomedataModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            var url = button.attr("href");
+            var modal = $(this);
+            modal.find('.modal-content').load(url);
+        });
+        $('#AddcustomedataModal').on('hidden.bs.modal', function () {
+            $(this).removeData('bs.modal');
+            $('#AddcustomedataModal .modal-content').empty();
+        });
+        $(document).ready(function () {
+            $('#vehicleownersdata').DataTable();
+        });
+    </script>
+}
