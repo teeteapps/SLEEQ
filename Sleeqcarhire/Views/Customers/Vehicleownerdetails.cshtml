@@ -1,4 +1,4 @@
-﻿@model DBL.Models.Vehicleownerdetails
+﻿@model DBL.Models.Viewcompanycustomerdetails
 @{
     ViewData["Title"] = "Vehicleownerdetails";
     Layout = "~/Views/Shared/_Layoutadmin.cshtml";
@@ -9,34 +9,27 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-sm-12">
-                        <p><span class="fw-bold font-weight-bold text-dark">Fullname:</span> @(Model.owner.Ownerfirstname+' '+Model.owner.Ownerlastname)</p>
+                        <p><span class="fw-bold font-weight-bold text-dark">Fullname:</span> @(Model.Customer.Firstname+' '+Model.Customer.Lastname)</p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <p><span class="fw-bold font-weight-bold text-dark">Email:</span> @Model.owner.Owneremail</p>
+                        <p><span class="fw-bold font-weight-bold text-dark">Email:</span> @Model.Customer.Emailadd</p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <p><span class="fw-bold font-weight-bold text-dark">Phone:</span> @Model.owner.Ownerphone</p>
+                        <p><span class="fw-bold font-weight-bold text-dark">Phone:</span> @Model.Customer.Phoneno</p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <p><span class="fw-bold font-weight-bold text-dark">ID Number:</span> @Model.owner.Owneridno</p>
+                        <p><span class="fw-bold font-weight-bold text-dark">ID Number:</span> @Model.Customer.Idnumber</p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        @if (Model.owner.Ownertype == 100)
-                        {
-                            <p><span class="fw-bold font-weight-boldtext-dark">Owner Type:</span> Corporate</p>
-                        }
-                        else
-                        {
-                            <p><span class="fw-bold font-weight-bold text-dark">Owner Type:</span> Individual </p>
-                        }
+                        <p><span class="fw-bold font-weight-boldtext-dark">Owner Type:</span> @Model.Customer.Custtypename</p>
                     </div>
                 </div>
             </div>

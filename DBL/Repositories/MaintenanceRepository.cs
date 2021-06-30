@@ -86,39 +86,39 @@ namespace DBL.Repositories
         #endregion
 
         #region Get Vehicles Owner lists
-        public IEnumerable<Viewvehicleowners> GetVehicleownerslist()
+        public IEnumerable<Viewcompanycustomers> GetVehicleownerslist()
         {
             using (var connection = new SqlConnection(_connString))
             {
                 connection.Open();
-                return connection.Query<Viewvehicleowners>(GetAllStatement(Viewvehicleowners.TableName)).ToList();
+                return connection.Query<Viewcompanycustomers>(GetAllStatement(Viewcompanycustomers.TableName)).ToList();
             }
         }
-        public Viewvehicleowners GetVehicleownerdetailbycode(long ownercode)
+        public Viewcompanycustomers GetVehicleownerdetailbycode(long ownercode)
         {
             using (var connection = new SqlConnection(_connString))
             {
                 connection.Open();
-                return connection.Query<Viewvehicleowners>(FindStatement(Viewvehicleowners.TableName, "Vehicleownercode"), new { Id = ownercode }).FirstOrDefault();
+                return connection.Query<Viewcompanycustomers>(FindStatement(Viewcompanycustomers.TableName, "Vehicleownercode"), new { Id = ownercode }).FirstOrDefault();
             }
         }
         #endregion
 
         #region Add Vehicle Owner
-        public GenericModel Addvehicleowner(Vehicleowners entity)
+        public GenericModel Addvehicleowner(Companycustomers entity)
         {
             using (var connection = new SqlConnection(_connString))
             {
                 connection.Open();
                 DynamicParameters parameters = new DynamicParameters();
-                parameters.Add("@Ownerfirstname", entity.Ownerfirstname);
-                parameters.Add("@Ownerlastname", entity.Ownerlastname);
-                parameters.Add("@Owneremail", entity.Owneremail);
-                parameters.Add("@Ownerphone", entity.Ownerphone);
-                parameters.Add("@Ownertype", entity.Ownertype);
-                parameters.Add("@Owneridno", entity.Owneridno);
+                parameters.Add("@Firstname", entity.Firstname);
+                parameters.Add("@Lastname", entity.Lastname);
+                parameters.Add("@Emailadd", entity.Emailadd);
+                parameters.Add("@Phoneno", entity.Phoneno);
+                parameters.Add("@Custtype", entity.Custtype);
+                parameters.Add("@Idnumber", entity.Idnumber);
                 parameters.Add("@Createdby", entity.Createdby);
-                return connection.Query<GenericModel>("Usp_Addvehicleowner", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                return connection.Query<GenericModel>("Usp_AddCompanycustomer", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
         }
         #endregion

@@ -28,12 +28,12 @@ namespace DBL.Repositories
         #endregion
 
         #region Vehicle Owner list
-        IEnumerable<Viewvehicleowners> GetVehicleownerslist();
-        Viewvehicleowners GetVehicleownerdetailbycode(long ownercode);
+        IEnumerable<Viewcompanycustomers> GetVehicleownerslist();
+        Viewcompanycustomers GetVehicleownerdetailbycode(long ownercode);
         #endregion
 
         #region Add Vehicle Owners
-        GenericModel Addvehicleowner(Vehicleowners entity);
+        GenericModel Addvehicleowner(Companycustomers entity);
         #endregion
 
     }

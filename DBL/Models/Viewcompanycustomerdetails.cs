@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace DBL.Models
 {
-    public class Vehicleownerdetails
+    public class Viewcompanycustomerdetails
     {
-        public Viewvehicleowners owner { get; set; }
+        public Viewcompanycustomers Customer { get; set; }
     }
 }

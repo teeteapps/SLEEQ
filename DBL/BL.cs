@@ -120,7 +120,7 @@ namespace DBL
         #endregion
 
         #region Vehicle Owners Lists
-        public Task<IEnumerable<Viewvehicleowners>> GetVehicleownerslist()
+        public Task<IEnumerable<Viewcompanycustomers>> GetVehicleownerslist()
         {
             return Task.Run(() =>
             {
@@ -128,7 +128,7 @@ namespace DBL
                 return Resp;
             });
         }
-        public Task<Viewvehicleowners> GetVehicleownerdetailbycode(long ownercode)
+        public Task<Viewcompanycustomers> GetVehicleownerdetailbycode(long ownercode)
         {
             return Task.Run(() =>
             {
@@ -139,7 +139,7 @@ namespace DBL
         #endregion
 
         #region Add Vehicle Owners
-        public Task<GenericModel> Addvehicleowner(Vehicleowners obj)
+        public Task<GenericModel> Addvehicleowner(Companycustomers obj)
         {
             return Task.Run(() =>
             {
