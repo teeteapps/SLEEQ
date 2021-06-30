@@ -62,11 +62,11 @@ namespace Sleeqcarhire.Controllers
             return PartialView("_Addvehicleowner");
         }
         [HttpGet]
-        public async Task<IActionResult> Vehicleownerdetails(long ownercode)
+        public async Task<IActionResult> Vehicleownerdetails(long Custcode)
         {
             Viewcompanycustomerdetails model = new Viewcompanycustomerdetails();
             model.Customer = new Viewcompanycustomers();
-            model.Customer = await bl.GetVehicleownerdetailbycode(ownercode);
+            model.Customer = await bl.GetVehicleownerdetailbycode(Custcode);
             return View(model);
         }
     }

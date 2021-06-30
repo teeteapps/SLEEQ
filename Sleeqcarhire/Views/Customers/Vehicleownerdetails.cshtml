@@ -29,7 +29,7 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <p><span class="fw-bold font-weight-boldtext-dark">Owner Type:</span> @Model.Customer.Custtypename</p>
+                        <p><span class="fw-bold font-weight-bold text-dark">Owner Type:</span> @Model.Customer.Custtypename</p>
                     </div>
                 </div>
             </div>
@@ -45,7 +45,7 @@
                                 <h5>Vehicles List</h5>
                             </div>
                             <div class="col-sm-4">
-                                <a>Add Vehicle</a>
+                                <a href="@Url.Action("Addvehicle","Customers",new { Custcode=Model.Customer.Custcode})" class="btn btn-sm btn-info float-end">Add Vehicle</a>
                             </div>
                         </div>
                     </div>
@@ -64,26 +64,7 @@
                                 <h5>Kins List</h5>
                             </div>
                             <div class="col-sm-4">
-                                <a>Add Next of Kin</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="card table-responsive-sm">
-                    <div class="card-header">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <h5>Other Owners</h5>
-                            </div>
-                            <div class="col-sm-4">
-                                <a>Add Other Owner</a>
+                                <a href="@Url.Action("Addnextofkin","Customers",new { Custcode=Model.Customer.Custcode})" class="btn btn-sm btn-info float-end">Add Next of Kin</a>
                             </div>
                         </div>
                     </div>

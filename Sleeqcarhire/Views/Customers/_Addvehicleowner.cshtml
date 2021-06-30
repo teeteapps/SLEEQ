@@ -1,4 +1,4 @@
-﻿@model DBL.Entities.Vehicleowners
+﻿@model DBL.Entities.Companycustomers
 <div class="modal-header">
     <h5 class="text-sm modal-title" id="allpoliciesModalLabel">Add Customer Owner</h5>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -9,42 +9,42 @@
     <div class="modal-body">
         <div class="row m-2">
             <div class="col-sm-6">
-                <label asp-for="Ownerfirstname"></label>
-                <input asp-for="Ownerfirstname" class="form-control" />
-                <span asp-validation-for="Ownerfirstname" class="text-danger"></span>
+                <label asp-for="Firstname"></label>
+                <input asp-for="Firstname" class="form-control" />
+                <span asp-validation-for="Firstname" class="text-danger"></span>
             </div>
             <div class="col-sm-6">
-                <label asp-for="Ownerlastname"></label>
-                <input asp-for="Ownerlastname" class="form-control" />
-                <span asp-validation-for="Ownerlastname" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="row m-2">
-            <div class="col-sm-6">
-                <label asp-for="Owneremail"></label>
-                <input asp-for="Owneremail" class="form-control" />
-                <span asp-validation-for="Owneremail" class="text-danger"></span>
-            </div>
-            <div class="col-sm-6">
-                <label asp-for="Ownerphone"></label>
-                <input asp-for="Ownerphone" class="form-control" />
-                <span asp-validation-for="Ownerphone" class="text-danger"></span>
+                <label asp-for="Lastname"></label>
+                <input asp-for="Lastname" class="form-control" />
+                <span asp-validation-for="Lastname" class="text-danger"></span>
             </div>
         </div>
         <div class="row m-2">
             <div class="col-sm-6">
-                <label asp-for="Owneridno"></label>
-                <input asp-for="Owneridno" class="form-control" />
-                <span asp-validation-for="Owneridno" class="text-danger"></span>
+                <label asp-for="Emailadd"></label>
+                <input asp-for="Emailadd" class="form-control" />
+                <span asp-validation-for="Emailadd" class="text-danger"></span>
             </div>
             <div class="col-sm-6">
-                <label asp-for="Ownertype"></label>
-                <select asp-for="Ownertype" class="form-control">
+                <label asp-for="Phoneno"></label>
+                <input asp-for="Phoneno" class="form-control" />
+                <span asp-validation-for="Phoneno" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row m-2">
+            <div class="col-sm-6">
+                <label asp-for="Idnumber"></label>
+                <input asp-for="Idnumber" class="form-control" />
+                <span asp-validation-for="Idnumber" class="text-danger"></span>
+            </div>
+            <div class="col-sm-6">
+                <label asp-for="Custtype"></label>
+                <select asp-for="Custtype" class="form-control">
                     <option value="0">---Select Owner Type---</option>
                     <option value="100">Corporate</option>
                     <option value="200">Individual</option>
                 </select>
-                <span asp-validation-for="Ownertype" class="text-danger"></span>
+                <span asp-validation-for="Custtype" class="text-danger"></span>
             </div>
         </div>
     </div>

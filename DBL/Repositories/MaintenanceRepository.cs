@@ -99,7 +99,7 @@ namespace DBL.Repositories
             using (var connection = new SqlConnection(_connString))
             {
                 connection.Open();
-                return connection.Query<Viewcompanycustomers>(FindStatement(Viewcompanycustomers.TableName, "Vehicleownercode"), new { Id = ownercode }).FirstOrDefault();
+                return connection.Query<Viewcompanycustomers>(FindStatement(Viewcompanycustomers.TableName, "Custcode"), new { Id = ownercode }).FirstOrDefault();
             }
         }
         #endregion
