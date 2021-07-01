@@ -1,0 +1,61 @@
+﻿@model IEnumerable<DBL.Entities.Vehiclemodels>
+@{
+    ViewData["Title"] = "Vehiclemodelslist";
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                <a href="@Url.Action("Addvehiclemodel","Maintenance")" class="btn btn-info btn-sm float-right" data-bs-target="#AddvehiclemodelandmakeModal" data-bs-toggle="modal">Add Model</a>
+            </div>
+            <div class="card-body table-responsive-sm">
+                <table class="dataTable table table-bordered table-striped table-sm" id="vehiclemodelsdata">
+                    <thead>
+                        <tr>
+                            <th>Model</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Modelname</td>
+                                <td><a class="btn btn-info btn-sm ml-1" href="@Url.Action("Vehicleownerdetails","Customers",new{Custcode=item.Modelcode})">Details</a><a class="btn btn-info btn-sm ml-1" href="@Url.Action("Vehicleownerdetails","Customers",new{ownercode=item.Modelcode})">Edit</a></td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade mt-5" id="AddvehiclemodelandmakeModal" tabindex="-1">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript">
+        $('#AddvehiclemodelandmakeModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            var url = button.attr("href");
+            var modal = $(this);
+            modal.find('.modal-content').load(url);
+        });
+        $('#AddvehiclemodelandmakeModal').on('hidden.bs.modal', function () {
+            $(this).removeData('bs.modal');
+            $('#AddvehiclemodelandmakeModal .modal-content').empty();
+        });
+        $(document).ready(function () {
+            $('#vehiclemodelsdata').DataTable();
+        });
+    </script>
+}

@@ -122,5 +122,16 @@ namespace DBL.Repositories
             }
         }
         #endregion
+
+        #region Vehicle Models and Makes
+        public IEnumerable<Vehiclemodels> Getvehiclemodelslist()
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                return connection.Query<Vehiclemodels>(GetAllStatement(Vehiclemodels.TableName)).ToList();
+            }
+        }
+        #endregion
     }
 }

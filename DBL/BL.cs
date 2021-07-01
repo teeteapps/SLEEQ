@@ -1,4 +1,5 @@
 ﻿using DBL.Entities;
+using DBL.Enum;
 using DBL.Helpers;
 using DBL.Models;
 using DBL.UOW;
@@ -149,10 +150,31 @@ namespace DBL
         }
         #endregion
 
+        #region Vehicle Models and Makes
+        public Task<IEnumerable<Vehiclemodels>> Getvehiclemodelslist()
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.MaintenanceRepository.Getvehiclemodelslist();
+                return Resp;
+            });
+        }
+        #endregion
+
         #region GetMenus
         public Task<IEnumerable<Vw_menus>> getMenus(int profilecode)
         {
             return Task.Run(() => db.SecurityRepository.MenusGetByProfile(profilecode));
+        }
+        #endregion
+
+        #region List Models
+        public Task<IEnumerable<ListModel>> GetListModel(ListModelType listType)
+        {
+            return Task.Run(() =>
+            {
+                return db.SecurityRepository.GetListModel(listType);
+            });
         }
         #endregion
     }

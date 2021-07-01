@@ -1,4 +1,5 @@
 ﻿using DBL.Entities;
+using DBL.Enum;
 using DBL.Models;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,10 @@ namespace DBL.Repositories
 
         #region  System Menus
         IEnumerable<Vw_menus> MenusGetByProfile(int profilecode);
+        #endregion
+
+        #region Other Methods
+         IEnumerable<ListModel> GetListModel(ListModelType listType);
         #endregion
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using DBL.Entities;
+using DBL.Enum;
 using DBL.Models;
 using System;
 using System.Collections.Generic;
@@ -31,6 +32,7 @@ namespace DBL.Repositories
             }
         }
         #endregion
+
         #region Get Menus
         public IEnumerable<Vw_menus> MenusGetByProfile(int profilecode)
         {
@@ -42,5 +44,20 @@ namespace DBL.Repositories
         }
         #endregion
 
+
+        #region Other Methods
+        public IEnumerable<ListModel> GetListModel(ListModelType listType)
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@Type", (int)listType);
+
+                return connection.Query<ListModel>("Usp_GetListModel", parameters, commandType: CommandType.StoredProcedure).ToList();
+            }
+        }
+        #endregion
     }
 }

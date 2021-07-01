@@ -36,5 +36,9 @@ namespace DBL.Repositories
         GenericModel Addvehicleowner(Companycustomers entity);
         #endregion
 
+        #region Vehicle Models and makes
+        IEnumerable<Vehiclemodels> Getvehiclemodelslist();
+        #endregion
+
     }
 }

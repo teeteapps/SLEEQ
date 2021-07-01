@@ -1,8 +1,10 @@
 ﻿using DBL;
 using DBL.Entities;
+using DBL.Enum;
 using DBL.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.FileProviders;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Processing;
@@ -118,5 +120,41 @@ namespace Sleeqcarhire.Controllers
             }
             return View();
         }
+
+        #region Vehicle models and makes
+        [HttpGet]
+        public async Task<IActionResult> Vehiclemodelslist()
+        {
+            var data = await bl.Getvehiclemodelslist();
+            return View(data);
+        }
+        [HttpGet]
+        public IActionResult Addvehiclemodel()
+        {
+            return PartialView("_Addvehiclemodel");
+        }
+        [HttpGet]
+        public IActionResult Vehiclemodeldetails()
+        {
+            return PartialView("_Vehiclemodeldetails");
+        }
+        [HttpGet]
+        public IActionResult Addvehiclemake()
+        {
+            return PartialView("_Addvehiclemake");
+        }
+        #endregion
+
+        #region Other methods
+        private void LoadParams()
+        {
+            var list = bl.GetListModel(ListModelType.Vehiclemodels).Result.Select(x => new SelectListItem
+            {
+                Text = x.Text,
+                Value = x.Value
+            }).ToList();
+            ViewData["Vehiclemodelslists"] = list;
+        }
+        #endregion
     }
 }
