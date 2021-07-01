@@ -154,6 +154,41 @@ namespace Sleeqcarhire.Controllers
             var data = await bl.Getcompanycustomerslist();
             return View(data);
         }
+        [HttpGet]
+        public IActionResult Addcompanycustomer()
+        {
+            return PartialView("_Addcompanycustomer");
+        }
+        [HttpPost]
+        public async Task<IActionResult> Addcompanycustomer(Companycustomers model)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    model.Createdby = SessionUserData.UserCode;
+                    var resp = await bl.Addvehicleowner(model);
+                    if (resp.RespStatus == 0)
+                    {
+                        Success(resp.RespMessage, true);
+                        return RedirectToAction("Companycustomerlist", new { ownercode = Convert.ToInt64(resp.Data1) });
+                    }
+                    else if (resp.RespStatus == 1)
+                    {
+                        Danger(resp.RespMessage, true);
+                    }
+                    else
+                    {
+                        Danger("Database error occured. Please contact Admin!", true);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Util.LogError("Add vehicleowner", ex, true);
+            }
+            return PartialView("_Addcompanycustomer");
+        }
         #endregion
     }
 }
