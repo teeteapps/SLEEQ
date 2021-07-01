@@ -14,5 +14,6 @@ namespace DBL.Entities
         public static string TableName { get { return "VehicleMakes"; } }
         public long Makecode { get; set; }
         public string Makename { get; set; }
+        public long Createdby { get; set; }
     }
 }

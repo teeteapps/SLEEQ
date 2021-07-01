@@ -9,5 +9,7 @@ namespace DBL.Models
     public class Viewcompanycustomerdetails
     {
         public Viewcompanycustomers Customer { get; set; }
+        public IEnumerable<Viewcompanyvehicles> Vehicles { get; set; }
+        public IEnumerable<Viewnextofkins> Nextofkin { get; set; }
     }
 }

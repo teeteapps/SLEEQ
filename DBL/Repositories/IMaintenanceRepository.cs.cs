@@ -33,6 +33,8 @@ namespace DBL.Repositories
         GenericModel Addvehicleowner(Companycustomers entity);
         GenericModel Addvehicle(Companyvehicles entity);
         GenericModel Addnextofkin(Supportcustomers entity);
+        IEnumerable<Viewcompanyvehicles> GetViewcompanyvehiclesdetailbycode(long ownercode);
+        IEnumerable<Viewnextofkins> GetViewnextofkinsdetailbycode(long ownercode);
         #endregion
 
         #region Company Customers

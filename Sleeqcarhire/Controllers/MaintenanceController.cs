@@ -136,6 +136,7 @@ namespace Sleeqcarhire.Controllers
         [HttpPost]
         public async Task<IActionResult> Addvehiclemake(VehicleMakes model)
         {
+            model.Createdby = SessionUserData.UserCode;
             var resp = await bl.Addvehiclemake(model);
             if (resp.RespStatus == 0)
             {
@@ -179,16 +180,6 @@ namespace Sleeqcarhire.Controllers
         }
         #endregion
 
-        #region Other methods
-        private void LoadParams()
-        {
-            var list = bl.GetListModel(ListModelType.Vehiclemodels).Result.Select(x => new SelectListItem
-            {
-                Text = x.Text,
-                Value = x.Value
-            }).ToList();
-            ViewData["Vehiclemodelslists"] = list;
-        }
-        #endregion
+        
     }
 }

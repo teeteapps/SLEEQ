@@ -9,7 +9,7 @@ namespace DBL.Enum
     public enum UserLoginStatus { Ok = 0, Subscribe = 1 }
     public enum ListModelType
     {
-        Vehiclemodels = 0,
+        Vehiclemakes = 0,
         Relation=1
     }
 }

@@ -102,6 +102,22 @@ namespace DBL.Repositories
                 return connection.Query<Viewcompanycustomers>(FindStatement(Viewcompanycustomers.TableName, "Custcode"), new { Id = ownercode }).FirstOrDefault();
             }
         }
+        public IEnumerable<Viewcompanyvehicles> GetViewcompanyvehiclesdetailbycode(long ownercode)
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                return connection.Query<Viewcompanyvehicles>(FindStatement(Viewcompanyvehicles.TableName, "Custcode"), new { Id = ownercode }).ToList();
+            }
+        }
+        public IEnumerable<Viewnextofkins> GetViewnextofkinsdetailbycode(long ownercode)
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                return connection.Query<Viewnextofkins>(FindStatement(Viewnextofkins.TableName, "Custcode"), new { Id = ownercode }).ToList();
+            }
+        }
         public GenericModel Addvehicleowner(Companycustomers entity)
         {
             using (var connection = new SqlConnection(_connString))
@@ -124,8 +140,15 @@ namespace DBL.Repositories
             {
                 connection.Open();
                 DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@Custcode", entity.Custcode);
+                parameters.Add("@Regno", entity.Regno);
+                parameters.Add("@Capacity", entity.Capacity);
+                parameters.Add("@Fueltype", entity.Fueltype);
+                parameters.Add("@Enginesize", entity.Enginesize);
+                parameters.Add("@Chasno", entity.Chasno);
+                parameters.Add("@Makecode", entity.Makecode);
                 parameters.Add("@Createdby", entity.Createdby);
-                return connection.Query<GenericModel>("Usp_AddCompanycustomer", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                return connection.Query<GenericModel>("Usp_Addvehicle", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
         }
         public GenericModel Addnextofkin(Supportcustomers entity)
@@ -134,8 +157,13 @@ namespace DBL.Repositories
             {
                 connection.Open();
                 DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@Custcode", entity.Custcode);
+                parameters.Add("@Fullname", entity.Fullname);
+                parameters.Add("@Phonenumber", entity.Phonenumber);
+                parameters.Add("@Idnumber", entity.Idnumber);
+                parameters.Add("@Relation", entity.Relation);
                 parameters.Add("@Createdby", entity.Createdby);
-                return connection.Query<GenericModel>("Usp_AddCompanycustomer", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                return connection.Query<GenericModel>("Usp_Addnextofkin", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
         }
         #endregion
@@ -168,6 +196,7 @@ namespace DBL.Repositories
                 connection.Open();
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@Makename", entity.Makename);
+                parameters.Add("@Createdby", entity.Createdby);
                 return connection.Query<GenericModel>("Usp_Addvehiclemake", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
         }

@@ -1,52 +1,56 @@
 ﻿@model DBL.Entities.Companyvehicles
+@{ 
+    var vehiclemake = ViewData["Vehiclemakeslists"] as List<SelectListItem>;
+}
 <div class="modal-header">
-    <h5 class="text-sm modal-title" id="allpoliciesModalLabel">Add Customer Owner</h5>
+    <h5 class="text-sm modal-title" id="allpoliciesModalLabel">Add Vehicle</h5>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
 <form asp-action="Addvehicle" asp-controller="Customers" method="post">
     <div class="modal-body">
-        @*<div class="row m-2">
+        <div class="row">
+            <input asp-for="Custcode" hidden />
+        </div>
+        <div class="row m-2">
                 <div class="col-sm-6">
-                    <label asp-for="Firstname"></label>
-                    <input asp-for="Firstname" class="form-control" />
-                    <span asp-validation-for="Firstname" class="text-danger"></span>
+                    <label asp-for="Regno"></label>
+                    <input asp-for="Regno" class="form-control form-control-sm" />
+                    <span asp-validation-for="Regno" class="text-danger"></span>
                 </div>
                 <div class="col-sm-6">
-                    <label asp-for="Lastname"></label>
-                    <input asp-for="Lastname" class="form-control" />
-                    <span asp-validation-for="Lastname" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="row m-2">
-                <div class="col-sm-6">
-                    <label asp-for="Emailadd"></label>
-                    <input asp-for="Emailadd" class="form-control" />
-                    <span asp-validation-for="Emailadd" class="text-danger"></span>
-                </div>
-                <div class="col-sm-6">
-                    <label asp-for="Phoneno"></label>
-                    <input asp-for="Phoneno" class="form-control" />
-                    <span asp-validation-for="Phoneno" class="text-danger"></span>
+                    <label asp-for="Capacity"></label>
+                    <input asp-for="Capacity" class="form-control form-control-sm" />
+                    <span asp-validation-for="Capacity" class="text-danger"></span>
                 </div>
             </div>
             <div class="row m-2">
                 <div class="col-sm-6">
-                    <label asp-for="Idnumber"></label>
-                    <input asp-for="Idnumber" class="form-control" />
-                    <span asp-validation-for="Idnumber" class="text-danger"></span>
+                    <label asp-for="Fueltype"></label>
+                    <input asp-for="Fueltype" class="form-control form-control-sm" />
+                    <span asp-validation-for="Fueltype" class="text-danger"></span>
                 </div>
                 <div class="col-sm-6">
-                    <label asp-for="Custtype"></label>
-                    <select asp-for="Custtype" class="form-control">
-                        <option value="0">---Select Owner Type---</option>
-                        <option value="100">Corporate</option>
-                        <option value="200">Individual</option>
+                    <label asp-for="Enginesize"></label>
+                    <input asp-for="Enginesize" class="form-control form-control-sm" />
+                    <span asp-validation-for="Enginesize" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row m-2">
+                <div class="col-sm-6">
+                    <label asp-for="Chasno"></label>
+                    <input asp-for="Chasno" class="form-control form-control-sm" />
+                    <span asp-validation-for="Chasno" class="text-danger"></span>
+                </div>
+                <div class="col-sm-6">
+                    <label asp-for="Makecode"></label>
+                    <select asp-for="Makecode" class="form-control form-control-sm" id="Prodsubcategory" asp-items="@vehiclemake">
+                        <option value="0">---Select Type---</option>
                     </select>
-                    <span asp-validation-for="Custtype" class="text-danger"></span>
+                    <span asp-validation-for="Makecode" class="text-danger"></span>
                 </div>
-            </div>*@
+            </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal">Close</button>

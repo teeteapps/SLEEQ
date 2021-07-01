@@ -1,5 +1,6 @@
 ﻿using DBL;
 using DBL.Entities;
+using DBL.Enum;
 using DBL.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -67,13 +68,28 @@ namespace Sleeqcarhire.Controllers
         {
             Viewcompanycustomerdetails model = new Viewcompanycustomerdetails();
             model.Customer = new Viewcompanycustomers();
+            model.Vehicles = new List<Viewcompanyvehicles>();
+            model.Nextofkin = new List<Viewnextofkins>();
             model.Customer = await bl.GetVehicleownerdetailbycode(Custcode);
+            model.Vehicles = await bl.GetViewcompanyvehiclesdetailbycode(Custcode);
+            model.Nextofkin = await bl.GetViewnextofkinsdetailbycode(Custcode);
+            return View(model);
+        }
+        [HttpGet]
+        public async Task<IActionResult> Companycustomerdetails(long Custcode)
+        {
+            Viewcompanycustomerdetails model = new Viewcompanycustomerdetails();
+            model.Customer = new Viewcompanycustomers();
+            model.Nextofkin = new List<Viewnextofkins>();
+            model.Customer = await bl.GetVehicleownerdetailbycode(Custcode);
+            model.Nextofkin = await bl.GetViewnextofkinsdetailbycode(Custcode);
             return View(model);
         }
 
         [HttpGet]
         public IActionResult Addvehicle(long Customercode)
         {
+            LoadParams();
             Companyvehicles model = new Companyvehicles();
             model.Custcode = Customercode;
             return PartialView("_Addcompvehicle",model);
@@ -111,6 +127,7 @@ namespace Sleeqcarhire.Controllers
         [HttpGet]
         public IActionResult Addnextofkin(long Customercode)
         {
+            LoadParams();
             Supportcustomers model = new Supportcustomers();
             model.Custcode = Customercode;
             return PartialView("_Addnextofkin",model);
@@ -144,6 +161,44 @@ namespace Sleeqcarhire.Controllers
                 Util.LogError("Add Next of kin", ex, true);
             }
             return RedirectToAction("Vehicleownerdetails", new { Custcode = model.Custcode });
+        }
+        [HttpGet]
+        public IActionResult Addnextofkincustomer(long Customercode)
+        {
+            LoadParams();
+            Supportcustomers model = new Supportcustomers();
+            model.Custcode = Customercode;
+            return PartialView("_Addnextofkincustomer", model);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Addnextofkincustomer(Supportcustomers model)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    model.Createdby = SessionUserData.UserCode;
+                    var resp = await bl.Addnextofkin(model);
+                    if (resp.RespStatus == 0)
+                    {
+                        Success(resp.RespMessage, true);
+                        return RedirectToAction("Companycustomerdetails", new { Custcode = model.Custcode });
+                    }
+                    else if (resp.RespStatus == 1)
+                    {
+                        Danger(resp.RespMessage, true);
+                    }
+                    else
+                    {
+                        Danger("Database error occured. Please contact Admin!", true);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Util.LogError("Add Next of kin", ex, true);
+            }
+            return RedirectToAction("Companycustomerdetails", new { Custcode = model.Custcode });
         }
         #endregion
 
@@ -188,6 +243,32 @@ namespace Sleeqcarhire.Controllers
                 Util.LogError("Add vehicleowner", ex, true);
             }
             return PartialView("_Addcompanycustomer");
+        }
+        #endregion
+
+        #region 
+        [HttpGet]
+        public IActionResult AssignCustomervehicle(long Custcode)
+        {
+            return PartialView("_AssignCustomervehicle",);
+        }
+        #endregion
+
+        #region Other methods
+        private void LoadParams()
+        {
+            var list = bl.GetListModel(ListModelType.Vehiclemakes).Result.Select(x => new SelectListItem
+            {
+                Text = x.Text,
+                Value = x.Value
+            }).ToList();
+            ViewData["Vehiclemakeslists"] = list;
+            list = bl.GetListModel(ListModelType.Relation).Result.Select(x => new SelectListItem
+            {
+                Text = x.Text,
+                Value = x.Value
+            }).ToList();
+            ViewData["Relationlists"] = list;
         }
         #endregion
     }

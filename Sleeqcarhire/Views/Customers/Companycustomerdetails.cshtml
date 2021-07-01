@@ -1,8 +1,7 @@
 ﻿@model DBL.Models.Viewcompanycustomerdetails
 @{
-    ViewData["Title"] = "Vehicleownerdetails";
+    ViewData["Title"] = "Companycustomerdetails";
     Layout = "~/Views/Shared/_Layoutadmin.cshtml";
-   
 }
 <div class="row">
     <div class="col-sm-4">
@@ -37,7 +36,7 @@
         </div>
     </div>
     <div class="col-sm-8">
-        <div class="row">
+        @*<div class="row">
             <div class="col-sm-12">
                 <div class="card table-responsive-sm">
                     <div class="card-header">
@@ -81,7 +80,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>*@
         <div class="row">
             <div class="col-sm-12">
                 <div class="card table-responsive-sm">
@@ -91,7 +90,7 @@
                                 <h5>Kins List</h5>
                             </div>
                             <div class="col-sm-4">
-                                <a href="@Url.Action("Addnextofkin","Customers",new { Customercode=Model.Customer.Custcode})" class="btn btn-sm btn-info float-right" data-bs-target="#AddcustomedataModal" data-bs-toggle="modal">Add Next of Kin</a>
+                                <a href="@Url.Action("Addnextofkincustomer","Customers",new { Customercode=Model.Customer.Custcode})" class="btn btn-sm btn-info float-right" data-bs-target="#AddcustomedataModal" data-bs-toggle="modal">Add Next of Kin</a>
                             </div>
                         </div>
                     </div>
@@ -109,13 +108,13 @@
                             <tbody>
                                 @foreach (var data in Model.Nextofkin)
                                 {
-                                <tr>
-                                    <td>@data.Fullname</td>
-                                    <td>@data.Phonenumber</td>
-                                    <td>@data.Idnumber</td>
-                                    <td>@data.Relname</td>
-                                    <td><a class="btn btn-info btn-sm">Edit</a></td>
-                                </tr>
+                                    <tr>
+                                        <td>@data.Fullname</td>
+                                        <td>@data.Phonenumber</td>
+                                        <td>@data.Idnumber</td>
+                                        <td>@data.Relname</td>
+                                        <td><a class="btn btn-info btn-sm">Edit</a></td>
+                                    </tr>
                                 }
                             </tbody>
                         </table>
