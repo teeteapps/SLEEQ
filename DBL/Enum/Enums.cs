@@ -10,6 +10,7 @@ namespace DBL.Enum
     public enum ListModelType
     {
         Vehiclemakes = 0,
-        Relation=1
+        Relation=1,
+        Availablevehicles=2
     }
 }

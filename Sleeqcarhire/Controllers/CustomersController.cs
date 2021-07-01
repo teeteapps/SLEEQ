@@ -250,6 +250,7 @@ namespace Sleeqcarhire.Controllers
         [HttpGet]
         public IActionResult AssignCustomervehicle(long Custcode)
         {
+            LoadParams();
             Assigncustomercar model = new Assigncustomercar();
             model.Custcode = Custcode;
             return PartialView("_AssignCustomervehicle", model);
@@ -271,6 +272,12 @@ namespace Sleeqcarhire.Controllers
                 Value = x.Value
             }).ToList();
             ViewData["Relationlists"] = list;
+            list = bl.GetListModel(ListModelType.Availablevehicles).Result.Select(x => new SelectListItem
+            {
+                Text = x.Text,
+                Value = x.Value
+            }).ToList();
+            ViewData["Availablevehicleslists"] = list;
         }
         #endregion
     }

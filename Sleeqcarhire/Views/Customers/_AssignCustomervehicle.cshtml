@@ -1,7 +1,7 @@
 ﻿@model DBL.Entities.Assigncustomercar
-@*@{
-    var relationdata = ViewData["Relationlists"] as List<SelectListItem>;
-}*@
+@{
+    var availablecars = ViewData["Availablevehicleslists"] as List<SelectListItem>;
+}
 <div class="modal-header">
     <h5 class="text-sm modal-title" id="allpoliciesModalLabel">Assign Customer Vehicle</h5>
     <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
@@ -13,32 +13,39 @@
         <div class="row">
             <input asp-for="Custcode" hidden />
         </div>
-        @*<div class="row m-2">
+        <div class="row m-2">
             <div class="col-sm-6">
-                <label asp-for="Fullname"></label>
-                <input asp-for="Fullname" class="form-control form-control-sm" />
-                <span asp-validation-for="Fullname" class="text-danger"></span>
+                <label asp-for="Vehiclecode"></label>
+                <select asp-for="Vehiclecode" class="form-control form-control-sm" id="Prodsubcategory" asp-items="@availablecars">
+                    <option value="0">---Select Vehicle---</option>
+                </select>
+                <span asp-validation-for="Vehiclecode" class="text-danger"></span>
             </div>
             <div class="col-sm-6">
-                <label asp-for="Phonenumber"></label>
-                <input asp-for="Phonenumber" class="form-control form-control-sm" />
-                <span asp-validation-for="Phonenumber" class="text-danger"></span>
+                <label asp-for="Whereto"></label>
+                <input asp-for="Whereto" class="form-control form-control-sm" />
+                <span asp-validation-for="Whereto" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row m-2">
+            <div class="col-sm-12">
+                <label asp-for="Wheretodescription"></label>
+                <textarea asp-for="Wheretodescription" class="form-control form-control-sm" ></textarea>
+                <span asp-validation-for="Wheretodescription" class="text-danger"></span>
             </div>
         </div>
         <div class="row m-2">
             <div class="col-sm-6">
-                <label asp-for="Idnumber"></label>
-                <input asp-for="Idnumber" class="form-control form-control-sm" />
-                <span asp-validation-for="Idnumber" class="text-danger"></span>
+                <label asp-for="Startdate"></label>
+                <input asp-for="Startdate" type="date" class="form-control form-control-sm" />
+                <span asp-validation-for="Startdate" class="text-danger"></span>
             </div>
             <div class="col-sm-6">
-                <label asp-for="Relation"></label>
-                <select asp-for="Relation" class="form-control form-control-sm" id="Prodsubcategory" asp-items="@relationdata">
-                    <option value="0">---Select Relation---</option>
-                </select>
-                <span asp-validation-for="Relation" class="text-danger"></span>
+                <label asp-for="Enddate"></label>
+                <input asp-for="Enddate" type="date" class="form-control form-control-sm" />
+                <span asp-validation-for="Enddate" class="text-danger"></span>
             </div>
-        </div>*@
+        </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal">Close</button>
