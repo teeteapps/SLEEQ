@@ -41,11 +41,11 @@ namespace DBL.Repositories
         IEnumerable<Viewcompanycustomers> Getcompanycustomerslist();
         #endregion
 
-        #region Vehicle Models and makes
+        #region Vehicle Types
         IEnumerable<VehicleMakes> Getvehiclemakelist();
-        GenericModel Addvehiclemake(VehicleMakes entity);
+        GenericModel Addvehicletype(Compvehicletypes entity);
         VehicleMakes Getvehiclemakebycode(long makecode);
-     GenericModel Editvehiclemake(VehicleMakes entity);
+        GenericModel Editvehicletype(Compvehicletypes entity);
         #endregion
 
     }

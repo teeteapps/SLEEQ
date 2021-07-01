@@ -255,6 +255,11 @@ namespace Sleeqcarhire.Controllers
             model.Custcode = Custcode;
             return PartialView("_AssignCustomervehicle", model);
         }
+        [HttpPost]
+        public IActionResult Assignvehicledetails(Assigncustomercar model)
+        {
+            return PartialView("_Assignvehicledetails", model);
+        }
         #endregion
 
         #region Other methods

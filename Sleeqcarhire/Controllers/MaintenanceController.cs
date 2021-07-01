@@ -121,65 +121,79 @@ namespace Sleeqcarhire.Controllers
             return View();
         }
 
-        #region Vehicle models and makes
+        #region Vehicle Types
         [HttpGet]
-        public async Task<IActionResult> Vehiclemakelist()
+        public async Task<IActionResult> Vehicletypelist()
         {
             var data = await bl.Getvehiclemakelist();
             return View(data);
         }
         [HttpGet]
-        public IActionResult Addvehiclemake()
+        public IActionResult Addvehicletype()
         {
-            return PartialView("_Addvehiclemake");
+            LoadParams();
+            return PartialView("_Addvehicletype");
         }
         [HttpPost]
-        public async Task<IActionResult> Addvehiclemake(VehicleMakes model)
+        public async Task<IActionResult> Addvehicletype(Compvehicletypes model)
         {
-            model.Createdby = SessionUserData.UserCode;
-            var resp = await bl.Addvehiclemake(model);
-            if (resp.RespStatus == 0)
+            try
             {
-                Success(resp.RespMessage, true);
-                return RedirectToAction("Vehiclemakelist");
+                if (ModelState.IsValid)
+                {
+                    var fileName = "";
+                    var filepath = "";
+                    var newFileName = "";
+                    string uploadPath = "~/VehicleImages/";
+                    model.Createdby = SessionUserData.UserCode;
+                    if (model.Vehicleimage.Length > 0)
+                    {
+                        var image = Image.Load(model.Vehicleimage.OpenReadStream());
+                        image.Mutate(x => x.Resize(600, 400));
+                        //Assigning Unique Filename (Guid)
+                        var myUniqueFileName = Convert.ToString(Guid.NewGuid());
+                        // concatenating  FileName + FileExtension
+                        newFileName = String.Concat(myUniqueFileName, ".png");
+                        // Combines two strings into a path.
+                        filepath = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "VehicleImages")).Root + $@"\{newFileName}";
+                        image.Save(filepath);
+                    }
+                    var uploadfilePath = Path.Combine(uploadPath, newFileName);
+                    model.Imagepath = uploadfilePath;
+                    var resp = await bl.Addvehicletype(model);
+                    if (resp.RespStatus == 0)
+                    {
+                        Success(resp.RespMessage, true);
+                        return RedirectToAction("CompanyvehicleDetails", new { Vehiclecode = Convert.ToInt64(resp.Data1) });
+                    }
+                    else if (resp.RespStatus == 1)
+                    {
+                        Danger(resp.RespMessage, true);
+                    }
+                    else
+                    {
+                        Danger("Database Error Occured. Kindly Contact Admin", true);
+                    }
+                }
             }
-            else if (resp.RespStatus == 1)
+            catch (Exception ex)
             {
-                Danger(resp.RespMessage, true);
+                Util.LogError("Addsleeqcar", ex, true);
             }
-            else
-            {
-                Danger("Database Error Occured. Kindly Contact Admin", true);
-            }
-            return RedirectToAction("Vehiclemakelist");
-        }
-        [HttpGet]
-        public async Task<IActionResult> Editvehiclemake(long Makecode)
-        {
-            var data = await bl.Getvehiclemakebycode(Makecode);
-            return PartialView("_Editvehiclemake",data);
-        }
-        [HttpPost]
-        public async Task<IActionResult> Editvehiclemake(VehicleMakes model)
-        {
-            var resp = await bl.Editvehiclemake(model);
-            if (resp.RespStatus == 0)
-            {
-                Success(resp.RespMessage, true);
-                return RedirectToAction("Vehiclemakelist");
-            }
-            else if (resp.RespStatus == 1)
-            {
-                Danger(resp.RespMessage, true);
-            }
-            else
-            {
-                Danger("Database Error Occured. Kindly Contact Admin", true);
-            }
-            return RedirectToAction("Vehiclemakelist");
+            return View();
         }
         #endregion
 
-        
+        #region Other methods
+        private void LoadParams()
+        {
+            var list = bl.GetListModel(ListModelType.Vehicletype).Result.Select(x => new SelectListItem
+            {
+                Text = x.Text,
+                Value = x.Value
+            }).ToList();
+            ViewData["Vehicletypeslists"] = list;
+        }
+        #endregion
     }
 }

@@ -190,7 +190,7 @@ namespace DBL
         }
         #endregion
 
-        #region Vehicle Models and Makes
+        #region Vehicle Types
         public Task<IEnumerable<VehicleMakes>> Getvehiclemakelist()
         {
             return Task.Run(() =>
@@ -199,27 +199,11 @@ namespace DBL
                 return Resp;
             });
         }
-        public Task<GenericModel> Addvehiclemake(VehicleMakes obj)
+        public Task<GenericModel> Addvehicletype(Compvehicletypes obj)
         {
             return Task.Run(() =>
             {
-                var Resp = db.MaintenanceRepository.Addvehiclemake(obj);
-                return Resp;
-            });
-        }
-        public Task<VehicleMakes> Getvehiclemakebycode(long makecode)
-        {
-            return Task.Run(() =>
-            {
-                var Resp = db.MaintenanceRepository.Getvehiclemakebycode(makecode);
-                return Resp;
-            });
-        }
-        public Task<GenericModel> Editvehiclemake(VehicleMakes obj)
-        {
-            return Task.Run(() =>
-            {
-                var Resp = db.MaintenanceRepository.Editvehiclemake(obj);
+                var Resp = db.MaintenanceRepository.Addvehicletype(obj);
                 return Resp;
             });
         }

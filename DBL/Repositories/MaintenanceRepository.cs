@@ -180,7 +180,7 @@ namespace DBL.Repositories
         #endregion
 
 
-        #region Vehicle Models and Makes
+        #region Vehicle Types
         public IEnumerable<VehicleMakes> Getvehiclemakelist()
         {
             using (var connection = new SqlConnection(_connString))
@@ -189,15 +189,18 @@ namespace DBL.Repositories
                 return connection.Query<VehicleMakes>(GetAllStatement(VehicleMakes.TableName)).ToList();
             }
         }
-        public GenericModel Addvehiclemake(VehicleMakes entity)
+        public GenericModel Addvehicletype(Compvehicletypes entity)
         {
             using (var connection = new SqlConnection(_connString))
             {
                 connection.Open();
                 DynamicParameters parameters = new DynamicParameters();
-                parameters.Add("@Makename", entity.Makename);
+                parameters.Add("@Typename", entity.Typename);
+                parameters.Add("@Capacity", entity.Capacity);
+                parameters.Add("@Cartype", entity.Cartype);
+                parameters.Add("@Imagepath", entity.Imagepath);
                 parameters.Add("@Createdby", entity.Createdby);
-                return connection.Query<GenericModel>("Usp_Addvehiclemake", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                return connection.Query<GenericModel>("Usp_Addvehicletype", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
         }
         public VehicleMakes Getvehiclemakebycode(long makecode)
@@ -205,18 +208,22 @@ namespace DBL.Repositories
             using (var connection = new SqlConnection(_connString))
             {
                 connection.Open();
-                return connection.Query<VehicleMakes>(FindStatement(VehicleMakes.TableName, "Makecode"), new { Id = makecode }).FirstOrDefault();
+                return connection.Query<VehicleMakes>(FindStatement(VehicleMakes.TableName, "Typecode"), new { Id = makecode }).FirstOrDefault();
             }
         }
-        public GenericModel Editvehiclemake(VehicleMakes entity)
+        public GenericModel Editvehicletype(Compvehicletypes entity)
         {
             using (var connection = new SqlConnection(_connString))
             {
                 connection.Open();
                 DynamicParameters parameters = new DynamicParameters();
-                parameters.Add("@Makecode", entity.Makecode);
-                parameters.Add("@Makename", entity.Makename);
-                return connection.Query<GenericModel>("Usp_Editvehiclemake", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                parameters.Add("@Typecode", entity.Typecode);
+                parameters.Add("@Typename", entity.Typename);
+                parameters.Add("@Capacity", entity.Capacity);
+                parameters.Add("@Cartype", entity.Cartype);
+                parameters.Add("@Imagepath", entity.Imagepath);
+                parameters.Add("@Createdby", entity.Createdby);
+                return connection.Query<GenericModel>("Usp_Editvehicletype", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
         }
         #endregion

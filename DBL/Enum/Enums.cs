@@ -11,6 +11,7 @@ namespace DBL.Enum
     {
         Vehiclemakes = 0,
         Relation=1,
-        Availablevehicles=2
+        Availablevehicles=2,
+        Vehicletype=3
     }
 }

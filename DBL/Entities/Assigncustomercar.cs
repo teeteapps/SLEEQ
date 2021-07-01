@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,11 @@ namespace DBL.Entities
 		public long Custcode { get; set; }
 		public bool Isassigned { get; set; }
 		public bool Custstatus { get; set; }
+		[DataType(DataType.Date)]
+		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
 		public DateTime Startdate { get; set; }
+		[DataType(DataType.Date)]
+		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
 		public DateTime Enddate { get; set; }
 		public long Hiredays { get; set; }
 		public string Whereto { get; set; }
