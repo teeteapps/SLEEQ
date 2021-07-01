@@ -7,13 +7,12 @@ using System.Threading.Tasks;
 
 namespace DBL.Entities
 {
-    [Table("VehicleModels")]
-    public  class Vehiclemodels
+    [Table("VehicleMakes")]
+    public class VehicleMakes
     {
         [NotMapped]
-        public static string TableName { get { return "VehicleModels"; } }
-        public long Modelcode { get; set; }
+        public static string TableName { get { return "VehicleMakes"; } }
         public long Makecode { get; set; }
-        public string Modelname { get; set; }
+        public string Makename { get; set; }
     }
 }

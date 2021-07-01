@@ -123,24 +123,24 @@ namespace Sleeqcarhire.Controllers
 
         #region Vehicle models and makes
         [HttpGet]
-        public async Task<IActionResult> Vehiclemodelslist()
+        public async Task<IActionResult> Vehiclemakelist()
         {
-            var data = await bl.Getvehiclemodelslist();
+            var data = await bl.Getvehiclemakelist();
             return View(data);
         }
         [HttpGet]
-        public IActionResult Addvehiclemodel()
+        public IActionResult Addvehiclemake()
         {
-            return PartialView("_Addvehiclemodel");
+            return PartialView("_Addvehiclemake");
         }
         [HttpPost]
-        public async Task<IActionResult> Addvehiclemodel(Vehiclemodels model)
+        public async Task<IActionResult> Addvehiclemake(VehicleMakes model)
         {
-            var resp = await bl.Addvehiclemodel(model);
+            var resp = await bl.Addvehiclemake(model);
             if (resp.RespStatus == 0)
             {
                 Success(resp.RespMessage, true);
-                return RedirectToAction("Vehiclemodelslist");
+                return RedirectToAction("Vehiclemakelist");
             }
             else if (resp.RespStatus == 1)
             {
@@ -150,17 +150,32 @@ namespace Sleeqcarhire.Controllers
             {
                 Danger("Database Error Occured. Kindly Contact Admin", true);
             }
-            return View();
+            return RedirectToAction("Vehiclemakelist");
         }
         [HttpGet]
-        public IActionResult Vehiclemodeldetails()
+        public async Task<IActionResult> Editvehiclemake(long Makecode)
         {
-            return PartialView("_Vehiclemodeldetails");
+            var data = await bl.Getvehiclemakebycode(Makecode);
+            return PartialView("_Editvehiclemake",data);
         }
-        [HttpGet]
-        public IActionResult Addvehiclemake()
+        [HttpPost]
+        public async Task<IActionResult> Editvehiclemake(VehicleMakes model)
         {
-            return PartialView("_Addvehiclemake");
+            var resp = await bl.Editvehiclemake(model);
+            if (resp.RespStatus == 0)
+            {
+                Success(resp.RespMessage, true);
+                return RedirectToAction("Vehiclemakelist");
+            }
+            else if (resp.RespStatus == 1)
+            {
+                Danger(resp.RespMessage, true);
+            }
+            else
+            {
+                Danger("Database Error Occured. Kindly Contact Admin", true);
+            }
+            return RedirectToAction("Vehiclemakelist");
         }
         #endregion
 

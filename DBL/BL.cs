@@ -175,22 +175,39 @@ namespace DBL
         #endregion
 
         #region Vehicle Models and Makes
-        public Task<IEnumerable<Vehiclemodels>> Getvehiclemodelslist()
+        public Task<IEnumerable<VehicleMakes>> Getvehiclemakelist()
         {
             return Task.Run(() =>
             {
-                var Resp = db.MaintenanceRepository.Getvehiclemodelslist();
+                var Resp = db.MaintenanceRepository.Getvehiclemakelist();
                 return Resp;
             });
         }
-        public Task<GenericModel> Addvehiclemodel(Vehiclemodels obj)
+        public Task<GenericModel> Addvehiclemake(VehicleMakes obj)
         {
             return Task.Run(() =>
             {
-                var Resp = db.MaintenanceRepository.Addvehiclemodel(obj);
+                var Resp = db.MaintenanceRepository.Addvehiclemake(obj);
                 return Resp;
             });
         }
+        public Task<VehicleMakes> Getvehiclemakebycode(long makecode)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.MaintenanceRepository.Getvehiclemakebycode(makecode);
+                return Resp;
+            });
+        }
+        public Task<GenericModel> Editvehiclemake(VehicleMakes obj)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.MaintenanceRepository.Editvehiclemake(obj);
+                return Resp;
+            });
+        }
+
         #endregion
 
         #region GetMenus

@@ -5,8 +5,11 @@
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
-<form asp-action="Addvehiclemake" asp-controller="Maintenance" method="post">
+<form asp-action="Editvehiclemake" asp-controller="Maintenance" method="post">
     <div class="modal-body">
+        <div class="row">
+            <input asp-for="Makecode" hidden/>
+        </div>
         <div class="row m-2">
             <div class="col-sm-12">
                 <label asp-for="Makename"></label>
@@ -17,6 +20,6 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal">Close</button>
-        <input type="submit" class="btn btn-sm btn-info" value="Save">
+        <input type="submit" class="btn btn-sm btn-info" value="Update">
     </div>
 </form>

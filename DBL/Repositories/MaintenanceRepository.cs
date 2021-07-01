@@ -153,22 +153,41 @@ namespace DBL.Repositories
 
 
         #region Vehicle Models and Makes
-        public IEnumerable<Vehiclemodels> Getvehiclemodelslist()
+        public IEnumerable<VehicleMakes> Getvehiclemakelist()
         {
             using (var connection = new SqlConnection(_connString))
             {
                 connection.Open();
-                return connection.Query<Vehiclemodels>(GetAllStatement(Vehiclemodels.TableName)).ToList();
+                return connection.Query<VehicleMakes>(GetAllStatement(VehicleMakes.TableName)).ToList();
             }
         }
-        public GenericModel Addvehiclemodel(Vehiclemodels entity)
+        public GenericModel Addvehiclemake(VehicleMakes entity)
         {
             using (var connection = new SqlConnection(_connString))
             {
                 connection.Open();
                 DynamicParameters parameters = new DynamicParameters();
-                parameters.Add("@Firstname", entity.Modelname);
-                return connection.Query<GenericModel>("Usp_AddCompanycustomer", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                parameters.Add("@Makename", entity.Makename);
+                return connection.Query<GenericModel>("Usp_Addvehiclemake", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            }
+        }
+        public VehicleMakes Getvehiclemakebycode(long makecode)
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                return connection.Query<VehicleMakes>(FindStatement(VehicleMakes.TableName, "Makecode"), new { Id = makecode }).FirstOrDefault();
+            }
+        }
+        public GenericModel Editvehiclemake(VehicleMakes entity)
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@Makecode", entity.Makecode);
+                parameters.Add("@Makename", entity.Makename);
+                return connection.Query<GenericModel>("Usp_Editvehiclemake", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
         }
         #endregion

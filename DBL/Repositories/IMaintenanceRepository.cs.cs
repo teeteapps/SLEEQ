@@ -40,8 +40,10 @@ namespace DBL.Repositories
         #endregion
 
         #region Vehicle Models and makes
-        IEnumerable<Vehiclemodels> Getvehiclemodelslist();
-        GenericModel Addvehiclemodel(Vehiclemodels entity);
+        IEnumerable<VehicleMakes> Getvehiclemakelist();
+        GenericModel Addvehiclemake(VehicleMakes entity);
+        VehicleMakes Getvehiclemakebycode(long makecode);
+     GenericModel Editvehiclemake(VehicleMakes entity);
         #endregion
 
     }
