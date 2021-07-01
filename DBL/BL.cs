@@ -137,14 +137,38 @@ namespace DBL
                 return Resp;
             });
         }
-        #endregion
-
-        #region Add Vehicle Owners
         public Task<GenericModel> Addvehicleowner(Companycustomers obj)
         {
             return Task.Run(() =>
             {
                 var Resp = db.MaintenanceRepository.Addvehicleowner(obj);
+                return Resp;
+            });
+        }
+        public Task<GenericModel> Addvehicle(Companyvehicles obj)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.MaintenanceRepository.Addvehicle(obj);
+                return Resp;
+            });
+        }
+        public Task<GenericModel> Addnextofkin(Supportcustomers obj)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.MaintenanceRepository.Addnextofkin(obj);
+                return Resp;
+            });
+        }
+        #endregion
+
+        #region Company Customers
+        public Task<IEnumerable<Viewcompanycustomers>> Getcompanycustomerslist()
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.MaintenanceRepository.Getcompanycustomerslist();
                 return Resp;
             });
         }
@@ -156,6 +180,14 @@ namespace DBL
             return Task.Run(() =>
             {
                 var Resp = db.MaintenanceRepository.Getvehiclemodelslist();
+                return Resp;
+            });
+        }
+        public Task<GenericModel> Addvehiclemodel(Vehiclemodels obj)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.MaintenanceRepository.Addvehiclemodel(obj);
                 return Resp;
             });
         }

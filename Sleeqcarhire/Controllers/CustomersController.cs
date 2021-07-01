@@ -20,6 +20,7 @@ namespace Sleeqcarhire.Controllers
         {
             bl = new BL(Util.GetDbConnString());
         }
+        #region Vehicle Owner Details
         [HttpGet]
         public async Task<IActionResult> Vehicleownerslist()
         {
@@ -77,6 +78,36 @@ namespace Sleeqcarhire.Controllers
             model.Custcode = Customercode;
             return PartialView("_Addcompvehicle",model);
         }
+        [HttpPost]
+        public async Task<IActionResult> Addvehicle(Companyvehicles model)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    model.Createdby = SessionUserData.UserCode;
+                    var resp = await bl.Addvehicle(model);
+                    if (resp.RespStatus == 0)
+                    {
+                        Success(resp.RespMessage, true);
+                        return RedirectToAction("Vehicleownerdetails", new { Custcode = model.Custcode });
+                    }
+                    else if (resp.RespStatus == 1)
+                    {
+                        Danger(resp.RespMessage, true);
+                    }
+                    else
+                    {
+                        Danger("Database error occured. Please contact Admin!", true);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Util.LogError("Add Vehicle", ex, true);
+            }
+            return RedirectToAction("Vehicleownerdetails", new { Custcode = model.Custcode });
+        }
         [HttpGet]
         public IActionResult Addnextofkin(long Customercode)
         {
@@ -84,5 +115,45 @@ namespace Sleeqcarhire.Controllers
             model.Custcode = Customercode;
             return PartialView("_Addnextofkin",model);
         }
+        [HttpPost]
+        public async Task<IActionResult> Addnextofkin(Supportcustomers model)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    model.Createdby = SessionUserData.UserCode;
+                    var resp = await bl.Addnextofkin(model);
+                    if (resp.RespStatus == 0)
+                    {
+                        Success(resp.RespMessage, true);
+                        return RedirectToAction("Vehicleownerdetails", new { Custcode = model.Custcode });
+                    }
+                    else if (resp.RespStatus == 1)
+                    {
+                        Danger(resp.RespMessage, true);
+                    }
+                    else
+                    {
+                        Danger("Database error occured. Please contact Admin!", true);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Util.LogError("Add Next of kin", ex, true);
+            }
+            return RedirectToAction("Vehicleownerdetails", new { Custcode = model.Custcode });
+        }
+        #endregion
+
+        #region Company Customers 
+        [HttpGet]
+        public async Task<IActionResult> Companycustomerlist()
+        {
+            var data = await bl.Getcompanycustomerslist();
+            return View(data);
+        }
+        #endregion
     }
 }

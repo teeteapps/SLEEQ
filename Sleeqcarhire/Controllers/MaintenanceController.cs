@@ -133,6 +133,25 @@ namespace Sleeqcarhire.Controllers
         {
             return PartialView("_Addvehiclemodel");
         }
+        [HttpPost]
+        public async Task<IActionResult> Addvehiclemodel(Vehiclemodels model)
+        {
+            var resp = await bl.Addvehiclemodel(model);
+            if (resp.RespStatus == 0)
+            {
+                Success(resp.RespMessage, true);
+                return RedirectToAction("Vehiclemodelslist");
+            }
+            else if (resp.RespStatus == 1)
+            {
+                Danger(resp.RespMessage, true);
+            }
+            else
+            {
+                Danger("Database Error Occured. Kindly Contact Admin", true);
+            }
+            return View();
+        }
         [HttpGet]
         public IActionResult Vehiclemodeldetails()
         {

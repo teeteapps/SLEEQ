@@ -32,6 +32,10 @@ namespace DBL.Repositories
         {
             return string.Format("Select * From {0} Where {1} = @Id", tableName, idColumn);
         }
+        public string FindStatementnot(string tableName, string idColumn)
+        {
+            return string.Format("Select * From {0} Where {1} != @Id", tableName, idColumn);
+        }
         public string FindStatement(string tableName, string idColumn, int top)
         {
             return string.Format("Select top {2} * From {0} Where {1} = @Id", tableName, idColumn, top);
