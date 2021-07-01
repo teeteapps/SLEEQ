@@ -250,7 +250,9 @@ namespace Sleeqcarhire.Controllers
         [HttpGet]
         public IActionResult AssignCustomervehicle(long Custcode)
         {
-            return PartialView("_AssignCustomervehicle",);
+            Assigncustomercar model = new Assigncustomercar();
+            model.Custcode = Custcode;
+            return PartialView("_AssignCustomervehicle", model);
         }
         #endregion
 

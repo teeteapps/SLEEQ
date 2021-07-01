@@ -10,7 +10,7 @@
                 <a href="@Url.Action("Addcompanycustomer","Customers")" class="btn btn-info btn-sm float-right" data-bs-target="#AddcompanycustomerModal" data-bs-toggle="modal">Add Customer</a>
             </div>
             <div class="card-body table-responsive-sm">
-                <table class="dataTable table table-bordered table-striped text-nowrap nowrap table-sm" id="compnycustomersdata">
+                <table class="dataTable table table-bordered table-striped text-nowrap display compact nowrap table-sm" id="compnycustomersdata">
                     <thead>
                         <tr>
                             <th>Fullname</th>
@@ -28,7 +28,7 @@
                                 <td>@item.Emailadd</td>
                                 <td>@item.Phoneno</td>
                                 <td>@item.Custtypename</td>
-                                <td><a class="btn btn-info btn-xs ml-1" href="@Url.Action("Companycustomerdetails","Customers",new{Custcode=item.Custcode})">Details</a><a class="btn btn-info btn-xs ml-1" href="@Url.Action("Vehicleownerdetails","Customers",new{ownercode=item.Custcode})">Edit</a><a class="btn btn-danger btn-xs ml-1" href="@Url.Action("Vehicleownerdetails","Customers",new{ownercode=item.Custcode})">Delete</a><a class="btn btn-info btn-xs ml-1" href="@Url.Action("AssignCustomervehicle","Customers",new{Custcode=item.Custcode})">Assign Car</a></td>
+                                <td><a class="btn btn-info btn-xs ml-1" href="@Url.Action("Companycustomerdetails","Customers",new{Custcode=item.Custcode})">Details</a><a class="btn btn-info btn-xs ml-1" href="@Url.Action("Vehicleownerdetails","Customers",new{ownercode=item.Custcode})">Edit</a><a class="btn btn-danger btn-xs ml-1" href="@Url.Action("Vehicleownerdetails","Customers",new{ownercode=item.Custcode})">Delete</a><a class="btn btn-info btn-xs ml-1" href="@Url.Action("AssignCustomervehicle","Customers",new{Custcode=item.Custcode})" data-bs-target="#AddcompanycustomerModal" data-bs-toggle="modal">Assign Car</a></td>
                             </tr>
                         }
 
