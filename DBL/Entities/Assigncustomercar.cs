@@ -21,6 +21,7 @@ namespace DBL.Entities
 		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
 		public DateTime Enddate { get; set; }
 		public double Hiredays { get; set; }
+		public string Hiringdays { get; set; }
 		public string Whereto { get; set; }
 		public string Wheretodescription { get; set; }
 		public double Hireamount { get; set; }
@@ -28,6 +29,7 @@ namespace DBL.Entities
 		public long Recievedby { get; set; }
 		public DateTime Recievedtime { get; set; }
 		public DateTime DateHired { get; set; }
+		public string Vehiclereg{ get; set; }
 	}
 
     public class Assigncardata

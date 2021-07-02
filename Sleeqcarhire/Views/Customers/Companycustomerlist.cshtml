@@ -47,6 +47,14 @@
     </div>
 </div>
 
+<div class="modal fade mt-5" id="AssigncompanydetailsModal" tabindex="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" id="ModalBody">
+
+        </div>
+    </div>
+</div>
+
 
 @section Scripts{
     <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
@@ -62,6 +70,12 @@
             $('#AddcompanycustomerModal .modal-content').empty();
         });
         function Assignvehicle() {
+            var Hascarwashdata;
+            if ($('#Hascarwash').prop("checked") == false) {
+                Hascarwashdata: false;
+            } else {
+                Hascarwashdata: false;
+            }
             $.ajax({
                 url: "/Customers/AssignCustomervehicle",
                 data: {
@@ -71,13 +85,16 @@
                     Wheretodescription: $('#Wheretodescription').val(),
                     Startdate: $('#Startdate').val(),
                     Hiredays: $('#Hiredays').val(),
-                    Hascarwash: $('#Hascarwash').val()},
+                    Hascarwash: Hascarwashdata
+                    },
                 type: "POST",
                 success: function (result) {
-                    $("#partial").html(result)
+                    $('#AddcompanycustomerModal').hide();
+                    $('#ModalBody').html(result);
+                    $('#AssigncompanydetailsModal').modal('show');
                 },
                 error: function (xhr, status, error) {
-                    alert("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
+                    alert('Data missing');
                 }
             });
         }

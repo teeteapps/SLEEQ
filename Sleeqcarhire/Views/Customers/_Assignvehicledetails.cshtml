@@ -1,60 +1,52 @@
-﻿@*@model DBL.Entities.Assigncustomercar
-@{
-    var availablecars = ViewData["Availablevehicleslists"] as List<SelectListItem>;
-}
-<div class="modal fade mt-5" id="Assignvehicledetailsmodal" tabindex="-1">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="text-sm modal-title" id="AssignvehicledetailsmodalLabel">Assign Customer Vehicle</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+﻿@model DBL.Entities.Assigncustomercar
+<div class="modal-header">
+    <h5 class="text-sm modal-title" id="AssignvehicledetailsmodalLabel">Assign Customer Vehicle</h5>
+    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<form asp-action="Assignvehicledetails" asp-controller="Customers" method="post">
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-sm-6">
+                <p><span class="fw-bold font-weight-bold text-dark">Vehicle:</span> @Model.Vehiclereg</p>
             </div>
-            <form asp-action="Assignvehicledetails" asp-controller="Customers" method="post">
-                <div class="modal-body">
-                    <div class="row">
-                        <input asp-for="Custcode" hidden />
-                    </div>
-                    <div class="row m-2">
-                        <div class="col-sm-6">
-                            <label asp-for="Vehiclecode"></label>
-                            <select asp-for="Vehiclecode" class="form-control form-control-sm" id="Prodsubcategory" asp-items="@availablecars">
-                                <option value="0">---Select Vehicle---</option>
-                            </select>
-                            <span asp-validation-for="Vehiclecode" class="text-danger"></span>
-                        </div>
-                        <div class="col-sm-6">
-                            <label asp-for="Whereto"></label>
-                            <input asp-for="Whereto" class="form-control form-control-sm" />
-                            <span asp-validation-for="Whereto" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="row m-2">
-                        <div class="col-sm-12">
-                            <label asp-for="Wheretodescription"></label>
-                            <textarea asp-for="Wheretodescription" class="form-control form-control-sm"></textarea>
-                            <span asp-validation-for="Wheretodescription" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="row m-2">
-                        <div class="col-sm-6">
-                            <label asp-for="Startdate"></label>
-                            <input asp-for="Startdate" type="date" class="form-control form-control-sm" />
-                            <span asp-validation-for="Startdate" class="text-danger"></span>
-                        </div>
-                        <div class="col-sm-6">
-                            <label asp-for="Enddate"></label>
-                            <input asp-for="Enddate" type="date" class="form-control form-control-sm" />
-                            <span asp-validation-for="Enddate" class="text-danger"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal">Close</button>
-                    <input type="submit" class="btn btn-sm btn-info" value="Assign">
-                </div>
-            </form>
+            <div class="col-sm-6">
+                <p><span class="fw-bold font-weight-bold text-dark">Destination:</span> @Model.Whereto</p>
+            </div>
         </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <p><span class="fw-bold font-weight-bold text-dark">Destination Description:</span> @Model.Wheretodescription</p>
+            </div>
+            <div class="col-sm-6">
+                <p><span class="fw-bold font-weight-bold text-dark">Start Date:</span> @Model.Startdate</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <p><span class="fw-bold font-weight-bold text-dark">Days:</span> @Model.Hiredays</p>
+            </div>
+            <div class="col-sm-6">
+                <p><span class="fw-bold font-weight-bold text-dark">End Date:</span> @Model.Enddate</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <p><span class="fw-bold font-weight-bold text-dark">Days:</span> @Model.Hiringdays</p>
+            </div>
+            <div class="col-sm-6">
+                <p><span class="fw-bold font-weight-bold text-dark">Total mount:</span> Ksh. @Model.Hireamount</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <input asp-for="Custcode" hidden />
+        </div>
+
     </div>
-</div>*@
+    <div class="modal-footer">
+        <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-sm btn-info" value="Finish">
+    </div>
+</form>
