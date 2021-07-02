@@ -246,18 +246,19 @@ namespace Sleeqcarhire.Controllers
         }
         #endregion
 
-        #region 
+        #region Assign Vehicle
         [HttpGet]
         public IActionResult AssignCustomervehicle(long Custcode)
         {
             LoadParams();
-            Assigncustomercar model = new Assigncustomercar();
+            Assigncardata model = new Assigncardata();
             model.Custcode = Custcode;
             return PartialView("_AssignCustomervehicle", model);
         }
         [HttpPost]
-        public async Task<IActionResult> AssignCustomervehicle(Assigncustomercar obj)
+        public async Task<IActionResult> AssignCustomervehicle(Assigncardata obj)
         {
+            Assigncustomercar model = new Assigncustomercar();
             var data = await bl.GetCompanyvehiclesdetailbycode(obj.Vehiclecode);
             if (data!=null) {
                 var prices = await bl.Getvehicletypehiretermsbycode(data.Typecode);
@@ -266,7 +267,7 @@ namespace Sleeqcarhire.Controllers
                     var a = i++;
                 }
             }
-            return Json(obj);
+            return Json(model);
         }
         #endregion
 

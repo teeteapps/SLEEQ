@@ -34,20 +34,19 @@
         </div>
     </div>
     <div class="row m-2">
-        <div class="col-sm-6">
+        <div class="col-sm-4">
             <label asp-for="Startdate"></label>
             <input asp-for="Startdate" id="Startdate" type="date" class="form-control form-control-sm" />
             <span asp-validation-for="Startdate" class="text-danger"></span>
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-4">
             <label asp-for="Hiredays"></label>
-            <input asp-for="Hiredays" id="Enddate" type="number" class="form-control form-control-sm" />
+            <input asp-for="Hiredays" id="Hiredays" type="number" class="form-control form-control-sm" />
             <span asp-validation-for="Hiredays" class="text-danger"></span>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-4 mt-4">
+            <input asp-for="Hascarwash" id="Hascarwash" type="checkbox" />
             <label asp-for="Hascarwash"></label>
-            <input asp-for="Hascarwash" id="Hiredays" type="checkbox" class="form-control form-control-sm" />
-            <span asp-validation-for="Hascarwash" class="text-danger"></span>
         </div>
     </div>
 </div>

@@ -33,14 +33,25 @@ namespace DBL.Entities
     public class Assigncardata
     {
         public long Custcode { get; set; }
+		[Display(Name ="Vehicle")]
+		[Required(ErrorMessage = "Vehicle registration is required")]
         public long Vehiclecode { get; set; }
-        public string Whereto { get; set; }
-        public string Wheretodescription { get; set; }
+		[Display(Name = "Destination")]
+		[Required(ErrorMessage = "Your Destination is required")]
+		public string Whereto { get; set; }
+		[Display(Name = "Destination Details")]
+		[Required(ErrorMessage = "Your Destination Details is required")]
+		public string Wheretodescription { get; set; }
 		[DataType(DataType.Date)]
 		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+		[Display(Name = "Start Date")]
+		[Required(ErrorMessage = "Your Start Date of Hire is required")]
 		public DateTime Startdate { get; set; }
-        public long Hiredays { get; set; }
-        public bool Hascarwash { get; set; }
+		[Display(Name = "Day(s) of Hire")]
+		[Required(ErrorMessage ="Your Day(s) of Hire is required")]
+		public long Hiredays { get; set; }
+		[Display(Name = "Include Carwash")]
+		public bool Hascarwash { get; set; }
     }
 
 }
