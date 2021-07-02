@@ -47,6 +47,7 @@
     </div>
 </div>
 
+
 @section Scripts{
     <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript">
@@ -60,6 +61,25 @@
             $(this).removeData('bs.modal');
             $('#AddcompanycustomerModal .modal-content').empty();
         });
+        function Assignvehicle() {
+            $.ajax({
+                url: "/Customers/AssignCustomervehicle",
+                data: {
+                    Custcode: $('#Custcode').val(),
+                    Vehiclecode: $('#Vehiclecode').val(),
+                    Whereto: $('#Whereto').val(),
+                    Wheretodescription: $('#Wheretodescription').val(),
+                    Startdate: $('#Startdate').val(),
+                    Enddate: $('#Enddate').val()},
+                type: "POST",
+                success: function (result) {
+                    $("#partial").html(result)
+                },
+                error: function (xhr, status, error) {
+                    alert("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
+                }
+            });
+        }
         $(document).ready(function () {
             $('#compnycustomersdata').DataTable();
         });

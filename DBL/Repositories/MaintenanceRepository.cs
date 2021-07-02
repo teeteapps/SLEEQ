@@ -107,6 +107,7 @@ namespace DBL.Repositories
                 return connection.Query<GenericModel>("Usp_AddCompanycustomer", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
         }
+       
         public GenericModel Addvehicle(Companyvehicles entity)
         {
             using (var connection = new SqlConnection(_connString))
@@ -122,6 +123,14 @@ namespace DBL.Repositories
                 parameters.Add("@Typecode", entity.Typecode);
                 parameters.Add("@Createdby", entity.Createdby);
                 return connection.Query<GenericModel>("Usp_Addvehicle", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            }
+        }
+        public Companyvehicles GetCompanyvehiclesdetailbycode(long Vehiclecode)
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                return connection.Query<Companyvehicles>(FindStatement(Companyvehicles.TableName, "Vehiclecode"), new { Id = Vehiclecode }).FirstOrDefault();
             }
         }
         public GenericModel Addnextofkin(Supportcustomers entity)
@@ -221,6 +230,7 @@ namespace DBL.Repositories
                 return connection.Query<Vehicletypehireterms>(FindStatement(Vehicletypehireterms.TableName, "Typecode"), new { Id = Typecode }).ToList();
             }
         }
+
         #endregion
     }
 }

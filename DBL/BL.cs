@@ -147,6 +147,14 @@ namespace DBL
                 return Resp;
             });
         }
+        public Task<Companyvehicles> GetCompanyvehiclesdetailbycode(long Vehiclecode)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.MaintenanceRepository.GetCompanyvehiclesdetailbycode(Vehiclecode);
+                return Resp;
+            });
+        }
         public Task<GenericModel> Addnextofkin(Supportcustomers obj)
         {
             return Task.Run(() =>

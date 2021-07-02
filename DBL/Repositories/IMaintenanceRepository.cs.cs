@@ -27,6 +27,7 @@ namespace DBL.Repositories
         Viewcompanycustomers GetVehicleownerdetailbycode(long ownercode);
         GenericModel Addvehicleowner(Companycustomers entity);
         GenericModel Addvehicle(Companyvehicles entity);
+        Companyvehicles GetCompanyvehiclesdetailbycode(long Vehiclecode);
         GenericModel Addnextofkin(Supportcustomers entity);
         IEnumerable<Viewcompanyvehicles> GetViewcompanyvehiclesdetailbycode(long ownercode);
         IEnumerable<Viewnextofkins> GetViewnextofkinsdetailbycode(long ownercode);

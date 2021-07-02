@@ -29,4 +29,15 @@ namespace DBL.Entities
 		public DateTime Recievedtime { get; set; }
 		public DateTime DateHired { get; set; }
 	}
+
+	public class Assigncardata
+	{
+		public long Custcode { get; set; }
+		public long Vehiclecode { get; set; }
+		public string Whereto { get; set; }
+		public string Wheretodescription { get; set; }
+		public string Startdate { get; set; }
+		public string Enddate { get; set; }
+	}
+
 }

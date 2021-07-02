@@ -8,47 +8,45 @@
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
-<form asp-action="Assignvehicledetails" asp-controller="Customers" method="post">
-    <div class="modal-body">
-        <div class="row">
-            <input asp-for="Custcode" hidden />
+<div class="modal-body">
+    <div class="row">
+        <input asp-for="Custcode" id="Custcode" hidden />
+    </div>
+    <div class="row m-2">
+        <div class="col-sm-6">
+            <label asp-for="Vehiclecode"></label>
+            <select asp-for="Vehiclecode" class="form-control form-control-sm" id="Vehiclecode" asp-items="@availablecars">
+                <option value="0">---Select Vehicle---</option>
+            </select>
+            <span asp-validation-for="Vehiclecode" class="text-danger"></span>
         </div>
-        <div class="row m-2">
-            <div class="col-sm-6">
-                <label asp-for="Vehiclecode"></label>
-                <select asp-for="Vehiclecode" class="form-control form-control-sm" id="Prodsubcategory" asp-items="@availablecars">
-                    <option value="0">---Select Vehicle---</option>
-                </select>
-                <span asp-validation-for="Vehiclecode" class="text-danger"></span>
-            </div>
-            <div class="col-sm-6">
-                <label asp-for="Whereto"></label>
-                <input asp-for="Whereto" class="form-control form-control-sm" />
-                <span asp-validation-for="Whereto" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="row m-2">
-            <div class="col-sm-12">
-                <label asp-for="Wheretodescription"></label>
-                <textarea asp-for="Wheretodescription" class="form-control form-control-sm" ></textarea>
-                <span asp-validation-for="Wheretodescription" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="row m-2">
-            <div class="col-sm-6">
-                <label asp-for="Startdate"></label>
-                <input asp-for="Startdate" type="date"  class="form-control form-control-sm" />
-                <span asp-validation-for="Startdate" class="text-danger"></span>
-            </div>
-            <div class="col-sm-6">
-                <label asp-for="Enddate"></label>
-                <input asp-for="Enddate" type="date" class="form-control form-control-sm" />
-                <span asp-validation-for="Enddate" class="text-danger"></span>
-            </div>
+        <div class="col-sm-6">
+            <label asp-for="Whereto"></label>
+            <input asp-for="Whereto" id="Whereto" class="form-control form-control-sm" />
+            <span asp-validation-for="Whereto" class="text-danger"></span>
         </div>
     </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal">Close</button>
-        <input type="submit" class="btn btn-sm btn-info" value="Assign">
+    <div class="row m-2">
+        <div class="col-sm-12">
+            <label asp-for="Wheretodescription"></label>
+            <textarea asp-for="Wheretodescription" id="Wheretodescription" class="form-control form-control-sm"></textarea>
+            <span asp-validation-for="Wheretodescription" class="text-danger"></span>
+        </div>
     </div>
-</form>
+    <div class="row m-2">
+        <div class="col-sm-6">
+            <label asp-for="Startdate"></label>
+            <input asp-for="Startdate" id="Startdate" type="date" class="form-control form-control-sm" />
+            <span asp-validation-for="Startdate" class="text-danger"></span>
+        </div>
+        <div class="col-sm-6">
+            <label asp-for="Enddate"></label>
+            <input asp-for="Enddate" id="Enddate" type="date" class="form-control form-control-sm" />
+            <span asp-validation-for="Enddate" class="text-danger"></span>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal">Close</button>
+    <input type="submit" class="btn btn-sm btn-info" onclick="Assignvehicle()" value="Assign">
+</div>
