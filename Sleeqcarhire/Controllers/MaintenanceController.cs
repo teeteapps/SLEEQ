@@ -43,7 +43,6 @@ namespace Sleeqcarhire.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var fileName = "";
                     var filepath = "";
                     var newFileName = "";
                     string uploadPath = "~/VehicleImages/";
@@ -105,7 +104,6 @@ namespace Sleeqcarhire.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var fileName = "";
                     var filepath = "";
                     var newFileName = "";
                     string uploadPath = "~/VehicleImages/";

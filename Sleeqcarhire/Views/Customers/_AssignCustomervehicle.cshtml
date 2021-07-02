@@ -1,4 +1,4 @@
-﻿@model DBL.Entities.Assigncustomercar
+﻿@model DBL.Entities.Assigncardata
 @{
     var availablecars = ViewData["Availablevehicleslists"] as List<SelectListItem>;
 }
@@ -39,10 +39,15 @@
             <input asp-for="Startdate" id="Startdate" type="date" class="form-control form-control-sm" />
             <span asp-validation-for="Startdate" class="text-danger"></span>
         </div>
-        <div class="col-sm-6">
-            <label asp-for="Enddate"></label>
-            <input asp-for="Enddate" id="Enddate" type="date" class="form-control form-control-sm" />
-            <span asp-validation-for="Enddate" class="text-danger"></span>
+        <div class="col-sm-2">
+            <label asp-for="Hiredays"></label>
+            <input asp-for="Hiredays" id="Enddate" type="number" class="form-control form-control-sm" />
+            <span asp-validation-for="Hiredays" class="text-danger"></span>
+        </div>
+        <div class="col-sm-4">
+            <label asp-for="Hascarwash"></label>
+            <input asp-for="Hascarwash" id="Hiredays" type="checkbox" class="form-control form-control-sm" />
+            <span asp-validation-for="Hascarwash" class="text-danger"></span>
         </div>
     </div>
 </div>

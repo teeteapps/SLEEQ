@@ -44,14 +44,15 @@ namespace Sleeqcarhire.Controllers
                 var resp = await bl.Login(model.Emailaddress, model.Password);
                 if (resp.RespStatus == 0)
                 {
-                    UserModel User = new UserModel();
-
-                    User.Subcode = resp.Subcode;
-                    User.PhoneNo = resp.PhoneNo;
-                    User.Email = resp.Email;
-                    User.Fullname = resp.Fullname;
-                    User.profilecode = resp.profilecode;
-                    User.Parentcode = resp.Parentcode;
+                    UserModel User = new UserModel
+                    {
+                        Subcode = resp.Subcode,
+                        PhoneNo = resp.PhoneNo,
+                        Email = resp.Email,
+                        Fullname = resp.Fullname,
+                        profilecode = resp.profilecode,
+                        Parentcode = resp.Parentcode
+                    };
                     SetUserLoggedIn(User, false);
                     if (User.Loginstatus == Convert.ToInt32(UserLoginStatus.Subscribe))
                     {

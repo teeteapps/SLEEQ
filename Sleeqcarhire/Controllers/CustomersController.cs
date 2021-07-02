@@ -255,16 +255,18 @@ namespace Sleeqcarhire.Controllers
             model.Custcode = Custcode;
             return PartialView("_AssignCustomervehicle", model);
         }
-        public async Task<IActionResult> AssignCustomervehicle(Assigncardata obj)
+        [HttpPost]
+        public async Task<IActionResult> AssignCustomervehicle(Assigncustomercar obj)
         {
-            Assigncustomercar model = new Assigncustomercar();
             var data = await bl.GetCompanyvehiclesdetailbycode(obj.Vehiclecode);
             if (data!=null) {
                 var prices = await bl.Getvehicletypehiretermsbycode(data.Typecode);
-               
+                for (int i=0;i<=obj.Hiredays;i++ )
+                {
+                    var a = i++;
+                }
             }
-            
-            return Json(model);
+            return Json(obj);
         }
         #endregion
 
