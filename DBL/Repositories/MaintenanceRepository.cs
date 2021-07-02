@@ -58,33 +58,6 @@ namespace DBL.Repositories
         }
         #endregion
 
-        #region Add Vehicle Hire Days
-        public GenericModel Addvehiclehiredays(Vehiclehiredays entity)
-        {
-            using (var connection = new SqlConnection(_connString))
-            {
-                connection.Open();
-                DynamicParameters parameters = new DynamicParameters();
-                parameters.Add("@Sleeqcarcode", entity.Sleeqcarcode);
-                parameters.Add("@Hirefrom", entity.Hirefrom);
-                parameters.Add("@Hireto", entity.Hireto);
-                parameters.Add("@Hireprice", entity.Hireprice);
-                return connection.Query<GenericModel>("Usp_Addvehiclehiredays", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
-            }
-        }
-        #endregion
-
-        #region Get Vehicles Hire Days
-        public IEnumerable<Vehiclehiredays> GetVehiclehiredaysbycode(long Sleeqcarcode)
-        {
-            using (var connection = new SqlConnection(_connString))
-            {
-                connection.Open();
-                return connection.Query<Vehiclehiredays>(FindStatement(Vehiclehiredays.TableName, "Sleeqcarcode"), new { Id = Sleeqcarcode }).ToList();
-            }
-        }
-        #endregion
-
         #region Vehicles Owner lists
         public IEnumerable<Viewcompanycustomers> GetVehicleownerslist()
         {
@@ -181,12 +154,12 @@ namespace DBL.Repositories
 
 
         #region Vehicle Types
-        public IEnumerable<VehicleMakes> Getvehiclemakelist()
+        public IEnumerable<Compvehicletypes> GetVehicletypelist()
         {
             using (var connection = new SqlConnection(_connString))
             {
                 connection.Open();
-                return connection.Query<VehicleMakes>(GetAllStatement(VehicleMakes.TableName)).ToList();
+                return connection.Query<Compvehicletypes>(GetAllStatement(Compvehicletypes.TableName)).ToList();
             }
         }
         public GenericModel Addvehicletype(Compvehicletypes entity)
@@ -203,12 +176,12 @@ namespace DBL.Repositories
                 return connection.Query<GenericModel>("Usp_Addvehicletype", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
         }
-        public VehicleMakes Getvehiclemakebycode(long makecode)
+        public Compvehicletypes GetVehicletypebycode(long Typecode)
         {
             using (var connection = new SqlConnection(_connString))
             {
                 connection.Open();
-                return connection.Query<VehicleMakes>(FindStatement(VehicleMakes.TableName, "Typecode"), new { Id = makecode }).FirstOrDefault();
+                return connection.Query<Compvehicletypes>(FindStatement(Compvehicletypes.TableName, "Typecode"), new { Id = Typecode }).FirstOrDefault();
             }
         }
         public GenericModel Editvehicletype(Compvehicletypes entity)
@@ -224,6 +197,28 @@ namespace DBL.Repositories
                 parameters.Add("@Imagepath", entity.Imagepath);
                 parameters.Add("@Createdby", entity.Createdby);
                 return connection.Query<GenericModel>("Usp_Editvehicletype", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            }
+        }
+
+        public GenericModel Addvehicletypehireterms(Vehicletypehireterms entity)
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@Typecode", entity.Typecode);
+                parameters.Add("@Hirefrom", entity.Hirefrom);
+                parameters.Add("@Hireto", entity.Hireto);
+                parameters.Add("@Hireprice", entity.Hireprice);
+                return connection.Query<GenericModel>("Usp_Addvehicletypehireterms", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            }
+        }
+        public IEnumerable<Vehicletypehireterms> Getvehicletypehiretermsbycode(long Typecode)
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                return connection.Query<Vehicletypehireterms>(FindStatement(Vehicletypehireterms.TableName, "Typecode"), new { Id = Typecode }).ToList();
             }
         }
         #endregion

@@ -83,49 +83,13 @@ namespace Sleeqcarhire.Controllers
             }
             return View();
         }
-        [HttpGet]
-        public async Task<IActionResult> CompanyvehicleDetails(long Vehiclecode)
-        {
-            Companyvehicledetails data = new Companyvehicledetails();
-            data.sleeq = new Sleeqcars();
-            data.hiredays = new List<Vehiclehiredays>();
-            data.sleeq = await bl.GetCompanyvehiclesbycode(Vehiclecode);
-            data.hiredays = await bl.GetVehiclehiredaysbycode(Vehiclecode);
-            return View(data);
-        }
-        [HttpGet]
-        public IActionResult Addvehiclehiredays(string Sleeqcarcode)
-        {
-            Vehiclehiredays model = new Vehiclehiredays();
-            model.Sleeqcarcode = Convert.ToInt64(Sleeqcarcode);
-            return PartialView("_Addvehiclehiredays", model);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Addvehiclehiredays(Vehiclehiredays model)
-        {
-            var resp = await bl.Addvehiclehiredays(model);
-            if (resp.RespStatus==0)
-            {
-                Success(resp.RespMessage, true);
-                return RedirectToAction("CompanyvehicleDetails", new { Vehiclecode = Convert.ToInt64(model.Sleeqcarcode) });
-            }
-            else if (resp.RespStatus == 1)
-            {
-                Danger(resp.RespMessage, true);
-            }
-            else
-            {
-                Danger("Database Error Occured. Kindly Contact Admin", true);
-            }
-            return View();
-        }
+        
 
         #region Vehicle Types
         [HttpGet]
         public async Task<IActionResult> Vehicletypelist()
         {
-            var data = await bl.Getvehiclemakelist();
+            var data = await bl.GetVehicletypelist();
             return View(data);
         }
         [HttpGet]
@@ -164,7 +128,7 @@ namespace Sleeqcarhire.Controllers
                     if (resp.RespStatus == 0)
                     {
                         Success(resp.RespMessage, true);
-                        return RedirectToAction("CompanyvehicleDetails", new { Vehiclecode = Convert.ToInt64(resp.Data1) });
+                        return RedirectToAction("VehicletypeDetails", new { Typecode = Convert.ToInt64(resp.Data1) });
                     }
                     else if (resp.RespStatus == 1)
                     {
@@ -178,9 +142,45 @@ namespace Sleeqcarhire.Controllers
             }
             catch (Exception ex)
             {
-                Util.LogError("Addsleeqcar", ex, true);
+                Util.LogError("Addvehicletype", ex, true);
             }
             return View();
+        }
+        [HttpGet]
+        public async Task<IActionResult> VehicletypeDetails(long Typecode)
+        {
+            CompanyVehicletypedetails data = new CompanyVehicletypedetails();
+            data.Vehtypes = new Compvehicletypes();
+            data.Hireterms = new List<Vehicletypehireterms>();
+            data.Vehtypes = await bl.GetVehicletypebycode(Typecode);
+            data.Hireterms = await bl.Getvehicletypehiretermsbycode(Typecode);
+            return View(data);
+        }
+        [HttpGet]
+        public IActionResult Addvehicletypehireterms(long Typecode)
+        {
+            Vehicletypehireterms model = new Vehicletypehireterms();
+            model.Typecode = Typecode;
+            return PartialView("_Addvehicletypehireterms",model);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Addvehicletypehireterms(Vehicletypehireterms model)
+        {
+            var resp = await bl.Addvehicletypehireterms(model);
+            if (resp.RespStatus == 0)
+            {
+                Success(resp.RespMessage, true);
+                return RedirectToAction("VehicletypeDetails", new { Typecode = Convert.ToInt64(model.Typecode) });
+            }
+            else if (resp.RespStatus == 1)
+            {
+                Danger(resp.RespMessage, true);
+            }
+            else
+            {
+                Danger("Database Error Occured. Kindly Contact Admin", true);
+            }
+            return RedirectToAction("VehicletypeDetails", new { Typecode = Convert.ToInt64(model.Typecode) });
         }
         #endregion
 

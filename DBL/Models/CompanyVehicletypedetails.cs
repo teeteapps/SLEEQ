@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace DBL.Models
 {
-    public class Companyvehicledetails
+    public class CompanyVehicletypedetails
     {
-        public Sleeqcars sleeq { get; set; }
-        public IEnumerable<Sleeqcars> sleeqcars { get; set; }
+        public Compvehicletypes Vehtypes { get; set; }
+        public IEnumerable<Vehicletypehireterms> Hireterms { get; set; }
     }
 }

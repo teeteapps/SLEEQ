@@ -98,28 +98,6 @@ namespace DBL
         }
         #endregion
 
-        #region add Vehicle Hire Days
-        public Task<GenericModel> Addvehiclehiredays(Vehiclehiredays obj)
-        {
-            return Task.Run(() =>
-            {
-                var Resp = db.MaintenanceRepository.Addvehiclehiredays(obj);
-                return Resp;
-            });
-        }
-        #endregion
-
-        #region Get Vehicles Hire Days
-        public Task<IEnumerable<Vehiclehiredays>> GetVehiclehiredaysbycode(long Sleeqcarcode)
-        {
-            return Task.Run(() =>
-            {
-                var Resp = db.MaintenanceRepository.GetVehiclehiredaysbycode(Sleeqcarcode);
-                return Resp;
-            });
-        }
-        #endregion
-
         #region Vehicle Owners Lists
         public Task<IEnumerable<Viewcompanycustomers>> GetVehicleownerslist()
         {
@@ -191,11 +169,11 @@ namespace DBL
         #endregion
 
         #region Vehicle Types
-        public Task<IEnumerable<VehicleMakes>> Getvehiclemakelist()
+        public Task<IEnumerable<Compvehicletypes>> GetVehicletypelist()
         {
             return Task.Run(() =>
             {
-                var Resp = db.MaintenanceRepository.Getvehiclemakelist();
+                var Resp = db.MaintenanceRepository.GetVehicletypelist();
                 return Resp;
             });
         }
@@ -207,7 +185,30 @@ namespace DBL
                 return Resp;
             });
         }
-
+        public Task<Compvehicletypes> GetVehicletypebycode(long Typecode)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.MaintenanceRepository.GetVehicletypebycode(Typecode);
+                return Resp;
+            });
+        }
+        public Task<GenericModel> Addvehicletypehireterms(Vehicletypehireterms obj)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.MaintenanceRepository.Addvehicletypehireterms(obj);
+                return Resp;
+            });
+        }
+        public Task<IEnumerable<Vehicletypehireterms>> Getvehicletypehiretermsbycode(long Typecode)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.MaintenanceRepository.Getvehicletypehiretermsbycode(Typecode);
+                return Resp;
+            });
+        }
         #endregion
 
         #region GetMenus

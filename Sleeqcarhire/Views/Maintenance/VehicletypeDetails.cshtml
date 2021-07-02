@@ -1,6 +1,6 @@
-﻿@model DBL.Models.Companyvehicledetails
+﻿@model DBL.Models.CompanyVehicletypedetails
 @{
-    ViewData["Title"] = "CompanyvehicleDetails";
+    ViewData["Title"] = "VehicletypeDetails";
     Layout = "~/Views/Shared/_Layoutadmin.cshtml";
 }
 <div class="row">
@@ -9,12 +9,12 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Vehicle Details</h5>
+                        <h5>Vehicle Type Details</h5>
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-12">
-                                <p>@Model.sleeq.Sleeqcar</p>
+                                <p>@Model.Vehtypes.Typename</p>
                             </div>
                         </div>
                     </div>
@@ -29,17 +29,17 @@
                     <div class="card-header">
                         <div class="row">
                             <div class="col-sm-8 float-left">
-                                <h5>Vehicle Hire Prices</h5>
+                                <h5>Vehicle Type Hire Prices</h5>
                             </div>
                             <div class="col-sm-4 float-right">
-                                <a href="@Url.Action("Addvehiclehiredays","Maintenance",new {Sleeqcarcode=Model.sleeq.Sleeqcarcode })" class="btn btn-sm btn-info float-end" data-bs-target="#AddvehiclehiredaysModal" data-bs-toggle="modal">Add Hire Days</a>
+                                <a href="@Url.Action("Addvehicletypehireterms","Maintenance",new {Typecode=Model.Vehtypes.Typecode })" class="btn btn-sm btn-info float-right" data-bs-target="#AddvehicletypehiredaysModal" data-bs-toggle="modal">Add Hire Terms</a>
                             </div>
                         </div>
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-12">
-                                <table class="table table-bordered table-striped" id="vehiclehiredays">
+                                <table class="table table-bordered table-striped display compact nowrap" id="vehiclehireterms">
                                     <thead>
                                         <tr>
                                             <th>Hire Days</th>
@@ -47,7 +47,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach (var item in Model.hiredays)
+                                        @foreach (var item in Model.Hireterms)
                                         {
                                             <tr>
                                                 <td>@item.Hirefrom   -  @item.Hireto</td>
@@ -65,7 +65,7 @@
     </div>
 </div>
 
-<div class="modal fade mt-5" id="AddvehiclehiredaysModal" tabindex="-1">
+<div class="modal fade mt-5" id="AddvehicletypehiredaysModal" tabindex="-1">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
 
@@ -77,18 +77,18 @@
 @section Scripts{
     <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript">
-        $('#AddvehiclehiredaysModal').on('show.bs.modal', function (event) {
+        $('#AddvehicletypehiredaysModal').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget);
             var url = button.attr("href");
             var modal = $(this);
             modal.find('.modal-content').load(url);
         });
-        $('#AddvehiclehiredaysModal').on('hidden.bs.modal', function () {
+        $('#AddvehicletypehiredaysModal').on('hidden.bs.modal', function () {
             $(this).removeData('bs.modal');
-            $('#AddvehiclehiredaysModal .modal-content').empty();
+            $('#AddvehicletypehiredaysModal .modal-content').empty();
         });
         $(document).ready(function () {
-            $('#vehiclehiredays').DataTable();
+            $('#vehiclehireterms').DataTable();
         });
     </script>
 }

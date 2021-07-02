@@ -22,11 +22,6 @@ namespace DBL.Repositories
         Sleeqcars GetCompanyvehiclesbycode(long Sleeqcarcode);
         #endregion
 
-        #region Vehicle Hire Days
-        GenericModel Addvehiclehiredays(Vehiclehiredays entity);
-        IEnumerable<Vehiclehiredays> GetVehiclehiredaysbycode(long Sleeqcarcode);
-        #endregion
-
         #region Vehicle Owner list
         IEnumerable<Viewcompanycustomers> GetVehicleownerslist();
         Viewcompanycustomers GetVehicleownerdetailbycode(long ownercode);
@@ -42,10 +37,12 @@ namespace DBL.Repositories
         #endregion
 
         #region Vehicle Types
-        IEnumerable<VehicleMakes> Getvehiclemakelist();
+        IEnumerable<Compvehicletypes> GetVehicletypelist();
         GenericModel Addvehicletype(Compvehicletypes entity);
-        VehicleMakes Getvehiclemakebycode(long makecode);
+        Compvehicletypes GetVehicletypebycode(long Typecode);
         GenericModel Editvehicletype(Compvehicletypes entity);
+        GenericModel Addvehicletypehireterms(Vehicletypehireterms entity);
+        IEnumerable<Vehicletypehireterms> Getvehicletypehiretermsbycode(long Typecode);
         #endregion
 
     }
