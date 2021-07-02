@@ -12,10 +12,9 @@ namespace DBL.Entities
 	{
 		[NotMapped]
 		public static string TableName { get { return "Vehicletypehireterms"; } }
-		public long Hiretermcode { get; set; }
+		public long Termcode { get; set; }
 		public long Typecode { get; set; }
-		public string Hirefrom { get; set; }
-		public string Hireto { get; set; }
+		public string Hireday { get; set; }
 		public double Hireprice { get; set; }
 	}
 }

@@ -19,7 +19,6 @@ namespace Sleeqcarhire.Controllers
     public class AccountController : BaseController
     {
         private readonly BL bl;
-        string encusercode = "";
         public AccountController()
         {
             bl = new BL(Util.GetDbConnString());

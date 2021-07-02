@@ -216,8 +216,7 @@ namespace DBL.Repositories
                 connection.Open();
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@Typecode", entity.Typecode);
-                parameters.Add("@Hirefrom", entity.Hirefrom);
-                parameters.Add("@Hireto", entity.Hireto);
+                parameters.Add("@Hireday", entity.Hireday);
                 parameters.Add("@Hireprice", entity.Hireprice);
                 return connection.Query<GenericModel>("Usp_Addvehicletypehireterms", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
