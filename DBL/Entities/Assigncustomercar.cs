@@ -25,6 +25,7 @@ namespace DBL.Entities
 		public string Whereto { get; set; }
 		public string Wheretodescription { get; set; }
 		public double Hireamount { get; set; }
+		public double Carwash { get; set; }
 		public long Hiredby { get; set; }
 		public long Recievedby { get; set; }
 		public DateTime Recievedtime { get; set; }

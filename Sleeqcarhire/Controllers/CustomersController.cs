@@ -269,6 +269,14 @@ namespace Sleeqcarhire.Controllers
             model.Wheretodescription = obj.Wheretodescription;
             model.Vehiclereg = data.Regno;
             model.Hiredays = obj.Hiredays;
+            if (obj.Hascarwash)
+            {
+                model.Carwash = 200;
+            }
+            else
+            {
+                model.Carwash = 0;
+            }
             if (data!=null) {
                 var prices = await bl.Getvehicletypehiretermsbycode(data.Typecode);
                 for (var day = model.Startdate; day < model.Enddate; day = day.AddDays(1)) { 
