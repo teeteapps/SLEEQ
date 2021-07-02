@@ -10,10 +10,9 @@ namespace DBL.Entities
     {
         public long Vehiclecode { get; set; }
         public long Custcode { get; set; }
-        public long Modelcode { get; set; }
-        public long Makecode { get; set; }
+        public long Typecode { get; set; }
         public string Regno { get; set; }
-        public string Capacity { get; set; }
+        public string Color { get; set; }
         public string Fueltype { get; set; }
         public string Chasno { get; set; }
         public string Enginesize { get; set; }

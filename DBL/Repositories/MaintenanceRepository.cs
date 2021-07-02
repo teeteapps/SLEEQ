@@ -115,11 +115,11 @@ namespace DBL.Repositories
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@Custcode", entity.Custcode);
                 parameters.Add("@Regno", entity.Regno);
-                parameters.Add("@Capacity", entity.Capacity);
+                parameters.Add("@Color", entity.Color);
                 parameters.Add("@Fueltype", entity.Fueltype);
                 parameters.Add("@Enginesize", entity.Enginesize);
                 parameters.Add("@Chasno", entity.Chasno);
-                parameters.Add("@Makecode", entity.Makecode);
+                parameters.Add("@Typecode", entity.Typecode);
                 parameters.Add("@Createdby", entity.Createdby);
                 return connection.Query<GenericModel>("Usp_Addvehicle", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }

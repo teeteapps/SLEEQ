@@ -1,6 +1,6 @@
 ﻿@model DBL.Entities.Companyvehicles
 @{ 
-    var vehiclemake = ViewData["Vehiclemakeslists"] as List<SelectListItem>;
+    var vehicletype = ViewData["Vehicletypeslists"] as List<SelectListItem>;
 }
 <div class="modal-header">
     <h5 class="text-sm modal-title" id="allpoliciesModalLabel">Add Vehicle</h5>
@@ -14,22 +14,22 @@
             <input asp-for="Custcode" hidden />
         </div>
         <div class="row m-2">
-                <div class="col-sm-6">
-                    <label asp-for="Regno"></label>
-                    <input asp-for="Regno" class="form-control form-control-sm" />
-                    <span asp-validation-for="Regno" class="text-danger"></span>
-                </div>
-                <div class="col-sm-6">
-                    <label asp-for="Capacity"></label>
-                    <input asp-for="Capacity" class="form-control form-control-sm" />
-                    <span asp-validation-for="Capacity" class="text-danger"></span>
-                </div>
+            <div class="col-sm-6">
+                <label asp-for="Regno"></label>
+                <input asp-for="Regno" class="form-control form-control-sm" />
+                <span asp-validation-for="Regno" class="text-danger"></span>
             </div>
+            <div class="col-sm-6">
+                <label asp-for="Fueltype"></label>
+                <input asp-for="Fueltype" class="form-control form-control-sm" />
+                <span asp-validation-for="Fueltype" class="text-danger"></span>
+            </div>
+        </div>
             <div class="row m-2">
                 <div class="col-sm-6">
-                    <label asp-for="Fueltype"></label>
-                    <input asp-for="Fueltype" class="form-control form-control-sm" />
-                    <span asp-validation-for="Fueltype" class="text-danger"></span>
+                    <label asp-for="Color"></label>
+                    <input asp-for="Color" class="form-control form-control-sm" />
+                    <span asp-validation-for="Color" class="text-danger"></span>
                 </div>
                 <div class="col-sm-6">
                     <label asp-for="Enginesize"></label>
@@ -44,11 +44,11 @@
                     <span asp-validation-for="Chasno" class="text-danger"></span>
                 </div>
                 <div class="col-sm-6">
-                    <label asp-for="Makecode"></label>
-                    <select asp-for="Makecode" class="form-control form-control-sm" id="Prodsubcategory" asp-items="@vehiclemake">
+                    <label asp-for="Typecode"></label>
+                    <select asp-for="Typecode" class="form-control form-control-sm" id="Prodsubcategory" asp-items="@vehicletype">
                         <option value="0">---Select Type---</option>
                     </select>
-                    <span asp-validation-for="Makecode" class="text-danger"></span>
+                    <span asp-validation-for="Typecode" class="text-danger"></span>
                 </div>
             </div>
     </div>

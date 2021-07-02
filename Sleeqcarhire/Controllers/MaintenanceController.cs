@@ -187,12 +187,12 @@ namespace Sleeqcarhire.Controllers
         #region Other methods
         private void LoadParams()
         {
-            var list = bl.GetListModel(ListModelType.Vehicletype).Result.Select(x => new SelectListItem
+            var list = bl.GetListModel(ListModelType.Vehiclecapacity).Result.Select(x => new SelectListItem
             {
                 Text = x.Text,
                 Value = x.Value
             }).ToList();
-            ViewData["Vehicletypeslists"] = list;
+            ViewData["Vehiclecapacitylists"] = list;
         }
         #endregion
     }
