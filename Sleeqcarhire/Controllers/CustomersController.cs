@@ -260,6 +260,7 @@ namespace Sleeqcarhire.Controllers
         {
             double price=0;
             double totalprice = 0;
+            List<string> hireDayofweek = new List<string>();
             var data = await bl.GetCompanyvehiclesdetailbycode(obj.Vehiclecode);
             Assigncustomercar model = new Assigncustomercar();
             model.Startdate = obj.Startdate;
@@ -271,12 +272,13 @@ namespace Sleeqcarhire.Controllers
             if (data!=null) {
                 var prices = await bl.Getvehicletypehiretermsbycode(data.Typecode);
                 for (var day = model.Startdate; day < model.Enddate; day = day.AddDays(1)) { 
-                  string Dayofweek=day.DayOfWeek.ToString();
-                    model.Hiringdays = string.Join(',', Dayofweek);
+                   string Dayofweek=day.DayOfWeek.ToString();
                     price = prices.Where(x => x.Hireday.Contains(Dayofweek)).FirstOrDefault().Hireprice;
                     totalprice = totalprice + price;
+                    hireDayofweek.Add(Dayofweek);
                 } 
             }
+            model.Hiringdays = string.Join(',', hireDayofweek);
             model.Hireamount = totalprice;
             return PartialView("_Assignvehicledetails", model);
         }
