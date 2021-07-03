@@ -159,6 +159,29 @@ namespace DBL.Repositories
                 return connection.Query<Viewcompanycustomers>(FindStatement(Viewcompanycustomers.TableName, "Custtype"), new { Id = 300 }).ToList();
             }
         }
+        public GenericModel FinishAssigndetails(Assigncustomercar entity)
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@Vehiclecode", entity.Vehiclecode);
+                parameters.Add("@Custcode", entity.Custcode);
+                parameters.Add("@Vehiclereg", entity.Vehiclereg);
+                parameters.Add("@Whereto", entity.Whereto);
+                parameters.Add("@Wheretodescription", entity.Wheretodescription);
+                parameters.Add("@Hiredays", entity.Hiredays);
+                parameters.Add("@Hiringdays", entity.Hiringdays);
+                parameters.Add("@Hireamount", entity.Hireamount);
+                parameters.Add("@Hireprice", entity.Hireprice);
+                parameters.Add("@Carwash", entity.Carwash);
+                parameters.Add("@Startdate", entity.Startdate);
+                parameters.Add("@Enddate", entity.Enddate);
+                parameters.Add("@Hiredby", entity.Hiredby);
+                parameters.Add("@Recievedby", entity.Recievedby);
+                return connection.Query<GenericModel>("Usp_FinishAssigndetails", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            }
+        }
         #endregion
 
 

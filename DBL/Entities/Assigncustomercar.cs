@@ -12,8 +12,7 @@ namespace DBL.Entities
 		public long Assigncode { get; set; }
 		public long Vehiclecode { get; set; }
 		public long Custcode { get; set; }
-		public bool Isassigned { get; set; }
-		public bool Custstatus { get; set; }
+
 		[DataType(DataType.Date)]
 		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
 		public DateTime Startdate { get; set; }
@@ -21,6 +20,7 @@ namespace DBL.Entities
 		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
 		public DateTime Enddate { get; set; }
 		public double Hiredays { get; set; }
+		public string Hireprice { get; set; }
 		public string Hiringdays { get; set; }
 		public string Whereto { get; set; }
 		public string Wheretodescription { get; set; }

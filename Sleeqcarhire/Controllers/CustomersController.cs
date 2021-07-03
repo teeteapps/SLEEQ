@@ -264,6 +264,7 @@ namespace Sleeqcarhire.Controllers
             double price=0;
             double totalprice = 0;
             List<string> hireDayofweek = new List<string>();
+            List<double> hireDayprice = new List<double>();
             var data = await bl.GetCompanyvehiclesdetailbycode(obj.Vehiclecode);
             Assigncustomercar model = new Assigncustomercar();
             model.Startdate = newDate;
@@ -282,16 +283,49 @@ namespace Sleeqcarhire.Controllers
             }
             if (data!=null) {
                 var prices = await bl.Getvehicletypehiretermsbycode(data.Typecode);
-                for (var day = model.Startdate; day < model.Enddate; day = day.AddDays(1)) { 
+                for (var day = model.Startdate; day < model.Enddate.AddDays(-1); day = day.AddDays(1)) { 
                    string Dayofweek=day.DayOfWeek.ToString();
                     price = prices.Where(x => x.Hireday.Contains(Dayofweek)).FirstOrDefault().Hireprice;
                     totalprice = totalprice + price;
                     hireDayofweek.Add(Dayofweek);
+                    hireDayprice.Add(price);
                 } 
             }
-            model.Hiringdays = string.Join('-', hireDayofweek);
+            model.Hiringdays = string.Join(',', hireDayofweek);
             model.Hireamount = totalprice;
+            model.Hireprice = string.Join(',', hireDayprice);
             return PartialView("_Assignvehicledetails", model);
+        }
+        [HttpPost]
+        public async Task<IActionResult> FinishAssigndetails(Assigncustomercar model)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    model.Hiredby = SessionUserData.UserCode;
+                    model.Recievedby = SessionUserData.UserCode;
+                    var resp = await bl.FinishAssigndetails(model);
+                    if (resp.RespStatus == 0)
+                    {
+                        Success(resp.RespMessage, true);
+                        return RedirectToAction("Companycustomerlist", new { ownercode = Convert.ToInt64(resp.Data1) });
+                    }
+                    else if (resp.RespStatus == 1)
+                    {
+                        Danger(resp.RespMessage, true);
+                    }
+                    else
+                    {
+                        Danger("Database error occured. Please contact Admin!", true);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Util.LogError("Assign Vehicle", ex, true);
+            }
+            return RedirectToAction("Companycustomerlist");
         }
         #endregion
 

@@ -174,6 +174,14 @@ namespace DBL
                 return Resp;
             });
         }
+        public Task<GenericModel> FinishAssigndetails(Assigncustomercar obj)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.MaintenanceRepository.FinishAssigndetails(obj);
+                return Resp;
+            });
+        }
         #endregion
 
         #region Vehicle Types

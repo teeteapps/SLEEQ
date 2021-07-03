@@ -15,15 +15,14 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-4">
+            <p><span class="fw-bold font-weight-bold text-dark">Price:<br /></span> @Model.Hireprice</p>
+        </div>
+        <div class="col-sm-8">
             <p><span class="fw-bold font-weight-bold text-dark">Destination:<br /></span> @Model.Whereto</p>
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-12">
-            <p><span class="fw-bold font-weight-bold text-dark">Destination Description:<br /></span> @Model.Wheretodescription</p>
-        </div>
-    </div>
+   
     <div class="row">
         <div class="col-sm-6">
             <p><span class="fw-bold font-weight-bold text-dark">Start Date: <br /></span> @Model.Startdate</p>
@@ -52,6 +51,7 @@
         <input asp-for="Whereto" hidden />
         <input asp-for="Wheretodescription" hidden />
         <input asp-for="Hiringdays" hidden />
+        <input asp-for="Hireprice" hidden />
         <input asp-for="Hireamount" hidden />
         <input asp-for="Startdate" hidden />
         <input asp-for="Enddate" hidden />
