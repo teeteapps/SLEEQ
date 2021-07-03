@@ -267,7 +267,7 @@ namespace Sleeqcarhire.Controllers
             var data = await bl.GetCompanyvehiclesdetailbycode(obj.Vehiclecode);
             Assigncustomercar model = new Assigncustomercar();
             model.Startdate = newDate;
-            model.Enddate = newDate.AddDays(obj.Hiredays);
+            model.Enddate = newDate.AddDays(obj.Hiredays).AddMinutes(10);
             model.Whereto = obj.Whereto;
             model.Wheretodescription = obj.Wheretodescription;
             model.Vehiclereg = data.Regno;
