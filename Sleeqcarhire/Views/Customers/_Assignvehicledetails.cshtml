@@ -7,39 +7,38 @@
 </div>
 <div class="modal-body">
     <div class="row">
-        <div class="col-sm-6">
-            <p><span class="fw-bold font-weight-bold text-dark">Vehicle:</span> @Model.Vehiclereg</p>
+        <div class="col-sm-4">
+            <p><span class="fw-bold font-weight-bold text-dark">Vehicle:<br /></span> @Model.Vehiclereg</p>
         </div>
-        <div class="col-sm-6">
-            <p><span class="fw-bold font-weight-bold text-dark">Days:</span> @Model.Hiringdays</p>
+        <div class="col-sm-4">
+            <p><span class="fw-bold font-weight-bold text-dark">Days:<br /></span> @Model.Hiringdays</p>
+        </div>
+        <div class="col-sm-4">
+            <p><span class="fw-bold font-weight-bold text-dark">Destination:<br /></span> @Model.Whereto</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <p><span class="fw-bold font-weight-bold text-dark">Destination Description:<br /></span> @Model.Wheretodescription</p>
         </div>
     </div>
     <div class="row">
         <div class="col-sm-6">
-            <p><span class="fw-bold font-weight-bold text-dark">Destination:</span> @Model.Whereto</p>
+            <p><span class="fw-bold font-weight-bold text-dark">Start Date: <br /></span> @Model.Startdate</p>
         </div>
         <div class="col-sm-6">
-            <p><span class="fw-bold font-weight-bold text-dark">Destination Description:</span> @Model.Wheretodescription</p>
-        </div>
-       
-    </div>
-    <div class="row">
-        <div class="col-sm-6">
-            <p><span class="fw-bold font-weight-bold text-dark">Start Date:</span> @Model.Startdate</p>
-        </div>
-        <div class="col-sm-6">
-            <p><span class="fw-bold font-weight-bold text-dark">End Date:</span> @Model.Enddate</p>
+            <p><span class="fw-bold font-weight-bold text-dark">End Date:<br /></span> @Model.Enddate</p>
         </div>
     </div>
     <div class="row">
         <div class="col-sm-4">
-            <p><span class="fw-bold font-weight-bold text-dark">Carwash:</span> Ksh. @Model.Carwash</p>
+            <p><span class="fw-bold font-weight-bold text-dark">Carwash: <br /></span> Ksh. @Model.Carwash</p>
         </div>
         <div class="col-sm-4">
-            <p><span class="fw-bold font-weight-bold text-dark">Hire mount:</span> Ksh. @Model.Hireamount</p>
+            <p><span class="fw-bold font-weight-bold text-dark">Hire mount: <br /></span> Ksh. @Model.Hireamount</p>
         </div>
         <div class="col-sm-4">
-            <p><span class="fw-bold font-weight-bold text-dark">Total mount:</span> Ksh. @(Model.Hireamount + Model.Carwash)</p>
+            <p><span class="fw-bold font-weight-bold text-dark">Total mount: <br /></span> Ksh. @(Model.Hireamount + Model.Carwash)</p>
         </div>
     </div>
 </div>

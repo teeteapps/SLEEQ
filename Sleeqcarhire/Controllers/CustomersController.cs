@@ -258,13 +258,16 @@ namespace Sleeqcarhire.Controllers
         [HttpPost]
         public async Task<IActionResult> AssignCustomervehicle(Assigncardata obj)
         {
+            var dt = DateTime.Now;
+            TimeSpan ts = new TimeSpan(dt.Hour, dt.Minute, dt.Second);
+            DateTime newDate = obj.Startdate.Add(ts);
             double price=0;
             double totalprice = 0;
             List<string> hireDayofweek = new List<string>();
             var data = await bl.GetCompanyvehiclesdetailbycode(obj.Vehiclecode);
             Assigncustomercar model = new Assigncustomercar();
-            model.Startdate = obj.Startdate;
-            model.Enddate= obj.Startdate.AddDays(obj.Hiredays);
+            model.Startdate = newDate;
+            model.Enddate = newDate.AddDays(obj.Hiredays);
             model.Whereto = obj.Whereto;
             model.Wheretodescription = obj.Wheretodescription;
             model.Vehiclereg = data.Regno;
