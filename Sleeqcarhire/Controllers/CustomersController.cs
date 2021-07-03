@@ -289,7 +289,7 @@ namespace Sleeqcarhire.Controllers
                     hireDayofweek.Add(Dayofweek);
                 } 
             }
-            model.Hiringdays = string.Join(',', hireDayofweek);
+            model.Hiringdays = string.Join('-', hireDayofweek);
             model.Hireamount = totalprice;
             return PartialView("_Assignvehicledetails", model);
         }

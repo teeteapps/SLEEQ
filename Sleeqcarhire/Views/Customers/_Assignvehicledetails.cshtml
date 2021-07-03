@@ -10,10 +10,12 @@
         <div class="col-sm-4">
             <p><span class="fw-bold font-weight-bold text-dark">Vehicle:<br /></span> @Model.Vehiclereg</p>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-8">
             <p><span class="fw-bold font-weight-bold text-dark">Days:<br /></span> @Model.Hiringdays</p>
         </div>
-        <div class="col-sm-4">
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
             <p><span class="fw-bold font-weight-bold text-dark">Destination:<br /></span> @Model.Whereto</p>
         </div>
     </div>
@@ -46,6 +48,7 @@
     <div class="row">
         <input asp-for="Custcode" hidden />
         <input asp-for="Vehiclecode" hidden />
+        <input asp-for="Vehiclereg" hidden />
         <input asp-for="Whereto" hidden />
         <input asp-for="Wheretodescription" hidden />
         <input asp-for="Hiringdays" hidden />
