@@ -301,8 +301,8 @@ namespace Sleeqcarhire.Controllers
         {
             try
             {
-                if (ModelState.IsValid)
-                {
+                //if (ModelState.IsValid)
+                //{
                     model.Hiredby = SessionUserData.UserCode;
                     model.Recievedby = SessionUserData.UserCode;
                     var resp = await bl.FinishAssigndetails(model);
@@ -319,7 +319,7 @@ namespace Sleeqcarhire.Controllers
                     {
                         Danger("Database error occured. Please contact Admin!", true);
                     }
-                }
+                //}
             }
             catch (Exception ex)
             {
