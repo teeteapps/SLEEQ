@@ -97,5 +97,7 @@
     <Build Include="dbo\Stored Procedures\Usp_Addsleeqcar.sql" />
     <Build Include="dbo\Stored Procedures\Usp_GenerateRunNo.sql" />
     <Build Include="dbo\Stored Procedures\Usp_Addvehiclehiredays.sql" />
+    <Build Include="dbo\Views\Viewcompanyvehiclesdashboard.sql" />
+    <Build Include="dbo\Views\Viewassignedreciept.sql" />
   </ItemGroup>
 </Project>
