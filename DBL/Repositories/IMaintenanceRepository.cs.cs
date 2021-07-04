@@ -36,6 +36,7 @@ namespace DBL.Repositories
         #region Company Customers
         IEnumerable<Viewcompanycustomers> Getcompanycustomerslist();
         GenericModel FinishAssigndetails(Assigncustomercar entity);
+        Assigncustomercar GetAssignvehicledetailreport(long Assigncode);
         #endregion
 
         #region Vehicle Types

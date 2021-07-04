@@ -182,6 +182,14 @@ namespace DBL
                 return Resp;
             });
         }
+        public Task<Assigncustomercar> GetAssignvehicledetailreport(long Assigncode)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.MaintenanceRepository.GetAssignvehicledetailreport(Assigncode);
+                return Resp;
+            });
+        }
         #endregion
 
         #region Vehicle Types

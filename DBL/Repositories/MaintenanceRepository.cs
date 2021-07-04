@@ -179,7 +179,15 @@ namespace DBL.Repositories
                 parameters.Add("@Enddate", entity.Enddate);
                 parameters.Add("@Hiredby", entity.Hiredby);
                 parameters.Add("@Recievedby", entity.Recievedby);
-                return connection.Query<GenericModel>("Usp_FinishAssigndetails", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                return connection.Query<GenericModel>("Usp_Assigncustomervehicle", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            }
+        }
+        public Assigncustomercar GetAssignvehicledetailreport(long Assigncode)
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                return connection.Query<Assigncustomercar>(FindStatement(Assigncustomercar.TableName, "Sleeqcarcode"), new { Id = Assigncode }).FirstOrDefault();
             }
         }
         #endregion

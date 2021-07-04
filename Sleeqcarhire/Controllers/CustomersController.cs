@@ -309,7 +309,7 @@ namespace Sleeqcarhire.Controllers
                     if (resp.RespStatus == 0)
                     {
                         Success(resp.RespMessage, true);
-                        return RedirectToAction("Companycustomerlist", new { ownercode = Convert.ToInt64(resp.Data1) });
+                        return RedirectToAction("Assignvehicledetailreport", new { Assigncode = Convert.ToInt64(resp.Data1) });
                     }
                     else if (resp.RespStatus == 1)
                     {
@@ -326,6 +326,12 @@ namespace Sleeqcarhire.Controllers
                 Util.LogError("Assign Vehicle", ex, true);
             }
             return RedirectToAction("Companycustomerlist");
+        }
+        [HttpGet]
+        public async Task<IActionResult> Assignvehicledetailreport(long Assigncode)
+        {
+            var data = await bl.GetAssignvehicledetailreport(Assigncode);
+            return View(data);
         }
         #endregion
 

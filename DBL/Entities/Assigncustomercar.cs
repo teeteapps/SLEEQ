@@ -1,23 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DBL.Entities
 {
+	[Table("Assigncustomercar")]
 	public class Assigncustomercar
 	{
+		[NotMapped]
+		public static string TableName { get { return "Assigncustomercar"; } }
 		public long Assigncode { get; set; }
 		public long Vehiclecode { get; set; }
 		public long Custcode { get; set; }
-
-		[DataType(DataType.Date)]
-		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
 		public DateTime Startdate { get; set; }
-		[DataType(DataType.Date)]
-		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
 		public DateTime Enddate { get; set; }
 		public double Hiredays { get; set; }
 		public string Hireprice { get; set; }
