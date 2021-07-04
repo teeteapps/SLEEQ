@@ -187,7 +187,15 @@ namespace DBL.Repositories
             using (var connection = new SqlConnection(_connString))
             {
                 connection.Open();
-                return connection.Query<Assigncustomercar>(FindStatement(Assigncustomercar.TableName, "Sleeqcarcode"), new { Id = Assigncode }).FirstOrDefault();
+                return connection.Query<Assigncustomercar>(FindStatement(Assigncustomercar.TableName, "Assigncode"), new { Id = Assigncode }).FirstOrDefault();
+            }
+        }
+        public IEnumerable<Assigncustomercar> GetAssignvehicledetailData()
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                return connection.Query<Assigncustomercar>(FindStatement(Assigncustomercar.TableName, "Assigncode"), new { Id = 0 }).ToList();
             }
         }
         #endregion

@@ -70,11 +70,10 @@
             $('#AddcompanycustomerModal .modal-content').empty();
         });
         function Assignvehicle() {
-            var Hascarwashdata;
             if ($('#Hascarwash').prop("checked") == false) {
-                Hascarwashdata: false;
+                $('#Hascarwash').val(false);
             } else {
-                Hascarwashdata: false;
+                $('#Hascarwash').val(true);
             }
             $.ajax({
                 url: "/Customers/AssignCustomervehicle",
@@ -85,7 +84,7 @@
                     Wheretodescription: $('#Wheretodescription').val(),
                     Startdate: $('#Startdate').val(),
                     Hiredays: $('#Hiredays').val(),
-                    Hascarwash: Hascarwashdata
+                    Hascarwash: $('#Hascarwash').val()
                     },
                 type: "POST",
                 success: function (result) {

@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[Supportcustomers] (
+    [Idxno]       BIGINT        IDENTITY (1, 1) NOT NULL,
+    [Supcustcode] BIGINT        NOT NULL,
+    [Custcode]    BIGINT        NOT NULL,
+    [Relation]    BIGINT        NOT NULL,
+    [Fullname]    VARCHAR (100) NOT NULL,
+    [Phonenumber] VARCHAR (15)  NOT NULL,
+    [Idnumber]    VARCHAR (100) NULL,
+    [Etra]        VARCHAR (100) NULL,
+    [Etra1]       VARCHAR (100) NULL,
+    [Etra2]       VARCHAR (100) NULL,
+    [Etra3]       VARCHAR (100) NULL,
+    [Etra4]       VARCHAR (100) NULL,
+    [Etra5]       VARCHAR (100) NULL,
+    [Etra6]       VARCHAR (100) NULL,
+    [Etra7]       VARCHAR (100) NULL,
+    [Etra8]       VARCHAR (100) NULL,
+    [Etra9]       VARCHAR (100) NULL,
+    [Etra10]      VARCHAR (100) NULL,
+    [Createdby]   BIGINT        DEFAULT ((100)) NOT NULL,
+    [Datecreated] DATETIME      DEFAULT (getdate()) NOT NULL,
+    PRIMARY KEY CLUSTERED ([Idxno] ASC),
+    UNIQUE NONCLUSTERED ([Supcustcode] ASC)
+);
+

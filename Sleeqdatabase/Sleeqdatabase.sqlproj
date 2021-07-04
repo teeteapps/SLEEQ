@@ -23,6 +23,7 @@
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
     <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -57,5 +58,44 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Views\" />
+    <Folder Include="dbo\Stored Procedures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\Compvehicletypes.sql" />
+    <Build Include="dbo\Tables\Relationships.sql" />
+    <Build Include="dbo\Tables\Supportcustomers.sql" />
+    <Build Include="dbo\Tables\Vehicletypehireterms.sql" />
+    <Build Include="dbo\Tables\Sleeqcarhirestaffs.sql" />
+    <Build Include="dbo\Tables\Menus.sql" />
+    <Build Include="dbo\Tables\Rights.sql" />
+    <Build Include="dbo\Tables\Sleeqvehiclecars.sql" />
+    <Build Include="dbo\Tables\ItemCodes.sql" />
+    <Build Include="dbo\Tables\RunningNos.sql" />
+    <Build Include="dbo\Tables\Sleeqcarshiredays.sql" />
+    <Build Include="dbo\Tables\Sleeqcars.sql" />
+    <Build Include="dbo\Tables\Companyvehicles.sql" />
+    <Build Include="dbo\Tables\Assigncustomercar.sql" />
+    <Build Include="dbo\Tables\Capacity.sql" />
+    <Build Include="dbo\Tables\Companycustomers.sql" />
+    <Build Include="dbo\Views\Viewcompanycustomers.sql" />
+    <Build Include="dbo\Views\Viewcompanyvehicles.sql" />
+    <Build Include="dbo\Views\Viewnextofkins.sql" />
+    <Build Include="dbo\Views\Viewvehicleowners.sql" />
+    <Build Include="dbo\Views\Vw_menus.sql" />
+    <Build Include="dbo\Stored Procedures\Usp_AddCompanycustomer.sql" />
+    <Build Include="dbo\Stored Procedures\Usp_Addnextofkin.sql" />
+    <Build Include="dbo\Stored Procedures\Usp_Addvehicle.sql" />
+    <Build Include="dbo\Stored Procedures\Usp_Addvehicletype.sql" />
+    <Build Include="dbo\Stored Procedures\Usp_Addvehicletypehireterms.sql" />
+    <Build Include="dbo\Stored Procedures\Usp_Assigncustomervehicle.sql" />
+    <Build Include="dbo\Stored Procedures\Usp_Editvehicletype.sql" />
+    <Build Include="dbo\Stored Procedures\Usp_GetListModel.sql" />
+    <Build Include="dbo\Stored Procedures\Usp_VerifyUser.sql" />
+    <Build Include="dbo\Stored Procedures\Usp_Addsleeqcar.sql" />
+    <Build Include="dbo\Stored Procedures\Usp_GenerateRunNo.sql" />
+    <Build Include="dbo\Stored Procedures\Usp_Addvehiclehiredays.sql" />
   </ItemGroup>
 </Project>
