@@ -3,32 +3,23 @@
     ViewData["Title"] = "Assignvehicledetailreport";
     Layout = "~/Views/Shared/_Layoutreciept.cshtml";
 }
-<div class="row">
-    <div class="col-sm-3">
-        <div class="row">
-            <div class="col-sm-12">
-                <h6 class="font-weight-bold text-info">LOGO</h6>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-6">
-        <div class="row">
-            <div class="col-sm-12">
-                <h6 class="font-weight-bold text-info">SLEEQ INTERNATIONAL CARHIRE</h6>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-3">
-        <div class="row">
-            <div class="col-sm-12">
-                <h5 class="font-weight-bold text-warning">INVOICE</h5>
-            </div>
-        </div>
+
+<div class="row border-0">
+    <div class="col-sm-12">
+        <table class="dataTable table table-borderless display compact nowrap"">
+            <thead class="border-0">
+                <tr class="text-center border-0">
+                    <th> <h6 class="font-weight-bold text-info">LOGO</h6></th>
+                    <th><h6 class="font-weight-bold text-info">SLEEQ INTERNATIONAL CARHIRE</h6></th>
+                    <th><h5 class="font-weight-bold text-warning">INVOICE</h5></th>
+                </tr>
+            </thead>
+        </table>
     </div>
 </div>
 
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-7">
         <div class="row">
             <div class="col-sm-12">
                 <p><span class="font-weight-bold text-dark text-sm">NAME:</span> SLEEQ INTERNATIONAL CARHIRE LTD </p>
@@ -36,7 +27,7 @@
         </div>
         <div class="row">
             <div class="col-sm-12">
-                <p><span class="font-weight-bold text-dark text-sm">ADDRESS:</span> SLEEQ INTERNATIONAL CARHIRE LTD </p>
+                <p class="text-sm"><span class="font-weight-bold text-dark text-sm">ADDRESS:</span> SLEEQ INTERNATIONAL CARHIRE LTD </p>
             </div>
         </div>
         <div class="row">
@@ -55,56 +46,69 @@
             </div>
         </div>
     </div>
-
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="row">
-                <div class="col-sm-12">
-                    <table class="dataTable table table-bordered display compact nowrap">
-                        <thead class="btn-info text-white">
-                            <tr><th>BILL TO</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td><span class="font-weight-bold text-dark">NAME: </span>@Model.Customername</td></tr>
-                            <tr><td><span class="font-weight-bold text-dark">TEL: </span>@Model.Phoneno</td></tr>
-                            <tr><td><span class="font-weight-bold text-dark">EMAIL: </span>@Model.Emailadd</td></tr>
-                        </tbody>
-                    </table>
-                </div>
+    <div class="col-sm-5">
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="dataTable table table-bordered display compact nowrap">
+                    <thead class="btn-info text-white">
+                        <tr><th>INVOICE #</th><th>DATE</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><span class="font-weight-bold text-dark">@(Model.Assigncode+ DateTime.Now.ToString("ddMMyyyy"))</span></td><td><span class="font-weight-bold text-dark">@DateTime.Now.ToString("dd/MM/yyyy")</span></td></tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
+</div>
+<div class="row mb-2">
+    <div class="col-sm-6">
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="dataTable table table-bordered display compact nowrap">
+                    <thead class="btn-info text-white">
+                        <tr><th>BILL TO</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><span class="font-weight-bold text-dark">NAME: </span>@Model.Customername</td></tr>
+                        <tr><td><span class="font-weight-bold text-dark">TEL: </span>@Model.Phoneno</td></tr>
+                        <tr><td><span class="font-weight-bold text-dark">EMAIL: </span>@Model.Emailadd</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="row">
-                <div class="col-sm-12">
-                    <table class="dataTable table table-bordered display compact nowrap">
-                        <thead class="btn-info text-white">
-                            <tr><th>WHERE</th><th>DESCRIPTION</th><th>DAYS</th><th>PRICE</th><th>AMOUNT</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>@Model.Whereto</td><td>@Model.Wheretodescription</td><td>@Model.Hiringdays</td><td>@Model.Hiringprice</td><td>@Model.Hiringprice</td></tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <td colspan="3" class="border-0"></td>
-                                <td class="bg-light"><span class="font-weight-bold text-dark text-sm">SUBTOTAL</span></td>
-                                <td class="bg-light"><span class="font-weight-bold text-dark text-sm">KSH. @Model.Hireamount</span></td>
-                            </tr>
-                            <tr>
-                                <td colspan="3" class="border-0"></td>
-                                <td class="bg-light"><span class="font-weight-bold text-dark text-sm">CARWASH</span></td>
-                                <td class="bg-light"><span class="font-weight-bold text-dark text-sm">KSH. @Model.Carwash</span></td>
-                            </tr>
-                            <tr>
-                                <td colspan="3" class="border-0"></td>
-                                <td class="bg-light"><span class="font-weight-bold text-dark text-sm">TOTAL</span></td>
-                                <td class="bg-light"><span class="font-weight-bold text-dark text-sm">KSH. @Model.Totalhireamount</span></td>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="dataTable table table-bordered display compact nowrap">
+                    <thead class="btn-info text-white">
+                        <tr><th>WHERE</th><th>DESCRIPTION</th><th>DAYS</th><th>PRICE</th><th>AMOUNT</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>@Model.Whereto</td><td>@Model.Wheretodescription</td><td>@Model.Hiringdays</td><td>@Model.Hiringprice</td><td>@Model.Hiringprice</td></tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3" class="border-0"></td>
+                            <td class="bg-light"><span class="font-weight-bold text-dark text-sm">SUBTOTAL</span></td>
+                            <td class="bg-light"><span class="font-weight-bold text-dark text-sm">KSH. @Model.Hireamount</span></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="border-0"></td>
+                            <td class="bg-light"><span class="font-weight-bold text-dark text-sm">CARWASH</span></td>
+                            <td class="bg-light"><span class="font-weight-bold text-dark text-sm">KSH. @Model.Carwash</span></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="border-0"></td>
+                            <td class="bg-light"><span class="font-weight-bold text-dark text-sm">TOTAL</span></td>
+                            <td class="bg-light"><span class="font-weight-bold text-dark text-sm">KSH. @Model.Totalhireamount</span></td>
+                        </tr>
+                    </tfoot>
+                </table>
             </div>
         </div>
     </div>
