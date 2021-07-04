@@ -332,6 +332,7 @@ namespace Sleeqcarhire.Controllers
         public async Task<IActionResult> Assignvehicledetailreport(long Assigncode)
         {
             var data = await bl.GetAssignvehicledetailreport(Assigncode);
+           // return View(data);
             return new ViewAsPdf("Assignvehicledetailreport", data);
         }
         

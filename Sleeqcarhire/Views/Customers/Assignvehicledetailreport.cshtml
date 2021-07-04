@@ -6,7 +6,7 @@
 
 <div class="row border-0">
     <div class="col-sm-12">
-        <table class="dataTable table table-borderless display compact nowrap"">
+        <table class="dataTable table table-borderless display compact nowrap" ">
             <thead class="border-0">
                 <tr class="text-center border-0">
                     <th> <h6 class="font-weight-bold text-info">LOGO</h6></th>
@@ -18,38 +18,21 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col-sm-7">
-        <div class="row">
-            <div class="col-sm-12">
-                <p><span class="font-weight-bold text-dark text-sm">NAME:</span> SLEEQ INTERNATIONAL CARHIRE LTD </p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12">
-                <p class="text-sm"><span class="font-weight-bold text-dark text-sm">ADDRESS:</span> SLEEQ INTERNATIONAL CARHIRE LTD </p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12">
-                <p><span class="font-weight-bold text-dark text-sm">TEL:</span> SLEEQ INTERNATIONAL CARHIRE LTD </p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12">
-                <p><span class="font-weight-bold text-dark text-sm">EMAIL:</span> SLEEQ INTERNATIONAL CARHIRE LTD </p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12">
-                <p><span class="font-weight-bold text-dark text-sm">LOCATION:</span> SLEEQ INTERNATIONAL CARHIRE LTD </p>
-            </div>
-        </div>
+<div class="row mb-2">
+    <div class="col-sm-8">
+        <table class="dataTable table table-bordered display compact nowrap">
+            <thead class="btn-info text-white">
+            </thead>
+            <tbody>
+                <tr><td><span class="font-weight-bold text-dark">NAME: </span>SLEEQ INTERNATIONAL CARHIRE LTD</td><td><span class="font-weight-bold text-dark">TEL: </span>+254-714-234-435</td></tr>
+                <tr><td><span class="font-weight-bold text-dark">EMAIL: </span>info@sleeqinternational.com</td><td><span class="font-weight-bold text-dark">LOCATION: </span>Wanjukuu Plaza,Githurai 45.</td></tr>
+            </tbody>
+        </table>
     </div>
-    <div class="col-sm-5">
+    <div class="col-sm-4">
         <div class="row">
             <div class="col-sm-12">
-                <table class="dataTable table table-bordered display compact nowrap">
+                <table class="dataTable table table-bordered display compact nowrap text-center">
                     <thead class="btn-info text-white">
                         <tr><th>INVOICE #</th><th>DATE</th></tr>
                     </thead>
@@ -63,53 +46,69 @@
 </div>
 <div class="row mb-2">
     <div class="col-sm-6">
-        <div class="row">
-            <div class="col-sm-12">
-                <table class="dataTable table table-bordered display compact nowrap">
-                    <thead class="btn-info text-white">
-                        <tr><th>BILL TO</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td><span class="font-weight-bold text-dark">NAME: </span>@Model.Customername</td></tr>
-                        <tr><td><span class="font-weight-bold text-dark">TEL: </span>@Model.Phoneno</td></tr>
-                        <tr><td><span class="font-weight-bold text-dark">EMAIL: </span>@Model.Emailadd</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        <table class="dataTable table table-bordered display compact nowrap">
+            <thead class="btn-info text-white">
+                <tr><th>BILL TO</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="font-weight-bold text-dark">NAME: </span>@Model.Customername</td></tr>
+                <tr><td><span class="font-weight-bold text-dark">TEL: </span>@Model.Phoneno</td></tr>
+                <tr><td><span class="font-weight-bold text-dark">EMAIL: </span>@Model.Emailadd</td></tr>
+            </tbody>
+        </table>
     </div>
 </div>
 
 <div class="row">
-    <div class="col-sm-6">
-        <div class="row">
-            <div class="col-sm-12">
-                <table class="dataTable table table-bordered display compact nowrap">
-                    <thead class="btn-info text-white">
-                        <tr><th>WHERE</th><th>DESCRIPTION</th><th>DAYS</th><th>PRICE</th><th>AMOUNT</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>@Model.Whereto</td><td>@Model.Wheretodescription</td><td>@Model.Hiringdays</td><td>@Model.Hiringprice</td><td>@Model.Hiringprice</td></tr>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="3" class="border-0"></td>
-                            <td class="bg-light"><span class="font-weight-bold text-dark text-sm">SUBTOTAL</span></td>
-                            <td class="bg-light"><span class="font-weight-bold text-dark text-sm">KSH. @Model.Hireamount</span></td>
-                        </tr>
-                        <tr>
-                            <td colspan="3" class="border-0"></td>
-                            <td class="bg-light"><span class="font-weight-bold text-dark text-sm">CARWASH</span></td>
-                            <td class="bg-light"><span class="font-weight-bold text-dark text-sm">KSH. @Model.Carwash</span></td>
-                        </tr>
-                        <tr>
-                            <td colspan="3" class="border-0"></td>
-                            <td class="bg-light"><span class="font-weight-bold text-dark text-sm">TOTAL</span></td>
-                            <td class="bg-light"><span class="font-weight-bold text-dark text-sm">KSH. @Model.Totalhireamount</span></td>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
-        </div>
+    <div class="col-sm-12">
+        <table class="dataTable table table-bordered display compact nowrap">
+            <thead class="btn-info text-white">
+                <tr><th>WHERE</th><th>DESCRIPTION</th><th>DAYS</th><th>PRICE</th><th>AMOUNT</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>@Model.Whereto</td><td>@Model.Wheretodescription</td><td>@Model.Hiringdays</td><td>@Model.Hiringprice</td><td>@Model.Hiringprice</td></tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3" class="border-0"></td>
+                    <td class="bg-light"><span class="font-weight-bold text-dark text-sm">SUBTOTAL</span></td>
+                    <td class="bg-light"><span class="font-weight-bold text-dark text-sm">KSH. @Model.Hireamount</span></td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="border-0"></td>
+                    <td class="bg-light"><span class="font-weight-bold text-dark text-sm">CARWASH</span></td>
+                    <td class="bg-light"><span class="font-weight-bold text-dark text-sm">KSH. @Model.Carwash</span></td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="border-0"></td>
+                    <td class="bg-light"><span class="font-weight-bold text-dark text-sm">TOTAL</span></td>
+                    <td class="bg-light"><span class="font-weight-bold text-dark text-sm">KSH. @Model.Totalhireamount</span></td>
+                </tr>
+            </tfoot>
+        </table>
     </div>
+</div>
+
+<div class="row mt-2">
+    <table class="dataTable table table-bordered display compact nowrap">
+        <thead>
+            <tr><th>RIGHT THUMB</th><th>LEFT THUMB</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td width="50%" height="150" class="border-1"></td>
+                <td width="50%" height="150" class="border-1"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="row mt-2">
+    <table class="dataTable table table-bordered display compact nowrap">
+        <tbody>
+            <tr>
+                <td width="30%">Signature :</td>
+                <td width="70%" height="30" class="border-1"></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
