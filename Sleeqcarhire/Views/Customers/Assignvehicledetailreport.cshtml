@@ -17,17 +17,18 @@
         <main role="main" class="pb-3">
             <div class="row">
                 <div class="col-sm-12">
-                    <table>
+                    <table class="table table-bordered table-striped display compact nowrap">
                         <thead>
                             <tr>
                                 <th>@Model.Customername</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody></tbody>
+                        <tfoot>
                             <tr><td><span class="font-weight-bold text-dark">Ksh. </span>@Model.Hireamount.ToString("#,##0.00")</td></tr>
-                            <tr><td class="border-bottom"><span class="font-weight-bold text-dark">Ksh. </span>  @Model.Carwash.ToString("#,##0.00")</td></tr>
+                            <tr><td class="border-bottom"><span class="font-weight-bold text-dark">Ksh. </span>@Model.Carwash.ToString("#,##0.00")</td></tr>
                             <tr><td><span class="font-weight-bold text-dark">Ksh. </span>@Model.Totalhireamount.ToString("#,##0.00")</td></tr>
-                        </tbody>
+                        </tfoot>
                     </table>
                 </div>
             </div>
