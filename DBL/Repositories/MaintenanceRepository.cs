@@ -184,7 +184,6 @@ namespace DBL.Repositories
         }
         #endregion
 
-
         #region Vehicle Types
         public IEnumerable<Compvehicletypes> GetVehicletypelist()
         {
