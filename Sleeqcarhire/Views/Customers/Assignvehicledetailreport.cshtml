@@ -44,27 +44,27 @@
                 <div class="col-sm-6">
                     <div class="row">
                         <div class="col-sm-12">
-                            <p><span>NAME:</span> SLEEQ INTERNATIONAL CARHIRE LTD </p>
+                            <p><span class="font-weight-bold text-dark">NAME:</span> SLEEQ INTERNATIONAL CARHIRE LTD </p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
-                            <p><span>ADDRESS:</span> SLEEQ INTERNATIONAL CARHIRE LTD </p>
+                            <p><span class="font-weight-bold text-dark">ADDRESS:</span> SLEEQ INTERNATIONAL CARHIRE LTD </p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
-                            <p><span>TEL:</span> SLEEQ INTERNATIONAL CARHIRE LTD </p>
+                            <p><span class="font-weight-bold text-dark">TEL:</span> SLEEQ INTERNATIONAL CARHIRE LTD </p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
-                            <p><span>EMAIL:</span> SLEEQ INTERNATIONAL CARHIRE LTD </p>
+                            <p><span class="font-weight-bold text-dark">EMAIL:</span> SLEEQ INTERNATIONAL CARHIRE LTD </p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
-                            <p><span>LOCATION:</span> SLEEQ INTERNATIONAL CARHIRE LTD </p>
+                            <p><span class="font-weight-bold text-dark">LOCATION:</span> SLEEQ INTERNATIONAL CARHIRE LTD </p>
                         </div>
                     </div>
                 </div>
@@ -73,14 +73,14 @@
                     <div class="col-sm-6">
                         <div class="row">
                             <div class="col-sm-12">
-                                <table class="table table-bordered table-striped display compact nowrap">
+                                <table class="table table-bordered display compact nowrap">
                                     <thead>
                                         <tr><th>BILL TO</th></tr>
                                     </thead>
                                     <tbody>
-                                        <tr><td><span>NAME:</span>@Model.Customername</td></tr>
-                                        <tr><td><span>TEL:</span>@Model.Phoneno</td></tr>
-                                        <tr><td><span>EMAIL:</span>@Model.Emailadd</td></tr>
+                                        <tr><td><span class="font-weight-bold text-dark">NAME:</span>@Model.Customername</td></tr>
+                                        <tr><td><span class="font-weight-bold text-dark">TEL:</span>@Model.Phoneno</td></tr>
+                                        <tr><td><span class="font-weight-bold text-dark">EMAIL:</span>@Model.Emailadd</td></tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -92,42 +92,28 @@
                     <div class="col-sm-6">
                         <div class="row">
                             <div class="col-sm-12">
-                                <table class="table table-bordered table-striped display compact nowrap">
+                                <table class="table table-bordered display compact nowrap">
                                     <thead>
-                                        <tr><th>WHERE</th></tr>
-                                        <tr><th>DESCRIPTION</th></tr>
-                                        <tr><th>DAYS</th></tr>
-                                        <tr><th>PRICE</th></tr>
-                                        <tr><th>AMOUNT</th></tr>
+                                        <tr><th>WHERE</th><th>DESCRIPTION</th><th>DAYS</th><th>PRICE</th><th>AMOUNT</th></tr>
                                     </thead>
                                     <tbody>
-                                        <tr><td>@Model.Whereto</td></tr>
-                                        <tr><td>@Model.Wheretodescription</td></tr>
-                                        <tr><td>@Model.Hiringdays</td></tr>
-                                        <tr><td>@Model.Hiringprice</td></tr>
-                                        <tr><td>@Model.Hiringprice</td></tr>
+                                        <tr><td>@Model.Whereto</td><td>@Model.Wheretodescription</td><td>@Model.Hiringdays</td><td>@Model.Hiringprice</td><td>@Model.Hiringprice</td></tr>
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td>SUBTOTAL</td>
-                                            <td>@Model.Hireamount</td>
+                                            <td colspan="3"></td>
+                                            <td><span class="font-weight-bold text-dark">SUBTOTAL</span></td>
+                                            <td><span class="font-weight-bold text-dark text-sm">KSH. @Model.Hireamount</span></td>
                                         </tr>
                                         <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td>CARWASH</td>
-                                            <td>@Model.Carwash</td>
+                                            <td colspan="3"></td>
+                                            <td><span class="font-weight-bold text-dark">CARWASH</span></td>
+                                            <td><span class="font-weight-bold text-dark text-sm">KSH. @Model.Carwash</span></td>
                                         </tr>
                                         <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td>TOTAL</td>
-                                            <td><span>KSH </span>@Model.Totalhireamount</td>
+                                            <td colspan="3"></td>
+                                            <td><span class="font-weight-bold text-dark">TOTAL</span></td>
+                                            <td><span class="font-weight-bold text-dark text-sm">KSH. @Model.Totalhireamount</span></td>
                                         </tr>
                                     </tfoot>
                                 </table>
