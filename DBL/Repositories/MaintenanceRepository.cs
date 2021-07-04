@@ -182,20 +182,20 @@ namespace DBL.Repositories
                 return connection.Query<GenericModel>("Usp_Assigncustomervehicle", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
         }
-        public Assigncustomercar GetAssignvehicledetailreport(long Assigncode)
+        public Viewassignedreciept GetAssignvehicledetailreport(long Assigncode)
         {
             using (var connection = new SqlConnection(_connString))
             {
                 connection.Open();
-                return connection.Query<Assigncustomercar>(FindStatement(Assigncustomercar.TableName, "Assigncode"), new { Id = Assigncode }).FirstOrDefault();
+                return connection.Query<Viewassignedreciept>(FindStatement(Viewassignedreciept.TableName, "Assigncode"), new { Id = Assigncode }).FirstOrDefault();
             }
         }
-        public IEnumerable<Assigncustomercar> GetAssignvehicledetailData()
+        public IEnumerable<Viewassignedreciept> GetAssignvehicledetailData()
         {
             using (var connection = new SqlConnection(_connString))
             {
                 connection.Open();
-                return connection.Query<Assigncustomercar>(FindStatement(Assigncustomercar.TableName, "Assigncode"), new { Id = 0 }).ToList();
+                return connection.Query<Viewassignedreciept>(GetAllStatement(Viewassignedreciept.TableName)).ToList();
             }
         }
         #endregion

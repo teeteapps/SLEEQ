@@ -333,6 +333,12 @@ namespace Sleeqcarhire.Controllers
             var data = await bl.GetAssignvehicledetailreport(Assigncode);
             return View(data);
         }
+        [HttpGet]
+        public async Task<IActionResult> Viewassignvehicledata()
+        {
+            var data = await bl.GetAssignvehicledetailData();
+            return View(data);
+        }
         #endregion
 
         #region Other methods

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<DBL.Models.Viewassignedreciept>
+@{
+    ViewData["Title"] = "Viewassignvehicledata";
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body table-responsive-sm">
+                <table class="dataTable table table-bordered table-striped display compact nowrap" id="Viewassignedreciept">
+                    <thead>
+                        <tr>
+                            <th>Fullname</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Owner Type</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Customername</td>
+                                <td>@item.Emailadd</td>
+                                <td>@item.Phoneno</td>
+                                <td>@item.Vehiclereg</td>
+                                <td><a class="btn btn-info btn-xs ml-1" href="@Url.Action("Assignvehicledetailreport","Customers",new{Assigncode=item.Assigncode})">Reciept</a></td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#Viewassignedreciept').DataTable();
+        });
+    </script>
+}
