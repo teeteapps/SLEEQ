@@ -1,6 +1,40 @@
 ﻿@model DBL.Models.Viewassignedreciept
 @{
     ViewData["Title"] = "Assignvehicledetailreport";
-    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+    Layout = null;
 }
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Sleeqcarhire</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="container">
+        <main role="main" class="pb-3">
+            <div class="row">
+                <div class="col-sm-12">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>@Model.Customername</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><span class="font-weight-bold text-dark">Ksh. </span>@Model.Hireamount.ToString("#,##0.00")</td></tr>
+                            <tr><td class="border-bottom"><span class="font-weight-bold text-dark">Ksh. </span>  @Model.Carwash.ToString("#,##0.00")</td></tr>
+                            <tr><td><span class="font-weight-bold text-dark">Ksh. </span>@Model.Totalhireamount.ToString("#,##0.00")</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>

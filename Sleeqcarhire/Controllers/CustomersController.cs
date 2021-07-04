@@ -5,6 +5,7 @@ using DBL.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Rotativa.AspNetCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -331,7 +332,7 @@ namespace Sleeqcarhire.Controllers
         public async Task<IActionResult> Assignvehicledetailreport(long Assigncode)
         {
             var data = await bl.GetAssignvehicledetailreport(Assigncode);
-            return View(data);
+            return new ViewAsPdf("Assignvehicledetailreport", data);
         }
         
         [HttpGet]

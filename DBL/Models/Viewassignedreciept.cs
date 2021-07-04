@@ -24,6 +24,7 @@ namespace DBL.Models
         public string Hiringdays { get; set; }
         public string Hiringprice { get; set; }
         public double Hireamount { get; set; }
+        public double Totalhireamount { get; set; }
         public double Carwash { get; set; }
         public string Carstatus { get; set; }
         public DateTime Dateissued { get; set; }
