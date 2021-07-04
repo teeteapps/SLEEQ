@@ -9,33 +9,138 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Sleeqcarhire</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/adminlte.min.css" rel="stylesheet" />
 </head>
 <body>
     <div class="container">
         <main role="main" class="pb-3">
             <div class="row">
-                <div class="col-sm-12">
-                    <table class="table table-bordered table-striped display compact nowrap">
-                        <thead>
-                            <tr>
-                                <th>@Model.Customername</th>
-                            </tr>
-                        </thead>
-                        <tbody></tbody>
-                        <tfoot>
-                            <tr><td><span class="font-weight-bold text-dark">Ksh. </span>@Model.Hireamount.ToString("#,##0.00")</td></tr>
-                            <tr><td class="border-bottom"><span class="font-weight-bold text-dark">Ksh. </span>@Model.Carwash.ToString("#,##0.00")</td></tr>
-                            <tr><td><span class="font-weight-bold text-dark">Ksh. </span>@Model.Totalhireamount.ToString("#,##0.00")</td></tr>
-                        </tfoot>
-                    </table>
+                <div class="col-sm-3">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h6 class="font-weight-bold text-info">LOGO</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h6 class="font-weight-bold text-info">SLEEQ INTERNATIONAL CARHIRE</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h5 class="font-weight-bold text-warning">INVOICE</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p><span>NAME:</span> SLEEQ INTERNATIONAL CARHIRE LTD </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p><span>ADDRESS:</span> SLEEQ INTERNATIONAL CARHIRE LTD </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p><span>TEL:</span> SLEEQ INTERNATIONAL CARHIRE LTD </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p><span>EMAIL:</span> SLEEQ INTERNATIONAL CARHIRE LTD </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p><span>LOCATION:</span> SLEEQ INTERNATIONAL CARHIRE LTD </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table class="table table-bordered table-striped display compact nowrap">
+                                    <thead>
+                                        <tr><th>BILL TO</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td><span>NAME:</span>@Model.Customername</td></tr>
+                                        <tr><td><span>TEL:</span>@Model.Phoneno</td></tr>
+                                        <tr><td><span>EMAIL:</span>@Model.Emailadd</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table class="table table-bordered table-striped display compact nowrap">
+                                    <thead>
+                                        <tr><th>WHERE</th></tr>
+                                        <tr><th>DESCRIPTION</th></tr>
+                                        <tr><th>DAYS</th></tr>
+                                        <tr><th>PRICE</th></tr>
+                                        <tr><th>AMOUNT</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td>@Model.Whereto</td></tr>
+                                        <tr><td>@Model.Wheretodescription</td></tr>
+                                        <tr><td>@Model.Hiringdays</td></tr>
+                                        <tr><td>@Model.Hiringprice</td></tr>
+                                        <tr><td>@Model.Hiringprice</td></tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>SUBTOTAL</td>
+                                            <td>@Model.Hireamount</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>CARWASH</td>
+                                            <td>@Model.Carwash</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>TOTAL</td>
+                                            <td><span>KSH </span>@Model.Totalhireamount</td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>
     </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery/dist/adminlte.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 </body>
 </html>
