@@ -72,17 +72,17 @@
                 <tr>
                     <td colspan="3" class="border-0"></td>
                     <td class="bg-light"><span class="font-weight-bold text-dark text-sm">SUBTOTAL</span></td>
-                    <td class="bg-light"><span class="font-weight-bold text-dark text-sm">KSH. @Model.Hireamount</span></td>
+                    <td class="bg-light"><span class="font-weight-bold text-dark text-sm">KSH. @Model.Hireamount.ToString("#,##0.00")</span></td>
                 </tr>
                 <tr>
                     <td colspan="3" class="border-0"></td>
                     <td class="bg-light"><span class="font-weight-bold text-dark text-sm">CARWASH</span></td>
-                    <td class="bg-light"><span class="font-weight-bold text-dark text-sm">KSH. @Model.Carwash</span></td>
+                    <td class="bg-light"><span class="font-weight-bold text-dark text-sm">KSH. @Model.Carwash.ToString("#,##0.00")</span></td>
                 </tr>
                 <tr>
                     <td colspan="3" class="border-0"></td>
                     <td class="bg-light"><span class="font-weight-bold text-dark text-sm">TOTAL</span></td>
-                    <td class="bg-light"><span class="font-weight-bold text-dark text-sm">KSH. @Model.Totalhireamount</span></td>
+                    <td class="bg-light"><span class="font-weight-bold text-dark text-sm">KSH. @Model.Totalhireamount.ToString("#,##0.00")</span></td>
                 </tr>
             </tfoot>
         </table>

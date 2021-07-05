@@ -9,7 +9,7 @@ namespace DBL.Models
 {
     public class Companyvehicledetails
     {
-        public Sleeqcars sleeq { get; set; }
-        public IEnumerable<Sleeqcars> sleeqcars { get; set; }
+        public Sleeqcars compan { get; set; }
+        public IEnumerable<Compvehicletypes> sleeqcars { get; set; }
     }
 }
