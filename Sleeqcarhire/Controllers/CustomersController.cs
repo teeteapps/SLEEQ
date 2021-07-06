@@ -284,13 +284,13 @@ namespace Sleeqcarhire.Controllers
             }
             if (data!=null) {
                 var prices = await bl.Getvehicletypehiretermsbycode(data.Typecode);
-                for (var day = model.Startdate; day < model.Enddate.AddDays(-1); day = day.AddDays(1)) { 
-                   string Dayofweek=day.DayOfWeek.ToString();
-                    price = prices.Where(x => x.Hireday.Contains(Dayofweek)).FirstOrDefault().Hireprice;
-                    totalprice = totalprice + price;
-                    hireDayofweek.Add(Dayofweek);
-                    hireDayprice.Add(price);
-                } 
+                //for (var day = model.Startdate; day < model.Enddate.AddDays(-1); day = day.AddDays(1)) { 
+                //   string Dayofweek=day.DayOfWeek.ToString();
+                //    price = prices.Where(x => x.Hireday.Contains(Dayofweek)).FirstOrDefault().Hireprice;
+                //    totalprice = totalprice + price;
+                //    hireDayofweek.Add(Dayofweek);
+                //    hireDayprice.Add(price);
+                //} 
             }
             model.Hiringdays = string.Join(',', hireDayofweek);
             model.Hireamount = totalprice;

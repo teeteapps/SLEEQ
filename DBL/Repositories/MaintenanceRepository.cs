@@ -254,8 +254,13 @@ namespace DBL.Repositories
                 connection.Open();
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@Typecode", entity.Typecode);
-                parameters.Add("@Hireday", entity.Hireday);
-                parameters.Add("@Hireprice", entity.Hireprice);
+                parameters.Add("@Mondayprice", entity.Mondayprice);
+                parameters.Add("@Tuesdayprice", entity.Tuesdayprice);
+                parameters.Add("@Wednesdayprice", entity.Wednesdayprice);
+                parameters.Add("@Thursdayprice", entity.Thursdayprice);
+                parameters.Add("@Fridayprice", entity.Fridayprice);
+                parameters.Add("@Saturdayprice", entity.Saturdayprice);
+                parameters.Add("@Sundayprice", entity.Sundayprice);
                 return connection.Query<GenericModel>("Usp_Addvehicletypehireterms", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
         }

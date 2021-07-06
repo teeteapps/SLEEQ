@@ -14,7 +14,12 @@ namespace DBL.Entities
 		public static string TableName { get { return "Vehicletypehireterms"; } }
 		public long Termcode { get; set; }
 		public long Typecode { get; set; }
-		public string Hireday { get; set; }
-		public double Hireprice { get; set; }
+		public decimal Mondayprice { get; set; }
+		public decimal Tuesdayprice { get; set; }
+		public decimal Wednesdayprice { get; set; }
+		public decimal Thursdayprice { get; set; }
+		public decimal Fridayprice { get; set; }
+		public decimal Saturdayprice { get; set; }
+		public decimal Sundayprice { get; set; }
 	}
 }
