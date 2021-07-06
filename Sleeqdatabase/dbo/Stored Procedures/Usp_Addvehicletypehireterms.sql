@@ -2,8 +2,13 @@
 
 CREATE PROCEDURE [dbo].[Usp_Addvehicletypehireterms]
 @Typecode BIGINT,
-@Hireday VARCHAR(100),
-@Hireprice DECIMAL(10,2)
+@Mondayprice DECIMAL(10,2),
+@Tuesdayprice DECIMAL(10,2),
+@Wednesdayprice DECIMAL(10,2),
+@Thursdayprice DECIMAL(10,2),
+@Fridayprice DECIMAL(10,2),
+@Saturdayprice DECIMAL(10,2),
+@Sundayprice DECIMAL(10,2)
 AS
 BEGIN
    BEGIN
@@ -20,8 +25,8 @@ BEGIN
 		INSERT INTO @RunNoTable Exec Usp_GenerateRunNo 'CVHD'  
 		Select @Termcode = RunNo From @RunNoTable
 		BEGIN TRANSACTION;
-		    INSERT INTO Vehicletypehireterms(Termcode,Typecode,Hireday,Hireprice)
-			VALUES(@Termcode,@Typecode,@Hireday,@Hireprice)
+		    INSERT INTO Vehicletypehireterms(Termcode,Typecode,Mondayprice,Tuesdayprice,Wednesdayprice,Thursdayprice,Fridayprice,Saturdayprice,Sundayprice)
+			VALUES(@Termcode,@Typecode,@Mondayprice,@Tuesdayprice,@Wednesdayprice,@Thursdayprice,@Fridayprice,@Saturdayprice,@Sundayprice)
 		Set @RespMsg ='Saved Successfully.'
 		Set @RespStat =0; 
 		COMMIT TRANSACTION;

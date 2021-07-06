@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layoutadmin.cshtml";
 }
 <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-3">
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
@@ -22,7 +22,7 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-8">
+    <div class="col-sm-9">
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
@@ -31,14 +31,17 @@
                             <div class="col-sm-8 float-left">
                                 <h5>Vehicle Type Hire Prices</h5>
                             </div>
-                            <div class="col-sm-4 float-right">
-                                <a href="@Url.Action("Addvehicletypehireterms","Maintenance",new {Typecode=Model.Vehtypes.Typecode })" class="btn btn-sm btn-info float-right" data-bs-target="#AddvehicletypehiredaysModal" data-bs-toggle="modal">Add Hire Terms</a>
-                            </div>
+                            @if(Model.Hireterms == null)
+                            {
+                                <div class="col-sm-4 float-right">
+                                    <a href="@Url.Action("Addvehicletypehireterms","Maintenance",new {Typecode=Model.Vehtypes.Typecode })" class="btn btn-sm btn-info float-right" data-bs-target="#AddvehicletypehiredaysModal" data-bs-toggle="modal">Add Hire Terms</a>
+                                </div>
+                            }
                         </div>
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-sm-12">
+                            <div class="col-sm-12 table-responsive">
                                 <table class="table table-bordered table-striped display compact nowrap" id="vehiclehireterms">
                                     <thead>
                                         <tr>
@@ -63,7 +66,7 @@
                                             <td>Ksh. @item.Fridayprice</td>
                                             <td>Ksh. @item.Saturdayprice</td>
                                             <td>Ksh. @item.Sundayprice</td>
-                                            <td ><a class="btn btn-xs btn-info"></a>Edit</td>
+                                            <td ><a class="btn btn-xs btn-info">Edit</a></td>
                                         </tr>
                                         }
                                     </tbody>

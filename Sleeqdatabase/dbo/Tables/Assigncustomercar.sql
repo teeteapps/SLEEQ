@@ -11,9 +11,9 @@
     [Hiringprice]        VARCHAR (100)   NOT NULL,
     [Hireamount]         DECIMAL (10, 2) NOT NULL,
     [Carwash]            DECIMAL (10, 2) NOT NULL,
+    [Carstatus]          BIT             DEFAULT ((1)) NOT NULL,
     [Startdate]          DATETIME        NOT NULL,
     [Enddate]            DATETIME        NOT NULL,
-    [Carstatus]          BIT             DEFAULT ((0)) NOT NULL,
     [Hiredby]            BIGINT          NOT NULL,
     [Recievedby]         BIGINT          NOT NULL,
     [Dateissued]         DATETIME        DEFAULT (getdate()) NOT NULL,
@@ -22,4 +22,8 @@
     PRIMARY KEY CLUSTERED ([Idxno] ASC),
     UNIQUE NONCLUSTERED ([Assigncode] ASC)
 );
+
+
+
+
 
