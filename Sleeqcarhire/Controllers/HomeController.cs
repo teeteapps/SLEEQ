@@ -30,14 +30,7 @@ namespace Sleeqcarhire.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
-            Companyvehicledetails data = new Companyvehicledetails();
-            //data.sleeq = new Sleeqcars();
-            //data.h = new List<Vehicletypehireterms>();
-            //data.sleeqcars = await bl.GetCompanyvehicles();
-            //foreach (var item in data.sleeqcars)
-            //{
-            //    data.hiredays = await bl.GetVehiclehiredaysbycode(item.Sleeqcarcode);
-            //}
+            var data = await bl.GetVehicletypelist();
             return View(data);
         }
 

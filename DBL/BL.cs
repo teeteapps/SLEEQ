@@ -201,7 +201,7 @@ namespace DBL
         #endregion
 
         #region Vehicle Types
-        public Task<IEnumerable<Compvehicletypes>> GetVehicletypelist()
+        public Task<IEnumerable<Viewcompanyvehicles>> GetVehicletypelist()
         {
             return Task.Run(() =>
             {

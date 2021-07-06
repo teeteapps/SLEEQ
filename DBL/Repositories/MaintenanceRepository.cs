@@ -201,12 +201,12 @@ namespace DBL.Repositories
         #endregion
 
         #region Vehicle Types
-        public IEnumerable<Compvehicletypes> GetVehicletypelist()
+        public IEnumerable<Viewcompanyvehicles> GetVehicletypelist()
         {
             using (var connection = new SqlConnection(_connString))
             {
                 connection.Open();
-                return connection.Query<Compvehicletypes>(GetAllStatement(Compvehicletypes.TableName)).ToList();
+                return connection.Query<Viewcompanyvehicles>(GetAllStatement(Viewcompanyvehicles.TableName)).ToList();
             }
         }
         public GenericModel Addvehicletype(Compvehicletypes entity)

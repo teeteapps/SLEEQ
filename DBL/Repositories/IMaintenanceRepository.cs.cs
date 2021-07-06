@@ -41,7 +41,7 @@ namespace DBL.Repositories
         #endregion
 
         #region Vehicle Types
-        IEnumerable<Compvehicletypes> GetVehicletypelist();
+        IEnumerable<Viewcompanyvehicles> GetVehicletypelist();
         GenericModel Addvehicletype(Compvehicletypes entity);
         Compvehicletypes GetVehicletypebycode(long Typecode);
         GenericModel Editvehicletype(Compvehicletypes entity);

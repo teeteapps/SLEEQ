@@ -1,38 +1,41 @@
-﻿@model DBL.Models.Companyvehicledetails
+﻿@model IEnumerable<DBL.Models.Viewcompanyvehicles>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@*<div class="row">
-    @foreach (var item in Model.sleeqcars)
+<div class="row">
+    @foreach (var item in Model)
     {
         <div class="col-sm-3">
             <div class="row">
                 <div class="col-sm-12">
                     <div class="card">
-                        <img src="@Url.Content(item.Sleeqcarimage)" class="card-img-top" />
+                        <img src="@Url.Content(item.Imagepath)" class="card-img-top" />
                         <div class="card-body" style="background-color:#ffd800">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <h5 class="fw-bolder">@item.Sleeqcar @item.Seaters</h5>
+                                    <h6 class="text-center text-uppercase fw-bolder">@item.Typename @item.Capacity</h6>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <h6 class="text-center fw-bold">Hiring Days and Prices</h6>
+                                    <p class="text-center text-sm fw-bold text-decoration-underline text-uppercase">Hiring Days and Prices</p>
                                 </div>
                             </div>
-                            @foreach (var data in Model.hiredays)
-                            {<div class="row">
-                                    <div class="col-sm-12">
-                                        <p class="text-capitalize">@data.Hirefrom   -   @data.Hireto   <b>Ksh. @data.Hireprice</b> </p>
-                                    </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <p class="text-capitalize text-sm">Monday - Thursday <b>Ksh. @item.Mondayprice</b> </p>
                                 </div>
-                            }
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <p class="text-capitalize text-sm">Friday - Sunday <b>Ksh. @item.Sundayprice</b> </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     }
-</div>*@
+</div>
