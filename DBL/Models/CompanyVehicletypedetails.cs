@@ -10,6 +10,6 @@ namespace DBL.Models
     public class CompanyVehicletypedetails
     {
         public Compvehicletypes Vehtypes { get; set; }
-        public IEnumerable<Vehicletypehireterms> Hireterms { get; set; }
+        public Vehicletypehireterms Hireterms { get; set; }
     }
 }

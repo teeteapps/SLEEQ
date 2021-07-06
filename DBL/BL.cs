@@ -233,7 +233,7 @@ namespace DBL
                 return Resp;
             });
         }
-        public Task<IEnumerable<Vehicletypehireterms>> Getvehicletypehiretermsbycode(long Typecode)
+        public Task<Vehicletypehireterms> Getvehicletypehiretermsbycode(long Typecode)
         {
             return Task.Run(() =>
             {

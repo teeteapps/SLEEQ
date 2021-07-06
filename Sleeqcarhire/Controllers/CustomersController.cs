@@ -262,10 +262,10 @@ namespace Sleeqcarhire.Controllers
             var dt = DateTime.Now;
             TimeSpan ts = new TimeSpan(dt.Hour, dt.Minute, dt.Second);
             DateTime newDate = obj.Startdate.Add(ts);
-            double price=0;
-            double totalprice = 0;
+            decimal price=0;
+            decimal totalprice = 0;
             List<string> hireDayofweek = new List<string>();
-            List<double> hireDayprice = new List<double>();
+            List<decimal> hireDayprice = new List<decimal>();
             var data = await bl.GetCompanyvehiclesdetailbycode(obj.Vehiclecode);
             Assigncustomercar model = new Assigncustomercar();
             model.Startdate = newDate;
@@ -284,13 +284,40 @@ namespace Sleeqcarhire.Controllers
             }
             if (data!=null) {
                 var prices = await bl.Getvehicletypehiretermsbycode(data.Typecode);
-                //for (var day = model.Startdate; day < model.Enddate.AddDays(-1); day = day.AddDays(1)) { 
-                //   string Dayofweek=day.DayOfWeek.ToString();
-                //    price = prices.Where(x => x.Hireday.Contains(Dayofweek)).FirstOrDefault().Hireprice;
-                //    totalprice = totalprice + price;
-                //    hireDayofweek.Add(Dayofweek);
-                //    hireDayprice.Add(price);
-                //} 
+                for (var day = model.Startdate; day < model.Enddate.AddDays(-1); day = day.AddDays(1))
+                {
+                    string Dayofweek = day.DayOfWeek.ToString();
+                    if (Dayofweek=="Monday")
+                    {
+                        price = prices.Mondayprice;
+                    }else if (Dayofweek == "Tuesday")
+                    {
+                        price = prices.Tuesdayprice;
+                    }
+                    else if (Dayofweek == "Wednesday")
+                    {
+                        price = prices.Wednesdayprice;
+                    }
+                    else if (Dayofweek == "Thursday")
+                    {
+                        price = prices.Thursdayprice;
+                    }
+                    else if(Dayofweek == "Friday")
+                    {
+                        price = prices.Fridayprice;
+                    }
+                    else if (Dayofweek == "Saturday")
+                    {
+                        price = prices.Saturdayprice;
+                    }
+                    else
+                    {
+                        price = prices.Sundayprice;
+                    }
+                    totalprice = totalprice + price;
+                    hireDayofweek.Add(Dayofweek);
+                    hireDayprice.Add(price);
+                }
             }
             model.Hiringdays = string.Join(',', hireDayofweek);
             model.Hireamount = totalprice;

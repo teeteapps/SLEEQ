@@ -56,19 +56,16 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach (var item in Model.Hireterms)
-                                        {
                                         <tr>
-                                            <td>Ksh. @item.Mondayprice</td>
-                                            <td>Ksh. @item.Tuesdayprice</td>
-                                            <td>Ksh. @item.Wednesdayprice</td>
-                                            <td>Ksh. @item.Thursdayprice</td>
-                                            <td>Ksh. @item.Fridayprice</td>
-                                            <td>Ksh. @item.Saturdayprice</td>
-                                            <td>Ksh. @item.Sundayprice</td>
-                                            <td ><a class="btn btn-xs btn-info">Edit</a></td>
+                                            <td>Ksh. @Model.Hireterms.Mondayprice</td>
+                                            <td>Ksh. @Model.Hireterms.Tuesdayprice</td>
+                                            <td>Ksh. @Model.Hireterms.Wednesdayprice</td>
+                                            <td>Ksh. @Model.Hireterms.Thursdayprice</td>
+                                            <td>Ksh. @Model.Hireterms.Fridayprice</td>
+                                            <td>Ksh. @Model.Hireterms.Saturdayprice</td>
+                                            <td>Ksh. @Model.Hireterms.Sundayprice</td>
+                                            <td><a class="btn btn-xs btn-info">Edit</a></td>
                                         </tr>
-                                        }
                                     </tbody>
                                 </table>
                             </div>

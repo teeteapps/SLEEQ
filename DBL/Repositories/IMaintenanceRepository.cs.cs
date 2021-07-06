@@ -46,7 +46,7 @@ namespace DBL.Repositories
         Compvehicletypes GetVehicletypebycode(long Typecode);
         GenericModel Editvehicletype(Compvehicletypes entity);
         GenericModel Addvehicletypehireterms(Vehicletypehireterms entity);
-        IEnumerable<Vehicletypehireterms> Getvehicletypehiretermsbycode(long Typecode);
+        Vehicletypehireterms Getvehicletypehiretermsbycode(long Typecode);
         #endregion
 
     }

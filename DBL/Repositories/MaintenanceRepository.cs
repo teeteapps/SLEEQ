@@ -264,12 +264,12 @@ namespace DBL.Repositories
                 return connection.Query<GenericModel>("Usp_Addvehicletypehireterms", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
         }
-        public IEnumerable<Vehicletypehireterms> Getvehicletypehiretermsbycode(long Typecode)
+        public Vehicletypehireterms Getvehicletypehiretermsbycode(long Typecode)
         {
             using (var connection = new SqlConnection(_connString))
             {
                 connection.Open();
-                return connection.Query<Vehicletypehireterms>(FindStatement(Vehicletypehireterms.TableName, "Typecode"), new { Id = Typecode }).ToList();
+                return connection.Query<Vehicletypehireterms>(FindStatement(Vehicletypehireterms.TableName, "Typecode"), new { Id = Typecode }).FirstOrDefault();
             }
         }
 

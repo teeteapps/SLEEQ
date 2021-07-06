@@ -149,7 +149,7 @@ namespace Sleeqcarhire.Controllers
         {
             CompanyVehicletypedetails data = new CompanyVehicletypedetails();
             data.Vehtypes = new Compvehicletypes();
-            data.Hireterms = new List<Vehicletypehireterms>();
+            data.Hireterms = new Vehicletypehireterms();
             data.Vehtypes = await bl.GetVehicletypebycode(Typecode);
             data.Hireterms = await bl.Getvehicletypehiretermsbycode(Typecode);
             return View(data);
