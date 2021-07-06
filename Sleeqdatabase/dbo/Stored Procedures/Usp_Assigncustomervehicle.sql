@@ -32,7 +32,7 @@ BEGIN
 		BEGIN TRANSACTION;
 		    INSERT INTO Assigncustomercar(Assigncode,Custcode,Vehiclecode,Vehiclereg,Whereto,Wheretodescription,Hiredays,Hiringdays,Hiringprice,Hireamount,Carwash,Startdate,Enddate,Hiredby,Recievedby)
 			VALUES(@Assigncode,@Custcode,@Vehiclecode,@Vehiclereg,@Whereto,@Wheretodescription,@Hiredays,@Hiringdays,@Hireprice,@Hireamount,@Carwash,@Startdate,@Enddate,@Hiredby,@Recievedby)
-			UPDATE Companyvehicles SET Carstatus=0 WHERE Vehiclecode=@Vehiclecode
+			UPDATE Companyvehicles SET Carstatus=1 WHERE Vehiclecode=@Vehiclecode
 		Set @RespMsg ='Saved Successfully.'
 		Set @RespStat =0; 
 		COMMIT TRANSACTION;
