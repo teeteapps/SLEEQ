@@ -42,17 +42,29 @@
                                 <table class="table table-bordered table-striped display compact nowrap" id="vehiclehireterms">
                                     <thead>
                                         <tr>
-                                            <th>Hire Days</th>
-                                            <th>Hire Price</th>
+                                            <th>Monday</th>
+                                            <th>Tuesday</th>
+                                            <th>Wednesday</th>
+                                            <th>Thursday</th>
+                                            <th>Friday</th>
+                                            <th>Saturday</th>
+                                            <th>Sunday</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach (var item in Model.Hireterms)
                                         {
-                                            <tr>
-                                                <td>@item.Hireday</td>
-                                                <td>Ksh. @item.Hireprice</td>
-                                            </tr>
+                                        <tr>
+                                            <td>Ksh. @item.Mondayprice</td>
+                                            <td>Ksh. @item.Tuesdayprice</td>
+                                            <td>Ksh. @item.Wednesdayprice</td>
+                                            <td>Ksh. @item.Thursdayprice</td>
+                                            <td>Ksh. @item.Fridayprice</td>
+                                            <td>Ksh. @item.Saturdayprice</td>
+                                            <td>Ksh. @item.Sundayprice</td>
+                                            <td ><a class="btn btn-xs btn-info"></a>Edit</td>
+                                        </tr>
                                         }
                                     </tbody>
                                 </table>
