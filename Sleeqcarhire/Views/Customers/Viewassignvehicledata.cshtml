@@ -6,15 +6,15 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="card">
-            <div class="card-body table-responsive-sm">
+            <div class="card-body table-responsive">
                 <table class="dataTable table table-bordered table-striped display compact nowrap" id="Viewassignedreciept">
                     <thead>
                         <tr>
                             <th>Vehicle</th>
                             <th>Fullname</th>
-                            <th>Email</th>
                             <th>Phone</th>
                             <th>Where to</th>
+                            <th>Days</th>
                             <th>Description</th>
                             <th>Date Issued</th>
                             <th>Return Date</th>
@@ -27,13 +27,13 @@
                         <tr>
                             <td>@item.Vehiclereg</td>
                             <td>@item.Customername</td>
-                            <td>@item.Emailadd</td>
                             <td>@item.Phoneno</td>
                             <td>@item.Whereto</td>
+                            <td>@item.Hiredays</td>
                             <td>@item.Wheretodescription</td>
                             <td>@item.Dateissued</td>
                             <td>@item.Dateexpected</td>
-                            <td><a class="btn btn-info btn-xs ml-1" href="@Url.Action("Checkinvehicle","Customers",new{Assigncode=item.Assigncode})">Checkin</a><a class="btn btn-info btn-xs ml-1" href="@Url.Action("Assignvehicledetailreport","Customers",new{Assigncode=item.Assigncode})">Reciept</a></td>
+                            <td><a class="btn btn-info btn-xs ml-1" href="@Url.Action("Checkinvehicle","Customers",new{Assigncode=item.Assigncode,Vehiclecode=item.Vehiclecode})">Checkin</a><a class="btn btn-info btn-xs ml-1" href="@Url.Action("Assignvehicledetailreport","Customers",new{Assigncode=item.Assigncode})">Reciept</a></td>
                         </tr>
                         }
 

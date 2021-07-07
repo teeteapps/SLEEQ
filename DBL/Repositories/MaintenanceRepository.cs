@@ -272,7 +272,17 @@ namespace DBL.Repositories
                 return connection.Query<Vehicletypehireterms>(FindStatement(Vehicletypehireterms.TableName, "Typecode"), new { Id = Typecode }).FirstOrDefault();
             }
         }
-
+        public GenericModel Checkinvehicle(long Assigncode,long Vehiclecode)
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@Assigncode", Assigncode);
+                parameters.Add("@Vehiclecode",Vehiclecode);
+                return connection.Query<GenericModel>("Usp_Checkinvehicle", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            }
+        }
         #endregion
     }
 }

@@ -13,6 +13,7 @@ namespace DBL.Models
         [NotMapped]
         public static string TableName { get { return "Viewassignedreciept"; } }
         public long Assigncode { get; set; }
+        public long Vehiclecode { get; set; }
         public long Custcode { get; set; }
         public string Customername { get; set; }
         public string Emailadd { get; set; }

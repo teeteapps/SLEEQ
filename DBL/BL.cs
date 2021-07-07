@@ -265,6 +265,14 @@ namespace DBL
                 return Resp;
             });
         }
+        public Task<GenericModel> Checkinvehicle(long Assigncode,long Vehiclecode)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.MaintenanceRepository.Checkinvehicle(Assigncode,Vehiclecode);
+                return Resp;
+            });
+        }
         #endregion
 
         #region GetMenus

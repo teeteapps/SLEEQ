@@ -369,6 +369,36 @@ namespace Sleeqcarhire.Controllers
             var data = await bl.GetAssignvehicledetailData();
             return View(data);
         }
+        [HttpGet]
+        [HttpPost]
+        public async Task<IActionResult> Checkinvehicle(long Assigncode,long Vehiclecode)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var resp = await bl.Checkinvehicle(Assigncode,Vehiclecode);
+                    if (resp.RespStatus == 0)
+                    {
+                        Success(resp.RespMessage, true);
+                        return RedirectToAction("Viewassignvehicledata");
+                    }
+                    else if (resp.RespStatus == 1)
+                    {
+                        Danger(resp.RespMessage, true);
+                    }
+                    else
+                    {
+                        Danger("Database error occured. Please contact Admin!", true);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Util.LogError("Assign Vehicle", ex, true);
+            }
+            return RedirectToAction("Viewassignvehicledata");
+        }
         #endregion
 
         #region Other methods
