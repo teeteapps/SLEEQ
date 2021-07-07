@@ -29,6 +29,7 @@ namespace DBL.Models
         public string Carstatus { get; set; }
         public DateTime Dateissued { get; set; }
         public DateTime Daterecieved { get; set; }
+        public DateTime Dateexpected { get; set; }
         public string Hirername { get; set; }
         public string Recievername { get; set; }
 
