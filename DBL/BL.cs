@@ -5,6 +5,8 @@ using DBL.Models;
 using DBL.UOW;
 using System;
 using System.Collections.Generic;
+using System.Net;
+using System.Net.Mail;
 using System.Threading.Tasks;
 
 namespace DBL
@@ -13,12 +15,34 @@ namespace DBL
     {
         private UnitOfWork db;
         private string _connString;
-        //EncryptDecrypt sec = new EncryptDecrypt();
+        Passwordgenerator pass = new Passwordgenerator();
+        EncryptDecrypt sec = new EncryptDecrypt();
         public BL(string connString)
         {
             this._connString = connString;
             db = new UnitOfWork(connString);
         }
+
+        #region staffs
+        public Task<IEnumerable<Viewstaffs>> Getstaffs()
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.SecurityRepository.Getstaffs();
+                return Resp;
+            });
+        }
+        public Task<GenericModel> Addstaff(Staffs obj)
+        {
+            return Task.Run(() =>
+            {
+                string password = pass.RandomPassword();
+                obj.Passwordhash = sec.Encrypt(password);
+                var Resp = db.SecurityRepository.Addstaff(obj);
+                return Resp;
+            });
+        }
+        #endregion
 
         #region Login 
         public Task<UserModel> Login(string userName, string password)
@@ -247,6 +271,32 @@ namespace DBL
         public Task<IEnumerable<Vw_menus>> getMenus(int profilecode)
         {
             return Task.Run(() => db.SecurityRepository.MenusGetByProfile(profilecode));
+        }
+        #endregion
+
+        #region Email
+        public void Sendregistrationemail(string emailto, string subject, string emailbody)
+        {
+            string smtphost = "mail.mohoro.co.ke";
+            string smtppass = "K@ribun1";
+            string smtpuser = "support@mohoro.co.ke";
+            using (MailMessage mm = new MailMessage(smtpuser, emailto))
+            {
+                mm.Subject = subject;
+                mm.Body = emailbody;
+                mm.IsBodyHtml = true;
+                using (SmtpClient smtp = new SmtpClient())
+                {
+                    smtp.EnableSsl = false;
+                    smtp.UseDefaultCredentials = false;
+                    smtp.Credentials = new NetworkCredential(smtpuser, smtppass);
+                    smtp.Host = smtphost;
+                    smtp.Port = 25;
+                    //smtp.Port = 8889;
+                    smtp.Send(mm);
+
+                }
+            }
         }
         #endregion
 

@@ -18,6 +18,33 @@ namespace DBL.Repositories
         {
         }
 
+        #region Staff
+        public IEnumerable<Viewstaffs> Getstaffs()
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                return connection.Query<Viewstaffs>(GetAllStatement(Viewstaffs.TableName)).ToList();
+            }
+        }
+        public GenericModel Addstaff(Staffs entity)
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@Firstname", entity.Firstname);
+                parameters.Add("@Lastname", entity.Lastname);
+                parameters.Add("@Emailadd", entity.Emailadd);
+                parameters.Add("@Phonenumber", entity.Phonenumber);
+                parameters.Add("@Passwordhash", entity.Passwordhash);
+                parameters.Add("@Createdby", entity.Createdby);
+                parameters.Add("@Modifiedby", entity.Modifiedby);
+                return connection.Query<GenericModel>("Usp_Addstaff", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            }
+        }
+        #endregion
+
         #region Login User
         public GenericModel Login(string userName)
         {
@@ -43,7 +70,6 @@ namespace DBL.Repositories
             }
         }
         #endregion
-
 
         #region Other Methods
         public IEnumerable<ListModel> GetListModel(ListModelType listType)

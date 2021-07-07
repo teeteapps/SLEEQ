@@ -1,5 +1,7 @@
 ﻿using DBL;
+using DBL.Entities;
 using DBL.Enum;
+using DBL.Helpers;
 using DBL.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -18,11 +20,61 @@ namespace Sleeqcarhire.Controllers
     [Authorize]
     public class AccountController : BaseController
     {
-        private readonly BL bl;
+        private readonly BL bl; 
+        EncryptDecrypt sec = new EncryptDecrypt();
         public AccountController()
         {
             bl = new BL(Util.GetDbConnString());
         }
+
+        #region System Staff
+        [HttpGet]
+        public async Task<IActionResult> Stafflists()
+        {
+            var data = await bl.Getstaffs();
+            return View(data);
+        }
+        [HttpGet]
+        public IActionResult Addstaff()
+        {
+            return PartialView("_Addstaff");
+        }
+        [HttpPost]
+        public async Task<IActionResult> Addstaff(Staffs model)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    model.Createdby = SessionUserData.UserCode;
+                    model.Modifiedby = SessionUserData.UserCode;
+                    var resp = await bl.Addstaff(model);
+                    if (resp.RespStatus==0)
+                    {
+                        Success(resp.RespMessage,true);
+                        string Subject = "Registration Credentials";
+                        string Emailbody = "Dear, "+resp.Data1+" ,<br/> Your Username is:"+resp.Data2+"<br/> and Password is:"+ sec.Decrypt(resp.Data3)+".<br/> Thankyou";
+                        bl.Sendregistrationemail(resp.Data2, Subject, Emailbody);
+                        return RedirectToAction("Stafflists");
+                    }
+                    else if (resp.RespStatus == 1)
+                    {
+                        Danger(resp.RespMessage,true);
+                    }
+                    else
+                    {
+                        Danger("A Database Error has occured. Contact Admin!",true);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Util.LogError("Add staff", ex,true);
+            }
+            return RedirectToAction("Stafflists");
+        }
+        #endregion
+
 
 
         #region Client Login

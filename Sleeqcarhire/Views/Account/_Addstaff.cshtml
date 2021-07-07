@@ -1,0 +1,39 @@
+﻿@model DBL.Entities.Staffs
+<div class="modal-header">
+    <h5 class="text-sm modal-title" id="allpoliciesModalLabel">Add Customer Details</h5>
+    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<form asp-action="Addstaff" asp-controller="Account" method="post">
+    <div class="modal-body">
+        <div class="row m-2">
+            <div class="col-sm-6">
+                <label asp-for="Firstname"></label>
+                <input asp-for="Firstname" class="form-control form-control-sm" />
+                <span asp-validation-for="Firstname" class="text-danger"></span>
+            </div>
+            <div class="col-sm-6">
+                <label asp-for="Lastname"></label>
+                <input asp-for="Lastname" class="form-control form-control-sm" />
+                <span asp-validation-for="Lastname" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row m-2">
+            <div class="col-sm-6">
+                <label asp-for="Emailadd"></label>
+                <input asp-for="Emailadd" class="form-control form-control-sm" />
+                <span asp-validation-for="Emailadd" class="text-danger"></span>
+            </div>
+            <div class="col-sm-6">
+                <label asp-for="Phonenumber"></label>
+                <input asp-for="Phonenumber" class="form-control form-control-sm" />
+                <span asp-validation-for="Phonenumber" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-sm btn-info" value="Save">
+    </div>
+</form>
