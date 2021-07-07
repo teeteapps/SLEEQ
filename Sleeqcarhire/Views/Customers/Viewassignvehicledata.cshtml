@@ -17,7 +17,8 @@
                             <th>Days</th>
                             <th>Description</th>
                             <th>Date Issued</th>
-                            <th>Return Date</th>
+                            <th>Date Expected</th>
+                            <th>Date Recieved</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -33,6 +34,7 @@
                             <td>@item.Wheretodescription</td>
                             <td>@item.Dateissued</td>
                             <td>@item.Dateexpected</td>
+                            <td>@item.Daterecieved</td>
                             <td><a class="btn btn-info btn-xs ml-1" href="@Url.Action("Checkinvehicle","Customers",new{Assigncode=item.Assigncode,Vehiclecode=item.Vehiclecode})">Checkin</a><a class="btn btn-info btn-xs ml-1" href="@Url.Action("Assignvehicledetailreport","Customers",new{Assigncode=item.Assigncode})">Reciept</a></td>
                         </tr>
                         }
