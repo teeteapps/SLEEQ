@@ -16,6 +16,7 @@
                             <th>Where to</th>
                             <th>Days</th>
                             <th>Description</th>
+                            <th>Carstatus</th>
                             <th>Date Issued</th>
                             <th>Date Expected</th>
                             <th>Date Recieved</th>
@@ -32,10 +33,13 @@
                             <td>@item.Whereto</td>
                             <td>@item.Hiredays</td>
                             <td>@item.Wheretodescription</td>
+                            <td>@item.Carstatus</td>
                             <td>@item.Dateissued</td>
                             <td>@item.Dateexpected</td>
                             <td>@item.Daterecieved</td>
-                            <td><a class="btn btn-info btn-xs ml-1" href="@Url.Action("Checkinvehicle","Customers",new{Assigncode=item.Assigncode,Vehiclecode=item.Vehiclecode})">Checkin</a><a class="btn btn-info btn-xs ml-1" href="@Url.Action("Assignvehicledetailreport","Customers",new{Assigncode=item.Assigncode})">Reciept</a></td>
+                            <td>@if(item.Carstatus!= "Parked"){
+                                <a class="btn btn-info btn-xs ml-1" href="@Url.Action("Checkinvehicle","Customers",new{Assigncode=item.Assigncode,Vehiclecode=item.Vehiclecode})">Checkin</a>
+                                }<a class="btn btn-info btn-xs ml-1" href="@Url.Action("Assignvehicledetailreport","Customers",new{Assigncode=item.Assigncode})">Reciept</a></td>
                         </tr>
                         }
 
