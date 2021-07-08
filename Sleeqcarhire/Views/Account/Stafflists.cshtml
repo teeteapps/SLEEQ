@@ -30,7 +30,7 @@
                                 <td>@item.Phonenumber</td>
                                 <td>@item.Staffrole</td>
                                 <td>@item.Datecreated</td>
-                                <td><a class="btn btn-info btn-xs ml-1" href="@Url.Action("Editstaff","Customers",new{Usercode=item.Usercode})">Edit</a><a class="btn btn-danger btn-xs ml-1" href="@Url.Action("Deletestaff","Customers",new{Usercode=item.Usercode})">Delete</a></td>
+                                <td><a class="btn btn-info btn-xs ml-1" href="@Url.Action("Editstaff","Account",new{Usercode=item.Usercode})" data-bs-target="#AddstaffModal" data-bs-toggle="modal">Edit</a><a class="btn btn-danger btn-xs ml-1" href="@Url.Action("Deletestaff","Account",new{Usercode=item.Usercode})">Delete</a></td>
                             </tr>
                         }
                     </tbody>

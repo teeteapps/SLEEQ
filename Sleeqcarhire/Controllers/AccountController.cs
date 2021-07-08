@@ -73,6 +73,73 @@ namespace Sleeqcarhire.Controllers
             }
             return RedirectToAction("Stafflists");
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Editstaff(long Usercode)
+        {
+            var data = await bl.Getstaffbycode(Usercode);
+            return PartialView("_Editstaff", data);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Editstaff(Staffs model)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    model.Modifiedby = SessionUserData.UserCode;
+                    var resp = await bl.Editstaff(model);
+                    if (resp.RespStatus == 0)
+                    {
+                        Success(resp.RespMessage, true);
+                        return RedirectToAction("Stafflists");
+                    }
+                    else if (resp.RespStatus == 1)
+                    {
+                        Danger(resp.RespMessage, true);
+                    }
+                    else
+                    {
+                        Danger("A Database Error has occured. Contact Admin!", true);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Util.LogError("Edit staff", ex, true);
+            }
+            return RedirectToAction("Stafflists");
+        }
+        [HttpGet]
+        [HttpPost]
+        public async Task<IActionResult> Deletestaff(long Usercode)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var resp = await bl.Deletestaff(Usercode,SessionUserData.UserCode);
+                    if (resp.RespStatus == 0)
+                    {
+                        Success(resp.RespMessage, true);
+                        return RedirectToAction("Stafflists");
+                    }
+                    else if (resp.RespStatus == 1)
+                    {
+                        Danger(resp.RespMessage, true);
+                    }
+                    else
+                    {
+                        Danger("Database error occured. Please contact Admin!", true);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Util.LogError("Delete User", ex, true);
+            }
+            return RedirectToAction("Stafflists");
+        }
         #endregion
 
 
@@ -179,155 +246,5 @@ namespace Sleeqcarhire.Controllers
 
         #endregion
 
-        //#region Unonumous Register
-
-        //[AllowAnonymous]
-        //[HttpGet]
-        //public async Task<IActionResult> Subscribe()
-        //{
-        //    Systemsubscribemodel postsdata = new Systemsubscribemodel();
-        //    postsdata.Clientdata = new Bloghubclients();
-        //    postsdata.Postslistdata = new List<VwBloghubposts>();
-        //    var tenant = RouteData.Values.SingleOrDefault(r => r.Key == "tenant");
-        //    postsdata.Postslistdata = await bl.Getallpostslists(Convert.ToInt64(tenant.Value));
-        //    if (Convert.ToInt64(tenant.Value) == 0)
-        //    {
-        //        postsdata.Postslistdata = await bl.Getallsyspostslists();
-        //        return View(postsdata);
-        //    }
-        //    return View(postsdata);
-        //}
-        //[AllowAnonymous]
-        //[HttpPost]
-        //public async Task<IActionResult> Subscribe(Systemsubscribemodel model)
-        //{
-        //    try
-        //    {
-        //        if (ModelState.IsValid)
-        //        {
-        //            var resp = await bl.Subscribe(model.Clientdata);
-        //            if (resp.RespStatus == 0)
-        //            {
-        //                Success(resp.RespMessage, true);
-        //                return RedirectToAction("Login");
-        //            }
-        //            else if (resp.RespStatus == 1)
-        //            {
-        //                Danger(resp.RespMessage, true);
-        //            }
-        //            else
-        //            {
-        //                Danger("Database error occured. Kindly contact Admin", true);
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Util.LogError("Subscribe User", ex, true);
-        //    }
-        //    return RedirectToAction("Subscribe");
-        //}
-        //#endregion
-
-        //[HttpGet]
-        //public async Task<IActionResult> Clientslists()
-        //{
-        //    long clientrole = SessionUserData.ProfileCode;
-        //    var tenantdata = await bl.GetClientsclientlists(SessionUserData.UserCode);
-        //    if (clientrole == 100)
-        //    {
-        //        var data = await bl.GetClientslists();
-        //        return View(data);
-        //    }
-        //    return View(tenantdata);
-        //}
-        //[HttpGet]
-        //public IActionResult Registerclient()
-        //{
-        //    Bloghubclients model = new Bloghubclients();
-        //    model.Clientrole = 300;
-        //    model.Loginstatus = 0;
-
-        //    return View(model);
-        //}
-        //[HttpPost]
-        //public async Task<IActionResult> Registerclient(Bloghubclients model)
-        //{
-        //    try
-        //    {
-        //        if (ModelState.IsValid)
-        //        {
-        //            model.Createdby = SessionUserData.UserCode;
-        //            model.Modifiedby = SessionUserData.UserCode;
-        //            model.Parentcode = SessionUserData.UserCode;
-        //            var resp = await bl.Registerclient(model);
-        //            if (resp.RespStatus == 0)
-        //            {
-        //                Success(resp.RespMessage, true);
-        //                return RedirectToAction("Login");
-        //            }
-        //            else if (resp.RespStatus == 1)
-        //            {
-        //                Danger(resp.RespMessage, true);
-        //            }
-        //            else
-        //            {
-        //                Danger("Database error occured. Kindly contact Admin", true);
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Util.LogError("Register Client", ex, true);
-        //    }
-        //    return View();
-        //}
-
-        //[HttpGet]
-        //public async Task<IActionResult> Editclient(long Clientcode)
-        //{
-        //    var data = await bl.Getsystemclientbycode(Clientcode);
-        //    return View(data);
-        //}
-        //[HttpPost]
-        //public async Task<IActionResult> Editclient(Bloghubclientsedit model)
-        //{
-        //    try
-        //    {
-        //        if (ModelState.IsValid)
-        //        {
-        //            model.Modifiedby = SessionUserData.UserCode;
-        //            var resp = await bl.Updateclient(model);
-        //            if (resp.RespStatus == 0)
-        //            {
-        //                Success(resp.RespMessage, true);
-        //                return RedirectToAction("Clientslists");
-        //            }
-        //            else if (resp.RespStatus == 1)
-        //            {
-        //                Danger(resp.RespMessage, true);
-        //            }
-        //            else
-        //            {
-        //                Danger("Database error occured. Kindly contact Admin", true);
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Util.LogError("Update Client", ex, true);
-        //    }
-        //    return View();
-        //}
-
-        //#region Delete Client
-        //[HttpGet]
-        //[HttpPost]
-        //public async Task<IActionResult> Deleteclient(long Clientcode, int Status)
-        //{
-        //    await bl.Updateclientsstatus(Clientcode, Status);
-        //    return RedirectToAction("Clientslists");
-        //}
-        //#endregion
     }
 }

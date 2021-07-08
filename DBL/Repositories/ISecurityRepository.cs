@@ -14,6 +14,9 @@ namespace DBL.Repositories
         #region Staffs
         IEnumerable<Viewstaffs> Getstaffs();
         GenericModel Addstaff(Staffs entity);
+        Staffs Getstaffbycode(long Usercode);
+        GenericModel Editstaff(Staffs entity);
+        GenericModel Deletestaff(long Usercode, long Modifiedby);
         #endregion
 
         #region Login client

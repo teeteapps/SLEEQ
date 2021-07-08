@@ -1,0 +1,53 @@
+﻿@model DBL.Entities.Compvehicletypes
+@{
+    var capacity = ViewData["Vehiclecapacitylists"] as List<SelectListItem>;
+}
+<div class="modal-header">
+    <h5 class="text-sm modal-title" id="allpoliciesModalLabel">Vehicle Type</h5>
+    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<form asp-action="Editvehicletype" asp-controller="Maintenance" method="post" enctype="multipart/form-data">
+    <div class="modal-body">
+        <div class="row">
+            <input asp-for="Typecode" hidden/>
+        </div>
+        <div class="row m-2">
+            <div class="col-sm-6">
+                <label asp-for="Typename"></label>
+                <input asp-for="Typename" class="form-control form-control-sm" />
+                <span asp-validation-for="Typename" class="text-danger"></span>
+            </div>
+            <div class="col-sm-6">
+                <label asp-for="Capacity"></label>
+                <select asp-for="Capacity" class="form-control form-control-sm" id="Prodsubcategory" asp-items="@capacity">
+                    <option value="0">---Select Capacity---</option>
+                </select>
+                <span asp-validation-for="Capacity" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row m-2">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label asp-for="Vehicleimage"></label>
+                    <input asp-for="Vehicleimage" type="file" />
+                    <span asp-validation-for="Vehicleimage" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <label asp-for="Cartype"></label>
+                <select asp-for="Cartype" class="form-control">
+                    <option value="0">---Select Car Type---</option>
+                    <option value="100">Salon Car</option>
+                    <option value="200">Executive Car</option>
+                </select>
+                <span asp-validation-for="Cartype" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-sm btn-info" value="Update">
+    </div>
+</form>

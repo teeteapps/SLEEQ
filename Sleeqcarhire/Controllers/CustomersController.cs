@@ -62,8 +62,45 @@ namespace Sleeqcarhire.Controllers
             {
                 Util.LogError("Add vehicleowner", ex,true);
             }
-            return PartialView("_Addvehicleowner");
+            return View("Vehicleownerslist");
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Editvehicleowner(long Custcode)
+        {
+            var data = await bl.GetVehicleownerdetailbycode(Custcode);
+            return PartialView("_Editvehicleowner",data);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Editvehicleowner(Companycustomers model)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var resp = await bl.Editvehicleowner(model);
+                    if (resp.RespStatus == 0)
+                    {
+                        Success(resp.RespMessage, true);
+                        return RedirectToAction("Vehicleownerslist");
+                    }
+                    else if (resp.RespStatus == 1)
+                    {
+                        Danger(resp.RespMessage, true);
+                    }
+                    else
+                    {
+                        Danger("Database error occured. Please contact Admin!", true);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Util.LogError("Add vehicleowner", ex, true);
+            }
+            return View("Vehicleownerslist");
+        }
+
         [HttpGet]
         public async Task<IActionResult> Vehicleownerdetails(long Custcode)
         {
@@ -163,6 +200,9 @@ namespace Sleeqcarhire.Controllers
             }
             return RedirectToAction("Vehicleownerdetails", new { Custcode = model.Custcode });
         }
+        
+        
+
         [HttpGet]
         public IActionResult Addnextofkincustomer(long Customercode)
         {
@@ -201,6 +241,36 @@ namespace Sleeqcarhire.Controllers
             }
             return RedirectToAction("Companycustomerdetails", new { Custcode = model.Custcode });
         }
+        [HttpGet]
+        [HttpPost]
+        public async Task<IActionResult> Deletevehicleowner(long Custcode)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var resp = await bl.Deletecompanycustomer(Custcode);
+                    if (resp.RespStatus == 0)
+                    {
+                        Success(resp.RespMessage, true);
+                        return RedirectToAction("Vehicleownerslist");
+                    }
+                    else if (resp.RespStatus == 1)
+                    {
+                        Danger(resp.RespMessage, true);
+                    }
+                    else
+                    {
+                        Danger("Database error occured. Please contact Admin!", true);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Util.LogError("Delete Customer", ex, true);
+            }
+            return RedirectToAction("Vehicleownerslist");
+        }
         #endregion
 
         #region Company Customers 
@@ -227,7 +297,7 @@ namespace Sleeqcarhire.Controllers
                     if (resp.RespStatus == 0)
                     {
                         Success(resp.RespMessage, true);
-                        return RedirectToAction("Companycustomerlist", new { ownercode = Convert.ToInt64(resp.Data1) });
+                        return RedirectToAction("Companycustomerdetails", new { ownercode = Convert.ToInt64(resp.Data1) });
                     }
                     else if (resp.RespStatus == 1)
                     {
@@ -243,7 +313,73 @@ namespace Sleeqcarhire.Controllers
             {
                 Util.LogError("Add vehicleowner", ex, true);
             }
-            return PartialView("_Addcompanycustomer");
+            return View("Companycustomerlist");
+        }
+        [HttpGet]
+        public async Task<IActionResult> Editcompanycustomer(long Custcode)
+        {
+            var data = await bl.GetVehicleownerdetailbycode(Custcode);
+            return PartialView("_Editcompanycustomer", data);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Editcompanycustomer(Companycustomers model)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    model.Createdby = SessionUserData.UserCode;
+                    var resp = await bl.Editvehicleowner(model);
+                    if (resp.RespStatus == 0)
+                    {
+                        Success(resp.RespMessage, true);
+                        return RedirectToAction("Companycustomerlist", new { ownercode = Convert.ToInt64(resp.Data1) });
+                    }
+                    else if (resp.RespStatus == 1)
+                    {
+                        Danger(resp.RespMessage, true);
+                    }
+                    else
+                    {
+                        Danger("Database error occured. Please contact Admin!", true);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Util.LogError("Edit vehicleowner", ex, true);
+            }
+            return View("Companycustomerlist");
+        }
+        [HttpGet]
+        [HttpPost]
+        public async Task<IActionResult> Deletecompanycustomer(long Custcode)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var resp = await bl.Deletecompanycustomer(Custcode);
+                    if (resp.RespStatus == 0)
+                    {
+                        Success(resp.RespMessage, true);
+                        return RedirectToAction("Companycustomerlist");
+                    }
+                    else if (resp.RespStatus == 1)
+                    {
+                        Danger(resp.RespMessage, true);
+                    }
+                    else
+                    {
+                        Danger("Database error occured. Please contact Admin!", true);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Util.LogError("Delete Customer", ex, true);
+            }
+            return RedirectToAction("Companycustomerlist");
         }
         #endregion
 
@@ -362,6 +498,7 @@ namespace Sleeqcarhire.Controllers
            // return View(data);
             return new ViewAsPdf("Assignvehicledetailreport", data);
         }
+       
         
         [HttpGet]
         public async Task<IActionResult> Viewassignvehicledata()
@@ -398,6 +535,11 @@ namespace Sleeqcarhire.Controllers
                 Util.LogError("Assign Vehicle", ex, true);
             }
             return RedirectToAction("Viewassignvehicledata");
+        }
+        [HttpGet]
+        public async Task<IActionResult> Extendvehicle(long Assigncode)
+        {
+            return PartialView("_Extendvehicle");
         }
         #endregion
 

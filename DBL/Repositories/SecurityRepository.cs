@@ -43,6 +43,40 @@ namespace DBL.Repositories
                 return connection.Query<GenericModel>("Usp_Addstaff", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
         }
+        public Staffs Getstaffbycode(long Usercode)
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                return connection.Query<Staffs>(FindStatement(Staffs.TableName, "Usercode"), new { Id = Usercode }).FirstOrDefault();
+            }
+        }
+        public GenericModel Editstaff(Staffs entity)
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@Usercode", entity.Usercode);
+                parameters.Add("@Firstname", entity.Firstname);
+                parameters.Add("@Lastname", entity.Lastname);
+                parameters.Add("@Emailadd", entity.Emailadd);
+                parameters.Add("@Phonenumber", entity.Phonenumber);
+                parameters.Add("@Modifiedby", entity.Modifiedby);
+                return connection.Query<GenericModel>("Usp_Editstaff", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            }
+        }
+        public GenericModel Deletestaff(long Usercode,long Modifiedby)
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@Usercode", Usercode);
+                parameters.Add("@Modifiedby", Modifiedby);
+                return connection.Query<GenericModel>("Usp_Deletestaff", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            }
+        }
         #endregion
 
         #region Login User

@@ -24,7 +24,7 @@
                             <tr>
                                 <td><img src="@Url.Content(item.Imagepath)" height="30" width="30" /> </td>
                                 <td>@item.Typename</td>
-                                <td><a href="@Url.Action("VehicletypeDetails","Maintenance",new{Typecode=item.Typecode})" class="btn btn-info btn-xs ml-1">Details</a><a class="btn btn-info btn-xs ml-1" href="@Url.Action("Editvehiclemake","Maintenance",new{Makecode=item.Typecode})" data-bs-target="#AddvehicletypeModal" data-bs-toggle="modal">Edit</a></td>
+                                <td><a href="@Url.Action("VehicletypeDetails","Maintenance",new{Typecode=item.Typecode})" class="btn btn-info btn-xs ml-1">Details</a><a class="btn btn-info btn-xs ml-1" href="@Url.Action("Editvehicletype","Maintenance",new{Typecode=item.Typecode})" data-bs-target="#AddvehicletypeModal" data-bs-toggle="modal">Edit</a></td>
                             </tr>
                         }
 

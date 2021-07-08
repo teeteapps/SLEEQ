@@ -42,6 +42,30 @@ namespace DBL
                 return Resp;
             });
         }
+        public Task<Staffs> Getstaffbycode(long Usercode)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.SecurityRepository.Getstaffbycode(Usercode);
+                return Resp;
+            });
+        }
+        public Task<GenericModel> Editstaff(Staffs obj)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.SecurityRepository.Editstaff(obj);
+                return Resp;
+            });
+        }
+        public Task<GenericModel> Deletestaff(long Usercode, long Modifiedby)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.SecurityRepository.Deletestaff(Usercode, Modifiedby);
+                return Resp;
+            });
+        }
         #endregion
 
         #region Login 
@@ -122,7 +146,7 @@ namespace DBL
         }
         #endregion
 
-        #region Vehicle Owners Lists
+        #region Vehicle Owners
         public Task<IEnumerable<Viewcompanycustomers>> GetVehicleownerslist()
         {
             return Task.Run(() =>
@@ -163,6 +187,14 @@ namespace DBL
                 return Resp;
             });
         }
+        public Task<GenericModel> Editvehicleowner(Companycustomers obj)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.MaintenanceRepository.Editvehicleowner(obj);
+                return Resp;
+            });
+        }
         public Task<GenericModel> Addvehicle(Companyvehicles obj)
         {
             return Task.Run(() =>
@@ -184,6 +216,14 @@ namespace DBL
             return Task.Run(() =>
             {
                 var Resp = db.MaintenanceRepository.Addnextofkin(obj);
+                return Resp;
+            });
+        }
+        public Task<GenericModel> Deletecompanycustomer(long Custcode)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.MaintenanceRepository.Deletecompanycustomer(Custcode);
                 return Resp;
             });
         }
@@ -241,6 +281,14 @@ namespace DBL
                 return Resp;
             });
         }
+        public Task<GenericModel> Editvehicletype(Compvehicletypes obj)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.MaintenanceRepository.Editvehicletype(obj);
+                return Resp;
+            });
+        }
         public Task<Compvehicletypes> GetVehicletypebycode(long Typecode)
         {
             return Task.Run(() =>
@@ -262,6 +310,15 @@ namespace DBL
             return Task.Run(() =>
             {
                 var Resp = db.MaintenanceRepository.Getvehicletypehiretermsbycode(Typecode);
+                return Resp;
+            });
+        }
+
+        public Task<GenericModel> Editvehicletypehireterms(Vehicletypehireterms obj)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.MaintenanceRepository.Editvehicletypehireterms(obj);
                 return Resp;
             });
         }

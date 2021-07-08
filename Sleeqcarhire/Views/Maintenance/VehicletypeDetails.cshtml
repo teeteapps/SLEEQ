@@ -64,7 +64,7 @@
                                             <td>Ksh. @Model.Hireterms.Fridayprice</td>
                                             <td>Ksh. @Model.Hireterms.Saturdayprice</td>
                                             <td>Ksh. @Model.Hireterms.Sundayprice</td>
-                                            <td><a class="btn btn-xs btn-info">Edit</a></td>
+                                            <td><a class="btn btn-info btn-xs ml-1" href="@Url.Action("Editvehicletypehireterms","Maintenance",new{Typecode=Model.Hireterms.Typecode})" data-bs-target="#AddvehicletypehiredaysModal" data-bs-toggle="modal">Edit</a></td>
                                         </tr>
                                     </tbody>
                                 </table>

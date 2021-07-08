@@ -107,7 +107,24 @@ namespace DBL.Repositories
                 return connection.Query<GenericModel>("Usp_AddCompanycustomer", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
         }
-       
+
+        public GenericModel Editvehicleowner(Companycustomers entity)
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@Custcode", entity.Custcode);
+                parameters.Add("@Firstname", entity.Firstname);
+                parameters.Add("@Lastname", entity.Lastname);
+                parameters.Add("@Emailadd", entity.Emailadd);
+                parameters.Add("@Phoneno", entity.Phoneno);
+                parameters.Add("@Custtype", entity.Custtype);
+                parameters.Add("@Idnumber", entity.Idnumber);
+                return connection.Query<GenericModel>("Usp_EditCompanycustomer", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            }
+        }
+
         public GenericModel Addvehicle(Companyvehicles entity)
         {
             using (var connection = new SqlConnection(_connString))
@@ -146,6 +163,16 @@ namespace DBL.Repositories
                 parameters.Add("@Relation", entity.Relation);
                 parameters.Add("@Createdby", entity.Createdby);
                 return connection.Query<GenericModel>("Usp_Addnextofkin", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            }
+        }
+        public GenericModel Deletecompanycustomer(long Custcode)
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@Custcode", Custcode);
+                return connection.Query<GenericModel>("Usp_Deletecompanycustomer", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
         }
         #endregion
@@ -242,7 +269,6 @@ namespace DBL.Repositories
                 parameters.Add("@Capacity", entity.Capacity);
                 parameters.Add("@Cartype", entity.Cartype);
                 parameters.Add("@Imagepath", entity.Imagepath);
-                parameters.Add("@Createdby", entity.Createdby);
                 return connection.Query<GenericModel>("Usp_Editvehicletype", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
         }
@@ -262,6 +288,23 @@ namespace DBL.Repositories
                 parameters.Add("@Saturdayprice", entity.Saturdayprice);
                 parameters.Add("@Sundayprice", entity.Sundayprice);
                 return connection.Query<GenericModel>("Usp_Addvehicletypehireterms", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            }
+        }
+        public GenericModel Editvehicletypehireterms(Vehicletypehireterms entity)
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@Termcode", entity.Termcode);
+                parameters.Add("@Mondayprice", entity.Mondayprice);
+                parameters.Add("@Tuesdayprice", entity.Tuesdayprice);
+                parameters.Add("@Wednesdayprice", entity.Wednesdayprice);
+                parameters.Add("@Thursdayprice", entity.Thursdayprice);
+                parameters.Add("@Fridayprice", entity.Fridayprice);
+                parameters.Add("@Saturdayprice", entity.Saturdayprice);
+                parameters.Add("@Sundayprice", entity.Sundayprice);
+                return connection.Query<GenericModel>("Usp_Editvehicletypehireterms", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
         }
         public Vehicletypehireterms Getvehicletypehiretermsbycode(long Typecode)

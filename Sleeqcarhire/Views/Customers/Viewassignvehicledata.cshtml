@@ -25,21 +25,25 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                        <tr>
-                            <td>@item.Vehiclereg</td>
-                            <td>@item.Customername</td>
-                            <td>@item.Phoneno</td>
-                            <td>@item.Whereto</td>
-                            <td>@item.Hiredays</td>
-                            <td>@item.Carstatus</td>
-                            <td>@item.Dateissued</td>
-                            <td>@item.Dateexpected</td>
-                            <td>@item.Daterecieved</td>
-                            <td>@if(item.Carstatus!= "Parked"){
-                                <a class="btn btn-info btn-xs ml-1" href="@Url.Action("Checkinvehicle","Customers",new{Assigncode=item.Assigncode,Vehiclecode=item.Vehiclecode})">Checkin</a>
-                                }<a class="btn btn-info btn-xs ml-1" href="@Url.Action("Assignvehicledetailreport","Customers",new{Assigncode=item.Assigncode})">Reciept</a></td>
+                            <tr>
+                                <td>@item.Vehiclereg</td>
+                                <td>@item.Customername</td>
+                                <td>@item.Phoneno</td>
+                                <td>@item.Whereto</td>
+                                <td>@item.Hiredays</td>
+                                <td>@item.Carstatus</td>
+                                <td>@item.Dateissued</td>
+                                <td>@item.Dateexpected</td>
+                                <td>@item.Daterecieved</td>
+                                <td>
+                                    @if (item.Carstatus != "Parked")
+                                    {
+                                        <a class="btn btn-info btn-xs ml-1" href="@Url.Action("Checkinvehicle","Customers",new{Assigncode=item.Assigncode,Vehiclecode=item.Vehiclecode})">Checkin</a>
+                                        <a class="btn btn-info btn-xs ml-1" href="@Url.Action("Extendvehicle","Customers",new{Assigncode=item.Assigncode})" data-bs-target="#ExtendvehicleModal" data-bs-toggle="modal">Extend</a>
+                                    }<a class="btn btn-info btn-xs ml-1" href="@Url.Action("Assignvehicledetailreport","Customers",new{Assigncode=item.Assigncode})">Reciept</a>
+                            </td>
                         </tr>
-                        }
+                    }
 
                     </tbody>
                 </table>
@@ -48,9 +52,28 @@
     </div>
 </div>
 
+<div class="modal fade mt-5" id="ExtendvehicleModal" tabindex="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+        </div>
+    </div>
+</div>
+
+
 @section Scripts{
     <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript">
+        $('#ExtendvehicleModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            var url = button.attr("href");
+            var modal = $(this);
+            modal.find('.modal-content').load(url);
+        });
+        $('#ExtendvehicleModal').on('hidden.bs.modal', function () {
+            $(this).removeData('bs.modal');
+            $('#ExtendvehicleModal .modal-content').empty();
+        });
         $(document).ready(function () {
             $('#Viewassignedreciept').DataTable();
         });

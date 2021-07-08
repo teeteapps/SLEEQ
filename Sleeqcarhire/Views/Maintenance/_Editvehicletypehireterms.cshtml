@@ -5,11 +5,12 @@
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
-<form asp-action="Addvehicletypehireterms" asp-controller="Maintenance" method="post">
+<form asp-action="Editvehicletypehireterms" asp-controller="Maintenance" method="post">
     <div class="modal-body">
         <div class="row m-2">
             <div class="col-sm-12">
                 <input asp-for="Typecode" hidden class="form-control" />
+                <input asp-for="Termcode" hidden class="form-control" />
             </div>
         </div>
         <div class="row m-2">
@@ -56,6 +57,6 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal">Close</button>
-        <input type="submit" class="btn btn-sm btn-info" value="Save">
+        <input type="submit" class="btn btn-sm btn-info" value="Update">
     </div>
 </form>
