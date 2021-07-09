@@ -10,39 +10,39 @@
                 <table class="dataTable table table-bordered table-striped display compact nowrap" id="Viewassignedreciept">
                     <thead>
                         <tr>
-                            <th>Vehicle</th>
-                            <th>Fullname</th>
-                            <th>Phone</th>
-                            <th>Where to</th>
-                            <th>Days</th>
-                            <th>Carstatus</th>
-                            <th>Date Issued</th>
-                            <th>Date Expected</th>
-                            <th>Date Recieved</th>
-                            <th>Action</th>
+                            <th>Customer Details</th>
+                            <th>Trip Details</th>
+                            <th>Hirer Details</th>
+                            <th>Payment Details</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            <tr>
-                                <td>@item.Vehiclereg</td>
-                                <td>@item.Customername</td>
-                                <td>@item.Phoneno</td>
-                                <td>@item.Whereto</td>
-                                <td>@item.Hiredays</td>
-                                <td>@item.Carstatus</td>
-                                <td>@item.Dateissued</td>
-                                <td>@item.Dateexpected</td>
-                                <td>@item.Daterecieved</td>
-                                <td>
-                                    <a class="btn btn-info btn-xs ml-1" href="@Url.Action("Checkinvehicle","Customers",new{Assigncode=item.Assigncode,Vehiclecode=item.Vehiclecode})">Pay</a>
-                                    @if (item.Carstatus != "Parked")
-                                    {
-                                        <a class="btn btn-info btn-xs ml-1" href="@Url.Action("Checkinvehicle","Customers",new{Assigncode=item.Assigncode,Vehiclecode=item.Vehiclecode})">Checkin</a>
-                                        <a class="btn btn-info btn-xs ml-1" href="@Url.Action("Extendvehicle","Customers",new{Assigncode=item.Assigncode})" data-bs-target="#ExtendvehicleModal" data-bs-toggle="modal">Extend</a>
-                                    }<a class="btn btn-info btn-xs ml-1" href="@Url.Action("Assignvehicledetailreport","Customers",new{Assigncode=item.Assigncode})">Reciept</a>
-                                </td>
+                        <tr>
+                            <td><b>Vehicle: </b>@item.Vehiclereg<br /><b>Name: </b>@item.Customername<br /> <b>Phone: </b>@item.Phoneno<br /><b>Email: </b>@item.Emailadd<br /></td>
+                            <td>
+                                <b>Where to: </b>@item.Whereto<br /><b>Description: </b>@item.Wheretodescription <br /> <b>Days: </b>@item.Hiredays<br /> <b>Date Hired: </b>@item.Dateissued <br /><b>Date Expected: </b> @item.Dateexpected <br /><b>Status: </b>@item.Carstatus <br />
+                                @if (item.Carstatus != "Parked")
+                                {
+                                    <a class="btn btn-info btn-xs ml-1" href="@Url.Action("Extendvehicle","Customers",new{Assigncode=item.Assigncode})" data-bs-target="#ExtendvehicleModal" data-bs-toggle="modal">Extend</a><br />
+                                }
+                            </td>
+                            <td>
+                                <b>Date Hired: </b>@item.Dateissued<br /><b>Leased By: </b>@item.Customername<br /><b>Date Recieved: </b>@item.Daterecieved<br /><b>Recieved by: </b>@item.Daterecieved<br />
+                                @if (item.Carstatus != "Parked")
+                                {
+                                    <a class="btn btn-info btn-xs ml-1" href="@Url.Action("Checkinvehicle","Customers",new{Assigncode=item.Assigncode,Vehiclecode=item.Vehiclecode})">Checkin</a>
+                                }
+                            </td>
+                            <td>
+                                <b>Amount: </b>@item.Hireamount<br /><b>Leased By: </b>@item.Customername<br /><b>Date Recieved: </b>@item.Daterecieved<br /><b>Recieved by: </b>@item.Daterecieved<br />
+                                @if (item.Carstatus != "Parked")
+                                {
+                                    <a class="btn btn-info btn-xs ml-1" href="@Url.Action("Extendvehicle","Customers",new{Assigncode=item.Assigncode})" data-bs-target="#ExtendvehicleModal" data-bs-toggle="modal">Pay</a>
+                                }
+                                    <a class="btn btn-info btn-xs ml-1 mb-0" href="@Url.Action("Assignvehicledetailreport","Customers",new{Assigncode=item.Assigncode})" target="_blank">Reciept</a><br />
+                            </td>
                         </tr>
                     }
 
