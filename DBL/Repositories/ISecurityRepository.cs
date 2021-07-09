@@ -17,6 +17,7 @@ namespace DBL.Repositories
         Staffs Getstaffbycode(long Usercode);
         GenericModel Editstaff(Staffs entity);
         GenericModel Deletestaff(long Usercode, long Modifiedby);
+        GenericModel Changepassword(Changepassword entity);
         #endregion
 
         #region Login client

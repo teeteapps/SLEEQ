@@ -66,6 +66,25 @@ namespace DBL
                 return Resp;
             });
         }
+        public Task<GenericModel> Changepassword(Changepassword obj)
+        {
+            return Task.Run(() =>
+            {
+                obj.Newpassword = sec.Encrypt(obj.Newpassword);
+                var Resp = db.SecurityRepository.Changepassword(obj);
+                return Resp;
+            });
+        }
+        public Task<GenericModel> Resetpassword(Changepassword obj)
+        {
+            return Task.Run(() =>
+            {
+                string password = pass.RandomPassword();
+                obj.Newpassword = sec.Encrypt(password);
+                var Resp = db.SecurityRepository.Changepassword(obj);
+                return Resp;
+            });
+        }
         #endregion
 
         #region Login 

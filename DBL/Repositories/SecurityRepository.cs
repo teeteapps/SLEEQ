@@ -77,6 +77,17 @@ namespace DBL.Repositories
                 return connection.Query<GenericModel>("Usp_Deletestaff", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
         }
+        public GenericModel Changepassword(Changepassword entity)
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@UserCode", entity.UserCode);
+                parameters.Add("@Newpassword", entity.Newpassword);
+                return connection.Query<GenericModel>("Usp_Changepassword", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            }
+        }
         #endregion
 
         #region Login User

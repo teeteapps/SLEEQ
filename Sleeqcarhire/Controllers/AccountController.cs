@@ -53,7 +53,7 @@ namespace Sleeqcarhire.Controllers
                     {
                         Success(resp.RespMessage,true);
                         string Subject = "Registration Credentials";
-                        string Emailbody = "Dear, "+resp.Data1+" ,<br/> Your Username is:"+resp.Data2+"<br/> and Password is:"+ sec.Decrypt(resp.Data3)+".<br/> Thankyou";
+                        string Emailbody = "Dear, "+resp.Data1+" ,<br/> Your Username is: "+resp.Data2+"<br/> and Password is: "+ sec.Decrypt(resp.Data3)+".<br/> Thankyou";
                         bl.Sendregistrationemail(resp.Data2, Subject, Emailbody);
                         return RedirectToAction("Stafflists");
                     }
@@ -142,6 +142,81 @@ namespace Sleeqcarhire.Controllers
         }
         #endregion
 
+        #region Change and Reset Password
+        [HttpGet]
+        public IActionResult Changepassword(long UserCode)
+        {
+            Changepassword model = new Changepassword();
+            model.UserCode = UserCode;
+            return PartialView("_Changepassword", model);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Changepassword(Changepassword model)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var resp = await bl.Changepassword(model);
+                    if (resp.RespStatus == 0)
+                    {
+                        Success(resp.RespMessage, true);
+                        return RedirectToAction("Dashboard","Home");
+                    }
+                    else if (resp.RespStatus == 1)
+                    {
+                        Danger(resp.RespMessage, true);
+                    }
+                    else
+                    {
+                        Danger("Database error occured. Please contact Admin!", true);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Util.LogError("Change Password", ex, true);
+            }
+            return RedirectToAction("Dashboard","Home");
+        }
+        [HttpGet]
+        [HttpPost]
+        public async Task<IActionResult> Resetpassword(long UserCode)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    Changepassword model = new Changepassword();
+                    model.UserCode = UserCode;
+                    var resp = await bl.Resetpassword(model);
+                    if (resp.RespStatus == 0)
+                    {
+                        var data = await bl.Getstaffbycode(Convert.ToInt64(resp.Data1));
+                        string Subject = "Password Reset Credentials";
+                        string Emailbody = "Dear, " + data.Firstname + " ,<br/> Your Username is: " + data.Emailadd + "<br/> and Password is: " + sec.Decrypt(data.Passwordhash) + ".<br/> Thankyou";
+                        bl.Sendregistrationemail(data.Emailadd, Subject, Emailbody);
+
+                        Success(resp.RespMessage, true);
+                        return RedirectToAction("Stafflists");
+                    }
+                    else if (resp.RespStatus == 1)
+                    {
+                        Danger(resp.RespMessage, true);
+                    }
+                    else
+                    {
+                        Danger("Database error occured. Please contact Admin!", true);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Util.LogError("Reset Password", ex, true);
+            }
+            return RedirectToAction("Stafflists");
+        }
+        #endregion
 
 
         #region Client Login
