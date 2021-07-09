@@ -46,7 +46,7 @@ namespace Sleeqcarhire.Controllers
                     if (resp.RespStatus==0)
                     {
                         Success(resp.RespMessage, true);
-                        return RedirectToAction("Vehicleownerdetails",new {ownercode=Convert.ToInt64(resp.Data1) });
+                        return RedirectToAction("Vehicleownerdetails",new { Custcode = Convert.ToInt64(resp.Data1) });
                     }
                     else if (resp.RespStatus == 1)
                     {
@@ -69,7 +69,7 @@ namespace Sleeqcarhire.Controllers
         public async Task<IActionResult> Editvehicleowner(long Custcode)
         {
             var data = await bl.GetVehicleownerdetailbycode(Custcode);
-            return PartialView("_Editvehicleowner",data);
+            return PartialView("_Editvehicleowner", data);
         }
         [HttpPost]
         public async Task<IActionResult> Editvehicleowner(Companycustomers model)
@@ -297,7 +297,7 @@ namespace Sleeqcarhire.Controllers
                     if (resp.RespStatus == 0)
                     {
                         Success(resp.RespMessage, true);
-                        return RedirectToAction("Companycustomerdetails", new { ownercode = Convert.ToInt64(resp.Data1) });
+                        return RedirectToAction("Companycustomerdetails", new { Custcode = Convert.ToInt64(resp.Data1) });
                     }
                     else if (resp.RespStatus == 1)
                     {
@@ -473,7 +473,7 @@ namespace Sleeqcarhire.Controllers
                     if (resp.RespStatus == 0)
                     {
                         Success(resp.RespMessage, true);
-                        return RedirectToAction("Assignvehicledetailreport", new { Assigncode = Convert.ToInt64(resp.Data1) });
+                        return RedirectToAction("Viewassignvehicledata");
                     }
                     else if (resp.RespStatus == 1)
                     {

@@ -36,12 +36,13 @@
                                 <td>@item.Dateexpected</td>
                                 <td>@item.Daterecieved</td>
                                 <td>
+                                    <a class="btn btn-info btn-xs ml-1" href="@Url.Action("Checkinvehicle","Customers",new{Assigncode=item.Assigncode,Vehiclecode=item.Vehiclecode})">Pay</a>
                                     @if (item.Carstatus != "Parked")
                                     {
                                         <a class="btn btn-info btn-xs ml-1" href="@Url.Action("Checkinvehicle","Customers",new{Assigncode=item.Assigncode,Vehiclecode=item.Vehiclecode})">Checkin</a>
                                         <a class="btn btn-info btn-xs ml-1" href="@Url.Action("Extendvehicle","Customers",new{Assigncode=item.Assigncode})" data-bs-target="#ExtendvehicleModal" data-bs-toggle="modal">Extend</a>
                                     }<a class="btn btn-info btn-xs ml-1" href="@Url.Action("Assignvehicledetailreport","Customers",new{Assigncode=item.Assigncode})">Reciept</a>
-                            </td>
+                                </td>
                         </tr>
                     }
 
