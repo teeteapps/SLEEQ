@@ -36,12 +36,13 @@
                                 }
                             </td>
                             <td>
-                                <b>Amount: </b>@item.Hireamount<br /><b>Leased By: </b>@item.Customername<br /><b>Date Recieved: </b>@item.Daterecieved<br /><b>Recieved by: </b>@item.Daterecieved<br />
+                                <b>Amount Due: </b>@item.Hireamount<br /><b>Amount Paid: </b>@item.Customername<br /><b>Balance: </b>@item.Daterecieved<br /><b>Payment Mode: </b>@item.Daterecieved<br />
+                                <b>Payment By: </b>@item.Daterecieved<br /> <b>Recieved By: </b>@item.Daterecieved<br />
                                 @if (item.Carstatus != "Parked")
                                 {
                                     <a class="btn btn-info btn-xs ml-1" href="@Url.Action("Extendvehicle","Customers",new{Assigncode=item.Assigncode})" data-bs-target="#ExtendvehicleModal" data-bs-toggle="modal">Pay</a>
                                 }
-                                    <a class="btn btn-info btn-xs ml-1 mb-0" href="@Url.Action("Assignvehicledetailreport","Customers",new{Assigncode=item.Assigncode})" target="_blank">Reciept</a><br />
+                                <a class="btn btn-info btn-xs ml-1 mb-0" href="@Url.Action("Assignvehicledetailreport","Customers",new{Assigncode=item.Assigncode})" target="_blank">Reciept</a><br />
                             </td>
                         </tr>
                     }

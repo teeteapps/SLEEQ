@@ -5,38 +5,31 @@
    
 }
 <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-3">
         <div class="card">
             <div class="card-body">
                 <div class="row">
                     <div class="col-sm-12">
-                        <p><span class="fw-bold font-weight-bold text-dark">Fullname:</span> @(Model.Customer.Firstname+' '+Model.Customer.Lastname)</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <p><span class="fw-bold font-weight-bold text-dark">Email:</span> @Model.Customer.Emailadd</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <p><span class="fw-bold font-weight-bold text-dark">Phone:</span> @Model.Customer.Phoneno</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <p><span class="fw-bold font-weight-bold text-dark">ID Number:</span> @Model.Customer.Idnumber</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <p><span class="fw-bold font-weight-bold text-dark">Owner Type:</span> @Model.Customer.Custtypename</p>
+                        <table class="bg-light text-sm display compact nowrap">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <b>Fullname: </b>@(Model.Customer.Firstname+' '+Model.Customer.Lastname) <br />
+                                        <b>Email: </b>@Model.Customer.Emailadd <br />
+                                        <b>Phone: </b>@Model.Customer.Phoneno <br />
+                                        <b>ID Number: </b>@Model.Customer.Idnumber <br />
+                                        <b>Owner Type: </b>@Model.Customer.Custtypename <br />
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-sm-8">
+    <div class="col-sm-9">
         <div class="row">
             <div class="col-sm-12">
                 <div class="card table-responsive-sm">

@@ -4,83 +4,31 @@
     Layout = "~/Views/Shared/_Layoutadmin.cshtml";
 }
 <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-3">
         <div class="card">
             <div class="card-body">
                 <div class="row">
                     <div class="col-sm-12">
-                        <p><span class="fw-bold font-weight-bold text-dark">Fullname:</span> @(Model.Customer.Firstname+' '+Model.Customer.Lastname)</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <p><span class="fw-bold font-weight-bold text-dark">Email:</span> @Model.Customer.Emailadd</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <p><span class="fw-bold font-weight-bold text-dark">Phone:</span> @Model.Customer.Phoneno</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <p><span class="fw-bold font-weight-bold text-dark">ID Number:</span> @Model.Customer.Idnumber</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <p><span class="fw-bold font-weight-bold text-dark">Owner Type:</span> @Model.Customer.Custtypename</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-8">
-        @*<div class="row">
-            <div class="col-sm-12">
-                <div class="card table-responsive-sm">
-                    <div class="card-header">
-                        <div class="row">
-                            <div class="col-sm-8">
-                                <h5>Vehicles List</h5>
-                            </div>
-                            <div class="col-sm-4">
-                                <a href="@Url.Action("Addvehicle","Customers",new { Customercode=Model.Customer.Custcode})" class="btn btn-sm btn-info float-right" data-bs-target="#AddcustomedataModal" data-bs-toggle="modal">Add Vehicle</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body table-responsive">
-                        <table class="dataTable table table-bordered table-striped table-sm nowrap text-nowrap" id="companyvehiclesdata">
-                            <thead>
-                                <tr>
-                                    <th>Vehicle Reg</th>
-                                    <th>Vehicle Type</th>
-                                    <th>Capacity</th>
-                                    <th>Chaseno</th>
-                                    <th>Engine Size</th>
-                                    <th>Fuel Type</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
+                        <table class="bg-light text-sm display compact nowrap">
                             <tbody>
-                                @foreach (var data in Model.Vehicles)
-                                {
-                                    <tr>
-                                        <td>@data.Regno</td>
-                                        <td>@data.Makename</td>
-                                        <td>@data.Capacity</td>
-                                        <td>@data.Chasno</td>
-                                        <td>@data.Enginesize</td>
-                                        <td>@data.Fueltype</td>
-                                        <td><a class="btn btn-info btn-sm">Edit</a></td>
-                                    </tr>
-                                }
+                                <tr>
+                                    <td>
+                                        <b>Fullname: </b>@(Model.Customer.Firstname+' '+Model.Customer.Lastname) <br />
+                                        <b>Email: </b>@Model.Customer.Emailadd <br />
+                                        <b>Phone: </b>@Model.Customer.Phoneno <br />
+                                        <b>ID Number: </b>@Model.Customer.Idnumber <br />
+                                        <b>Owner Type: </b>@Model.Customer.Custtypename <br />
+
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-        </div>*@
+        </div>
+    </div>
+    <div class="col-sm-9">
         <div class="row">
             <div class="col-sm-12">
                 <div class="card table-responsive-sm">

@@ -11,25 +11,23 @@
                 <div class="col-sm-12">
                     <div class="card">
                         <img src="@Url.Content(item.Imagepath)" class="card-img-top" />
-                        <div class="card-body" style="background-color:#ffd800">
+                        <div class="card-body bg-info">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <h6 class="text-center text-uppercase text-decoration-underline fw-bolder">@item.Typename @item.Capacity</h6>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <p class="text-center text-sm fw-bold text-uppercase">Hiring Days and Prices</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <p class="text-capitalize text-sm text-center"><b>Mond - Thur  Ksh. @item.Mondayprice</b> </p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <p class="text-capitalize text-sm text-center"><b>Fri - Sun  Ksh. @item.Sundayprice</b> </p>
+                                    <table class="text-xs text-white">
+                                        <tbody>
+                                            <tr><td class="text-uppercase"><b>@item.Typename @item.Capacity</b></td></tr>
+                                            <tr class="text-center text-decoration-underline">
+                                                <td><b>Days and Prices</b></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <b>Mon - Thurs: </b>Ksh.@item.Mondayprice.ToString("#,##0.00")<br />
+                                                    <b>Fri - Sun: </b> Ksh.@item.Fridayprice.ToString("#,##0.00")<br />
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
