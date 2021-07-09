@@ -37,7 +37,7 @@
                             </td>
                             <td>
                                 <b>Amount Due: </b>@item.Hireamount<br /><b>Amount Paid: </b>@item.Customername<br /><b>Balance: </b>@item.Daterecieved<br /><b>Payment Mode: </b>@item.Daterecieved<br />
-                                <b>Payment By: </b>@item.Daterecieved<br /> <b>Recieved By: </b>@item.Daterecieved<br />
+                                <b>Paid By: </b>@item.Daterecieved<br /> <b>Recieved By: </b>@item.Daterecieved<br />
                                 @if (item.Carstatus != "Parked")
                                 {
                                     <a class="btn btn-info btn-xs ml-1" href="@Url.Action("Extendvehicle","Customers",new{Assigncode=item.Assigncode})" data-bs-target="#ExtendvehicleModal" data-bs-toggle="modal">Pay</a>
