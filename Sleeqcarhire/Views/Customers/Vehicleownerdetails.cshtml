@@ -59,15 +59,15 @@
                             <tbody>
                                 @foreach (var data in Model.Vehicles)
                                 {
-                                    <tr>
-                                        <td>@data.Regno</td>
-                                        <td>@data.Typename</td>
-                                        <td>@data.Capacity</td>
-                                        <td>@data.Chasno</td>
-                                        <td>@data.Enginesize</td>
-                                        <td>@data.Fueltype</td>
-                                        <td><a class="btn btn-info btn-xs">Edit</a></td>
-                                    </tr>
+                                <tr>
+                                    <td>@data.Regno</td>
+                                    <td>@data.Typename</td>
+                                    <td>@data.Capacity</td>
+                                    <td>@data.Chasno</td>
+                                    <td>@data.Enginesize</td>
+                                    <td>@data.Fueltype</td>
+                                    <td><a href="@Url.Action("EditVehicle","Customers",new { Vehiclecode=data.Vehiclecode})" class="btn btn-sm btn-info float-right" data-bs-target="#AddcustomedataModal" data-bs-toggle="modal">Edit</a></td>
+                                </tr>
                                 }
                             </tbody>
                         </table>
@@ -107,7 +107,7 @@
                                     <td>@data.Phonenumber</td>
                                     <td>@data.Idnumber</td>
                                     <td>@data.Relname</td>
-                                    <td><a class="btn btn-info btn-sm">Edit</a></td>
+                                    <td><a href="@Url.Action("Editnextofkin","Customers",new { kincode=data.Supcustcode})" class="btn btn-sm btn-info float-right" data-bs-target="#AddcustomedataModal" data-bs-toggle="modal">Edit</a></td>
                                 </tr>
                                 }
                             </tbody>
