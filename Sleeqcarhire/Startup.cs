@@ -40,13 +40,13 @@ namespace Sleeqcarhire
             })
            .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, x =>
            {
-               x.AccessDeniedPath = "/Home/AccessDenied/";
-               x.LoginPath = "/Home/Login/";
+               x.AccessDeniedPath = "/Account/AccessDenied/";
+               x.LoginPath = "/Account/Login/";
            })
            .AddCookie("AdminAuthScheme", x =>
            {
-               x.AccessDeniedPath = "/Admin/Home/AccessDenied/";
-               x.LoginPath = "/Admin/Home/Login/";
+               x.AccessDeniedPath = "/Admin/Account/AccessDenied/";
+               x.LoginPath = "/Admin/Account/Login/";
            });
 
             services.AddDetectionCore();
