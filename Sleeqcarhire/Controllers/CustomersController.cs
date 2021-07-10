@@ -68,7 +68,7 @@ namespace Sleeqcarhire.Controllers
         [HttpGet]
         public async Task<IActionResult> Editvehicleowner(long Custcode)
         {
-            var data = await bl.GetVehicleownerdetailbycode(Custcode);
+            var data = await bl.Getcompanycustomerbycode(Custcode);
             return PartialView("_Editvehicleowner", data);
         }
         [HttpPost]
@@ -318,7 +318,7 @@ namespace Sleeqcarhire.Controllers
         [HttpGet]
         public async Task<IActionResult> Editcompanycustomer(long Custcode)
         {
-            var data = await bl.GetVehicleownerdetailbycode(Custcode);
+            var data = await bl.Getcompanycustomerbycode(Custcode);
             return PartialView("_Editcompanycustomer", data);
         }
         [HttpPost]

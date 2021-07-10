@@ -25,6 +25,7 @@ namespace DBL.Repositories
         #region Vehicle Owner
         IEnumerable<Viewcompanycustomers> GetVehicleownerslist();
         Viewcompanycustomers GetVehicleownerdetailbycode(long ownercode);
+        Companycustomers Getcompanycustomerbycode(long ownercode);
         GenericModel Addvehicleowner(Companycustomers entity);
         GenericModel Editvehicleowner(Companycustomers entity);
         GenericModel Addvehicle(Companyvehicles entity);

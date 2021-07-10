@@ -174,6 +174,14 @@ namespace DBL
                 return Resp;
             });
         }
+        public Task<Companycustomers> Getcompanycustomerbycode(long ownercode)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.MaintenanceRepository.Getcompanycustomerbycode(ownercode);
+                return Resp;
+            });
+        }
         public Task<Viewcompanycustomers> GetVehicleownerdetailbycode(long ownercode)
         {
             return Task.Run(() =>

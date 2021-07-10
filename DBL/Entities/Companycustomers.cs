@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 
 namespace DBL.Entities
 {
-    
+    [Table("Companycustomers")]
     public class Companycustomers
     {
-        
+        [NotMapped]
+        public static string TableName { get { return "Companycustomers"; } }
+
         public long Custcode { get; set; }
         public string Firstname { get; set; }
         public string Lastname { get; set; }

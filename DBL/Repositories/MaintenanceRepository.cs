@@ -75,6 +75,15 @@ namespace DBL.Repositories
                 return connection.Query<Viewcompanycustomers>(FindStatement(Viewcompanycustomers.TableName, "Custcode"), new { Id = ownercode }).FirstOrDefault();
             }
         }
+
+        public Companycustomers Getcompanycustomerbycode(long ownercode)
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                return connection.Query<Companycustomers>(FindStatement(Companycustomers.TableName, "Custcode"), new { Id = ownercode }).FirstOrDefault();
+            }
+        }
         public IEnumerable<Viewcompanyvehicles> GetViewcompanyvehiclesdetailbycode(long ownercode)
         {
             using (var connection = new SqlConnection(_connString))
