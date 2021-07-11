@@ -400,6 +400,24 @@ namespace DBL.Repositories
                 return connection.Query<Vehicletrippayments>(FindStatement(Vehicletrippayments.TableName, "Assigncode"), new { Id = Assigncode }).ToList();
             }
         }
+        public GenericModel Extendvehicle(Extendvehicle entity)
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@Assigncode", entity.Assigncode);
+                parameters.Add("@Vehiclecode", entity.Vehiclecode);
+                parameters.Add("@Noofdays", entity.Noofdays);
+                parameters.Add("@Returndate", entity.Returndate);
+                parameters.Add("@Expecteddate", entity.Expecteddate);
+                parameters.Add("@Hireamount", entity.Hireamount);
+                parameters.Add("@Hireprice", entity.Hireprice);
+                parameters.Add("@Hiringdays", entity.Hiringdays);
+                parameters.Add("@Createdby", entity.Createdby);
+                return connection.Query<GenericModel>("Usp_Extendvehicle", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            }
+        }
         #endregion
     }
 }

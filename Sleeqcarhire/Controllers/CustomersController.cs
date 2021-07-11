@@ -662,40 +662,88 @@ namespace Sleeqcarhire.Controllers
         {
             Extendvehicle model = new Extendvehicle();
             var data = await bl.GetAssignvehicledetailreport(Assigncode);
+            model.Vehiclecode = data.Vehiclecode;
             model.Expecteddate = data.Dateexpected.ToString("dd/MM/yyyy h:d:s");
             return PartialView("_Extendvehicle",model);
         }
-        //[HttpPost]
-        //public async Task<IActionResult> Extendvehicle(Extendvehicle model)
-        //{
-        //    try
-        //    {
-        //        if (ModelState.IsValid)
-        //        {
-        //            model.Returndate = Convert.ToDateTime(model.Expecteddate).AddDays(model.Days);
-        //            model.Createdby = SessionUserData.UserCode;
-        //            var resp = await bl.Extendvehicle(model);
-        //            if (resp.RespStatus == 0)
-        //            {
-        //                Success(resp.RespMessage, true);
-        //                return RedirectToAction("Viewassignvehicledata");
-        //            }
-        //            else if (resp.RespStatus == 1)
-        //            {
-        //                Danger(resp.RespMessage, true);
-        //            }
-        //            else
-        //            {
-        //                Danger("Database error occured. Please contact Admin!", true);
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Util.LogError("Assign Vehicle", ex, true);
-        //    }
-        //    return RedirectToAction("Viewassignvehicledata");
-        //}
+        [HttpPost]
+        public async Task<IActionResult> Extendvehicle(Extendvehicle model)
+        {
+            try
+            {
+                decimal price = 0;
+                decimal totalprice = 0;
+                List<string> hireDayofweek = new List<string>();
+                List<decimal> hireDayprice = new List<decimal>();
+                if (ModelState.IsValid)
+                {
+                    model.Returndate = Convert.ToDateTime(model.Expecteddate).AddDays(model.Noofdays);
+                    model.Createdby = SessionUserData.UserCode;
+                    var data = await bl.GetCompanyvehiclesdetailbycode(model.Vehiclecode);
+                    if (data != null)
+                    {
+                        var prices = await bl.Getvehicletypehiretermsbycode(data.Typecode);
+                        for (var day = Convert.ToDateTime(model.Expecteddate); day < model.Returndate.AddDays(-1); day = day.AddDays(1))
+                        {
+                            string Dayofweek = day.DayOfWeek.ToString();
+                            if (Dayofweek == "Monday")
+                            {
+                                price = prices.Mondayprice;
+                            }
+                            else if (Dayofweek == "Tuesday")
+                            {
+                                price = prices.Tuesdayprice;
+                            }
+                            else if (Dayofweek == "Wednesday")
+                            {
+                                price = prices.Wednesdayprice;
+                            }
+                            else if (Dayofweek == "Thursday")
+                            {
+                                price = prices.Thursdayprice;
+                            }
+                            else if (Dayofweek == "Friday")
+                            {
+                                price = prices.Fridayprice;
+                            }
+                            else if (Dayofweek == "Saturday")
+                            {
+                                price = prices.Saturdayprice;
+                            }
+                            else
+                            {
+                                price = prices.Sundayprice;
+                            }
+                            totalprice = totalprice + price;
+                            hireDayofweek.Add(Dayofweek);
+                            hireDayprice.Add(price);
+                        }
+                    }
+                    model.Hiringdays = string.Join(',', hireDayofweek);
+                    model.Hireamount = totalprice;
+                    model.Hireprice = string.Join(',', hireDayprice);
+                    var resp = await bl.Extendvehicle(model);
+                    if (resp.RespStatus == 0)
+                    {
+                        Success(resp.RespMessage, true);
+                        return RedirectToAction("Viewassignvehicledata");
+                    }
+                    else if (resp.RespStatus == 1)
+                    {
+                        Danger(resp.RespMessage, true);
+                    }
+                    else
+                    {
+                        Danger("Database error occured. Please contact Admin!", true);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Util.LogError("Assign Vehicle", ex, true);
+            }
+            return RedirectToAction("Viewassignvehicledata");
+        }
         [HttpGet]
         public async Task<IActionResult> Payvehicle(long Assigncode)
         {

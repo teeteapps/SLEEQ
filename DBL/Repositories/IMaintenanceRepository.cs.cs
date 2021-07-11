@@ -57,6 +57,7 @@ namespace DBL.Repositories
         IEnumerable<Vehicletrippayments> Getvehiclepaymentreport(long Assigncode);
         GenericModel Checkinvehicle(long Assigncode, long Vehiclecode);
         GenericModel Payvehicle(Vehicletrippayments entity);
+        GenericModel Extendvehicle(Extendvehicle entity);
         #endregion
 
     }

@@ -15,9 +15,13 @@ namespace DBL.Entities
         public static string TableName { get { return "Extendvehicle"; } }
 
         public long Assigncode { get; set; }
+        public long Vehiclecode { get; set; }
         public string Expecteddate { get; set; }
         public DateTime Returndate { get; set; }
-        public int Days { get; set; }
+        public int Noofdays { get; set; }
+        public decimal Hireamount { get; set; }
+        public string Hiringdays { get; set; }
+        public string Hireprice { get; set; }
         public long Createdby { get; set; }
     }
 }

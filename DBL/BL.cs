@@ -398,6 +398,14 @@ namespace DBL
                 return Resp;
             });
         }
+        public Task<GenericModel> Extendvehicle(Extendvehicle obj)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.MaintenanceRepository.Extendvehicle(obj);
+                return Resp;
+            });
+        }
         #endregion
 
         #region GetMenus
