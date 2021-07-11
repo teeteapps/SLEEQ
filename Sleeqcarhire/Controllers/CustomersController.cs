@@ -651,6 +651,11 @@ namespace Sleeqcarhire.Controllers
         {
             return PartialView("_Extendvehicle");
         }
+        [HttpGet]
+        public async Task<IActionResult> Payvehicle(long Assigncode)
+        {
+            return PartialView("_Payvehicle");
+        }
         #endregion
 
         #region Other methods

@@ -28,6 +28,7 @@ namespace DBL.Models
         public double Totalhireamount { get; set; }
         public double Carwash { get; set; }
         public string Carstatus { get; set; }
+        public bool Ispaid { get; set; }
         public DateTime Dateissued { get; set; }
         public DateTime Daterecieved { get; set; }
         public DateTime Dateexpected { get; set; }
