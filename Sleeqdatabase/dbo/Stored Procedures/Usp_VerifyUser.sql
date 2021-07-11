@@ -17,7 +17,7 @@ BEGIN
 
     BEGIN TRY
 		----- Get user details
-		Select @UserCode = Clientcode,@Fullname=Displayname,@Phonenumber=Clientphone, @Pwd = Clientpassword,@Rolecode=Clientrole,@Email=Clientemail,@Loginstatus=Loginstatus,@Parentcode=Parentcode From Sleeqcarhirestaffs Where Clientemail = @Emailaddress
+		Select @UserCode = Usercode,@Fullname=Firstname+' '+Lastname,@Phonenumber=Phonenumber, @Pwd = Passwordhash,@Rolecode=Rolecode,@Email=Emailadd,@Loginstatus=Loginstatus,@Parentcode=Usercode From Staffs Where Emailadd = @Emailaddress
 		If(@UserCode Is Null)
 		Begin
 			Select  1 as RespStatus, 'Invalid Username and/or Password!' as RespMessage

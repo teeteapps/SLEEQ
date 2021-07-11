@@ -4,8 +4,7 @@ CREATE PROCEDURE [dbo].[Usp_Editvehicletype]
 @Typename VARCHAR(100),
 @Capacity BIGINT,
 @Cartype BIGINT,
-@Imagepath VARCHAR(100),
-@Createdby BIGINT
+@Imagepath VARCHAR(100)
 AS
 BEGIN
    BEGIN
@@ -17,7 +16,16 @@ BEGIN
 		BEGIN TRY	
 		--Validate
 		BEGIN TRANSACTION;
-		UPDATE Compvehicletypes SET Typename=@Typename,Capacity=@Capacity,Cartype=@Cartype WHERE Typecode=@Typecode
+		IF @Imagepath is not null OR @Imagepath!=''
+		BEGIN
+				UPDATE Compvehicletypes SET Typename=@Typename,Capacity=@Capacity,Imagepath=@Imagepath,Cartype=@Cartype WHERE Typecode=@Typecode
+		END
+		ELSE
+		BEGIN 
+				UPDATE Compvehicletypes SET Typename=@Typename,Capacity=@Capacity,Cartype=@Cartype WHERE Typecode=@Typecode
+		END
+	
+
 		Set @RespMsg ='Update Successfully.'
 		Set @RespStat =0; 
 		COMMIT TRANSACTION;

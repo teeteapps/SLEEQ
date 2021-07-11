@@ -8,7 +8,7 @@
     [Chasno]      VARCHAR (100) NOT NULL,
     [Color]       VARCHAR (50)  NOT NULL,
     [Enginesize]  VARCHAR (100) NOT NULL,
-    [Carstatus]   BIT           DEFAULT ((1)) NOT NULL,
+    [Carstatus]   BIT           DEFAULT ((0)) NOT NULL,
     [Etra]        VARCHAR (100) NULL,
     [Etra1]       VARCHAR (100) NULL,
     [Etra2]       VARCHAR (100) NULL,
@@ -25,6 +25,8 @@
     PRIMARY KEY CLUSTERED ([Idxno] ASC),
     UNIQUE NONCLUSTERED ([Vehiclecode] ASC)
 );
+
+
 
 
 

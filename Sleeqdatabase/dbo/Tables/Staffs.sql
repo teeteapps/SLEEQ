@@ -7,7 +7,7 @@
     [Phonenumber]  VARCHAR (15)  NOT NULL,
     [Rolecode]     BIGINT        DEFAULT ((200)) NOT NULL,
     [Passwordhash] VARCHAR (100) NOT NULL,
-    [Loginstatus]  BIT           DEFAULT ((0)) NOT NULL,
+    [Loginstatus]  INT           DEFAULT ((1)) NOT NULL,
     [Sysgen]       BIT           DEFAULT ((0)) NOT NULL,
     [Createdby]    BIGINT        DEFAULT ((100)) NOT NULL,
     [Modifiedby]   BIGINT        DEFAULT ((100)) NOT NULL,
@@ -18,4 +18,6 @@
     UNIQUE NONCLUSTERED ([Phonenumber] ASC),
     UNIQUE NONCLUSTERED ([Usercode] ASC)
 );
+
+
 

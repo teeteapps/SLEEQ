@@ -8,7 +8,7 @@
     [Idnumber]    VARCHAR (100) NOT NULL,
     [Custtype]    BIGINT        NOT NULL,
     [Createdby]   BIGINT        DEFAULT ((100)) NOT NULL,
-    [Isactive]    BIT           DEFAULT ((0)) NOT NULL,
+    [Isactive]    BIT           DEFAULT ((1)) NOT NULL,
     [Isapproved]  INT           DEFAULT ((1)) NOT NULL,
     [Etra]        VARCHAR (100) NULL,
     [Etra1]       VARCHAR (100) NULL,
@@ -25,4 +25,6 @@
     PRIMARY KEY CLUSTERED ([Idxno] ASC),
     UNIQUE NONCLUSTERED ([Custcode] ASC)
 );
+
+
 

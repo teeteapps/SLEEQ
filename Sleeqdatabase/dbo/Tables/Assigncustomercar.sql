@@ -12,6 +12,8 @@
     [Hireamount]         DECIMAL (10, 2) NOT NULL,
     [Carwash]            DECIMAL (10, 2) NOT NULL,
     [Carstatus]          BIT             DEFAULT ((1)) NOT NULL,
+    [Ispaid]             BIT             DEFAULT ((0)) NOT NULL,
+    [Isextended]         BIT             DEFAULT ((0)) NOT NULL,
     [Startdate]          DATETIME        NOT NULL,
     [Enddate]            DATETIME        NOT NULL,
     [Hiredby]            BIGINT          NOT NULL,
@@ -22,6 +24,8 @@
     PRIMARY KEY CLUSTERED ([Idxno] ASC),
     UNIQUE NONCLUSTERED ([Assigncode] ASC)
 );
+
+
 
 
 

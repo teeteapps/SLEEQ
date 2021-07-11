@@ -102,5 +102,16 @@
     <Build Include="dbo\Views\Viewstaffs.sql" />
     <Build Include="dbo\Stored Procedures\Usp_Checkinvehicle.sql" />
     <Build Include="dbo\Stored Procedures\Usp_Addstaff.sql" />
+    <Build Include="dbo\Tables\Vehiclepayments.sql" />
+    <Build Include="dbo\Views\ViewcompanyVehicletypes.sql" />
+    <Build Include="dbo\Stored Procedures\Usp_Payvehicle.sql" />
+    <Build Include="dbo\Stored Procedures\Usp_Editvehicletypehireterms.sql" />
+    <Build Include="dbo\Stored Procedures\Usp_Editvehicle.sql" />
+    <Build Include="dbo\Stored Procedures\Usp_Editstaff.sql" />
+    <Build Include="dbo\Stored Procedures\Usp_Editnextofkin.sql" />
+    <Build Include="dbo\Stored Procedures\Usp_EditCompanycustomer.sql" />
+    <Build Include="dbo\Stored Procedures\Usp_Deletestaff.sql" />
+    <Build Include="dbo\Stored Procedures\Usp_Deletecompanycustomer.sql" />
+    <Build Include="dbo\Stored Procedures\Usp_Changepassword.sql" />
   </ItemGroup>
 </Project>
