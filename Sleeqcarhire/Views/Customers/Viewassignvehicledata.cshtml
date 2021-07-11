@@ -29,29 +29,31 @@
                                 }
                             </td>
                             <td>
-                                <b>Date Hired: </b>@item.Dateissued<br /><b>Leased By: </b>@item.Customername<br /><b>Date Recieved: </b>@item.Daterecieved<br /><b>Recieved by: </b>@item.Daterecieved<br />
+                                <b>Date Hired: </b>@item.Dateissued<br /><b>Leased By: </b>@item.Hirername<br /><b>Date Recieved: </b>@item.Daterecieved<br /><b>Recieved by: </b>@item.Recievername<br />
                                 @if (item.Carstatus != "Parked")
                                 {
                                     <a class="btn btn-info btn-xs ml-1" href="@Url.Action("Checkinvehicle","Customers",new{Assigncode=item.Assigncode,Vehiclecode=item.Vehiclecode})">Checkin</a>
                                 }
                             </td>
                             <td>
-                                <b>Amount Due: </b>Ksh. @item.Hireamount<br />
-                                <b>Balance: </b>@item.Daterecieved<br />
+                                <b>Amount Due: </b>Ksh. @item.Amountdue<br />
                                 @if (item.Ispaid)
                                 {
                                     <span class="btn btn-xs btn-success"><b>Paid</b></span><br />
-                                    <b>Amount Paid: </b>@item.Customername<br /><b>Payment Mode: </b>@item.Daterecieved<br />
-                                    <b>Paid By: </b>@item.Daterecieved<br /> <b>Recieved By: </b>@item.Daterecieved<br />
+                                    <b>Amount Paid: </b>@item.Paidamount<br />
+                                    <b>Paid By: </b>@item.Paidby<br /> <b>Recieved By: </b>@item.Recievedby<br />
                                 }
                                 else
                                 { <span class="btn btn-xs btn-danger">Not Paid</span><br />
                                 }
-                                @if (item.Carstatus != "Parked")
+                                @if (!item.Ispaid)
                                 {
                                     <a class="btn btn-info btn-xs ml-1" href="@Url.Action("Payvehicle","Customers",new{Assigncode=item.Assigncode})" data-bs-target="#ExtendvehicleModal" data-bs-toggle="modal">Pay</a>
                                 }
-                                <a class="btn btn-info btn-xs ml-1 mb-0" href="@Url.Action("Assignvehicledetailreport","Customers",new{Assigncode=item.Assigncode})" target="_blank">Reciept</a><br />
+                                else
+                                {
+                                    <a class="btn btn-info btn-xs ml-1 mb-0" href="@Url.Action("Assignvehicledetailreport","Customers",new{Assigncode=item.Assigncode})" target="_blank">Reciept</a><br />
+                                }
                             </td>
                         </tr>
                     }

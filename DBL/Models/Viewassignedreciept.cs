@@ -29,11 +29,16 @@ namespace DBL.Models
         public double Carwash { get; set; }
         public string Carstatus { get; set; }
         public bool Ispaid { get; set; }
+        public bool Isextended { get; set; }
         public DateTime Dateissued { get; set; }
         public DateTime Daterecieved { get; set; }
         public DateTime Dateexpected { get; set; }
         public string Hirername { get; set; }
         public string Recievername { get; set; }
-
+        public double Paidamount { get; set; }
+        public double Amountdue { get; set; }
+        public string Recievedby { get; set; }
+        public string Paidby { get; set; }
+        public string Paymentmode { get; set; }
     }
 }

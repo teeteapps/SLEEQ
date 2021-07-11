@@ -1,4 +1,4 @@
-﻿@model DBL.Entities.Vehicletypehireterms
+﻿@model DBL.Entities.Extendvehicle
 <div class="modal-header">
     <h5 class="text-sm modal-title" id="allpoliciesModalLabel">Vehicle Type Hire Terms</h5>
     <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
@@ -9,48 +9,18 @@
     <div class="modal-body">
         <div class="row m-2">
             <div class="col-sm-12">
-                <input asp-for="Typecode" hidden class="form-control" />
+                <input asp-for="Assigncode" hidden class="form-control" />
             </div>
         </div>
         <div class="row m-2">
             <div class="col-sm-6">
-                <label asp-for="Mondayprice"></label>
-                <input asp-for="Mondayprice" class="form-control form-control-sm" type="number" />
-                <span asp-validation-for="Mondayprice" class="text-danger"></span>
+                <label asp-for="Expecteddate"></label>
+                <input asp-for="Expecteddate" class="form-control form-control-sm" readonly/>
             </div>
             <div class="col-sm-6">
-                <label asp-for="Tuesdayprice"></label>
-                <input asp-for="Tuesdayprice" class="form-control  form-control-sm" type="number" />
-                <span asp-validation-for="Tuesdayprice" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="row m-2">
-            <div class="col-sm-6">
-                <label asp-for="Wednesdayprice"></label>
-                <input asp-for="Wednesdayprice" class="form-control form-control-sm" type="number" />
-                <span asp-validation-for="Wednesdayprice" class="text-danger"></span>
-            </div>
-            <div class="col-sm-6">
-                <label asp-for="Thursdayprice"></label>
-                <input asp-for="Thursdayprice" class="form-control  form-control-sm" type="number" />
-                <span asp-validation-for="Thursdayprice" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="row m-2">
-            <div class="col-sm-4">
-                <label asp-for="Fridayprice"></label>
-                <input asp-for="Fridayprice" class="form-control form-control-sm" type="number" />
-                <span asp-validation-for="Fridayprice" class="text-danger"></span>
-            </div>
-            <div class="col-sm-4">
-                <label asp-for="Saturdayprice"></label>
-                <input asp-for="Saturdayprice" class="form-control form-control-sm" type="number" />
-                <span asp-validation-for="Saturdayprice" class="text-danger"></span>
-            </div>
-            <div class="col-sm-4">
-                <label asp-for="Sundayprice"></label>
-                <input asp-for="Sundayprice" class="form-control  form-control-sm" type="number" />
-                <span asp-validation-for="Sundayprice" class="text-danger"></span>
+                <label asp-for="Days"></label>
+                <input asp-for="Days" class="form-control  form-control-sm" type="number" />
+                <span asp-validation-for="Days" class="text-danger"></span>
             </div>
         </div>
     </div>

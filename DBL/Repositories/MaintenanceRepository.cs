@@ -392,6 +392,14 @@ namespace DBL.Repositories
                 return connection.Query<GenericModel>("Usp_Payvehicle", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
         }
+        public IEnumerable<Vehicletrippayments> Getvehiclepaymentreport(long Assigncode)
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                return connection.Query<Vehicletrippayments>(FindStatement(Vehicletrippayments.TableName, "Assigncode"), new { Id = Assigncode }).ToList();
+            }
+        }
         #endregion
     }
 }

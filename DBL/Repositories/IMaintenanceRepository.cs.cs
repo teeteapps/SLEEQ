@@ -54,6 +54,7 @@ namespace DBL.Repositories
         GenericModel Addvehicletypehireterms(Vehicletypehireterms entity);
         GenericModel Editvehicletypehireterms(Vehicletypehireterms entity);
         Vehicletypehireterms Getvehicletypehiretermsbycode(long Typecode);
+        IEnumerable<Vehicletrippayments> Getvehiclepaymentreport(long Assigncode);
         GenericModel Checkinvehicle(long Assigncode, long Vehiclecode);
         GenericModel Payvehicle(Vehicletrippayments entity);
         #endregion

@@ -305,6 +305,14 @@ namespace DBL
                 return Resp;
             });
         }
+        public Task<IEnumerable<Vehicletrippayments>> Getvehiclepaymentreport(long Assigncode)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.MaintenanceRepository.Getvehiclepaymentreport(Assigncode);
+                return Resp;
+            });
+        }
         public Task<IEnumerable<Viewassignedreciept>> GetAssignvehicledetailData()
         {
             return Task.Run(() =>

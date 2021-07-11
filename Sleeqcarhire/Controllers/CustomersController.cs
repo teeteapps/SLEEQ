@@ -614,6 +614,17 @@ namespace Sleeqcarhire.Controllers
         public async Task<IActionResult> Viewassignvehicledata()
         {
             var data = await bl.GetAssignvehicledetailData();
+            foreach (var item in data)
+            {
+               
+                var paymentdata = await bl.Getvehiclepaymentreport(item.Assigncode);
+                var Staffdata = await bl.Getstaffs();
+                item.Paidamount = paymentdata.Sum(x=>x.Paidamount);
+                item.Paidby = string.Join(',',paymentdata.Select(x=>x.Paidby));
+                item.Recievedby = string.Join(',', Staffdata.Select(x=>x.Fullname));
+                item.Amountdue = item.Totalhireamount - paymentdata.Sum(x => x.Paidamount);
+
+            }
             return View(data);
         }
         [HttpGet]
@@ -649,15 +660,58 @@ namespace Sleeqcarhire.Controllers
         [HttpGet]
         public async Task<IActionResult> Extendvehicle(long Assigncode)
         {
-            return PartialView("_Extendvehicle");
+            Extendvehicle model = new Extendvehicle();
+            var data = await bl.GetAssignvehicledetailreport(Assigncode);
+            model.Expecteddate = data.Dateexpected.ToString("dd/MM/yyyy h:d:s");
+            return PartialView("_Extendvehicle",model);
         }
+        //[HttpPost]
+        //public async Task<IActionResult> Extendvehicle(Extendvehicle model)
+        //{
+        //    try
+        //    {
+        //        if (ModelState.IsValid)
+        //        {
+        //            model.Returndate = Convert.ToDateTime(model.Expecteddate).AddDays(model.Days);
+        //            model.Createdby = SessionUserData.UserCode;
+        //            var resp = await bl.Extendvehicle(model);
+        //            if (resp.RespStatus == 0)
+        //            {
+        //                Success(resp.RespMessage, true);
+        //                return RedirectToAction("Viewassignvehicledata");
+        //            }
+        //            else if (resp.RespStatus == 1)
+        //            {
+        //                Danger(resp.RespMessage, true);
+        //            }
+        //            else
+        //            {
+        //                Danger("Database error occured. Please contact Admin!", true);
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Util.LogError("Assign Vehicle", ex, true);
+        //    }
+        //    return RedirectToAction("Viewassignvehicledata");
+        //}
         [HttpGet]
         public async Task<IActionResult> Payvehicle(long Assigncode)
         {
-            var data = await bl.GetAssignvehicledetailreport(Assigncode);
             Vehicletrippayments model = new Vehicletrippayments();
+            var data = await bl.GetAssignvehicledetailreport(Assigncode);
+            var paymentdata = await bl.Getvehiclepaymentreport(Assigncode);
+            if (paymentdata.Count()>0)
+            {
+                model.Tripbalance =  paymentdata.Sum(x=>x.Tripbalance);
+            }
+            else
+            {
+                model.Tripbalance = data.Totalhireamount;
+            }
+            model.Tripamount = data.Totalhireamount;
             model.Assigncode = Assigncode;
-            model.Tripamount = data.Hireamount;
             return PartialView("_Payvehicle",model);
         }
         [HttpPost]
@@ -667,6 +721,15 @@ namespace Sleeqcarhire.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    if (model.Tripbalance == model.Paidamount)
+                    {
+                        model.Tripbalance = 0;
+                    }
+                    else
+                    {
+                        model.Tripbalance = model.Tripbalance - model.Paidamount;
+                    }
+                    model.Createdby = SessionUserData.UserCode;
                     var resp = await bl.Payvehicle(model);
                     if (resp.RespStatus == 0)
                     {
