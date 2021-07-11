@@ -39,7 +39,7 @@
                                 <h5>Vehicles List</h5>
                             </div>
                             <div class="col-sm-4">
-                                <a href="@Url.Action("Addvehicle","Customers",new { Customercode=Model.Customer.Custcode})" class="btn btn-sm btn-info float-right" data-bs-target="#AddcustomedataModal" data-bs-toggle="modal">Add Vehicle</a>
+                                <a href="@Url.Action("Addvehicle","Customers",new { Customercode=Model.Customer.Custcode})" class="btn btn-xs btn-info float-right" data-bs-target="#AddcustomedataModal" data-bs-toggle="modal">Add Vehicle</a>
                             </div>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                                     <td>@data.Chasno</td>
                                     <td>@data.Enginesize</td>
                                     <td>@data.Fueltype</td>
-                                    <td><a href="@Url.Action("EditVehicle","Customers",new { Vehiclecode=data.Vehiclecode})" class="btn btn-sm btn-info float-right" data-bs-target="#AddcustomedataModal" data-bs-toggle="modal">Edit</a></td>
+                                    <td><a href="@Url.Action("EditVehicle","Customers",new { Vehiclecode=data.Vehiclecode})" class="btn btn-xs btn-info float-right" data-bs-target="#AddcustomedataModal" data-bs-toggle="modal">Edit</a></td>
                                 </tr>
                                 }
                             </tbody>
@@ -84,7 +84,7 @@
                                 <h5>Kins List</h5>
                             </div>
                             <div class="col-sm-4">
-                                <a href="@Url.Action("Addnextofkin","Customers",new { Customercode=Model.Customer.Custcode})" class="btn btn-sm btn-info float-right" data-bs-target="#AddcustomedataModal" data-bs-toggle="modal">Add Next of Kin</a>
+                                <a href="@Url.Action("Addnextofkin","Customers",new { Customercode=Model.Customer.Custcode})" class="btn btn-xs btn-info float-right" data-bs-target="#AddcustomedataModal" data-bs-toggle="modal">Add Next of Kin</a>
                             </div>
                         </div>
                     </div>
@@ -107,7 +107,7 @@
                                     <td>@data.Phonenumber</td>
                                     <td>@data.Idnumber</td>
                                     <td>@data.Relname</td>
-                                    <td><a href="@Url.Action("Editnextofkin","Customers",new { kincode=data.Supcustcode})" class="btn btn-sm btn-info float-right" data-bs-target="#AddcustomedataModal" data-bs-toggle="modal">Edit</a></td>
+                                    <td><a href="@Url.Action("Editnextofkin","Customers",new { Supcustcode=data.Supcustcode})" class="btn btn-xs btn-info float-right" data-bs-target="#AddcustomedataModal" data-bs-toggle="modal">Edit</a></td>
                                 </tr>
                                 }
                             </tbody>

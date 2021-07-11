@@ -163,6 +163,43 @@ namespace Sleeqcarhire.Controllers
             return RedirectToAction("Vehicleownerdetails", new { Custcode = model.Custcode });
         }
         [HttpGet]
+        public async Task<IActionResult> Editvehicle(long Vehiclecode)
+        {
+            LoadParams();
+            var data = await bl.GetCompanyvehiclesdetailbycode(Vehiclecode);
+            return PartialView("_Editvehicle", data);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Editvehicle(Companyvehicles model)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    model.Createdby = SessionUserData.UserCode;
+                    var resp = await bl.Editvehicle(model);
+                    if (resp.RespStatus == 0)
+                    {
+                        Success(resp.RespMessage, true);
+                        return RedirectToAction("Vehicleownerdetails", new { Custcode = Convert.ToInt64(resp.Data1) });
+                    }
+                    else if (resp.RespStatus == 1)
+                    {
+                        Danger(resp.RespMessage, true);
+                    }
+                    else
+                    {
+                        Danger("Database error occured. Please contact Admin!", true);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Util.LogError("Add Vehicle", ex, true);
+            }
+            return RedirectToAction("Vehicleownerdetails", new { Custcode = model.Custcode });
+        }
+        [HttpGet]
         public IActionResult Addnextofkin(long Customercode)
         {
             LoadParams();
@@ -200,8 +237,44 @@ namespace Sleeqcarhire.Controllers
             }
             return RedirectToAction("Vehicleownerdetails", new { Custcode = model.Custcode });
         }
-        
-        
+        [HttpGet]
+        public async Task<IActionResult> Editnextofkin(long Supcustcode)
+        {
+            LoadParams();
+            var data = await bl.Getnokdetailbycode(Supcustcode);
+            return PartialView("_Editnextofkin", data);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Editnextofkin(Supportcustomers model)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    model.Createdby = SessionUserData.UserCode;
+                    var resp = await bl.Editnextofkin(model);
+                    if (resp.RespStatus == 0)
+                    {
+                        Success(resp.RespMessage, true);
+                        return RedirectToAction("Vehicleownerdetails", new { Custcode = Convert.ToInt64(resp.Data1) });
+                    }
+                    else if (resp.RespStatus == 1)
+                    {
+                        Danger(resp.RespMessage, true);
+                    }
+                    else
+                    {
+                        Danger("Database error occured. Please contact Admin!", true);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Util.LogError("Add Next of kin", ex, true);
+            }
+            return RedirectToAction("Vehicleownerdetails", new { Custcode = model.Custcode });
+        }
+
 
         [HttpGet]
         public IActionResult Addnextofkincustomer(long Customercode)
@@ -224,6 +297,43 @@ namespace Sleeqcarhire.Controllers
                     {
                         Success(resp.RespMessage, true);
                         return RedirectToAction("Companycustomerdetails", new { Custcode = model.Custcode });
+                    }
+                    else if (resp.RespStatus == 1)
+                    {
+                        Danger(resp.RespMessage, true);
+                    }
+                    else
+                    {
+                        Danger("Database error occured. Please contact Admin!", true);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Util.LogError("Add Next of kin", ex, true);
+            }
+            return RedirectToAction("Companycustomerdetails", new { Custcode = model.Custcode });
+        }
+        [HttpGet]
+        public async Task<IActionResult> Editnextofkincustomer(long Supcustcode)
+        {
+            LoadParams();
+            var data = await bl.Getnokdetailbycode(Supcustcode);
+            return PartialView("_Editnextofkincustomer", data);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Editnextofkincustomer(Supportcustomers model)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    model.Createdby = SessionUserData.UserCode;
+                    var resp = await bl.Editnextofkin(model);
+                    if (resp.RespStatus == 0)
+                    {
+                        Success(resp.RespMessage, true);
+                        return RedirectToAction("Companycustomerdetails", new { Custcode = Convert.ToInt64(resp.Data1) });
                     }
                     else if (resp.RespStatus == 1)
                     {

@@ -159,6 +159,24 @@ namespace DBL.Repositories
                 return connection.Query<Companyvehicles>(FindStatement(Companyvehicles.TableName, "Vehiclecode"), new { Id = Vehiclecode }).FirstOrDefault();
             }
         }
+        public GenericModel Editvehicle(Companyvehicles entity)
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@Vehiclecode", entity.Vehiclecode);
+                parameters.Add("@Custcode", entity.Custcode);
+                parameters.Add("@Regno", entity.Regno);
+                parameters.Add("@Color", entity.Color);
+                parameters.Add("@Fueltype", entity.Fueltype);
+                parameters.Add("@Enginesize", entity.Enginesize);
+                parameters.Add("@Chasno", entity.Chasno);
+                parameters.Add("@Typecode", entity.Typecode);
+                return connection.Query<GenericModel>("Usp_Editvehicle", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            }
+        }
+        
         public GenericModel Addnextofkin(Supportcustomers entity)
         {
             using (var connection = new SqlConnection(_connString))
@@ -172,6 +190,29 @@ namespace DBL.Repositories
                 parameters.Add("@Relation", entity.Relation);
                 parameters.Add("@Createdby", entity.Createdby);
                 return connection.Query<GenericModel>("Usp_Addnextofkin", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            }
+        }
+        public Supportcustomers Getnokdetailbycode(long Supcustcode)
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                return connection.Query<Supportcustomers>(FindStatement(Supportcustomers.TableName, "Supcustcode"), new { Id = Supcustcode }).FirstOrDefault();
+            }
+        }
+        public GenericModel Editnextofkin(Supportcustomers entity)
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@Supcustcode", entity.Supcustcode);
+                parameters.Add("@Custcode", entity.Custcode);
+                parameters.Add("@Fullname", entity.Fullname);
+                parameters.Add("@Phonenumber", entity.Phonenumber);
+                parameters.Add("@Idnumber", entity.Idnumber);
+                parameters.Add("@Relation", entity.Relation);
+                return connection.Query<GenericModel>("Usp_Editnextofkin", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
         }
         public GenericModel Deletecompanycustomer(long Custcode)
@@ -237,12 +278,12 @@ namespace DBL.Repositories
         #endregion
 
         #region Vehicle Types
-        public IEnumerable<Viewcompanyvehicles> GetVehicletypelist()
+        public IEnumerable<ViewcompanyVehicletypes> GetVehicletypelist()
         {
             using (var connection = new SqlConnection(_connString))
             {
                 connection.Open();
-                return connection.Query<Viewcompanyvehicles>(GetAllStatement(Viewcompanyvehicles.TableName)).ToList();
+                return connection.Query<ViewcompanyVehicletypes>(GetAllStatement(ViewcompanyVehicletypes.TableName)).ToList();
             }
         }
         public GenericModel Addvehicletype(Compvehicletypes entity)

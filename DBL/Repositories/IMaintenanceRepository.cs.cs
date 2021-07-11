@@ -30,7 +30,10 @@ namespace DBL.Repositories
         GenericModel Editvehicleowner(Companycustomers entity);
         GenericModel Addvehicle(Companyvehicles entity);
         Companyvehicles GetCompanyvehiclesdetailbycode(long Vehiclecode);
+        GenericModel Editvehicle(Companyvehicles entity);
         GenericModel Addnextofkin(Supportcustomers entity);
+        Supportcustomers Getnokdetailbycode(long Supcustcode);
+        GenericModel Editnextofkin(Supportcustomers entity);
         IEnumerable<Viewcompanyvehicles> GetViewcompanyvehiclesdetailbycode(long ownercode);
         IEnumerable<Viewnextofkins> GetViewnextofkinsdetailbycode(long ownercode);
         GenericModel Deletecompanycustomer(long Custcode);
@@ -44,7 +47,7 @@ namespace DBL.Repositories
         #endregion
 
         #region Vehicle Types
-        IEnumerable<Viewcompanyvehicles> GetVehicletypelist();
+        IEnumerable<ViewcompanyVehicletypes> GetVehicletypelist();
         GenericModel Addvehicletype(Compvehicletypes entity);
         Compvehicletypes GetVehicletypebycode(long Typecode);
         GenericModel Editvehicletype(Compvehicletypes entity);

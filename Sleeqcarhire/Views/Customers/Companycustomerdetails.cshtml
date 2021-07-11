@@ -38,7 +38,7 @@
                                 <h5>Kins List</h5>
                             </div>
                             <div class="col-sm-4">
-                                <a href="@Url.Action("Addnextofkincustomer","Customers",new { Customercode=Model.Customer.Custcode})" class="btn btn-sm btn-info float-right" data-bs-target="#AddcustomedataModal" data-bs-toggle="modal">Add Next of Kin</a>
+                                <a href="@Url.Action("Addnextofkincustomer","Customers",new { Customercode=Model.Customer.Custcode})" class="btn btn-xs btn-info float-right" data-bs-target="#AddcustomedataModal" data-bs-toggle="modal">Add Next of Kin</a>
                             </div>
                         </div>
                     </div>
@@ -56,13 +56,13 @@
                             <tbody>
                                 @foreach (var data in Model.Nextofkin)
                                 {
-                                    <tr>
-                                        <td>@data.Fullname</td>
-                                        <td>@data.Phonenumber</td>
-                                        <td>@data.Idnumber</td>
-                                        <td>@data.Relname</td>
-                                        <td><a class="btn btn-info btn-xs">Edit</a></td>
-                                    </tr>
+                                <tr>
+                                    <td>@data.Fullname</td>
+                                    <td>@data.Phonenumber</td>
+                                    <td>@data.Idnumber</td>
+                                    <td>@data.Relname</td>
+                                    <td><a href="@Url.Action("Editnextofkincustomer","Customers",new { Supcustcode=data.Supcustcode})" class="btn btn-xs btn-info float-right" data-bs-target="#AddcustomedataModal" data-bs-toggle="modal">Edit</a></td>
+                                </tr>
                                 }
                             </tbody>
                         </table>

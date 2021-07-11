@@ -230,6 +230,14 @@ namespace DBL
                 return Resp;
             });
         }
+        public Task<GenericModel> Editvehicle(Companyvehicles obj)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.MaintenanceRepository.Editvehicle(obj);
+                return Resp;
+            });
+        }
         public Task<Companyvehicles> GetCompanyvehiclesdetailbycode(long Vehiclecode)
         {
             return Task.Run(() =>
@@ -243,6 +251,22 @@ namespace DBL
             return Task.Run(() =>
             {
                 var Resp = db.MaintenanceRepository.Addnextofkin(obj);
+                return Resp;
+            });
+        }
+        public Task<Supportcustomers> Getnokdetailbycode(long Supcustcode)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.MaintenanceRepository.Getnokdetailbycode(Supcustcode);
+                return Resp;
+            });
+        }
+        public Task<GenericModel> Editnextofkin(Supportcustomers obj)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.MaintenanceRepository.Editnextofkin(obj);
                 return Resp;
             });
         }
@@ -292,7 +316,8 @@ namespace DBL
         #endregion
 
         #region Vehicle Types
-        public Task<IEnumerable<Viewcompanyvehicles>> GetVehicletypelist()
+
+        public Task<IEnumerable<ViewcompanyVehicletypes>> GetVehicletypelist()
         {
             return Task.Run(() =>
             {
