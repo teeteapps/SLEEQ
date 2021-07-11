@@ -376,6 +376,22 @@ namespace DBL.Repositories
                 return connection.Query<GenericModel>("Usp_Checkinvehicle", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
         }
+        public GenericModel Payvehicle(Vehicletrippayments entity)
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@Assigncode", entity.Assigncode);
+                parameters.Add("@Tripbalance", entity.Tripbalance);
+                parameters.Add("@Tripamount", entity.Tripamount);
+                parameters.Add("@Paymentmode", entity.Paymentmode);
+                parameters.Add("@Paidamount", entity.Paidamount);
+                parameters.Add("@Paidby", entity.Paidby);
+                parameters.Add("@Createdby", entity.Createdby);
+                return connection.Query<GenericModel>("Usp_Payvehicle", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            }
+        }
         #endregion
     }
 }

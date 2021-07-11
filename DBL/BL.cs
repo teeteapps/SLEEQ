@@ -382,6 +382,14 @@ namespace DBL
                 return Resp;
             });
         }
+        public Task<GenericModel> Payvehicle(Vehicletrippayments obj)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.MaintenanceRepository.Payvehicle(obj);
+                return Resp;
+            });
+        }
         #endregion
 
         #region GetMenus
