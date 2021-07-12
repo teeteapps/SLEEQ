@@ -410,7 +410,7 @@ namespace DBL.Repositories
                 parameters.Add("@Vehiclecode", entity.Vehiclecode);
                 parameters.Add("@Noofdays", entity.Noofdays);
                 parameters.Add("@Returndate", entity.Returndate);
-                parameters.Add("@Expecteddate", entity.Expecteddate);
+                parameters.Add("@Expecteddate", Convert.ToDateTime(entity.Expecteddate));
                 parameters.Add("@Hireamount", entity.Hireamount);
                 parameters.Add("@Hireprice", entity.Hireprice);
                 parameters.Add("@Hiringdays", entity.Hiringdays);

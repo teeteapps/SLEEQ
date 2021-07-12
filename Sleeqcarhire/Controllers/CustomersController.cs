@@ -604,9 +604,15 @@ namespace Sleeqcarhire.Controllers
         [HttpGet]
         public async Task<IActionResult> Assignvehicledetailreport(long Assigncode)
         {
-            var data = await bl.GetAssignvehicledetailreport(Assigncode);
-           // return View(data);
-            return new ViewAsPdf("Assignvehicledetailreport", data);
+            Viewassignedreciept model = new Viewassignedreciept();
+             model = await bl.GetAssignvehicledetailreport(Assigncode);
+            var paymentdata = await bl.Getvehiclepaymentreport(Assigncode);
+            var Staffdata = await bl.Getstaffs();
+            model.Paidamount = paymentdata.Sum(x => x.Paidamount);
+            model.Paidby = string.Join(',', paymentdata.Select(x => x.Paidby));
+            model.Recievedby = string.Join(',', Staffdata.Select(x => x.Fullname));
+            model.Amountdue = model.Totalhireamount - paymentdata.Sum(x => x.Paidamount);
+            return new ViewAsPdf("Assignvehicledetailreport", model);
         }
        
         
@@ -616,14 +622,12 @@ namespace Sleeqcarhire.Controllers
             var data = await bl.GetAssignvehicledetailData();
             foreach (var item in data)
             {
-               
                 var paymentdata = await bl.Getvehiclepaymentreport(item.Assigncode);
                 var Staffdata = await bl.Getstaffs();
                 item.Paidamount = paymentdata.Sum(x=>x.Paidamount);
                 item.Paidby = string.Join(',',paymentdata.Select(x=>x.Paidby));
                 item.Recievedby = string.Join(',', Staffdata.Select(x=>x.Fullname));
                 item.Amountdue = item.Totalhireamount - paymentdata.Sum(x => x.Paidamount);
-
             }
             return View(data);
         }
