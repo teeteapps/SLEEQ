@@ -32,6 +32,11 @@ namespace DBL.Repositories
         {
             return string.Format("Select * From {0} Where {1} = @Id", tableName, idColumn);
         }
+        public string FindStatementordering(string tableName, string idColumn,string orderd)
+        {
+            return string.Format("Select * From {0} Where {1} = @Id order by {2} desc", tableName, idColumn, orderd);
+        }
+
         public string FindStatementnot(string tableName, string idColumn)
         {
             return string.Format("Select * From {0} Where {1} != @Id", tableName, idColumn);

@@ -690,7 +690,7 @@ namespace Sleeqcarhire.Controllers
                     if (data != null)
                     {
                         var prices = await bl.Getvehicletypehiretermsbycode(data.Typecode);
-                        for (var day = Convert.ToDateTime(model.Expecteddate); day < model.Returndate.AddDays(-1); day = day.AddDays(1))
+                        for (var day = Convert.ToDateTime(model.Expecteddate); day < model.Returndate; day = day.AddDays(1))
                         {
                             string Dayofweek = day.DayOfWeek.ToString();
                             if (Dayofweek == "Monday")
@@ -759,7 +759,7 @@ namespace Sleeqcarhire.Controllers
             var paymentdata = await bl.Getvehiclepaymentreport(Assigncode);
             if (paymentdata.Count()>0)
             {
-                model.Tripbalance =  paymentdata.Sum(x=>x.Tripbalance);
+                model.Tripbalance = data.Totalhireamount-paymentdata.Sum(x => x.Paidamount);
             }
             else
             {

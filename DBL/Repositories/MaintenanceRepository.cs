@@ -272,7 +272,7 @@ namespace DBL.Repositories
             using (var connection = new SqlConnection(_connString))
             {
                 connection.Open();
-                return connection.Query<Viewassignedreciept>(GetAllStatement(Viewassignedreciept.TableName)).ToList();
+                return connection.Query<Viewassignedreciept>(GetAllStatement(Viewassignedreciept.TableName, "Datecreated")).ToList();
             }
         }
         #endregion
