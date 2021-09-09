@@ -36,19 +36,19 @@
                                     }
                                 </td>
                                 <td>
-                                    <b>Amount Due: </b>Ksh. @item.Amountdue<br />
+                                    <b>Amount Due: </b>Ksh. @item.Amountdue.ToString("#,#00.00")<br />
                                     @if (item.Ispaid)
                                     {
                                         <span class="btn btn-xs btn-success"><b>Paid</b></span><br />
-                                        <b>Amount Paid:  </b><span>Ksh.</span> @item.Paidamount<br />
-                                        <b>Paid By: </b>@item.Paidby<br /> <b>Recieved By: </b>@item.Recievedby<br />
+                                        <b>Amount Paid:  </b><span>Ksh.</span> @item.Paidamount.ToString("#,#00.00")<br />
+                                        <b>Paid By: </b>@item.Paidby<br />
                                     }
                                     else
                                     { <span class="btn btn-xs btn-danger">Not Paid</span><br />
                                     }
                                     @if (!item.Ispaid)
                                     {
-                                        <a class="btn btn-info btn-xs ml-1" href="@Url.Action("Payvehicle","Customers",new{Assigncode=item.Assigncode})" data-bs-target="#ExtendvehicleModal" data-bs-toggle="modal">Pay</a>
+                                        <a class="btn btn-info btn-xs ml-1 mt-1" href="@Url.Action("Payvehicle","Customers",new{Assigncode=item.Assigncode})" data-bs-target="#ExtendvehicleModal" data-bs-toggle="modal">Pay</a><br />
                                     }
                                     else
                                     {

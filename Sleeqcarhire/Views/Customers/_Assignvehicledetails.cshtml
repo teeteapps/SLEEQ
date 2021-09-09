@@ -46,6 +46,8 @@
 <form asp-action="FinishAssigndetails" asp-controller="Customers" method="post">
     <div class="row">
         <input asp-for="Custcode" hidden />
+        <input asp-for="Hiredby"  hidden/>
+        <input asp-for="Recievedby" hidden />
         <input asp-for="Vehiclecode" hidden />
         <input asp-for="Vehiclereg" hidden />
         <input asp-for="Whereto" hidden />
@@ -54,8 +56,8 @@
         <input asp-for="Hiringdays" hidden />
         <input asp-for="Hireprice" hidden />
         <input asp-for="Hireamount" hidden />
-        <input asp-for="Startdate" hidden />
-        <input asp-for="Enddate" hidden />
+        <input asp-for="Newstartdate" hidden />
+        <input asp-for="Newenddate" hidden />
         <input asp-for="Carwash" hidden />
     </div>
     <div class="modal-footer">

@@ -516,6 +516,8 @@ namespace Sleeqcarhire.Controllers
             Assigncustomercar model = new Assigncustomercar();
             model.Startdate = newDate;
             model.Enddate = newDate.AddDays(obj.Hiredays).AddMinutes(10);
+            model.Newstartdate = newDate.ToString();
+            model.Newenddate = (newDate.AddDays(obj.Hiredays).AddMinutes(10)).ToString();
             model.Whereto = obj.Whereto;
             model.Wheretodescription = obj.Wheretodescription;
             model.Vehiclereg = data.Regno;
@@ -568,6 +570,9 @@ namespace Sleeqcarhire.Controllers
             model.Hiringdays = string.Join(',', hireDayofweek);
             model.Hireamount = totalprice;
             model.Hireprice = string.Join(',', hireDayprice);
+            model.Hiredby = SessionUserData.UserCode;
+            model.Recievedby = SessionUserData.UserCode;
+            model.Vehiclecode = obj.Vehiclecode;
             return PartialView("_Assignvehicledetails", model);
         }
         [HttpPost]
@@ -577,8 +582,6 @@ namespace Sleeqcarhire.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    model.Hiredby = SessionUserData.UserCode;
-                    model.Recievedby = SessionUserData.UserCode;
                     var resp = await bl.FinishAssigndetails(model);
                     if (resp.RespStatus == 0)
                     {
