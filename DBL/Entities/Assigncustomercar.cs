@@ -18,7 +18,6 @@ namespace DBL.Entities
 		public long Custcode { get; set; }
 		public DateTime Startdate { get; set; }
 		public DateTime Enddate { get; set; }
-
 		public string Newstartdate { get; set; }
 		public string  Newenddate { get; set; }
 		public double Hiredays { get; set; }
