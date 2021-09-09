@@ -35,7 +35,7 @@
                     <div class="card-header">
                         <div class="row">
                             <div class="col-sm-8">
-                                <h5>Kins List</h5>
+                                <h5 class="text-sm">Kins List</h5>
                             </div>
                             <div class="col-sm-4">
                                 <a href="@Url.Action("Addnextofkincustomer","Customers",new { Customercode=Model.Customer.Custcode})" class="btn btn-xs btn-info float-right" data-bs-target="#AddcustomedataModal" data-bs-toggle="modal">Add Next of Kin</a>
@@ -43,26 +43,26 @@
                         </div>
                     </div>
                     <div class="card-body table-responsive">
-                        <table class="dataTable table table-bordered table-striped table-sm display compact nowrap text-nowrap" id="Nextofkindata">
+                        <table class="table table-bordered table-striped compact nowrap text-nowrap flex-nowrap table-sm font-weight-light table-sm" id="Nextofkindata">
                             <thead>
                                 <tr>
-                                    <th>Fullname</th>
-                                    <th>Phonenumber</th>
-                                    <th>Idnumber</th>
-                                    <th>Relation</th>
-                                    <th>Action</th>
+                                    <th class="font-weight-light">Fullname</th>
+                                    <th class="font-weight-light">Phonenumber</th>
+                                    <th class="font-weight-light">Idnumber</th>
+                                    <th class="font-weight-light">Relation</th>
+                                    <th class="font-weight-light">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach (var data in Model.Nextofkin)
                                 {
-                                <tr>
-                                    <td>@data.Fullname</td>
-                                    <td>@data.Phonenumber</td>
-                                    <td>@data.Idnumber</td>
-                                    <td>@data.Relname</td>
-                                    <td><a href="@Url.Action("Editnextofkincustomer","Customers",new { Supcustcode=data.Supcustcode})" class="btn btn-xs btn-info float-right" data-bs-target="#AddcustomedataModal" data-bs-toggle="modal">Edit</a></td>
-                                </tr>
+                                    <tr>
+                                        <td>@data.Fullname</td>
+                                        <td>@data.Phonenumber</td>
+                                        <td>@data.Idnumber</td>
+                                        <td>@data.Relname</td>
+                                        <td><a href="@Url.Action("Editnextofkincustomer","Customers",new { Supcustcode=data.Supcustcode})" class="btn btn-xs btn-info float-right" data-bs-target="#AddcustomedataModal" data-bs-toggle="modal">Edit</a></td>
+                                    </tr>
                                 }
                             </tbody>
                         </table>
@@ -82,7 +82,11 @@
 </div>
 
 @section Scripts{
-    <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/lib/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/lib/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/lib/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/lib/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="~/lib/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
     <script type="text/javascript">
         $('#AddcustomedataModal').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget);
@@ -94,10 +98,17 @@
             $(this).removeData('bs.modal');
             $('#AddcustomedataModal .modal-content').empty();
         });
-        
+
         $(document).ready(function () {
-            $('#companyvehiclesdata').DataTable();
-            $('#Nextofkindata').DataTable();
+            $('#Nextofkindata').DataTable({
+                "paging": true,
+                "lengthChange": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
         });
     </script>
 }

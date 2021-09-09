@@ -16,24 +16,24 @@
         </div>
         <div class="row m-2">
             <div class="col-sm-6">
-                <label asp-for="Fullname"></label>
-                <input asp-for="Fullname" class="form-control form-control-sm" />
+                <label asp-for="Fullname" class="font-weight-light"></label>
+                <input asp-for="Fullname" class="form-control form-control-sm text-capitalize" />
                 <span asp-validation-for="Fullname" class="text-danger"></span>
             </div>
             <div class="col-sm-6">
-                <label asp-for="Phonenumber"></label>
+                <label asp-for="Phonenumber" class="font-weight-light"></label>
                 <input asp-for="Phonenumber" class="form-control form-control-sm" />
                 <span asp-validation-for="Phonenumber" class="text-danger"></span>
             </div>
         </div>
         <div class="row m-2">
             <div class="col-sm-6">
-                <label asp-for="Idnumber"></label>
+                <label asp-for="Idnumber" class="font-weight-light"></label>
                 <input asp-for="Idnumber" class="form-control form-control-sm" />
                 <span asp-validation-for="Idnumber" class="text-danger"></span>
             </div>
             <div class="col-sm-6">
-                <label asp-for="Relation"></label>
+                <label asp-for="Relation" class="font-weight-light"></label>
                 <select asp-for="Relation" class="form-control form-control-sm" id="Prodsubcategory" asp-items="@relationdata">
                     <option value="0">---Select Relation---</option>
                 </select>
