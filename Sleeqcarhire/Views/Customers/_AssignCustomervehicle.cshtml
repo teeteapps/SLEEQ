@@ -15,7 +15,7 @@
     <div class="row m-2">
         <div class="col-sm-6">
             <label asp-for="Vehiclecode" class="font-weight-light"></label>
-            <select asp-for="Vehiclecode" class="form-control form-control-sm text-uppercase" id="Vehiclecode" asp-items="@availablecars">
+            <select asp-for="Vehiclecode" class="form-control form-control-sm" id="Vehiclecode" asp-items="@availablecars">
                 <option value="0">---Select Vehicle---</option>
             </select>
             <span asp-validation-for="Vehiclecode" class="text-danger"></span>
