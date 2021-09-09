@@ -18,23 +18,25 @@
                             <th class="font-weight-light">Phone</th>
                             <th class="font-weight-light">Owner Type</th>
                             <th class="font-weight-light">Status</th>
-                            <th class="font-weight-light">Activate/Deactivate</th>
+                            <th class="font-weight-light">Admin Action</th>
                             <th class="font-weight-light">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            <tr>
-                                <td>@(item.Firstname+' '+item.Lastname)</td>
-                                <td>@item.Emailadd</td>
-                                <td>@item.Phoneno</td>
-                                <td>@item.Custtypename</td>
-                                <td>@(item.Isactive ?Html.Raw("<a class=\"btn btn-info btn-xs ml-1\" href=\"@Url.Action(\"Companycustomerdetails\",\"Customers\",new{Custcode=item.Custcode})\">Deactivate</a>") : Html.Raw("<a class=\"btn btn-info btn-xs ml-1\" href=\"@Url.Action(\"Companycustomerdetails\", \"Customers\", new { Custcode = item.Custcode })\">Activate</a>"))</td>
-                                <td>@(item.Isactive ?  Html.Raw("<span class=\"badge badge-success\">Active</span>") : Html.Raw("<span class=\"badge badge-danger\">Inactive</span>"))</td>
-                                <td><a class="btn btn-info btn-xs ml-1" href="@Url.Action("Companycustomerdetails","Customers",new{Custcode=item.Custcode})">Details</a><a class="btn btn-info btn-xs ml-1" href="@Url.Action("Editcompanycustomer","Customers",new{Custcode=item.Custcode})" data-bs-target="#AddcompanycustomerModal" data-bs-toggle="modal">Edit</a><a class="btn btn-danger btn-xs ml-1" href="@Url.Action("Deletecompanycustomer","Customers",new{Custcode=item.Custcode})">Delete</a>@if (item.Isactive == true)
-                                {<a class="btn btn-info btn-xs ml-1" href="@Url.Action("AssignCustomervehicle","Customers",new{Custcode=item.Custcode})" data-bs-target="#AddcompanycustomerModal" data-bs-toggle="modal">Assign Car</a>}</td>
-                            </tr>
+                        <tr>
+                            <td>@(item.Firstname+' '+item.Lastname)</td>
+                            <td>@item.Emailadd</td>
+                            <td>@item.Phoneno</td>
+                            <td>@item.Custtypename</td>
+                            <td>@(item.Isactive ?  Html.Raw("<span class=\"badge badge-success\">Active</span>") : Html.Raw("<span class=\"badge badge-danger\">Inactive</span>"))</td>
+                            <td>@(item.Isactive ?Html.Raw("<a class=\"btn btn-info btn-xs ml-1\" href=\"@Url.Action(\"Companycustomerdetails\",\"Customers\",new{Custcode=item.Custcode})\">Deactivate</a>") : Html.Raw("<a class=\"btn btn-info btn-xs ml-1\" href=\"@Url.Action(\"Companycustomerdetails\", \"Customers\", new { Custcode = item.Custcode })\">Activate</a>")) <a class="btn btn-danger btn-xs ml-1" href="@Url.Action("Deletecompanycustomer","Customers",new{Custcode=item.Custcode})">Delete</a></td>
+                            <td>
+                                <a class="btn btn-info btn-xs ml-1" href="@Url.Action("Companycustomerdetails","Customers",new{Custcode=item.Custcode})">Details</a><a class="btn btn-info btn-xs ml-1" href="@Url.Action("Editcompanycustomer","Customers",new{Custcode=item.Custcode})" data-bs-target="#AddcompanycustomerModal" data-bs-toggle="modal">Edit</a>@if (item.Isactive == true)
+                                {<a class="btn btn-info btn-xs ml-1" href="@Url.Action("AssignCustomervehicle","Customers",new{Custcode=item.Custcode})" data-bs-target="#AddcompanycustomerModal" data-bs-toggle="modal">Assign Car</a>}
+                            </td>
+                        </tr>
                         }
 
                     </tbody>
