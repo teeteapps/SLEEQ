@@ -391,6 +391,12 @@ namespace Sleeqcarhire.Controllers
             return View(data);
         }
         [HttpGet]
+        public async Task<IActionResult> Admincompanycustomerlist()
+        {
+            var data = await bl.Getcompanycustomerslist();
+            return View(data);
+        }
+        [HttpGet]
         public IActionResult Addcompanycustomer()
         {
             return PartialView("_Addcompanycustomer");
