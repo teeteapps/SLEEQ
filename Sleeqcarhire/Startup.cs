@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using static Sleeqcarhire.Util;
 
 namespace Sleeqcarhire
 {
@@ -29,6 +30,8 @@ namespace Sleeqcarhire
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var connection = Configuration.GetConnectionString("DatabaseConnection");
+            ShareConnectionString.Value = connection;
             services.AddMemoryCache();
             services.AddSession(options => {
                 options.IdleTimeout = TimeSpan.FromMinutes(30);

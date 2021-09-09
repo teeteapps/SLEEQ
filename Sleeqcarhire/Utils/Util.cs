@@ -1,5 +1,4 @@
-﻿using Bmat.Tools;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using Sleeqcarhire.Models;
 using System;
@@ -7,37 +6,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Security.Claims;
-using System.Threading.Tasks;
 
 namespace Sleeqcarhire
 {
     public class Util
     {
         public static IConfigurationRoot Configuration { get; set; }
-
-        public static string GetDbConnString()
+        public static class ShareConnectionString
         {
-            var builder = new ConfigurationBuilder()
-             .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile("appsettings.json");
-
-            Configuration = builder.Build();
-
-            if (string.IsNullOrEmpty(AppData.DbConnectionString))
-            {
-                string connId = Configuration["DbConnData:Id"];
-                string connKey = Configuration["DbConnData:Key"];
-                string connData = Configuration["DbConnData:Data"];
-
-                ConnectionManager conMan = new ConnectionManager();
-                string connString = conMan.GetConnectionString(connData, connId, connKey);
-
-                AppData.DbConnectionString = connString;
-
-                return connString;
-            }
-            else
-                return AppData.DbConnectionString;
+            public static string Value { get; set; }
         }
 
         public static void LogError(string userName, Exception ex, bool isError = true)

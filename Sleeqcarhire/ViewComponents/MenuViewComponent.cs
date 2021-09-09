@@ -12,7 +12,7 @@ namespace Sleeqcarhire.ViewComponents
         BL bl;
         public MenuViewComponent()
         {
-            bl = new BL(Util.GetDbConnString());
+            bl = new BL(Util.ShareConnectionString.Value);
         }
         public async Task<IViewComponentResult> InvokeAsync(int profilecode)
         {

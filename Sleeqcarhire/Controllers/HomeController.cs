@@ -20,7 +20,7 @@ namespace Sleeqcarhire.Controllers
         string encusercode = "";
         public HomeController()
         {
-            bl = new BL(Util.GetDbConnString());
+            bl = new BL(Util.ShareConnectionString.Value);
         }
 
         public IActionResult Dashboard()

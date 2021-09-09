@@ -24,7 +24,7 @@ namespace Sleeqcarhire.Controllers
         EncryptDecrypt sec = new EncryptDecrypt();
         public AccountController()
         {
-            bl = new BL(Util.GetDbConnString());
+            bl = new BL(Util.ShareConnectionString.Value);
         }
 
         #region System Staff

@@ -23,7 +23,7 @@ namespace Sleeqcarhire.Controllers
         string encusercode = "";
         public MaintenanceController()
         {
-            bl = new BL(Util.GetDbConnString());
+            bl = new BL(Util.ShareConnectionString.Value);
         }
         [HttpGet]
         public async Task<IActionResult> Companyvehicles()

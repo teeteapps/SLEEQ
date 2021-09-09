@@ -20,7 +20,7 @@ namespace Sleeqcarhire.Controllers
         string encusercode = "";
         public CustomersController()
         {
-            bl = new BL(Util.GetDbConnString());
+            bl = new BL(Util.ShareConnectionString.Value);
         }
         #region Vehicle Owner Details
         [HttpGet]
