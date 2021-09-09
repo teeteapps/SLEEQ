@@ -9,11 +9,11 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Vehicle Type Details</h5>
+                        <h5 class="text-sm">Vehicle Type Details</h5>
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-sm-12">
+                            <div class="col-sm-12 font-weight-lighter">
                                 <p>@Model.Vehtypes.Typename</p>
                             </div>
                         </div>
@@ -29,9 +29,9 @@
                     <div class="card-header">
                         <div class="row">
                             <div class="col-sm-8 float-left">
-                                <h5>Vehicle Type Hire Prices</h5>
+                                <h5 class="text-sm">Vehicle Type Hire Prices</h5>
                             </div>
-                            @if(Model.Hireterms == null)
+                            @if (Model.Hireterms == null)
                             {
                                 <div class="col-sm-4 float-right">
                                     <a href="@Url.Action("Addvehicletypehireterms","Maintenance",new {Typecode=Model.Vehtypes.Typecode })" class="btn btn-sm btn-info float-right" data-bs-target="#AddvehicletypehiredaysModal" data-bs-toggle="modal">Add Hire Terms</a>
@@ -42,17 +42,17 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-12 table-responsive">
-                                <table class="table table-bordered table-striped display compact nowrap" id="vehiclehireterms">
+                                <table class="table table-bordered table-striped compact nowrap text-nowrap flex-nowrap table-sm font-weight-light table-sm" id="vehiclehireterms">
                                     <thead>
                                         <tr>
-                                            <th>Monday</th>
-                                            <th>Tuesday</th>
-                                            <th>Wednesday</th>
-                                            <th>Thursday</th>
-                                            <th>Friday</th>
-                                            <th>Saturday</th>
-                                            <th>Sunday</th>
-                                            <th>Action</th>
+                                            <th class="font-weight-light">Monday</th>
+                                            <th class="font-weight-light">Tuesday</th>
+                                            <th class="font-weight-light">Wednesday</th>
+                                            <th class="font-weight-light">Thursday</th>
+                                            <th class="font-weight-light">Friday</th>
+                                            <th class="font-weight-light">Saturday</th>
+                                            <th class="font-weight-light">Sunday</th>
+                                            <th class="font-weight-light">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -87,7 +87,11 @@
 
 
 @section Scripts{
-    <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/lib/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/lib/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/lib/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/lib/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="~/lib/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
     <script type="text/javascript">
         $('#AddvehicletypehiredaysModal').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget);
@@ -100,7 +104,15 @@
             $('#AddvehicletypehiredaysModal .modal-content').empty();
         });
         $(document).ready(function () {
-            $('#vehiclehireterms').DataTable();
+            $('#vehiclehireterms').DataTable({
+                "paging": true,
+                "lengthChange": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
         });
     </script>
 }

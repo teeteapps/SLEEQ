@@ -12,12 +12,12 @@
     <div class="modal-body">
         <div class="row m-2">
             <div class="col-sm-6">
-                <label asp-for="Typename"></label>
-                <input asp-for="Typename" class="form-control form-control-sm" />
+                <label asp-for="Typename" class="font-weight-lighter"></label>
+                <input asp-for="Typename" class="form-control form-control-sm text-capitalize" />
                 <span asp-validation-for="Typename" class="text-danger"></span>
             </div>
             <div class="col-sm-6">
-                <label asp-for="Capacity"></label>
+                <label asp-for="Capacity" class="font-weight-lighter"></label>
                 <select asp-for="Capacity" class="form-control form-control-sm" id="Prodsubcategory" asp-items="@capacity">
                     <option value="0">---Select Capacity---</option>
                 </select>
@@ -27,14 +27,14 @@
         <div class="row m-2">
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label asp-for="Vehicleimage"></label>
+                    <label asp-for="Vehicleimage"  class="font-weight-lighter"></label>
                     <input asp-for="Vehicleimage" type="file" />
                     <span asp-validation-for="Vehicleimage" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-sm-6">
-                <label asp-for="Cartype"></label>
-                <select asp-for="Cartype" class="form-control">
+                <label asp-for="Cartype" class="font-weight-lighter"></label>
+                <select asp-for="Cartype" class="form-control form-control-sm">
                     <option value="0">---Select Car Type---</option>
                     <option value="100">Salon Car</option>
                     <option value="200">Executive Car</option>

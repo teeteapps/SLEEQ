@@ -13,13 +13,13 @@
                 </div>
             </div>
             <div class="card-body table-responsive-sm">
-                <table class="table table-bordered table-striped table-sm text-nowrap" id="Sleeqvehiclesdatatable">
+                <table class="table table-bordered table-striped compact nowrap text-nowrap flex-nowrap table-sm font-weight-light table-sm" id="Sleeqvehiclesdatatable">
                     <thead>
                         <tr>
-                            <th>Vehicle name</th>
-                            <th>Vehicle name</th>
-                            <th>Vehicle name</th>
-                            <th>Vehicle name</th>
+                            <th class="font-weight-lighter">Vehicle name</th>
+                            <th class="font-weight-lighter">Vehicle name</th>
+                            <th class="font-weight-lighter">Vehicle name</th>
+                            <th class="font-weight-lighter">Vehicle name</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -42,7 +42,15 @@
     <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" charset="utf-8">
         $(document).ready(function () {
-            $('#Sleeqvehiclesdatatable').DataTable();
+            $('#Sleeqvehiclesdatatable').DataTable({
+                "paging": true,
+                "lengthChange": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
         });
     </script>
 }

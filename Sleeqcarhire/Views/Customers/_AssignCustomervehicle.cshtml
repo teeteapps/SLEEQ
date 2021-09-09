@@ -14,39 +14,39 @@
     </div>
     <div class="row m-2">
         <div class="col-sm-6">
-            <label asp-for="Vehiclecode"></label>
+            <label asp-for="Vehiclecode" class="font-weight-light"></label>
             <select asp-for="Vehiclecode" class="form-control form-control-sm" id="Vehiclecode" asp-items="@availablecars">
                 <option value="0">---Select Vehicle---</option>
             </select>
             <span asp-validation-for="Vehiclecode" class="text-danger"></span>
         </div>
         <div class="col-sm-6">
-            <label asp-for="Whereto"></label>
+            <label asp-for="Whereto" class="font-weight-light"></label>
             <input asp-for="Whereto" id="Whereto" class="form-control form-control-sm" />
             <span asp-validation-for="Whereto" class="text-danger"></span>
         </div>
     </div>
     <div class="row m-2">
         <div class="col-sm-12">
-            <label asp-for="Wheretodescription"></label>
+            <label asp-for="Wheretodescription" class="font-weight-light"></label>
             <textarea asp-for="Wheretodescription" id="Wheretodescription" class="form-control form-control-sm"></textarea>
             <span asp-validation-for="Wheretodescription" class="text-danger"></span>
         </div>
     </div>
     <div class="row m-2">
         <div class="col-sm-4">
-            <label asp-for="Startdate"></label>
+            <label asp-for="Startdate" class="font-weight-light"></label>
             <input asp-for="Startdate" id="Startdate" type="date" class="form-control form-control-sm" />
             <span asp-validation-for="Startdate" class="text-danger"></span>
         </div>
         <div class="col-sm-4">
-            <label asp-for="Hiredays"></label>
+            <label asp-for="Hiredays" class="font-weight-light"></label>
             <input asp-for="Hiredays" id="Hiredays" type="number" class="form-control form-control-sm" />
             <span asp-validation-for="Hiredays" class="text-danger"></span>
         </div>
         <div class="col-sm-4 mt-4">
             <input asp-for="Hascarwash" id="Hascarwash" type="checkbox" />
-            <label asp-for="Hascarwash"></label>
+            <label asp-for="Hascarwash" class="font-weight-light"></label>
         </div>
     </div>
 </div>
