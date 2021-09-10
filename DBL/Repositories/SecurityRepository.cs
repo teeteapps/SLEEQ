@@ -38,6 +38,7 @@ namespace DBL.Repositories
                 parameters.Add("@Emailadd", entity.Emailadd);
                 parameters.Add("@Phonenumber", entity.Phonenumber);
                 parameters.Add("@Passwordhash", entity.Passwordhash);
+                parameters.Add("@Rolecode", entity.Rolecode);
                 parameters.Add("@Createdby", entity.Createdby);
                 parameters.Add("@Modifiedby", entity.Modifiedby);
                 return connection.Query<GenericModel>("Usp_Addstaff", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
@@ -62,6 +63,7 @@ namespace DBL.Repositories
                 parameters.Add("@Lastname", entity.Lastname);
                 parameters.Add("@Emailadd", entity.Emailadd);
                 parameters.Add("@Phonenumber", entity.Phonenumber);
+                parameters.Add("@Rolecode", entity.Rolecode);
                 parameters.Add("@Modifiedby", entity.Modifiedby);
                 return connection.Query<GenericModel>("Usp_Editstaff", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
