@@ -338,3 +338,104 @@ function companycustomerformvalidation() {
         document.getElementById('residence').style.borderColor = "green";
     }
 }
+
+function vehicleownerformvalidation() {
+    var cfn = document.getElementById('firstname').value;
+    if (cfn == "") {
+        document.getElementById('firstname').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('firstname').style.borderColor = "green";
+    }
+    if (/^[0-9]+$/.test(document.getElementById("firstname").value)) {
+        document.getElementById('firstname').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('firstname').style.borderColor = "green";
+    }
+    if (cfn.length <= 2) {
+        document.getElementById('firstname').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('firstname').style.borderColor = "green";
+    }
+    var cln = document.getElementById('lastname').value;
+    if (cln == "") {
+        document.getElementById('lastname').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('lastname').style.borderColor = "green";
+    }
+    if (/^[0-9]+$/.test(document.getElementById("lastname").value)) {
+        document.getElementById('lastname').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('lastname').style.borderColor = "green";
+    }
+    if (cln.length <= 2) {
+        document.getElementById('lastname').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('lastname').style.borderColor = "green";
+    }
+    var cea = document.getElementById('emailaddress').value;
+    if (cea == "") {
+        document.getElementById('emailaddress').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('emailaddress').style.borderColor = "green";
+    }
+    var cpn = document.getElementById('phonenumber').value;
+    if (cpn == "") {
+        document.getElementById('phonenumber').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('phonenumber').style.borderColor = "green";
+    }
+    if (/^[A-Za-z]+$/.test(document.getElementById("phonenumber").value)) {
+        document.getElementById('phonenumber').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('phonenumber').style.borderColor = "green";
+    }
+    var cin = document.getElementById('idnumber').value;
+    if (cin == "") {
+        document.getElementById('idnumber').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('idnumber').style.borderColor = "green";
+    }
+    if (/^[A-Za-z]+$/.test(document.getElementById("idnumber").value)) {
+        document.getElementById('idnumber').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('idnumber').style.borderColor = "green";
+    }
+    var cvt = document.getElementById('customertype').value;
+    if (cvt == 0) {
+        document.getElementById('customertype').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('customertype').style.borderColor = "green";
+    }
+    var desc = document.getElementById('description').value;
+    if (desc == "") {
+        document.getElementById('description').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('description').style.borderColor = "green";
+    }
+    if (/^[0-9]+$/.test(document.getElementById("description").value)) {
+        document.getElementById('description').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('description').style.borderColor = "green";
+    }
+    if (cop.length <= 2) {
+        document.getElementById('description').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('description').style.borderColor = "green";
+    }
+    
+}
