@@ -5,7 +5,7 @@
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
-<form asp-action="Editstaff" asp-controller="Account" method="post">
+<form asp-action="Editstaff" asp-controller="Account" method="post" onsubmit="return staffformvalidation();" onchange="return staffformvalidation();">
     <div class="modal-body">
         <div>
             <input asp-for="Usercode" hidden />
@@ -13,31 +13,31 @@
         <div class="row m-2">
             <div class="col-sm-6">
                 <label asp-for="Firstname" class="font-weight-light"></label>
-                <input asp-for="Firstname" class="form-control form-control-sm text-capitalize" />
+                <input asp-for="Firstname" class="form-control form-control-sm text-capitalize" id="firstname" />
                 <span asp-validation-for="Firstname" class="text-danger"></span>
             </div>
             <div class="col-sm-6">
                 <label asp-for="Lastname" class="font-weight-light"></label>
-                <input asp-for="Lastname" class="form-control form-control-sm text-capitalize" />
+                <input asp-for="Lastname" class="form-control form-control-sm text-capitalize" id="lastname" />
                 <span asp-validation-for="Lastname" class="text-danger"></span>
             </div>
         </div>
         <div class="row m-2">
             <div class="col-sm-6">
                 <label asp-for="Emailadd" class="font-weight-light"></label>
-                <input asp-for="Emailadd" class="form-control form-control-sm" />
+                <input asp-for="Emailadd" class="form-control form-control-sm" id="emailaddress" />
                 <span asp-validation-for="Emailadd" class="text-danger"></span>
             </div>
             <div class="col-sm-6">
                 <label asp-for="Phonenumber" class="font-weight-light"></label>
-                <input asp-for="Phonenumber" class="form-control form-control-sm" />
+                <input asp-for="Phonenumber" class="form-control form-control-sm" id="phonenumber" />
                 <span asp-validation-for="Phonenumber" class="text-danger"></span>
             </div>
         </div>
         <div class="row m-2">
             <div class="col-sm-6">
                 <label asp-for="Rolecode" class="font-weight-light"></label>
-                <select asp-for="Rolecode" class="form-control form-control-sm">
+                <select asp-for="Rolecode" class="form-control form-control-sm" id="rolecode">
                     <option value="0">---Select Role---</option>
                     <option value="100">Admin</option>
                     <option value="200">Staff</option>
@@ -47,6 +47,6 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal">Close</button>
-        <input type="submit" class="btn btn-sm btn-info" value="Update">
+        <input type="submit" class="btn btn-sm btn-info" onclick="staffformvalidation()" value="Update">
     </div>
 </form>

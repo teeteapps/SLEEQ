@@ -5,7 +5,7 @@
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
-<form asp-action="Editvehicletypehireterms" asp-controller="Maintenance" method="post">
+<form asp-action="Editvehicletypehireterms" asp-controller="Maintenance" method="post" onsubmit="return vehiclehiretermsformvalidation();" onchange="return vehiclehiretermsformvalidation();">
     <div class="modal-body">
         <div class="row m-2">
             <div class="col-sm-12">
@@ -16,47 +16,47 @@
         <div class="row m-2">
             <div class="col-sm-6">
                 <label asp-for="Mondayprice" class="font-weight-lighter"></label>
-                <input asp-for="Mondayprice" class="form-control form-control-sm" type="number" />
+                <input asp-for="Mondayprice" class="form-control form-control-sm" type="number"  id="mondayprice"/>
                 <span asp-validation-for="Mondayprice" class="text-danger"></span>
             </div>
             <div class="col-sm-6">
                 <label asp-for="Tuesdayprice" class="font-weight-lighter"></label>
-                <input asp-for="Tuesdayprice" class="form-control  form-control-sm" type="number" />
+                <input asp-for="Tuesdayprice" class="form-control  form-control-sm" type="number" id="tuesdayprice" />
                 <span asp-validation-for="Tuesdayprice" class="text-danger"></span>
             </div>
         </div>
         <div class="row m-2">
             <div class="col-sm-6">
                 <label asp-for="Wednesdayprice" class="font-weight-lighter"></label>
-                <input asp-for="Wednesdayprice" class="form-control form-control-sm" type="number" />
+                <input asp-for="Wednesdayprice" class="form-control form-control-sm" type="number" id="wednesdayprice" />
                 <span asp-validation-for="Wednesdayprice" class="text-danger"></span>
             </div>
             <div class="col-sm-6">
                 <label asp-for="Thursdayprice" class="font-weight-lighter"></label>
-                <input asp-for="Thursdayprice" class="form-control  form-control-sm" type="number" />
+                <input asp-for="Thursdayprice" class="form-control  form-control-sm" type="number" id="thursdayprice" />
                 <span asp-validation-for="Thursdayprice" class="text-danger"></span>
             </div>
         </div>
         <div class="row m-2">
             <div class="col-sm-4">
                 <label asp-for="Fridayprice" class="font-weight-lighter"></label>
-                <input asp-for="Fridayprice" class="form-control form-control-sm" type="number" />
+                <input asp-for="Fridayprice" class="form-control form-control-sm" type="number" id="fridayprice" />
                 <span asp-validation-for="Fridayprice" class="text-danger"></span>
             </div>
             <div class="col-sm-4">
                 <label asp-for="Saturdayprice" class="font-weight-lighter"></label>
-                <input asp-for="Saturdayprice" class="form-control form-control-sm" type="number" />
+                <input asp-for="Saturdayprice" class="form-control form-control-sm" type="number" id="saturdayprice" />
                 <span asp-validation-for="Saturdayprice" class="text-danger"></span>
             </div>
             <div class="col-sm-4">
                 <label asp-for="Sundayprice" class="font-weight-lighter"></label>
-                <input asp-for="Sundayprice" class="form-control  form-control-sm" type="number" />
+                <input asp-for="Sundayprice" class="form-control  form-control-sm" type="number" id="sundayprice" />
                 <span asp-validation-for="Sundayprice" class="text-danger"></span>
             </div>
         </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal">Close</button>
-        <input type="submit" class="btn btn-sm btn-info" value="Update">
+        <input type="submit" class="btn btn-sm btn-info" onclick="vehiclehiretermsformvalidation()" value="Update">
     </div>
 </form>

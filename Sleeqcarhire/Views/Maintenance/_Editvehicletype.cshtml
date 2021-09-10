@@ -8,20 +8,20 @@
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
-<form asp-action="Editvehicletype" asp-controller="Maintenance" method="post" enctype="multipart/form-data">
+<form asp-action="Editvehicletype" asp-controller="Maintenance" method="post" onsubmit="return vehicletypeformvalidation();" onchange="return vehicletypeformvalidation();" enctype="multipart/form-data">
     <div class="modal-body">
         <div class="row">
-            <input asp-for="Typecode" hidden/>
+            <input asp-for="Typecode" hidden />
         </div>
         <div class="row m-2">
             <div class="col-sm-6">
-                <label asp-for="Typename"  class="font-weight-lighter"></label>
-                <input asp-for="Typename" class="form-control form-control-sm text-capitalize" />
+                <label asp-for="Typename" class="font-weight-lighter"></label>
+                <input asp-for="Typename" class="form-control form-control-sm text-capitalize" id="typename" />
                 <span asp-validation-for="Typename" class="text-danger"></span>
             </div>
             <div class="col-sm-6">
                 <label asp-for="Capacity" class="font-weight-lighter"></label>
-                <select asp-for="Capacity" class="form-control form-control-sm" id="Prodsubcategory" asp-items="@capacity">
+                <select asp-for="Capacity" class="form-control form-control-sm" asp-items="@capacity" id="capacity">
                     <option value="0">---Select Capacity---</option>
                 </select>
                 <span asp-validation-for="Capacity" class="text-danger"></span>
@@ -31,13 +31,13 @@
             <div class="col-sm-6">
                 <div class="form-group">
                     <label asp-for="Vehicleimage" class="font-weight-lighter"></label>
-                    <input asp-for="Vehicleimage" type="file" />
+                    <input asp-for="Vehicleimage" type="file" id="vehicleimage" />
                     <span asp-validation-for="Vehicleimage" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-sm-6">
                 <label asp-for="Cartype" class="font-weight-lighter"></label>
-                <select asp-for="Cartype" class="form-control">
+                <select asp-for="Cartype" class="form-control form-control-sm" id="cartype">
                     <option value="0">---Select Car Type---</option>
                     <option value="100">Salon Car</option>
                     <option value="200">Executive Car</option>
@@ -48,6 +48,6 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal">Close</button>
-        <input type="submit" class="btn btn-sm btn-info" value="Update">
+        <input type="submit" class="btn btn-sm btn-info"  onclick="vehicletypeformvalidation()" value="Update">
     </div>
 </form>
