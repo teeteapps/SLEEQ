@@ -133,6 +133,9 @@ namespace DBL.Repositories
                 parameters.Add("@Phoneno", entity.Phoneno);
                 parameters.Add("@Custtype", entity.Custtype);
                 parameters.Add("@Idnumber", entity.Idnumber);
+                parameters.Add("@Residence", entity.Residence);
+                parameters.Add("@Occupation", entity.Occupation);
+                parameters.Add("@Descriptions", entity.Descriptions);
                 return connection.Query<GenericModel>("Usp_EditCompanycustomer", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
         }
