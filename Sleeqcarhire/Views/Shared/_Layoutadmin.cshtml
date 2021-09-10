@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="~/lib/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="~/lib/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 </head>
-<body class="hold-transition sidebar-mini layout-fixed control-sidebar-slide-open text-sm bg-light">
+<body class="hold-transition sidebar-mini layout-fixed control-sidebar-slide-open text-sm bg-gradient-light">
     <!-- Site wrapper -->
     <div class="wrapper">
         <!-- Navbar -->
@@ -49,7 +49,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-right border-0 elevation-0 bg-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                         <li><a href="@Url.Action("Changepassword","Account",new { UserCode=currentUserData.UserCode})" class="dropdown-item text-white" data-bs-target="#ChangepasswordModal" data-bs-toggle="modal">Change Password</a></li>
-                        <li><a class="fa fa-lock dropdown-item text-white" href="@Url.Action("Logout","Account")">&nbsp;&nbsp;Log out</a></li>
+                        <li><a class="dropdown-item text-white" href="@Url.Action("Logout","Account")">&nbsp;&nbsp;Log out</a></li>
                     </ul>
                 </li>
             </ul>
