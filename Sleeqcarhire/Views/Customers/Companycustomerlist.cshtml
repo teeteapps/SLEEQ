@@ -24,19 +24,23 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                        <tr>
-                            <td>@(item.Firstname+' '+item.Lastname)</td>
-                            <td>@item.Emailadd</td>
-                            <td>@item.Phoneno</td>
-                            <td>@item.Custtypename</td>
-                            <td>@if (item.Isactive)
-                            {<span class="badge badge-success">Active</span>}
-                            else
-                            { <span class="badge badge-danger">Inactive</span>}</td>
-                            <td><a class="btn btn-info btn-xs ml-1" href="@Url.Action("Companycustomerdetails","Customers",new{Custcode=item.Custcode})">Details</a><a class="btn btn-info btn-xs ml-1" href="@Url.Action("Editcompanycustomer","Customers",new{Custcode=item.Custcode})" data-bs-target="#AddcompanycustomerModal" data-bs-toggle="modal">Edit</a>@if (item.Isactive == true)
-                            {<a class="btn btn-info btn-xs ml-1" href="@Url.Action("AssignCustomervehicle","Customers",new{Custcode=item.Custcode})" data-bs-target="#AddcompanycustomerModal" data-bs-toggle="modal">Assign Car</a>}</td>
+                            <tr>
+                                <td>@(item.Firstname+' '+item.Lastname)</td>
+                                <td>@item.Emailadd</td>
+                                <td>@item.Phoneno</td>
+                                <td>@item.Custtypename</td>
+                                <td>
+                                    @if (item.Isactive)
+                                    {<span class="badge badge-success">Active</span>}
+                                    else
+                                    { <span class="badge badge-danger">Inactive</span>}
+                            </td>
+                            <td>
+                                <a class="btn btn-info btn-xs ml-1" href="@Url.Action("Companycustomerdetails","Customers",new{Custcode=item.Custcode})">Details</a><a class="btn btn-info btn-xs ml-1" href="@Url.Action("Editcompanycustomer","Customers",new{Custcode=item.Custcode})" data-bs-target="#AddcompanycustomerModal" data-bs-toggle="modal">Edit</a>@if (item.Isactive == true)
+                                {<a class="btn btn-info btn-xs ml-1" href="@Url.Action("AssignCustomervehicle","Customers",new{Custcode=item.Custcode})" data-bs-target="#AddcompanycustomerModal" data-bs-toggle="modal">Assign Car</a>}
+                            </td>
                         </tr>
-                        }
+                    }
 
                     </tbody>
                 </table>
@@ -63,6 +67,7 @@
 
 
 @section Scripts{
+    <script src="~/js/formvalidation.js"></script>
     <script src="~/lib/plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="~/lib/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
     <script src="~/lib/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>

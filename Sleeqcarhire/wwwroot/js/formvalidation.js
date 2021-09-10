@@ -226,3 +226,115 @@ function vehiclehiretermsformvalidation() {
         document.getElementById('sundayprice').style.borderColor = "green";
     }
 }
+
+function companycustomerformvalidation() {
+    var cfn = document.getElementById('firstname').value;
+    if (cfn == "") {
+        document.getElementById('firstname').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('firstname').style.borderColor = "green";
+    }
+    if (/^[0-9]+$/.test(document.getElementById("firstname").value)) {
+        document.getElementById('firstname').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('firstname').style.borderColor = "green";
+    }
+    if (cfn.length <= 2) {
+        document.getElementById('firstname').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('firstname').style.borderColor = "green";
+    }
+    var cln = document.getElementById('lastname').value;
+    if (cln == "") {
+        document.getElementById('lastname').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('lastname').style.borderColor = "green";
+    }
+    if (/^[0-9]+$/.test(document.getElementById("lastname").value)) {
+        document.getElementById('lastname').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('lastname').style.borderColor = "green";
+    }
+    if (cln.length <= 2) {
+        document.getElementById('lastname').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('lastname').style.borderColor = "green";
+    }
+    var cpn = document.getElementById('phonenumber').value;
+    if (cpn == "") {
+        document.getElementById('phonenumber').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('phonenumber').style.borderColor = "green";
+    }
+    if (/^[A-Za-z]+$/.test(document.getElementById("phonenumber").value)) {
+        document.getElementById('phonenumber').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('phonenumber').style.borderColor = "green";
+    }
+    var cin = document.getElementById('idnumber').value;
+    if (cin == "") {
+        document.getElementById('idnumber').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('idnumber').style.borderColor = "green";
+    }
+    if (/^[A-Za-z]+$/.test(document.getElementById("idnumber").value)) {
+        document.getElementById('idnumber').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('idnumber').style.borderColor = "green";
+    }
+    var cea = document.getElementById('emailaddress').value;
+    if (cea == "") {
+        document.getElementById('emailaddress').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('emailaddress').style.borderColor = "green";
+    }
+    var cop = document.getElementById('occupation').value;
+    if (cop == "") {
+        document.getElementById('occupation').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('occupation').style.borderColor = "green";
+    }
+    if (/^[0-9]+$/.test(document.getElementById("occupation").value)) {
+        document.getElementById('occupation').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('occupation').style.borderColor = "green";
+    }
+    if (cop.length <= 2) {
+        document.getElementById('occupation').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('occupation').style.borderColor = "green";
+    }
+    var crs = document.getElementById('residence').value;
+    if (crs == "") {
+        document.getElementById('residence').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('residence').style.borderColor = "green";
+    }
+    if (/^[0-9]+$/.test(document.getElementById("residence").value)) {
+        document.getElementById('residence').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('residence').style.borderColor = "green";
+    }
+    if (crs.length <= 2) {
+        document.getElementById('residence').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('residence').style.borderColor = "green";
+    }
+}

@@ -5,7 +5,7 @@
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
-<form asp-action="Editcompanycustomer" asp-controller="Customers" method="post">
+<form asp-action="Editcompanycustomer" asp-controller="Customers" method="post" onsubmit="return companycustomerformvalidation();" onchange="return companycustomerformvalidation();">
     <div class="modal-body">
         <div>
             <input asp-for="Custcode" hidden />
@@ -13,34 +13,33 @@
         <div class="row m-2">
             <div class="col-sm-6">
                 <label asp-for="Firstname" class="font-weight-light"></label>
-                <input asp-for="Firstname" class="form-control form-control-sm text-capitalize" />
+                <input asp-for="Firstname" class="form-control form-control-sm text-capitalize" id="firstname" />
                 <span asp-validation-for="Firstname" class="text-danger"></span>
             </div>
             <div class="col-sm-6">
                 <label asp-for="Lastname" class="font-weight-light"></label>
-                <input asp-for="Lastname" class="form-control form-control-sm text-capitalize" />
+                <input asp-for="Lastname" class="form-control form-control-sm text-capitalize" id="lastname" />
                 <span asp-validation-for="Lastname" class="text-danger"></span>
             </div>
         </div>
         <div class="row m-2">
             <div class="col-sm-6">
                 <label asp-for="Phoneno" class="font-weight-light"></label>
-                <input asp-for="Phoneno" class="form-control form-control-sm" />
+                <input asp-for="Phoneno" class="form-control form-control-sm" id="phonenumber" />
                 <span asp-validation-for="Phoneno" class="text-danger"></span>
             </div>
             <div class="col-sm-6">
                 <label asp-for="Idnumber" class="font-weight-light"></label>
-                <input asp-for="Idnumber" class="form-control form-control-sm" />
+                <input asp-for="Idnumber" class="form-control form-control-sm" id="idnumber" />
                 <span asp-validation-for="Idnumber" class="text-danger"></span>
             </div>
         </div>
         <div class="row m-2">
             <div class="col-sm-12">
                 <label asp-for="Emailadd" class="font-weight-light"></label>
-                <input asp-for="Emailadd" class="form-control form-control-sm" />
+                <input asp-for="Emailadd" class="form-control form-control-sm" id="emailaddress" />
                 <span asp-validation-for="Emailadd" class="text-danger"></span>
             </div>
-
             <div class="col-sm-6" hidden>
                 <label asp-for="Custtype" class="font-weight-light"></label>
                 <input asp-for="Custtype" value="300" />
@@ -49,18 +48,18 @@
         <div class="row m-2">
             <div class="col-sm-6">
                 <label asp-for="Occupation" class="font-weight-light"></label>
-                <textarea asp-for="Occupation" class="form-control form-control-sm"></textarea>
+                <textarea asp-for="Occupation" class="form-control form-control-sm" id="occupation"></textarea>
                 <span asp-validation-for="Occupation" class="text-danger"></span>
             </div>
             <div class="col-sm-6">
                 <label asp-for="Residence" class="font-weight-light"></label>
-                <textarea asp-for="Residence" class="form-control form-control-sm"></textarea>
+                <textarea asp-for="Residence" class="form-control form-control-sm" id="residence"></textarea>
                 <span asp-validation-for="Residence" class="text-danger"></span>
             </div>
         </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal">Close</button>
-        <input type="submit" class="btn btn-sm btn-info" value="Update">
+        <input type="submit" class="btn btn-sm btn-info" onclick="companycustomerformvalidation()" value="Update">
     </div>
 </form>
