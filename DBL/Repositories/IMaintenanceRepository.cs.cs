@@ -37,6 +37,7 @@ namespace DBL.Repositories
         IEnumerable<Viewcompanyvehicles> GetViewcompanyvehiclesdetailbycode(long ownercode);
         IEnumerable<Viewnextofkins> GetViewnextofkinsdetailbycode(long ownercode);
         GenericModel Deletecompanycustomer(long Custcode);
+        GenericModel Actdeactivatecustomer(long Custcode, long status);
         #endregion
 
         #region Company Customers

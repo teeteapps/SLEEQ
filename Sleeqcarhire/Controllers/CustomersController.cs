@@ -497,6 +497,37 @@ namespace Sleeqcarhire.Controllers
             }
             return RedirectToAction("Companycustomerlist");
         }
+        [HttpGet]
+        [HttpPost]
+        public async Task<IActionResult> Actdeactivatecustomer(long Custcode,long Status)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var resp = await bl.Actdeactivatecustomer(Custcode,Status);
+                    if (resp.RespStatus == 0)
+                    {
+                        Success(resp.RespMessage, true);
+                        return RedirectToAction("Admincompanycustomerlist");
+                    }
+                    else if (resp.RespStatus == 1)
+                    {
+                        Danger(resp.RespMessage, true);
+                    }
+                    else
+                    {
+                        Danger("Database error occured. Please contact Admin!", true);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Util.LogError("Activate Deactivate Customer", ex, true);
+            }
+            return RedirectToAction("Admincompanycustomerlist");
+        }
+
         #endregion
 
         #region Assign Vehicle

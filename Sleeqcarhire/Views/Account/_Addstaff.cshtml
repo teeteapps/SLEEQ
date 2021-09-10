@@ -31,6 +31,16 @@
                 <span asp-validation-for="Phonenumber" class="text-danger"></span>
             </div>
         </div>
+        <div class="row m-2">
+            <div class="col-sm-6">
+                <label asp-for="Rolecode" class="font-weight-light"></label>
+                <select asp-for="Rolecode" class="form-control form-control-sm">
+                    <option value="0">---Select Role---</option>
+                    <option value="100">Admin</option>
+                    <option value="200">Staff</option>
+                </select>
+            </div>
+        </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal">Close</button>

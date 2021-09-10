@@ -278,6 +278,14 @@ namespace DBL
                 return Resp;
             });
         }
+        public Task<GenericModel> Actdeactivatecustomer(long Custcode,long Status)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.MaintenanceRepository.Actdeactivatecustomer(Custcode, Status);
+                return Resp;
+            });
+        }
         #endregion
 
         #region Company Customers

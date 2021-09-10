@@ -113,6 +113,9 @@ namespace DBL.Repositories
                 parameters.Add("@Custtype", entity.Custtype);
                 parameters.Add("@Idnumber", entity.Idnumber);
                 parameters.Add("@Createdby", entity.Createdby);
+                parameters.Add("@Residence", entity.Residence);
+                parameters.Add("@Occupation", entity.Occupation);
+                parameters.Add("@Descriptions", entity.Descriptions);
                 return connection.Query<GenericModel>("Usp_AddCompanycustomer", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
         }
@@ -223,6 +226,17 @@ namespace DBL.Repositories
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@Custcode", Custcode);
                 return connection.Query<GenericModel>("Usp_Deletecompanycustomer", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            }
+        }
+        public GenericModel Actdeactivatecustomer(long Custcode,long Status)
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@Custcode", Custcode);
+                parameters.Add("@Status", Status);
+                return connection.Query<GenericModel>("Usp_Actdeactivatecustomer", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
         }
         #endregion

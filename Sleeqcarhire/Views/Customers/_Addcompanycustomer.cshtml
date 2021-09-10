@@ -37,10 +37,21 @@
                 <input asp-for="Emailadd" class="form-control form-control-sm" />
                 <span asp-validation-for="Emailadd" class="text-danger"></span>
             </div>
-            
             <div class="col-sm-6" hidden>
                 <label asp-for="Custtype" class="font-weight-light"></label>
                 <input asp-for="Custtype" value="300" />
+            </div>
+        </div>
+        <div class="row m-2">
+            <div class="col-sm-6">
+                <label asp-for="Occupation" class="font-weight-light"></label>
+                <textarea asp-for="Occupation" class="form-control form-control-sm"></textarea>
+                <span asp-validation-for="Occupation" class="text-danger"></span>
+            </div>
+            <div class="col-sm-6">
+                <label asp-for="Residence" class="font-weight-light"></label>
+                <textarea asp-for="Residence" class="form-control form-control-sm"></textarea>
+                <span asp-validation-for="Residence" class="text-danger"></span>
             </div>
         </div>
     </div>

@@ -8,7 +8,7 @@
 <form asp-action="Editvehicleowner" asp-controller="Customers" method="post">
     <div class="modal-body">
         <div class="row">
-            <input asp-for="Custcode" hidden/>
+            <input asp-for="Custcode" hidden />
         </div>
         <div class="row m-2">
             <div class="col-sm-6">
@@ -29,7 +29,7 @@
                 <span asp-validation-for="Emailadd" class="text-danger"></span>
             </div>
             <div class="col-sm-6">
-                <label asp-for="Phoneno"  class="font-weight-light"></label>
+                <label asp-for="Phoneno" class="font-weight-light"></label>
                 <input asp-for="Phoneno" class="form-control form-control-sm" />
                 <span asp-validation-for="Phoneno" class="text-danger"></span>
             </div>
@@ -41,13 +41,20 @@
                 <span asp-validation-for="Idnumber" class="text-danger"></span>
             </div>
             <div class="col-sm-6">
-                <label asp-for="Custtype"  class="font-weight-light"></label>
+                <label asp-for="Custtype" class="font-weight-light"></label>
                 <select asp-for="Custtype" class="form-control form-control-sm">
                     <option value="0">---Select Owner Type---</option>
                     <option value="100">Corporate</option>
                     <option value="200">Individual</option>
                 </select>
                 <span asp-validation-for="Custtype" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row m-2">
+            <div class="col-sm-12">
+                <label asp-for="Descriptions" class="font-weight-light"></label>
+                <textarea asp-for="Descriptions" class="form-control form-control-sm"></textarea>
+                <span asp-validation-for="Descriptions" class="text-danger"></span>
             </div>
         </div>
     </div>

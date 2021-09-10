@@ -28,6 +28,8 @@ namespace DBL.Entities
 		[Required(ErrorMessage = "Phone is required!")]
 		[DataType(DataType.PhoneNumber)]
 		public string Phonenumber { get; set; }
+		[Display(Name ="Profile")]
+		public long Rolecode { get; set; }
 		public string Passwordhash { get; set; }
 		public long Createdby { get; set; }
 		public long Modifiedby { get; set; }

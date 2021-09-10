@@ -28,6 +28,13 @@ namespace DBL.Entities
         public string Idnumber { get; set; }
         [Display(Name = "Customer Type")]
         public int Custtype { get; set;}
+
+        [Display(Name = "Occupation")]
+        public string Occupation { get; set; }
+        [Display(Name = "Residence")]
+        public string Residence { get; set; }
+        [Display(Name = "Describe")]
+        public string Descriptions { get; set; }
         public long Createdby { get; set;}
     }
 }
