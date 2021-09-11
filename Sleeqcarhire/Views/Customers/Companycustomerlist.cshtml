@@ -85,6 +85,73 @@
             $('#AddcompanycustomerModal .modal-content').empty();
         });
         function Assignvehicle() {
+            var cav = document.getElementById('Vehiclecode').value;
+            if (cav == 0) {
+                document.getElementById('Vehiclecode').style.borderColor = "red";
+                return false;
+            } else {
+                document.getElementById('Vehiclecode').style.borderColor = "green";
+            }
+            var vcwt = document.getElementById('Whereto').value;
+            if (vcwt == "") {
+                document.getElementById('Whereto').style.borderColor = "red";
+                return false;
+            } else {
+                document.getElementById('Whereto').style.borderColor = "green";
+            }
+            if (/^[0-9]+$/.test(document.getElementById("Whereto").value)) {
+                document.getElementById('Whereto').style.borderColor = "red";
+                return false;
+            } else {
+                document.getElementById('Whereto').style.borderColor = "green";
+            }
+            if (vcwt.length <= 2) {
+                document.getElementById('Whereto').style.borderColor = "red";
+                return false;
+            } else {
+                document.getElementById('Whereto').style.borderColor = "green";
+            }
+            var vcwtd = document.getElementById('Wheretodescription').value;
+            if (vcwtd == "") {
+                document.getElementById('Wheretodescription').style.borderColor = "red";
+                return false;
+            } else {
+                document.getElementById('Wheretodescription').style.borderColor = "green";
+            }
+            if (/^[0-9]+$/.test(document.getElementById("Wheretodescription").value)) {
+                document.getElementById('Wheretodescription').style.borderColor = "red";
+                return false;
+            } else {
+                document.getElementById('Wheretodescription').style.borderColor = "green";
+            }
+            if (vcwtd.length <= 2) {
+                document.getElementById('Wheretodescription').style.borderColor = "red";
+                return false;
+            } else {
+                document.getElementById('Wheretodescription').style.borderColor = "green";
+            }
+            var cvhsd = document.getElementById('Startdate').value;
+            if (cvhsd == "") {
+                document.getElementById('Startdate').style.borderColor = "red";
+                return false;
+            } else {
+                document.getElementById('Startdate').style.borderColor = "green";
+            }
+            var cvhd = document.getElementById('Hiredays').value;
+            if (cvhd == 0) {
+                document.getElementById('Hiredays').style.borderColor = "red";
+                return false;
+            } else {
+                document.getElementById('Hiredays').style.borderColor = "green";
+            }
+            if (cvhd == "") {
+                document.getElementById('Hiredays').style.borderColor = "red";
+                return false;
+            } else {
+                document.getElementById('Hiredays').style.borderColor = "green";
+            }
+
+
             if ($('#Hascarwash').prop("checked") == false) {
                 $('#Hascarwash').val(false);
             } else {
