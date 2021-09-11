@@ -5,7 +5,7 @@
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
-<form asp-action="Extendvehicle" asp-controller="Customers" method="post">
+<form asp-action="Extendvehicle" asp-controller="Customers" method="post" onsubmit="return extendcustomervehicleformvalidation();" onchange="return extendcustomervehicleformvalidation();">
     <div class="modal-body">
         <div class="row m-2">
             <div class="col-sm-12">
@@ -16,17 +16,17 @@
         <div class="row m-2">
             <div class="col-sm-6">
                 <label asp-for="Expecteddate"></label>
-                <input asp-for="Expecteddate" class="form-control form-control-sm" readonly/>
+                <input asp-for="Expecteddate" class="form-control form-control-sm" readonly />
             </div>
             <div class="col-sm-6">
                 <label asp-for="Noofdays"></label>
-                <input asp-for="Noofdays" class="form-control  form-control-sm" type="number" />
+                <input asp-for="Noofdays" class="form-control  form-control-sm" type="number" id="numberofdays" />
                 <span asp-validation-for="Noofdays" class="text-danger"></span>
             </div>
         </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal">Close</button>
-        <input type="submit" class="btn btn-sm btn-info" value="Extend">
+        <input type="submit" class="btn btn-sm btn-info" onclick="extendcustomervehicleformvalidation()" value="Extend">
     </div>
 </form>

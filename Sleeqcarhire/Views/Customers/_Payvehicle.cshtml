@@ -5,7 +5,7 @@
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
-<form asp-action="Payvehicle" asp-controller="Customers" method="post">
+<form asp-action="Payvehicle" asp-controller="Customers" method="post" onsubmit="return payvehicleformvalidation();" onchange="return payvehicleformvalidation();">
     <div class="modal-body">
         <div class="row m-2">
             <div class="col-sm-12">
@@ -24,34 +24,34 @@
         </div>
         <div class="row m-4 text-center">
             <div class="col-sm-12">
+                @*<div class="form-check form-check-inline">
+                        <input asp-for="Paymentmode" type="radio" class="form-check-input" id="materialInline1" value="100">
+                        <label class="form-check-label" for="materialInline1">Cash</label>
+                    </div>*@
                 <div class="form-check form-check-inline">
-                    <input asp-for="Paymentmode" type="radio" class="form-check-input" id="materialInline1" value="100">
-                    <label class="form-check-label" for="materialInline1">Cash</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input asp-for="Paymentmode" type="radio" class="form-check-input" id="materialInline2" value="101">
+                    <input asp-for="Paymentmode" type="radio" class="form-check-input" id="materialInline2" required value="101">
                     <label class="form-check-label" for="materialInline2">Mpesa</label>
                 </div>
-                <div class="form-check form-check-inline">
-                    <input asp-for="Paymentmode" type="radio" class="form-check-input" id="materialInline3" value="103">
-                    <label class="form-check-label" for="materialInline3">Cash and mpesa</label>
-                </div>
+                @*<div class="form-check form-check-inline">
+                        <input asp-for="Paymentmode" type="radio" class="form-check-input" id="materialInline3" value="103">
+                        <label class="form-check-label" for="materialInline3">Cash and mpesa</label>
+                    </div>*@
             </div>
-            
+
         </div>
     </div>
     <div class="row m-2">
         <div class="col-sm-6">
             <label asp-for="Paidamount"></label>
-            <input asp-for="Paidamount" class="form-control form-control-sm" type="number" />
+            <input asp-for="Paidamount" class="form-control form-control-sm" type="number" id="paidamount"/>
         </div>
         <div class="col-sm-6">
             <label asp-for="Paidby"></label>
-            <input asp-for="Paidby" class="form-control form-control-sm" />
+            <input asp-for="Paidby" class="form-control form-control-sm" id="paidby" />
         </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal">Close</button>
-        <input type="submit" class="btn btn-sm btn-info" value="Pay">
+        <input type="submit" class="btn btn-sm btn-info" onclick="payvehicleformvalidation()" value="Pay">
     </div>
 </form>

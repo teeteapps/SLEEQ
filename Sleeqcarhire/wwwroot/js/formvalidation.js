@@ -664,3 +664,54 @@ function customernextofkinformvalidation() {
         document.getElementById('relationship').style.borderColor = "green";
     }
 }
+
+function extendcustomervehicleformvalidation() {
+    var cenod = document.getElementById('numberofdays').value;
+    if (cenod == 0) {
+        document.getElementById('numberofdays').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('numberofdays').style.borderColor = "green";
+    }
+    if (cenod == "") {
+        document.getElementById('numberofdays').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('numberofdays').style.borderColor = "green";
+    }
+}
+
+function payvehicleformvalidation() {
+    var pva = document.getElementById('paidamount').value;
+    if (pva == 0) {
+        document.getElementById('paidamount').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('paidamount').style.borderColor = "green";
+    }
+    if (pva == "") {
+        document.getElementById('paidamount').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('paidamount').style.borderColor = "green";
+    }
+    if (/^[A-Za-z]+$/.test(document.getElementById("paidamount").value)) {
+        document.getElementById('paidamount').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('paidamount').style.borderColor = "green";
+    }
+    var pvb = document.getElementById('paidby').value;
+    if (pvb == "") {
+        document.getElementById('paidby').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('paidby').style.borderColor = "green";
+    }
+    if (/^[0-9]+$/.test(document.getElementById("paidby").value)) {
+        document.getElementById('paidby').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('paidby').style.borderColor = "green";
+    }
+}

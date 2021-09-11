@@ -269,8 +269,8 @@ namespace DBL.Repositories
                 parameters.Add("@Hireamount", entity.Hireamount);
                 parameters.Add("@Hireprice", entity.Hireprice);
                 parameters.Add("@Carwash", entity.Carwash);
-                parameters.Add("@Startdate", entity.Newstartdate);
-                parameters.Add("@Enddate", entity.Newenddate);
+                parameters.Add("@Startdate",Convert.ToDateTime(entity.Newstartdate));
+                parameters.Add("@Enddate", Convert.ToDateTime(entity.Newenddate));
                 parameters.Add("@Hiredby", entity.Hiredby);
                 parameters.Add("@Recievedby", entity.Recievedby);
                 return connection.Query<GenericModel>("Usp_Assigncustomervehicle", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
