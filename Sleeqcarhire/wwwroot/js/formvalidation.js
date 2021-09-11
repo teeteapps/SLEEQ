@@ -528,3 +528,139 @@ function companyvehicleformvalidation() {
         document.getElementById('vehicletypecode').style.borderColor = "green";
     }
 }
+
+function ownernextofkinformvalidation() {
+    var ofn = document.getElementById('fullname').value;
+    if (ofn == "") {
+        document.getElementById('fullname').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('fullname').style.borderColor = "green";
+    }
+    if (/^[0-9]+$/.test(document.getElementById("fullname").value)) {
+        document.getElementById('fullname').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('fullname').style.borderColor = "green";
+    }
+    if (ofn.length <= 2) {
+        document.getElementById('fullname').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('fullname').style.borderColor = "green";
+    }
+
+    var opn = document.getElementById('phonenumber').value;
+    if (opn == "") {
+        document.getElementById('phonenumber').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('phonenumber').style.borderColor = "green";
+    }
+    if (/^[A-Za-z]+$/.test(document.getElementById("phonenumber").value)) {
+        document.getElementById('phonenumber').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('phonenumber').style.borderColor = "green";
+    }
+    if (opn.length <= 2) {
+        document.getElementById('phonenumber').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('phonenumber').style.borderColor = "green";
+    }
+    var oin = document.getElementById('idnumber').value;
+    if (oin == "") {
+        document.getElementById('idnumber').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('idnumber').style.borderColor = "green";
+    }
+    if (/^[A-Za-z]+$/.test(document.getElementById("idnumber").value)) {
+        document.getElementById('idnumber').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('idnumber').style.borderColor = "green";
+    }
+    if (oin.length <= 2) {
+        document.getElementById('idnumber').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('idnumber').style.borderColor = "green";
+    }
+    var orl = document.getElementById('relationship').value;
+    if (orl == 0) {
+        document.getElementById('relationship').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('relationship').style.borderColor = "green";
+    }
+}
+
+function customernextofkinformvalidation() {
+    var cfn = document.getElementById('fullname').value;
+    if (cfn == "") {
+        document.getElementById('fullname').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('fullname').style.borderColor = "green";
+    }
+    if (/^[0-9]+$/.test(document.getElementById("fullname").value)) {
+        document.getElementById('fullname').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('fullname').style.borderColor = "green";
+    }
+    if (cfn.length <= 2) {
+        document.getElementById('fullname').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('fullname').style.borderColor = "green";
+    }
+
+    var cpn = document.getElementById('phonenumber').value;
+    if (cpn == "") {
+        document.getElementById('phonenumber').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('phonenumber').style.borderColor = "green";
+    }
+    if (/^[A-Za-z]+$/.test(document.getElementById("phonenumber").value)) {
+        document.getElementById('phonenumber').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('phonenumber').style.borderColor = "green";
+    }
+    if (cpn.length <= 2) {
+        document.getElementById('phonenumber').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('phonenumber').style.borderColor = "green";
+    }
+    var cin = document.getElementById('idnumber').value;
+    if (cin == "") {
+        document.getElementById('idnumber').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('idnumber').style.borderColor = "green";
+    }
+    if (/^[A-Za-z]+$/.test(document.getElementById("idnumber").value)) {
+        document.getElementById('idnumber').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('idnumber').style.borderColor = "green";
+    }
+    if (cin.length <= 2) {
+        document.getElementById('idnumber').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('idnumber').style.borderColor = "green";
+    }
+    var crl = document.getElementById('relationship').value;
+    if (crl == 0) {
+        document.getElementById('relationship').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('relationship').style.borderColor = "green";
+    }
+}

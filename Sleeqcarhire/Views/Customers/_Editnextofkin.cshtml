@@ -8,7 +8,7 @@
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
-<form asp-action="Editnextofkin" asp-controller="Customers" method="post">
+<form asp-action="Editnextofkin" asp-controller="Customers" method="post"  onsubmit="return ownernextofkinformvalidation();" onchange="return ownernextofkinformvalidation();">
     <div class="modal-body">
         <div class="row">
             <input asp-for="Custcode" hidden />
@@ -17,24 +17,24 @@
         <div class="row m-2">
             <div class="col-sm-6">
                 <label asp-for="Fullname" class="font-weight-light"></label>
-                <input asp-for="Fullname" class="form-control form-control-sm text-capitalize" />
+                <input asp-for="Fullname" class="form-control form-control-sm text-capitalize" id="fullname" />
                 <span asp-validation-for="Fullname" class="text-danger"></span>
             </div>
             <div class="col-sm-6">
                 <label asp-for="Phonenumber" class="font-weight-light"></label>
-                <input asp-for="Phonenumber" class="form-control form-control-sm" />
+                <input asp-for="Phonenumber" class="form-control form-control-sm" id="phonenumber" />
                 <span asp-validation-for="Phonenumber" class="text-danger"></span>
             </div>
         </div>
         <div class="row m-2">
             <div class="col-sm-6">
                 <label asp-for="Idnumber" class="font-weight-light"></label>
-                <input asp-for="Idnumber" class="form-control form-control-sm" />
+                <input asp-for="Idnumber" class="form-control form-control-sm" id="idnumber" />
                 <span asp-validation-for="Idnumber" class="text-danger"></span>
             </div>
             <div class="col-sm-6">
                 <label asp-for="Relation" class="font-weight-light"></label>
-                <select asp-for="Relation" class="form-control form-control-sm" id="Prodsubcategory" asp-items="@relationdata">
+                <select asp-for="Relation" class="form-control form-control-sm" id="relationship" asp-items="@relationdata">
                     <option value="0">---Select Relation---</option>
                 </select>
                 <span asp-validation-for="Relation" class="text-danger"></span>
@@ -43,6 +43,6 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal">Close</button>
-        <input type="submit" class="btn btn-sm btn-info" value="Update">
+        <input type="submit" class="btn btn-sm btn-info"  onclick="ownernextofkinformvalidation()"  value="Update">
     </div>
 </form>
