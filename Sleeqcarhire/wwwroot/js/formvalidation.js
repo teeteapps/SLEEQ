@@ -439,3 +439,92 @@ function vehicleownerformvalidation() {
     }
     
 }
+
+function companyvehicleformvalidation() {
+    var vr = document.getElementById('vehiclereg').value;
+    if (vr == "") {
+        document.getElementById('vehiclereg').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('vehiclereg').style.borderColor = "green";
+    }
+    if (vr.length <= 2) {
+        document.getElementById('vehiclereg').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('vehiclereg').style.borderColor = "green";
+    }
+
+    var ft = document.getElementById('fueltype').value;
+    if (ft == "") {
+        document.getElementById('fueltype').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('fueltype').style.borderColor = "green";
+    }
+    if (/^[0-9]+$/.test(document.getElementById("fueltype").value)) {
+        document.getElementById('fueltype').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('fueltype').style.borderColor = "green";
+    }
+    if (cln.length <= 2) {
+        document.getElementById('fueltype').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('fueltype').style.borderColor = "green";
+    }
+    var vc = document.getElementById('color').value;
+    if (vc == "") {
+        document.getElementById('color').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('color').style.borderColor = "green";
+    }
+    if (/^[0-9]+$/.test(document.getElementById("color").value)) {
+        document.getElementById('color').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('color').style.borderColor = "green";
+    }
+    if (vc.length <= 2) {
+        document.getElementById('color').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('color').style.borderColor = "green";
+    }
+    var es = document.getElementById('enginesize').value;
+    if (es == "") {
+        document.getElementById('enginesize').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('enginesize').style.borderColor = "green";
+    }
+    if (es.length <= 2) {
+        document.getElementById('enginesize').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('enginesize').style.borderColor = "green";
+    }
+    var vcn = document.getElementById('chasenumber').value;
+    if (vcn == "") {
+        document.getElementById('chasenumber').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('chasenumber').style.borderColor = "green";
+    }
+    if (vcn.length <= 2) {
+        document.getElementById('chasenumber').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('chasenumber').style.borderColor = "green";
+    }
+  
+    var vtc = document.getElementById('vehicletypecode').value;
+    if (vtc == 0) {
+        document.getElementById('vehicletypecode').style.borderColor = "red";
+        return false;
+    } else {
+        document.getElementById('vehicletypecode').style.borderColor = "green";
+    }
+}

@@ -8,7 +8,7 @@
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
-<form asp-action="Editvehicle" asp-controller="Customers" method="post">
+<form asp-action="Editvehicle" asp-controller="Customers" method="post" onsubmit="return companyvehicleformvalidation();" onchange="return companyvehicleformvalidation();">
     <div class="modal-body">
         <div class="row">
             <input asp-for="Custcode" hidden />
@@ -16,37 +16,37 @@
         </div>
         <div class="row m-2">
             <div class="col-sm-6">
-                <label asp-for="Regno"></label>
-                <input asp-for="Regno" class="form-control form-control-sm" />
+                <label asp-for="Regno" class="font-weight-light"></label>
+                <input asp-for="Regno" class="form-control form-control-sm text-uppercase" id="vehiclereg" />
                 <span asp-validation-for="Regno" class="text-danger"></span>
             </div>
             <div class="col-sm-6">
-                <label asp-for="Fueltype"></label>
-                <input asp-for="Fueltype" class="form-control form-control-sm" />
+                <label asp-for="Fueltype" class="font-weight-light"></label>
+                <input asp-for="Fueltype" class="form-control form-control-sm text-capitalize" id="fueltype" />
                 <span asp-validation-for="Fueltype" class="text-danger"></span>
             </div>
         </div>
         <div class="row m-2">
             <div class="col-sm-6">
-                <label asp-for="Color"></label>
-                <input asp-for="Color" class="form-control form-control-sm" />
+                <label asp-for="Color" class="font-weight-light"></label>
+                <input asp-for="Color" class="form-control form-control-sm text-capitalize" id="color" />
                 <span asp-validation-for="Color" class="text-danger"></span>
             </div>
             <div class="col-sm-6">
-                <label asp-for="Enginesize"></label>
-                <input asp-for="Enginesize" class="form-control form-control-sm" />
+                <label asp-for="Enginesize" class="font-weight-light"></label>
+                <input asp-for="Enginesize" class="form-control form-control-sm text-capitalize" id="enginesize" />
                 <span asp-validation-for="Enginesize" class="text-danger"></span>
             </div>
         </div>
         <div class="row m-2">
             <div class="col-sm-6">
-                <label asp-for="Chasno"></label>
-                <input asp-for="Chasno" class="form-control form-control-sm" />
+                <label asp-for="Chasno" class="font-weight-light"></label>
+                <input asp-for="Chasno" class="form-control form-control-sm text-capitalize" id="chasenumber" />
                 <span asp-validation-for="Chasno" class="text-danger"></span>
             </div>
             <div class="col-sm-6">
-                <label asp-for="Typecode"></label>
-                <select asp-for="Typecode" class="form-control form-control-sm" id="Prodsubcategory" asp-items="@vehicletype">
+                <label asp-for="Typecode" class="font-weight-light"></label>
+                <select asp-for="Typecode" class="form-control form-control-sm" id="vehicletypecode" asp-items="@vehicletype">
                     <option value="0">---Select Type---</option>
                 </select>
                 <span asp-validation-for="Typecode" class="text-danger"></span>
@@ -55,6 +55,6 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal">Close</button>
-        <input type="submit" class="btn btn-sm btn-info" value="Update">
+        <input type="submit" class="btn btn-sm btn-info" onclick="companyvehicleformvalidation()" value="Update">
     </div>
 </form>
