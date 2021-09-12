@@ -24,6 +24,8 @@ namespace DBL.Entities
         public string Emailadd { get; set; }
         [Display(Name = "Phone")]
         public string Phoneno { get; set; }
+        [Display(Name = "Alternative No.")]
+        public string Altphoneno { get; set; }
         [Display(Name = "Idnumber")]
         public string Idnumber { get; set; }
         [Display(Name = "Customer Type")]
@@ -35,6 +37,8 @@ namespace DBL.Entities
         public string Residence { get; set; }
         [Display(Name = "Describe")]
         public string Descriptions { get; set; }
+        [Display(Name = "Personal Obligations")]
+        public string Obligations { get; set; }
         public long Createdby { get; set;}
     }
 }

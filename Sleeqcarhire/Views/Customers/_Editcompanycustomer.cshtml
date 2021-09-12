@@ -29,13 +29,18 @@
                 <span asp-validation-for="Phoneno" class="text-danger"></span>
             </div>
             <div class="col-sm-6">
+                <label asp-for="Altphoneno" class="font-weight-light"></label>
+                <input asp-for="Altphoneno" class="form-control form-control-sm" />
+                <span asp-validation-for="Altphoneno" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row m-2">
+            <div class="col-sm-6">
                 <label asp-for="Idnumber" class="font-weight-light"></label>
                 <input asp-for="Idnumber" class="form-control form-control-sm" id="idnumber" />
                 <span asp-validation-for="Idnumber" class="text-danger"></span>
             </div>
-        </div>
-        <div class="row m-2">
-            <div class="col-sm-12">
+            <div class="col-sm-6">
                 <label asp-for="Emailadd" class="font-weight-light"></label>
                 <input asp-for="Emailadd" class="form-control form-control-sm" id="emailaddress" />
                 <span asp-validation-for="Emailadd" class="text-danger"></span>
@@ -55,6 +60,13 @@
                 <label asp-for="Residence" class="font-weight-light"></label>
                 <textarea asp-for="Residence" class="form-control form-control-sm" id="residence"></textarea>
                 <span asp-validation-for="Residence" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row m-2">
+            <div class="col-sm-12">
+                <label asp-for="Obligations" class="font-weight-light"></label>
+                <textarea asp-for="Obligations" class="form-control form-control-sm"></textarea>
+                <span asp-validation-for="Obligations" class="text-danger"></span>
             </div>
         </div>
     </div>

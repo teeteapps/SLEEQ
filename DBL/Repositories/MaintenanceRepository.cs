@@ -110,12 +110,14 @@ namespace DBL.Repositories
                 parameters.Add("@Lastname", entity.Lastname);
                 parameters.Add("@Emailadd", entity.Emailadd);
                 parameters.Add("@Phoneno", entity.Phoneno);
+                parameters.Add("@Altphoneno", entity.Altphoneno);
                 parameters.Add("@Custtype", entity.Custtype);
                 parameters.Add("@Idnumber", entity.Idnumber);
                 parameters.Add("@Createdby", entity.Createdby);
                 parameters.Add("@Residence", entity.Residence);
                 parameters.Add("@Occupation", entity.Occupation);
                 parameters.Add("@Descriptions", entity.Descriptions);
+                parameters.Add("@Obligations", entity.Obligations);
                 return connection.Query<GenericModel>("Usp_AddCompanycustomer", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
         }
@@ -131,11 +133,13 @@ namespace DBL.Repositories
                 parameters.Add("@Lastname", entity.Lastname);
                 parameters.Add("@Emailadd", entity.Emailadd);
                 parameters.Add("@Phoneno", entity.Phoneno);
+                parameters.Add("@Altphoneno", entity.Altphoneno);
                 parameters.Add("@Custtype", entity.Custtype);
                 parameters.Add("@Idnumber", entity.Idnumber);
                 parameters.Add("@Residence", entity.Residence);
                 parameters.Add("@Occupation", entity.Occupation);
                 parameters.Add("@Descriptions", entity.Descriptions);
+                parameters.Add("@Obligations", entity.Obligations);
                 return connection.Query<GenericModel>("Usp_EditCompanycustomer", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
         }

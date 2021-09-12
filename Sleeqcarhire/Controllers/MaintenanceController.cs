@@ -103,7 +103,7 @@ namespace Sleeqcarhire.Controllers
         {
             try
             {
-                if (ModelState.IsValid)
+                if (!ModelState.IsValid)
                 {
                     var filepath = "";
                     var newFileName = "";

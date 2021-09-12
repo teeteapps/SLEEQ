@@ -33,13 +33,13 @@
     </div>
     <div class="row">
         <div class="col-sm-4">
-            <p><span class="fw-bold font-weight-bold text-dark">Carwash: <br /></span> Ksh. @Model.Carwash</p>
+            <p><span class="fw-bold font-weight-bold text-dark">Carwash: <br /></span> Ksh. @Model.Carwash.ToString("#,##0")</p>
         </div>
         <div class="col-sm-4">
-            <p><span class="fw-bold font-weight-bold text-dark">Hire mount: <br /></span> Ksh. @Model.Hireamount</p>
+            <p><span class="fw-bold font-weight-bold text-dark">Hire mount: <br /></span> Ksh. @Model.Hireamount.ToString("#,##0.00")</p>
         </div>
         <div class="col-sm-4">
-            <p><span class="fw-bold font-weight-bold text-dark">Total mount: <br /></span> Ksh. @(Model.Hireamount + Model.Carwash)</p>
+            <p><span class="fw-bold font-weight-bold text-dark">Total mount: <br /></span> Ksh. @(Model.Hireamount.ToString("#,##0") + Model.Carwash.ToString("#,##0"))</p>
         </div>
     </div>
 </div>
