@@ -56,16 +56,26 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>Ksh. @Model.Hireterms.Mondayprice</td>
-                                            <td>Ksh. @Model.Hireterms.Tuesdayprice</td>
-                                            <td>Ksh. @Model.Hireterms.Wednesdayprice</td>
-                                            <td>Ksh. @Model.Hireterms.Thursdayprice</td>
-                                            <td>Ksh. @Model.Hireterms.Fridayprice</td>
-                                            <td>Ksh. @Model.Hireterms.Saturdayprice</td>
-                                            <td>Ksh. @Model.Hireterms.Sundayprice</td>
-                                            <td><a class="btn btn-info btn-xs ml-1" href="@Url.Action("Editvehicletypehireterms","Maintenance",new{Typecode=Model.Hireterms.Typecode})" data-bs-target="#AddvehicletypehiredaysModal" data-bs-toggle="modal">Edit</a></td>
-                                        </tr>
+                                        @if (Model.Hireterms != null)
+                                        {
+                                            <tr>
+                                                <td>Ksh. @Model.Hireterms.Mondayprice</td>
+                                                <td>Ksh. @Model.Hireterms.Tuesdayprice</td>
+                                                <td>Ksh. @Model.Hireterms.Wednesdayprice</td>
+                                                <td>Ksh. @Model.Hireterms.Thursdayprice</td>
+                                                <td>Ksh. @Model.Hireterms.Fridayprice</td>
+                                                <td>Ksh. @Model.Hireterms.Saturdayprice</td>
+                                                <td>Ksh. @Model.Hireterms.Sundayprice</td>
+                                                <td><a class="btn btn-info btn-xs ml-1" href="@Url.Action("Editvehicletypehireterms","Maintenance",new{Typecode=Model.Hireterms.Typecode})" data-bs-target="#AddvehicletypehiredaysModal" data-bs-toggle="modal">Edit</a></td>
+                                            </tr>
+                                        }
+                                        else
+                                        {
+                                            <tr>
+                                                <td colspan="8" class="text-center">Prices not set</td>
+                                            </tr>
+                                        }
+
                                     </tbody>
                                 </table>
                             </div>
