@@ -11,6 +11,10 @@ namespace DBL.Repositories
 {
     public interface ISecurityRepository
     {
+        #region Dashboard Data
+        Viewdashboarddata Getdashboarddata();
+        #endregion
+
         #region Staffs
         IEnumerable<Viewstaffs> Getstaffs();
         GenericModel Addstaff(Staffs entity);

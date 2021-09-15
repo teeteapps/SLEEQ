@@ -423,6 +423,17 @@ namespace DBL
         }
         #endregion
 
+        #region Dashboard Data
+        public Task<Viewdashboarddata> Getdashboarddata()
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.SecurityRepository.Getdashboarddata();
+                return Resp;
+            });
+        }
+        #endregion
+
         #region Email
         public void Sendregistrationemail(string emailto, string subject, string emailbody)
         {

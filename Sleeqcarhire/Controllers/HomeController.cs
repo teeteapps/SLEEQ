@@ -23,9 +23,10 @@ namespace Sleeqcarhire.Controllers
             bl = new BL(Util.ShareConnectionString.Value);
         }
 
-        public IActionResult Dashboard()
+        public async Task<IActionResult> Dashboard()
         {
-            return View();
+            var data = await bl.Getdashboarddata();
+            return View(data);
         }
         [AllowAnonymous]
         public IActionResult Index() => View();

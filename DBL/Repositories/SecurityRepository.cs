@@ -18,6 +18,17 @@ namespace DBL.Repositories
         {
         }
 
+        #region Dashboard Data
+        public Viewdashboarddata Getdashboarddata()
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                return connection.Query<Viewdashboarddata>(GetAllStatement(Viewdashboarddata.TableName)).FirstOrDefault();
+            }
+        }
+        #endregion
+
         #region Staff
         public IEnumerable<Viewstaffs> Getstaffs()
         {
