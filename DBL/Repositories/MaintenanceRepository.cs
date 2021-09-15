@@ -406,7 +406,7 @@ namespace DBL.Repositories
                 parameters.Add("@Assigncode", entity.Assigncode);
                 parameters.Add("@Tripbalance", entity.Tripbalance);
                 parameters.Add("@Tripamount", entity.Tripamount);
-                parameters.Add("@Paymentmode", entity.Paymentmode);
+                parameters.Add("@Paymentmode", 101);
                 parameters.Add("@Paidamount", entity.Paidamount);
                 parameters.Add("@Paidby", entity.Paidby);
                 parameters.Add("@Createdby", entity.Createdby);
