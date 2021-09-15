@@ -93,6 +93,14 @@
             $('#ExtendvehicleModal .modal-content').empty();
         });
         $(document).ready(function () {
+            function timedRefresh(time) {
+                setTimeout(() => {
+                    location.reload(true);
+                }, time)
+            }
+            (() => {
+                timedRefresh(1200000);
+            })();
             $('#Viewassignedreciept').DataTable({
                 "paging": true,
                 "lengthChange": true,
