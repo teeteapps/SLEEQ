@@ -28,7 +28,10 @@ namespace Sleeqcarhire.Controllers
             return View();
         }
         [AllowAnonymous]
-        public async Task<IActionResult> Index()
+        public IActionResult Index() => View();
+       
+        [AllowAnonymous]
+        public async Task<IActionResult> Fleet()
         {
             var data = await bl.GetVehicletypelist();
             return View(data);

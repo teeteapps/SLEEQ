@@ -1,0 +1,39 @@
+﻿@model IEnumerable<DBL.Models.ViewcompanyVehicletypes>
+@{
+    ViewData["Title"] = "Fleet";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-3">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <img src="@Url.Content(item.Imagepath)" class="card-img-top" />
+                        <div class="card-body bg-light">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table class="text-sm text-black">
+                                        <tbody>
+                                            <tr><td class="text-uppercase text-sm"><b>@item.Typename @item.Capacity</b></td></tr>
+                                            <tr class="text-center text-decoration-underline">
+                                                <td><b>Days and Prices</b></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <b>Mon - Thurs: Ksh.@item.Mondayprice.ToString("#,##0.00")</b><br />
+                                                    <b>Fri - Sun: Ksh.@item.Fridayprice.ToString("#,##0.00")</b><br />
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
