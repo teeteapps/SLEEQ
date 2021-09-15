@@ -18,6 +18,7 @@ namespace DBL.Models
         public string Emailadd { get; set; }
         public string Phoneno { get; set; }
         public string Idnumber { get; set; }
+        public int Kinscount { get; set; }
         public long Custtype { get; set; }
         public string Custtypename { get; set; }
         public bool Isactive { get; set; }

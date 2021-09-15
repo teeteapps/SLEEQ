@@ -39,7 +39,7 @@
                                 else
                                 {<a class="btn btn-info btn-xs ml-1" href="@Url.Action("Actdeactivatecustomer", "Customers", new { Custcode = item.Custcode,Status=1 })">Activate</a>} <a class="btn btn-danger btn-xs ml-1" href="@Url.Action("Deletecompanycustomer","Customers",new{Custcode=item.Custcode})">Delete</a></td>
                                 <td>
-                                    <a class="btn btn-info btn-xs ml-1" href="@Url.Action("Companycustomerdetails","Customers",new{Custcode=item.Custcode})">Details</a><a class="btn btn-info btn-xs ml-1" href="@Url.Action("Editcompanycustomer","Customers",new{Custcode=item.Custcode})" data-bs-target="#AddcompanycustomerModal" data-bs-toggle="modal">Edit</a>@if (item.Isactive == true)
+                                    <a class="btn btn-info btn-xs ml-1" href="@Url.Action("Companycustomerdetails","Customers",new{Custcode=item.Custcode})">Details</a><a class="btn btn-info btn-xs ml-1" href="@Url.Action("Editcompanycustomer","Customers",new{Custcode=item.Custcode})" data-bs-target="#AddcompanycustomerModal" data-bs-toggle="modal">Edit</a> @if (item.Isactive == true && item.Kinscount >= 4)
                                     {<a class="btn btn-info btn-xs ml-1" href="@Url.Action("AssignCustomervehicle","Customers",new{Custcode=item.Custcode})" data-bs-target="#AddcompanycustomerModal" data-bs-toggle="modal">Assign Car</a>}
                                 </td>
                             </tr>

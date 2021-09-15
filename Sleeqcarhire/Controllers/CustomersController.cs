@@ -479,7 +479,7 @@ namespace Sleeqcarhire.Controllers
                     if (resp.RespStatus == 0)
                     {
                         Success(resp.RespMessage, true);
-                        return RedirectToAction("Companycustomerlist");
+                        return RedirectToAction("Admincompanycustomerlist");
                     }
                     else if (resp.RespStatus == 1)
                     {
@@ -495,7 +495,7 @@ namespace Sleeqcarhire.Controllers
             {
                 Util.LogError("Delete Customer", ex, true);
             }
-            return RedirectToAction("Companycustomerlist");
+            return RedirectToAction("Admincompanycustomerlist");
         }
         [HttpGet]
         [HttpPost]
