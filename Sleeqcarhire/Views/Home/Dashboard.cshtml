@@ -6,12 +6,12 @@
 
 <div class="row">
     <div class="col-12 col-sm-6 col-md-3">
-        <a href="@Url.Action("Companycustomerlist","Customers")">
+        <a href="@Url.Action("Companycustomerlist","Customers")" class="text-dark">
             <div class="info-box">
                 <span class="info-box-icon bg-info elevation-1"><i class="fas fa-user-friends"></i></span>
                 <div class="info-box-content">
-                    <span class="info-box-text">Company Customers</span>
-                    <span class="info-box-number">
+                    <span class="info-box-text text-dark">Company Customers</span>
+                    <span class="info-box-number text-dark">
                         @Model.Customers
                     </span>
                 </div>
@@ -24,8 +24,8 @@
             <div class="info-box mb-3">
                 <span class="info-box-icon bg-info elevation-1"><i class="fas fa-car"></i></span>
                 <div class="info-box-content">
-                    <span class="info-box-text">Company Vehicles</span>
-                    <span class="info-box-number">@Model.Vehicles</span>
+                    <span class="info-box-text text-dark">Company Vehicles</span>
+                    <span class="info-box-number text-dark">@Model.Vehicles</span>
                 </div>
             </div>
         </a>
@@ -38,8 +38,8 @@
             <div class="info-box mb-3">
                 <span class="info-box-icon bg-success elevation-1"><i class="fas fa-car"></i></span>
                 <div class="info-box-content">
-                    <span class="info-box-text">Parked Vehicles</span>
-                    <span class="info-box-number">@Model.Parkedvehicles</span>
+                    <span class="info-box-text text-dark">Parked Vehicles</span>
+                    <span class="info-box-number text-dark">@Model.Parkedvehicles</span>
                 </div>
             </div>
         </a>
@@ -50,8 +50,8 @@
             <div class="info-box mb-3">
                 <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-car"></i></span>
                 <div class="info-box-content">
-                    <span class="info-box-text">Hired Vehicles</span>
-                    <span class="info-box-number">@Model.Hiredvehicles</span>
+                    <span class="info-box-text text-dark">Hired Vehicles</span>
+                    <span class="info-box-number text-dark">@Model.Hiredvehicles</span>
                 </div>
             </div>
         </a>
