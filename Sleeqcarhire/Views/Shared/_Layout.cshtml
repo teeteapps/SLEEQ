@@ -24,7 +24,7 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Fleet">Fleets</a>
                         </li>-->
-                        @*<li class="nav-item">
+                    @*<li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">SleeQ Logistic</a>
                         </li>*@
                     <!--</ul>-->
@@ -37,7 +37,52 @@
             @RenderBody()
         </main>
     </div>
-
+    <footer class="footer fixed-bottom" style="background-color: #205B79;color:#fff;">
+        <div class="container-fluid">
+            <div class="row mt-2">
+                <div class="col-sm-4">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p class="text-uppercase text-decoration-underline">Contact Us</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p>well we are here</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p class="text-uppercase text-decoration-underline">Working Hours</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p>
+                                <b>Monday - Friday :</b>6:00 A.M-6:00 P.M <br />
+                                <b>Saturday - Sunday :</b>6:30 A.M-6:30 P.M<br>
+                                <b>Public Holidays :</b>6:30 A.M-6:30 P.M
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p>well we are here</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row border-top">
+                <div class="col-sm-12 text-center p-0">
+                    &copy; @DateTime.Now.AddYears(-1).Year - @DateTime.Now.Year - Sleeqcarinternational
+                </div>
+            </div>
+        </div>
+    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

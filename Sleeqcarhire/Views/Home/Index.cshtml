@@ -1,162 +1,129 @@
 ﻿@model IEnumerable<DBL.Models.ViewcompanyVehicletypes>
 @{
     ViewData["Title"] = "Index";
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Sleeqcarhire</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
-</head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3" style="background-color: #205B79">
-            <div class="container">
-                <a class="navbar-brand text-white text-uppercase text-center font-weight-bold" asp-area="" asp-controller="Home" asp-action="Index">Sleeqcarhire</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-        </nav>
-    </header>
-
-
-    <div class="container">
-        <main role="main" class="pb-3">
-            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="..." class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>First slide label</h5>
-                            <p>Some representative placeholder content for the first slide.</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="..." class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Second slide label</h5>
-                            <p>Some representative placeholder content for the second slide.</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="..." class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Third slide label</h5>
-                            <p>Some representative placeholder content for the third slide.</p>
-                        </div>
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="card">
-                                <div class="card-header border-bottom-0" style="background-color: #205B79;max-height:2.0rem">
-                                    <h6 class="text-white text-center text-uppercase mb-3">Who we are?</h6>
-                                </div>
-                                <div class="card-body">
-                                    <p>We are registered Car hire and logistic company</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="card">
-                                <div class="card-header border-bottom-0" style="background-color: #205B79;max-height:2.0rem">
-                                    <h6 class="text-white text-center text-uppercase mb-3">Who we are?</h6>
-                                </div>
-                                <div class="card-body">
-                                    <p>We are registered Car hire and logistic company</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="card">
-                                <div class="card-header border-bottom-0" style="background-color: #205B79;max-height:2.0rem">
-                                    <h6 class="text-white text-center text-uppercase mb-3">Who we are?</h6>
-                                </div>
-                                <div class="card-body">
-                                    <p>We are registered Car hire and logistic company</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row mt-2">
-                <div class="col-sm-12 text-center">
-                    <h6 class="text-uppercase font-weight-bold" style="color: #205B79">Available Fleets</h6>
-                </div>
-            </div>
-
-            <div class="row mt-2">
-                @foreach (var item in Model)
-                {
-                    <div class="col-sm-3">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="card">
-                                    <img src="@Url.Content(item.Imagepath)" class="card-img-top" />
-                                    <div class="card-body bg-light">
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <table class="text-sm text-black">
-                                                    <tbody>
-                                                        <tr><td class="text-uppercase text-sm"><b>@item.Typename @item.Capacity</b></td></tr>
-                                                        <tr class="text-center text-decoration-underline">
-                                                            <td><b>Days and Prices</b></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <b>Mon - Thurs: Ksh.@item.Mondayprice.ToString("#,##0.00")</b><br />
-                                                                <b>Fri - Sun: Ksh.@item.Fridayprice.ToString("#,##0.00")</b><br />
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                }
-            </div>
-        </main>
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="..." class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>First slide label</h5>
+                <p>Some representative placeholder content for the first slide.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="..." class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Second slide label</h5>
+                <p>Some representative placeholder content for the second slide.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="..." class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Third slide label</h5>
+                <p>Some representative placeholder content for the third slide.</p>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-</body>
-</html>
+<div class="row">
+    <div class="col-sm-4">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header border-bottom-0" style="background-color: #205B79;max-height:2.0rem">
+                        <h6 class="text-white text-center font-weight-bolder text-uppercase mb-3">Who we are?</h6>
+                    </div>
+                    <div class="card-body">
+                        <p>We are registered Car hire and logistic company located at Githurai 45 </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header border-bottom-0" style="background-color: #205B79;max-height:2.0rem">
+                        <h6 class="text-white text-center text-uppercase mb-3">Who we are?</h6>
+                    </div>
+                    <div class="card-body">
+                        <p>We are registered Car hire and logistic company</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header border-bottom-0" style="background-color: #205B79;max-height:2.0rem">
+                        <h6 class="text-white text-center text-uppercase mb-3">Who we are?</h6>
+                    </div>
+                    <div class="card-body">
+                        <p>We are registered Car hire and logistic company</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-2">
+    <div class="col-sm-12 text-center">
+        <p class="text-uppercase font-weight-bolder text-decoration-underline" style="color: #205B79">Available Fleets</p>
+    </div>
+</div>
+
+<div class="row mt-2">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-3">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <img src="@Url.Content(item.Imagepath)" class="card-img-top" />
+                        <div class="card-body bg-light">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table class="text-sm text-black">
+                                        <tbody>
+                                            <tr><td class="text-uppercase text-sm"><b>@item.Typename @item.Capacity</b></td></tr>
+                                            <tr class="text-center text-decoration-underline">
+                                                <td><h6>Days and Prices</h6></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <b>Mon - Thurs: Ksh.@item.Mondayprice.ToString("#,##0.00")</b><br />
+                                                    <b>Fri - Sun: Ksh.@item.Fridayprice.ToString("#,##0.00")</b><br />
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
