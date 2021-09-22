@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Sleeqcarhire</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-info bg-info border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3" style="background-color: #205B79">
             <div class="container">
                 <a class="navbar-brand text-white text-uppercase text-center font-weight-bold" asp-area="" asp-controller="Home" asp-action="Index">Sleeqcarhire</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -32,57 +33,104 @@
             </div>
         </nav>
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-    <footer class="footer fixed-bottom" style="background-color: #205B79;color:#fff;">
-        <div class="container-fluid">
-            <div class="row mt-2">
-                <div class="col-sm-4">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <p class="text-uppercase text-decoration-underline">Contact Us</p>
-                        </div>
+
+
+    <footer class="text-center text-lg-start text-white"
+            style="background-color: #929fba">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+            <!-- Section: Links -->
+            <section class="">
+                <!--Grid row-->
+                <div class="row">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                        <h6 class="text-uppercase mb-4 font-weight-bold">
+                            Company name
+                        </h6>
+                        <p>
+                            Here you can use rows and columns to organize your footer
+                            content. Lorem ipsum dolor sit amet, consectetur adipisicing
+                            elit.
+                        </p>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <p>well we are here</p>
-                        </div>
+                    <!-- Grid column -->
+
+                    <hr class="w-100 clearfix d-md-none" />
+
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                        <h6 class="text-uppercase mb-4 font-weight-bold">Products</h6>
+                        <p>
+                            <a class="text-white">MDBootstrap</a>
+                        </p>
+                        <p>
+                            <a class="text-white">MDWordPress</a>
+                        </p>
+                        <p>
+                            <a class="text-white">BrandFlow</a>
+                        </p>
+                        <p>
+                            <a class="text-white">Bootstrap Angular</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <hr class="w-100 clearfix d-md-none" />
+
+                    <!-- Grid column -->
+                    <hr class="w-100 clearfix d-md-none" />
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                        <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+                        <p><i class="fa fa-home mr-3"></i> New York, NY 10012, US</p>
+                        <p><i class="fa fa-envelope mr-3"></i> info@gmail.com</p>
+                        <p><i class="fa fa-phone mr-3"></i> + 01 234 567 88</p>
+                        <p><i class="fa fa-print mr-3"></i> + 01 234 567 89</p>
+                    </div>
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                        <h6 class="text-uppercase mb-4 font-weight-bold">Follow us</h6>
+                        <a class="btn btn-primary btn-floating m-1"
+                           style="background-color: #3b5998"
+                           href="#!"
+                           role="button">
+                            <i class="fa fa-facebook-f"></i>
+                        </a>
+                        <a class="btn btn-primary btn-floating m-1"
+                           style="background-color: #ac2bac"
+                           href="#!"
+                           role="button">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                        <a class="btn btn-primary btn-floating m-1"
+                           style="background-color: #dd4b39"
+                           href="#!"
+                           role="button">
+                            <i class="fa fa-google"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="col-sm-4">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <p class="text-uppercase text-decoration-underline">Working Hours</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <p>
-                                <b>Monday - Friday :</b>6:00 A.M-6:00 P.M <br />
-                                <b>Saturday - Sunday :</b>6:30 A.M-6:30 P.M<br>
-                                <b>Public Holidays :</b>6:30 A.M-6:30 P.M
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <p>well we are here</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row border-top">
-                <div class="col-sm-12 text-center p-0">
-                    &copy; @DateTime.Now.AddYears(-1).Year - @DateTime.Now.Year - Sleeqcarinternational
-                </div>
-            </div>
+                <!--Grid row-->
+            </section>
+            <!-- Section: Links -->
         </div>
+        <!-- Grid container -->
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+            &copy; @DateTime.Now.AddYears(-1).Year - @DateTime.Now.Year - Sleeqcarinternational
+        </div>
+        <!-- Copyright -->
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
