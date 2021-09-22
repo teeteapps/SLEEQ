@@ -25,6 +25,29 @@ namespace Sleeqcarhire.Controllers
         {
             bl = new BL(Util.ShareConnectionString.Value);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Companyvehicleslist()
+        {
+            var data = bl.GetCompanyvehicles();
+            return View(data);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Companyprkedvehicles()
+        {
+            var data = bl.Getompanyprkedvehicles();
+            return View(data);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Companyhiredvehicles()
+        {
+            var data = bl.GetCompanyhiredvehicles();
+            return View(data);
+        }
+
+
         [HttpGet]
         public async Task<IActionResult> Companyvehicles()
         {

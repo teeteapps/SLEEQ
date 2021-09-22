@@ -329,6 +329,30 @@ namespace DBL
                 return Resp;
             });
         }
+        public Task<IEnumerable<Viewcompanyvehicles>> GetcompanyvehiclesData()
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.MaintenanceRepository.GetcompanyvehiclesData();
+                return Resp;
+            });
+        }
+        public Task<IEnumerable<Viewcompanyvehicles>> Getompanyprkedvehicles()
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.MaintenanceRepository.Getompanyprkedvehicles();
+                return Resp;
+            });
+        }
+        public Task<IEnumerable<Viewcompanyvehicles>> GetCompanyhiredvehicles()
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.MaintenanceRepository.GetCompanyhiredvehicles();
+                return Resp;
+            });
+        }
         #endregion
 
         #region Vehicle Types

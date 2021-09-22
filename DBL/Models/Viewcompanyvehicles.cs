@@ -30,5 +30,7 @@ namespace DBL.Models
         public decimal Fridayprice { get; set; }
         public decimal Saturdayprice { get; set; }
         public decimal Sundayprice { get; set; }
+        public int Carstatus { get; set; }
+        public string Carstatuss { get; set; }
     }
 }

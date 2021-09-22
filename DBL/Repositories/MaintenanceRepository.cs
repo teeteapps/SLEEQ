@@ -296,6 +296,31 @@ namespace DBL.Repositories
                 return connection.Query<Viewassignedreciept>(GetAllStatement(Viewassignedreciept.TableName, "Datecreated")).ToList();
             }
         }
+
+        public IEnumerable<Viewcompanyvehicles> GetcompanyvehiclesData()
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                return connection.Query<Viewcompanyvehicles>(GetAllStatement(Viewcompanyvehicles.TableName)).ToList();
+            }
+        }
+        public IEnumerable<Viewcompanyvehicles> Getompanyprkedvehicles()
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                return connection.Query<Viewcompanyvehicles>(FindStatement(Viewcompanyvehicles.TableName, "Carstatus"), new { Id = 0 }).ToList();
+            }
+        }
+        public IEnumerable<Viewcompanyvehicles> GetCompanyhiredvehicles()
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                return connection.Query<Viewcompanyvehicles>(FindStatement(Viewcompanyvehicles.TableName, "Carstatus"), new { Id = 1 }).ToList();
+            }
+        }
         #endregion
 
         #region Vehicle Types

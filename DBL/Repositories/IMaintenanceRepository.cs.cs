@@ -45,6 +45,9 @@ namespace DBL.Repositories
         GenericModel FinishAssigndetails(Assigncustomercar entity);
         Viewassignedreciept GetAssignvehicledetailreport(long Assigncode);
         IEnumerable<Viewassignedreciept> GetAssignvehicledetailData();
+        IEnumerable<Viewcompanyvehicles> GetcompanyvehiclesData();
+        IEnumerable<Viewcompanyvehicles> Getompanyprkedvehicles();
+        IEnumerable<Viewcompanyvehicles> GetCompanyhiredvehicles();
         #endregion
 
         #region Vehicle Types
