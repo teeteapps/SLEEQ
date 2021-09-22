@@ -29,21 +29,21 @@ namespace Sleeqcarhire.Controllers
         [HttpGet]
         public async Task<IActionResult> Companyvehicleslist()
         {
-            var data = bl.GetCompanyvehicles();
+            var data = await bl.GetCompanyvehicles();
             return View(data);
         }
 
         [HttpGet]
         public async Task<IActionResult> Companyprkedvehicles()
         {
-            var data = bl.Getompanyprkedvehicles();
+            var data = await bl.Getompanyprkedvehicles();
             return View(data);
         }
 
         [HttpGet]
         public async Task<IActionResult> Companyhiredvehicles()
         {
-            var data = bl.GetCompanyhiredvehicles();
+            var data = await bl .GetCompanyhiredvehicles();
             return View(data);
         }
 
