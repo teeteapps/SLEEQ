@@ -665,8 +665,8 @@ namespace Sleeqcarhire.Controllers
                 var paymentdata = await bl.Getvehiclepaymentreport(item.Assigncode);
                 var Staffdata = await bl.Getstaffs();
                 item.Paidamount = paymentdata.Sum(x=>x.Paidamount);
-                item.Paidby = string.Join(',',paymentdata.Select(x=>x.Paidby));
-                item.Recievedby = string.Join(',', Staffdata.Select(x=>x.Fullname));
+                item.Paidby = paymentdata.Select(x => x.Paidby).FirstOrDefault();
+                item.Recievedby = Staffdata.Select(x => x.Fullname).FirstOrDefault();
                 item.Amountdue = item.Totalhireamount - paymentdata.Sum(x => x.Paidamount);
             }
             return View(data);
