@@ -1,6 +1,61 @@
-﻿
+﻿@model IEnumerable<DBL.Models.Viewcompanyvehicles>
 @{
     ViewData["Title"] = "Companyhiredvehicles";
     Layout = "~/Views/Shared/_Layoutadmin.cshtml";
 }
 
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body table-responsive-sm">
+                <table class="table table-bordered table-striped compact nowrap text-nowrap flex-nowrap table-sm font-weight-light" id="companyvehicledata">
+                    <thead>
+                        <tr>
+                            <th class="font-weight-light">Type</th>
+                            <th class="font-weight-light">Regno</th>
+                            @*<th class="font-weight-light">Phone</th>
+                                <th class="font-weight-light">Type</th>
+                                <th class="font-weight-light">Date Created</th>
+                                <th class="font-weight-light">Action</th>*@
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Typename</td>
+                                <td>@item.Regno</td>
+                                @*<td>@item.Phonenumber</td>
+                                    <td>@item.Staffrole</td>
+                                    <td>@item.Datecreated</td>*@
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script src="~/lib/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/lib/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/lib/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/lib/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="~/lib/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#companyvehicledata').DataTable({
+                "paging": true,
+                "lengthChange": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+    </script>
+}

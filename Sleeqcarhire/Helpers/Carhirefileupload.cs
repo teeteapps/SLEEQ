@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Sleeqcarhire.Helpers
 {
-    public class Azurestoragefileupload
+    public class Carhirefileupload
     {
     }
 }
