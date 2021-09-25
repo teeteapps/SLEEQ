@@ -24,7 +24,7 @@ namespace DBL.Models
         public DateTime Startdate { get; set; }
         public DateTime Dateissued { get; set; }
         public string Hiringdays { get; set; }
-        public double Hiringprice { get; set; }
+        public string Hiringprice { get; set; }
         public DateTime Enddate { get; set; }
         public long Vehiclecode { get; set; }
         public long Custcode { get; set; }

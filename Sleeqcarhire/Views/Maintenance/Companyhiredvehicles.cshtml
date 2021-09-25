@@ -11,23 +11,38 @@
                 <table class="table table-bordered table-striped compact nowrap text-nowrap flex-nowrap table-sm font-weight-light" id="companyvehicledata">
                     <thead>
                         <tr>
-                            <th class="font-weight-light">Type</th>
-                            <th class="font-weight-light">Regno</th>
-                            @*<th class="font-weight-light">Phone</th>
-                                <th class="font-weight-light">Type</th>
-                                <th class="font-weight-light">Date Created</th>
-                                <th class="font-weight-light">Action</th>*@
+                            <th class="font-weight-light">Vehicle Details</th>
+                            <th class="font-weight-light">Customer Details</th>
+                            <th class="font-weight-light">Trip Details</th>
+                            <th class="font-weight-light">Payment Details</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var item in Model)
                         {
                             <tr>
-                                <td>@item.Typename</td>
-                                <td>@item.Regno</td>
-                                @*<td>@item.Phonenumber</td>
-                                    <td>@item.Staffrole</td>
-                                    <td>@item.Datecreated</td>*@
+                                <td>
+                                    @item.Regno <br />
+                                    @item.Typename <br />
+                                    @item.Capname <br />
+                                    @item.Enginesize <br />
+                                </td>
+                                <td>
+                                   @item.Fullname<br />
+                                   @item.Emailaddress<br />
+                                   @item.Phoneno<br />
+                                </td> 
+                                <td>
+                                   @item.Whereto<br />
+                                   @item.Wheretodescription<br />
+                                   @item.Startdate<br />
+                                   @item.Enddate<br />
+                                </td>
+                                <td>
+                                   @item.Hireamount<br />
+                                   @item.Carwash<br />
+                                </td>
+                               
                             </tr>
                         }
                     </tbody>
