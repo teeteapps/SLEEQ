@@ -34,9 +34,9 @@ namespace Sleeqcarhire.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Companyprkedvehicles()
+        public async Task<IActionResult> Companyparkedvehicles()
         {
-            var data = await bl.Getompanyprkedvehicles();
+            var data = await bl.Getompanyparkedvehicles();
             return View(data);
         }
 

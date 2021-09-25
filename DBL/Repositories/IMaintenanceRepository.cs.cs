@@ -46,8 +46,8 @@ namespace DBL.Repositories
         Viewassignedreciept GetAssignvehicledetailreport(long Assigncode);
         IEnumerable<Viewassignedreciept> GetAssignvehicledetailData();
         IEnumerable<Viewcompanyvehicles> GetcompanyvehiclesData();
-        IEnumerable<Viewcompanyvehicles> Getompanyprkedvehicles();
-        IEnumerable<Viewcompanyvehicles> GetCompanyhiredvehicles();
+        IEnumerable<Viewparkedvehicles> Getompanyparkedvehicles();
+        IEnumerable<Viewhiredvehicles> GetCompanyhiredvehicles();
         #endregion
 
         #region Vehicle Types

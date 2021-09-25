@@ -305,20 +305,20 @@ namespace DBL.Repositories
                 return connection.Query<Viewcompanyvehicles>(GetAllStatement(Viewcompanyvehicles.TableName)).ToList();
             }
         }
-        public IEnumerable<Viewcompanyvehicles> Getompanyprkedvehicles()
+        public IEnumerable<Viewparkedvehicles> Getompanyparkedvehicles()
         {
             using (var connection = new SqlConnection(_connString))
             {
                 connection.Open();
-                return connection.Query<Viewcompanyvehicles>(FindStatement(Viewcompanyvehicles.TableName, "Carstatus"), new { Id = 0 }).ToList();
+                return connection.Query<Viewparkedvehicles>(GetAllStatement(Viewparkedvehicles.TableName)).ToList();
             }
         }
-        public IEnumerable<Viewcompanyvehicles> GetCompanyhiredvehicles()
+        public IEnumerable<Viewhiredvehicles> GetCompanyhiredvehicles()
         {
             using (var connection = new SqlConnection(_connString))
             {
                 connection.Open();
-                return connection.Query<Viewcompanyvehicles>(FindStatement(Viewcompanyvehicles.TableName, "Carstatus"), new { Id = 1 }).ToList();
+                return connection.Query<Viewhiredvehicles>(GetAllStatement(Viewhiredvehicles.TableName)).ToList();
             }
         }
         #endregion

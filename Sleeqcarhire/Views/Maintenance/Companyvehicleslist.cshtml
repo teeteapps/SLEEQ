@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DBL.Models.Viewcompanyvehicles>
+﻿@model IEnumerable<DBL.Entities.Sleeqcars>
 @{
     ViewData["Title"] = "Companyvehicleslist";
     Layout = "~/Views/Shared/_Layoutadmin.cshtml";
@@ -22,8 +22,8 @@
                         @foreach (var item in Model)
                         {
                             <tr>
-                                <td>@item.Typename</td>
-                                <td>@item.Regno</td>
+                                @*<td>@item.</td>
+                                <td>@item.Regno</td>*@
                                 @*<td>@item.Phonenumber</td>
                                     <td>@item.Staffrole</td>
                                     <td>@item.Datecreated</td>*@

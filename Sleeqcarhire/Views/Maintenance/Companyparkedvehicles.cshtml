@@ -1,0 +1,65 @@
+﻿@model IEnumerable<DBL.Models.Viewparkedvehicles>
+    @{
+    ViewData["Title"] = "Companyprkedvehicles";
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+    }
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body table-responsive-sm">
+                    <table class="table table-bordered table-striped compact nowrap text-nowrap flex-nowrap table-sm font-weight-light" id="companyvehicledata">
+                        <thead>
+                            <tr>
+                                @*<th class="font-weight-light">Image</th>*@
+                                <th class="font-weight-light">Regno</th>
+                                <th class="font-weight-light">Type</th>
+                                <th class="font-weight-light">Capacity</th>
+                                <th class="font-weight-light">Fuel</th>
+                                <th class="font-weight-light">Color</th>
+                                <th class="font-weight-light">Engine</th>
+                                <th class="font-weight-light">Chase</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                @*<td><img src="@Url.Content(item.Imagepath)" height="40" width="40" /> </td>*@
+                                <td>@item.Regno</td>
+                                <td>@item.Typename</td>
+                                <td>@item.Capname</td>
+                                <td>@item.Fueltype</td>
+                                <td>@item.Color</td>
+                                <td>@item.Enginesize</td>
+                                <td>@item.Chaseno</td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @section Scripts{
+    <script src="~/lib/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/lib/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/lib/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/lib/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="~/lib/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#companyvehicledata').DataTable({
+                "paging": true,
+                "lengthChange": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+    </script>
+    }

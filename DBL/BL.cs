@@ -337,15 +337,15 @@ namespace DBL
                 return Resp;
             });
         }
-        public Task<IEnumerable<Viewcompanyvehicles>> Getompanyprkedvehicles()
+        public Task<IEnumerable<Viewparkedvehicles>> Getompanyparkedvehicles()
         {
             return Task.Run(() =>
             {
-                var Resp = db.MaintenanceRepository.Getompanyprkedvehicles();
+                var Resp = db.MaintenanceRepository.Getompanyparkedvehicles();
                 return Resp;
             });
         }
-        public Task<IEnumerable<Viewcompanyvehicles>> GetCompanyhiredvehicles()
+        public Task<IEnumerable<Viewhiredvehicles>> GetCompanyhiredvehicles()
         {
             return Task.Run(() =>
             {
