@@ -1,0 +1,10 @@
+C:\Users\user\Source\Repos\SLEEQ\Sleeqdatabase\bin\Debug\Sleeqdatabase.dacpac
+C:\Users\user\Source\Repos\SLEEQ\Sleeqdatabase\bin\Debug\Sleeqdatabase.dll
+C:\Users\user\Source\Repos\SLEEQ\Sleeqdatabase\bin\Debug\Sleeqdatabase.pdb
+C:\Users\user\Source\Repos\SLEEQ\Sleeqdatabase\obj\Debug\Sleeqdatabase.sqlproj.AssemblyReference.cache
+C:\Users\user\Source\Repos\SLEEQ\Sleeqdatabase\obj\Debug\Model.xml
+C:\Users\user\Source\Repos\SLEEQ\Sleeqdatabase\obj\Debug\refactor.xml
+C:\Users\user\Source\Repos\SLEEQ\Sleeqdatabase\obj\Debug\postdeploy.sql
+C:\Users\user\Source\Repos\SLEEQ\Sleeqdatabase\obj\Debug\predeploy.sql
+C:\Users\user\Source\Repos\SLEEQ\Sleeqdatabase\obj\Debug\Sleeqdatabase.dll
+C:\Users\user\Source\Repos\SLEEQ\Sleeqdatabase\obj\Debug\Sleeqdatabase.pdb

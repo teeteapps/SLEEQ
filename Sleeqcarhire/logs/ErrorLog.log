@@ -1,0 +1,16 @@
+ERROR|11-Sep-2021 10:00:04|Reset Password|System.Net.Mail.SmtpException: Failure sending mail.
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10060): A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. [::ffff:108.177.15.108]:25
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.TcpClient.Connect(IPEndPoint remoteEP)
+   at System.Net.Sockets.TcpClient.Connect(String hostname, Int32 port)
+--- End of stack trace from previous location ---
+   at System.Net.Sockets.TcpClient.Connect(String hostname, Int32 port)
+   at System.Net.Mail.SmtpConnection.GetConnection(String host, Int32 port)
+   at System.Net.Mail.SmtpTransport.GetConnection(String host, Int32 port)
+   at System.Net.Mail.SmtpClient.GetConnection()
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   --- End of inner exception stack trace ---
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at DBL.BL.Sendregistrationemail(String emailto, String subject, String emailbody) in C:\Users\user\source\repos\SLEEQ\DBL\BL.cs:line 446
+   at Sleeqcarhire.Controllers.AccountController.Resetpassword(Int64 UserCode) in C:\Users\user\source\repos\SLEEQ\Sleeqcarhire\Controllers\AccountController.cs:line 198
